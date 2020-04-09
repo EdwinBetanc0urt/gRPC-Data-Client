@@ -548,10 +548,10 @@ class BusinessData {
    * @param {string}  pageToken
    * @param {string}  pageSize
    */
-  requestListLookupFromReference({ tableName, query, pageToken, pageSize, isConvert = true }) {
+  requestListLookupFromReference({ tableName, query, valuesList, pageToken, pageSize, isConvert = true }) {
     const { ListLookupItemsRequest } = require('./src/grpc/proto/businessdata_pb.js');
     const { convertCriteriaToGRPC } = require('./src/convertUtils.js');
-    const criteriaForLookup = convertCriteriaToGRPC({ tableName, query });
+    const criteriaForLookup = convertCriteriaToGRPC({ tableName, query, valuesList });
 
     const requestLookup = new ListLookupItemsRequest();
     requestLookup.setClientrequest(this.getClientRequest());
