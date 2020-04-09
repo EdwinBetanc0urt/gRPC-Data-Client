@@ -411,6 +411,78 @@ const convertUtils = {
         values: undefined
       };
     },
+    convertCountryFromGRPC({ countryToConvert, formatToConvert = 'object' }) {
+      if (countryToConvert) {
+        var currency;
+        if(countryToConvert.getCurrency()) {
+          currency = {
+            currencyId: countryToConvert.getCurrency().getId(),
+            currencyUuid: countryToConvert.getCurrency().getUuid(),
+            iSOCode: countryToConvert.getCurrency().getIsocode(),
+            curSymbol: countryToConvert.getCurrency().getCursymbol(),
+            description: countryToConvert.getCurrency().getDescription(),
+            stdPrecision: countryToConvert.getCurrency().getStdprecision(),
+            costingPrecision: countryToConvert.getCurrency().getCostingprecision()
+          }
+        }
+        return {
+          countryId: countryToConvert.getId(),
+          countryUuid: countryToConvert.getUuid(),
+          countryCode: countryToConvert.getCountrycode(),
+          name: countryToConvert.getName(),
+          description: countryToConvert.getDescription(),
+          hasRegion: countryToConvert.getHasregion(),
+          regionName: countryToConvert.getRegionname(),
+          displaySequence: countryToConvert.getDisplaysequence(),
+          isAddressLinesReverse: countryToConvert.getIsaddresslinesreverse(),
+          captureSequence: countryToConvert.getCapturesequence(),
+          displaySequenceLocal: countryToConvert.getDisplaysequencelocal(),
+          isAddressLinesLocalReverse: countryToConvert.getIsaddresslineslocalreverse(),
+          expressionPostal: countryToConvert.getExpressionpostal(),
+          hasPostalAdd: countryToConvert.getHaspostaladd(),
+          expressionPhone: countryToConvert.getExpressionphone(),
+          mediaSize: countryToConvert.getMediasize(),
+          expressionBankRoutingNo: countryToConvert.getExpressionbankroutingno(),
+          expressionBankAccountNo: countryToConvert.getExpressionbankaccountno(),
+          language: countryToConvert.getLanguage(),
+          allowCitiesOutOfList: countryToConvert.getAllowcitiesoutoflist(),
+          isPostcodeLookup: countryToConvert.getIspostcodelookup(),
+          currency: currency
+        };
+      }
+      return {
+        countryId: undefined,
+        countryUuid: undefined,
+        countryCode: undefined,
+        name: undefined,
+        description: undefined,
+        hasRegion: undefined,
+        regionName: undefined,
+        displaySequence: undefined,
+        isAddressLinesReverse: undefined,
+        captureSequence: undefined,
+        displaySequenceLocal: undefined,
+        isAddressLinesLocalReverse: undefined,
+        expressionPostal: undefined,
+        hasPostalAdd: undefined,
+        expressionPhone: undefined,
+        mediaSize: undefined,
+        expressionBankRoutingNo: undefined,
+        expressionBankAccountNo: undefined,
+        language: undefined,
+        allowCitiesOutOfList: undefined,
+        isPostcodeLookup: undefined,
+        currency: {
+          currencyId: undefined,
+          currencyUuid: undefined,
+          iSOCode: undefined,
+          curSymbol: undefined,
+          description: undefined,
+          stdPrecision: undefined,
+          costingPrecision: undefined
+        }
+      };
+    },
 
     /**
      * Get all event type or get key value type from value

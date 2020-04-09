@@ -190,6 +190,35 @@ class BusinessData {
   }
 
   /**
+   * Get Country Information
+   * @param {string} countryUuid, Universally Unique IDentifier from country
+   * @param {number} countryId, IDentifier from country
+   * @param {boolean} isConvert
+   * @param {string}  formatToConvert
+   * @return {object} Entity with records
+   */
+  requestGetCountry({ countryUuid, countryId, isConvert = true, formatToConvert = 'object' }) {
+    const { GetCountryRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const request = new GetCountryRequest();
+
+    request.setClientrequest(this.getClientRequest());
+    request.setCountryid(countryUuid);
+    request.setCountryuuid(countryId);
+    //
+    return this.getService().getCountry(request)
+    .then(countryResponse => {
+      if (isConvert) {
+        const { convertCountryFromGRPC } = require('./src/convertUtils');
+        return convertCountryFromGRPC({
+          countryToConvert: countryResponse,
+          formatToConvert
+        });
+      }
+      return countryResponse;
+    });
+  }
+
+  /**
    * Get entities list
    * @param {string} tableName
    * @param {string} query

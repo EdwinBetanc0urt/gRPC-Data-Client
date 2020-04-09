@@ -2670,6 +2670,7 @@ proto.data.GetCountryRequest.prototype.toObject = function(opt_includeInstance) 
 proto.data.GetCountryRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     countryuuid: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    countryid: jspb.Message.getFieldWithDefault(msg, 2, 0),
     clientrequest: (f = msg.getClientrequest()) && proto.data.ClientRequest.toObject(includeInstance, f)
   };
 
@@ -2712,6 +2713,10 @@ proto.data.GetCountryRequest.deserializeBinaryFromReader = function(msg, reader)
       msg.setCountryuuid(value);
       break;
     case 2:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setCountryid(value);
+      break;
+    case 3:
       var value = new proto.data.ClientRequest;
       reader.readMessage(value,proto.data.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
@@ -2752,10 +2757,17 @@ proto.data.GetCountryRequest.serializeBinaryToWriter = function(message, writer)
       f
     );
   }
+  f = message.getCountryid();
+  if (f !== 0) {
+    writer.writeInt32(
+      2,
+      f
+    );
+  }
   f = message.getClientrequest();
   if (f != null) {
     writer.writeMessage(
-      2,
+      3,
       f,
       proto.data.ClientRequest.serializeBinaryToWriter
     );
@@ -2779,18 +2791,33 @@ proto.data.GetCountryRequest.prototype.setCountryuuid = function(value) {
 
 
 /**
- * optional ClientRequest clientRequest = 2;
+ * optional int32 countryId = 2;
+ * @return {number}
+ */
+proto.data.GetCountryRequest.prototype.getCountryid = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/** @param {number} value */
+proto.data.GetCountryRequest.prototype.setCountryid = function(value) {
+  jspb.Message.setProto3IntField(this, 2, value);
+};
+
+
+/**
+ * optional ClientRequest clientRequest = 3;
  * @return {?proto.data.ClientRequest}
  */
 proto.data.GetCountryRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto.data.ClientRequest, 2));
+    jspb.Message.getWrapperField(this, proto.data.ClientRequest, 3));
 };
 
 
 /** @param {?proto.data.ClientRequest|undefined} value */
 proto.data.GetCountryRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 2, value);
+  jspb.Message.setWrapperField(this, 3, value);
 };
 
 
@@ -2807,7 +2834,7 @@ proto.data.GetCountryRequest.prototype.clearClientrequest = function() {
  * @return {boolean}
  */
 proto.data.GetCountryRequest.prototype.hasClientrequest = function() {
-  return jspb.Message.getField(this, 2) != null;
+  return jspb.Message.getField(this, 3) != null;
 };
 
 
@@ -2844,25 +2871,26 @@ proto.data.Country.prototype.toObject = function(opt_includeInstance) {
 proto.data.Country.toObject = function(includeInstance, msg) {
   var f, obj = {
     uuid: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    countrycode: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    name: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    description: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    hasregion: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
-    regionname: jspb.Message.getFieldWithDefault(msg, 6, ""),
-    displaysequence: jspb.Message.getFieldWithDefault(msg, 7, ""),
-    isaddresslinesreverse: jspb.Message.getBooleanFieldWithDefault(msg, 8, false),
-    capturesequence: jspb.Message.getFieldWithDefault(msg, 9, ""),
-    displaysequencelocal: jspb.Message.getFieldWithDefault(msg, 10, ""),
-    isaddresslineslocalreverse: jspb.Message.getBooleanFieldWithDefault(msg, 11, false),
-    expressionpostal: jspb.Message.getFieldWithDefault(msg, 12, ""),
-    haspostaladd: jspb.Message.getBooleanFieldWithDefault(msg, 13, false),
-    expressionphone: jspb.Message.getFieldWithDefault(msg, 14, ""),
-    mediasize: jspb.Message.getFieldWithDefault(msg, 15, ""),
-    expressionbankroutingno: jspb.Message.getFieldWithDefault(msg, 16, ""),
-    expressionbankaccountno: jspb.Message.getFieldWithDefault(msg, 17, ""),
-    language: jspb.Message.getFieldWithDefault(msg, 18, ""),
-    allowcitiesoutoflist: jspb.Message.getBooleanFieldWithDefault(msg, 19, false),
-    ispostcodelookup: jspb.Message.getBooleanFieldWithDefault(msg, 20, false),
+    id: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    countrycode: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    name: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    description: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    hasregion: jspb.Message.getBooleanFieldWithDefault(msg, 6, false),
+    regionname: jspb.Message.getFieldWithDefault(msg, 7, ""),
+    displaysequence: jspb.Message.getFieldWithDefault(msg, 8, ""),
+    isaddresslinesreverse: jspb.Message.getBooleanFieldWithDefault(msg, 9, false),
+    capturesequence: jspb.Message.getFieldWithDefault(msg, 10, ""),
+    displaysequencelocal: jspb.Message.getFieldWithDefault(msg, 11, ""),
+    isaddresslineslocalreverse: jspb.Message.getBooleanFieldWithDefault(msg, 12, false),
+    expressionpostal: jspb.Message.getFieldWithDefault(msg, 13, ""),
+    haspostaladd: jspb.Message.getBooleanFieldWithDefault(msg, 14, false),
+    expressionphone: jspb.Message.getFieldWithDefault(msg, 15, ""),
+    mediasize: jspb.Message.getFieldWithDefault(msg, 16, ""),
+    expressionbankroutingno: jspb.Message.getFieldWithDefault(msg, 17, ""),
+    expressionbankaccountno: jspb.Message.getFieldWithDefault(msg, 18, ""),
+    language: jspb.Message.getFieldWithDefault(msg, 19, ""),
+    allowcitiesoutoflist: jspb.Message.getBooleanFieldWithDefault(msg, 20, false),
+    ispostcodelookup: jspb.Message.getBooleanFieldWithDefault(msg, 21, false),
     currency: (f = msg.getCurrency()) && proto.data.Currency.toObject(includeInstance, f)
   };
 
@@ -2905,82 +2933,86 @@ proto.data.Country.deserializeBinaryFromReader = function(msg, reader) {
       msg.setUuid(value);
       break;
     case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setCountrycode(value);
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setId(value);
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
-      msg.setName(value);
+      msg.setCountrycode(value);
       break;
     case 4:
       var value = /** @type {string} */ (reader.readString());
-      msg.setDescription(value);
+      msg.setName(value);
       break;
     case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDescription(value);
+      break;
+    case 6:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setHasregion(value);
       break;
-    case 6:
+    case 7:
       var value = /** @type {string} */ (reader.readString());
       msg.setRegionname(value);
       break;
-    case 7:
+    case 8:
       var value = /** @type {string} */ (reader.readString());
       msg.setDisplaysequence(value);
       break;
-    case 8:
+    case 9:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setIsaddresslinesreverse(value);
       break;
-    case 9:
+    case 10:
       var value = /** @type {string} */ (reader.readString());
       msg.setCapturesequence(value);
       break;
-    case 10:
+    case 11:
       var value = /** @type {string} */ (reader.readString());
       msg.setDisplaysequencelocal(value);
       break;
-    case 11:
+    case 12:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setIsaddresslineslocalreverse(value);
       break;
-    case 12:
+    case 13:
       var value = /** @type {string} */ (reader.readString());
       msg.setExpressionpostal(value);
       break;
-    case 13:
+    case 14:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setHaspostaladd(value);
       break;
-    case 14:
+    case 15:
       var value = /** @type {string} */ (reader.readString());
       msg.setExpressionphone(value);
       break;
-    case 15:
+    case 16:
       var value = /** @type {string} */ (reader.readString());
       msg.setMediasize(value);
       break;
-    case 16:
+    case 17:
       var value = /** @type {string} */ (reader.readString());
       msg.setExpressionbankroutingno(value);
       break;
-    case 17:
+    case 18:
       var value = /** @type {string} */ (reader.readString());
       msg.setExpressionbankaccountno(value);
       break;
-    case 18:
+    case 19:
       var value = /** @type {string} */ (reader.readString());
       msg.setLanguage(value);
       break;
-    case 19:
+    case 20:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setAllowcitiesoutoflist(value);
       break;
-    case 20:
+    case 21:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setIspostcodelookup(value);
       break;
-    case 21:
+    case 22:
       var value = new proto.data.Currency;
       reader.readMessage(value,proto.data.Currency.deserializeBinaryFromReader);
       msg.setCurrency(value);
@@ -3021,143 +3053,150 @@ proto.data.Country.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getCountrycode();
-  if (f.length > 0) {
-    writer.writeString(
+  f = message.getId();
+  if (f !== 0) {
+    writer.writeInt32(
       2,
       f
     );
   }
-  f = message.getName();
+  f = message.getCountrycode();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = message.getDescription();
+  f = message.getName();
   if (f.length > 0) {
     writer.writeString(
       4,
       f
     );
   }
+  f = message.getDescription();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
+      f
+    );
+  }
   f = message.getHasregion();
   if (f) {
     writer.writeBool(
-      5,
+      6,
       f
     );
   }
   f = message.getRegionname();
   if (f.length > 0) {
     writer.writeString(
-      6,
+      7,
       f
     );
   }
   f = message.getDisplaysequence();
   if (f.length > 0) {
     writer.writeString(
-      7,
+      8,
       f
     );
   }
   f = message.getIsaddresslinesreverse();
   if (f) {
     writer.writeBool(
-      8,
+      9,
       f
     );
   }
   f = message.getCapturesequence();
   if (f.length > 0) {
     writer.writeString(
-      9,
+      10,
       f
     );
   }
   f = message.getDisplaysequencelocal();
   if (f.length > 0) {
     writer.writeString(
-      10,
+      11,
       f
     );
   }
   f = message.getIsaddresslineslocalreverse();
   if (f) {
     writer.writeBool(
-      11,
+      12,
       f
     );
   }
   f = message.getExpressionpostal();
   if (f.length > 0) {
     writer.writeString(
-      12,
+      13,
       f
     );
   }
   f = message.getHaspostaladd();
   if (f) {
     writer.writeBool(
-      13,
+      14,
       f
     );
   }
   f = message.getExpressionphone();
   if (f.length > 0) {
     writer.writeString(
-      14,
+      15,
       f
     );
   }
   f = message.getMediasize();
   if (f.length > 0) {
     writer.writeString(
-      15,
+      16,
       f
     );
   }
   f = message.getExpressionbankroutingno();
   if (f.length > 0) {
     writer.writeString(
-      16,
+      17,
       f
     );
   }
   f = message.getExpressionbankaccountno();
   if (f.length > 0) {
     writer.writeString(
-      17,
+      18,
       f
     );
   }
   f = message.getLanguage();
   if (f.length > 0) {
     writer.writeString(
-      18,
+      19,
       f
     );
   }
   f = message.getAllowcitiesoutoflist();
   if (f) {
     writer.writeBool(
-      19,
+      20,
       f
     );
   }
   f = message.getIspostcodelookup();
   if (f) {
     writer.writeBool(
-      20,
+      21,
       f
     );
   }
   f = message.getCurrency();
   if (f != null) {
     writer.writeMessage(
-      21,
+      22,
       f,
       proto.data.Currency.serializeBinaryToWriter
     );
@@ -3181,303 +3220,318 @@ proto.data.Country.prototype.setUuid = function(value) {
 
 
 /**
- * optional string countryCode = 2;
- * @return {string}
+ * optional int32 id = 2;
+ * @return {number}
  */
-proto.data.Country.prototype.getCountrycode = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+proto.data.Country.prototype.getId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {string} value */
-proto.data.Country.prototype.setCountrycode = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+/** @param {number} value */
+proto.data.Country.prototype.setId = function(value) {
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
 /**
- * optional string name = 3;
+ * optional string countryCode = 3;
  * @return {string}
  */
-proto.data.Country.prototype.getName = function() {
+proto.data.Country.prototype.getCountrycode = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
 /** @param {string} value */
-proto.data.Country.prototype.setName = function(value) {
+proto.data.Country.prototype.setCountrycode = function(value) {
   jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
 /**
- * optional string description = 4;
+ * optional string name = 4;
  * @return {string}
  */
-proto.data.Country.prototype.getDescription = function() {
+proto.data.Country.prototype.getName = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
 /** @param {string} value */
-proto.data.Country.prototype.setDescription = function(value) {
+proto.data.Country.prototype.setName = function(value) {
   jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
 /**
- * optional bool hasRegion = 5;
+ * optional string description = 5;
+ * @return {string}
+ */
+proto.data.Country.prototype.getDescription = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/** @param {string} value */
+proto.data.Country.prototype.setDescription = function(value) {
+  jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional bool hasRegion = 6;
  * @return {boolean}
  */
 proto.data.Country.prototype.getHasregion = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 5, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 6, false));
 };
 
 
 /** @param {boolean} value */
 proto.data.Country.prototype.setHasregion = function(value) {
-  jspb.Message.setProto3BooleanField(this, 5, value);
+  jspb.Message.setProto3BooleanField(this, 6, value);
 };
 
 
 /**
- * optional string regionName = 6;
+ * optional string regionName = 7;
  * @return {string}
  */
 proto.data.Country.prototype.getRegionname = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
-};
-
-
-/** @param {string} value */
-proto.data.Country.prototype.setRegionname = function(value) {
-  jspb.Message.setProto3StringField(this, 6, value);
-};
-
-
-/**
- * optional string displaySequence = 7;
- * @return {string}
- */
-proto.data.Country.prototype.getDisplaysequence = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
 };
 
 
 /** @param {string} value */
-proto.data.Country.prototype.setDisplaysequence = function(value) {
+proto.data.Country.prototype.setRegionname = function(value) {
   jspb.Message.setProto3StringField(this, 7, value);
 };
 
 
 /**
- * optional bool isAddressLinesReverse = 8;
+ * optional string displaySequence = 8;
+ * @return {string}
+ */
+proto.data.Country.prototype.getDisplaysequence = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
+};
+
+
+/** @param {string} value */
+proto.data.Country.prototype.setDisplaysequence = function(value) {
+  jspb.Message.setProto3StringField(this, 8, value);
+};
+
+
+/**
+ * optional bool isAddressLinesReverse = 9;
  * @return {boolean}
  */
 proto.data.Country.prototype.getIsaddresslinesreverse = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 8, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 9, false));
 };
 
 
 /** @param {boolean} value */
 proto.data.Country.prototype.setIsaddresslinesreverse = function(value) {
-  jspb.Message.setProto3BooleanField(this, 8, value);
+  jspb.Message.setProto3BooleanField(this, 9, value);
 };
 
 
 /**
- * optional string captureSequence = 9;
+ * optional string captureSequence = 10;
  * @return {string}
  */
 proto.data.Country.prototype.getCapturesequence = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
-};
-
-
-/** @param {string} value */
-proto.data.Country.prototype.setCapturesequence = function(value) {
-  jspb.Message.setProto3StringField(this, 9, value);
-};
-
-
-/**
- * optional string displaySequenceLocal = 10;
- * @return {string}
- */
-proto.data.Country.prototype.getDisplaysequencelocal = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 10, ""));
 };
 
 
 /** @param {string} value */
-proto.data.Country.prototype.setDisplaysequencelocal = function(value) {
+proto.data.Country.prototype.setCapturesequence = function(value) {
   jspb.Message.setProto3StringField(this, 10, value);
 };
 
 
 /**
- * optional bool isAddressLinesLocalReverse = 11;
+ * optional string displaySequenceLocal = 11;
+ * @return {string}
+ */
+proto.data.Country.prototype.getDisplaysequencelocal = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 11, ""));
+};
+
+
+/** @param {string} value */
+proto.data.Country.prototype.setDisplaysequencelocal = function(value) {
+  jspb.Message.setProto3StringField(this, 11, value);
+};
+
+
+/**
+ * optional bool isAddressLinesLocalReverse = 12;
  * @return {boolean}
  */
 proto.data.Country.prototype.getIsaddresslineslocalreverse = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 11, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 12, false));
 };
 
 
 /** @param {boolean} value */
 proto.data.Country.prototype.setIsaddresslineslocalreverse = function(value) {
-  jspb.Message.setProto3BooleanField(this, 11, value);
+  jspb.Message.setProto3BooleanField(this, 12, value);
 };
 
 
 /**
- * optional string expressionPostal = 12;
+ * optional string expressionPostal = 13;
  * @return {string}
  */
 proto.data.Country.prototype.getExpressionpostal = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 12, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 13, ""));
 };
 
 
 /** @param {string} value */
 proto.data.Country.prototype.setExpressionpostal = function(value) {
-  jspb.Message.setProto3StringField(this, 12, value);
+  jspb.Message.setProto3StringField(this, 13, value);
 };
 
 
 /**
- * optional bool hasPostalAdd = 13;
+ * optional bool hasPostalAdd = 14;
  * @return {boolean}
  */
 proto.data.Country.prototype.getHaspostaladd = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 13, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 14, false));
 };
 
 
 /** @param {boolean} value */
 proto.data.Country.prototype.setHaspostaladd = function(value) {
-  jspb.Message.setProto3BooleanField(this, 13, value);
+  jspb.Message.setProto3BooleanField(this, 14, value);
 };
 
 
 /**
- * optional string expressionPhone = 14;
+ * optional string expressionPhone = 15;
  * @return {string}
  */
 proto.data.Country.prototype.getExpressionphone = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 14, ""));
-};
-
-
-/** @param {string} value */
-proto.data.Country.prototype.setExpressionphone = function(value) {
-  jspb.Message.setProto3StringField(this, 14, value);
-};
-
-
-/**
- * optional string mediaSize = 15;
- * @return {string}
- */
-proto.data.Country.prototype.getMediasize = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 15, ""));
 };
 
 
 /** @param {string} value */
-proto.data.Country.prototype.setMediasize = function(value) {
+proto.data.Country.prototype.setExpressionphone = function(value) {
   jspb.Message.setProto3StringField(this, 15, value);
 };
 
 
 /**
- * optional string expressionBankRoutingNo = 16;
+ * optional string mediaSize = 16;
  * @return {string}
  */
-proto.data.Country.prototype.getExpressionbankroutingno = function() {
+proto.data.Country.prototype.getMediasize = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 16, ""));
 };
 
 
 /** @param {string} value */
-proto.data.Country.prototype.setExpressionbankroutingno = function(value) {
+proto.data.Country.prototype.setMediasize = function(value) {
   jspb.Message.setProto3StringField(this, 16, value);
 };
 
 
 /**
- * optional string expressionBankAccountNo = 17;
+ * optional string expressionBankRoutingNo = 17;
  * @return {string}
  */
-proto.data.Country.prototype.getExpressionbankaccountno = function() {
+proto.data.Country.prototype.getExpressionbankroutingno = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 17, ""));
 };
 
 
 /** @param {string} value */
-proto.data.Country.prototype.setExpressionbankaccountno = function(value) {
+proto.data.Country.prototype.setExpressionbankroutingno = function(value) {
   jspb.Message.setProto3StringField(this, 17, value);
 };
 
 
 /**
- * optional string language = 18;
+ * optional string expressionBankAccountNo = 18;
  * @return {string}
  */
-proto.data.Country.prototype.getLanguage = function() {
+proto.data.Country.prototype.getExpressionbankaccountno = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 18, ""));
 };
 
 
 /** @param {string} value */
-proto.data.Country.prototype.setLanguage = function(value) {
+proto.data.Country.prototype.setExpressionbankaccountno = function(value) {
   jspb.Message.setProto3StringField(this, 18, value);
 };
 
 
 /**
- * optional bool allowCitiesOutOfList = 19;
- * @return {boolean}
+ * optional string language = 19;
+ * @return {string}
  */
-proto.data.Country.prototype.getAllowcitiesoutoflist = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 19, false));
+proto.data.Country.prototype.getLanguage = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 19, ""));
 };
 
 
-/** @param {boolean} value */
-proto.data.Country.prototype.setAllowcitiesoutoflist = function(value) {
-  jspb.Message.setProto3BooleanField(this, 19, value);
+/** @param {string} value */
+proto.data.Country.prototype.setLanguage = function(value) {
+  jspb.Message.setProto3StringField(this, 19, value);
 };
 
 
 /**
- * optional bool isPostcodeLookup = 20;
+ * optional bool allowCitiesOutOfList = 20;
  * @return {boolean}
  */
-proto.data.Country.prototype.getIspostcodelookup = function() {
+proto.data.Country.prototype.getAllowcitiesoutoflist = function() {
   return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 20, false));
 };
 
 
 /** @param {boolean} value */
-proto.data.Country.prototype.setIspostcodelookup = function(value) {
+proto.data.Country.prototype.setAllowcitiesoutoflist = function(value) {
   jspb.Message.setProto3BooleanField(this, 20, value);
 };
 
 
 /**
- * optional Currency currency = 21;
+ * optional bool isPostcodeLookup = 21;
+ * @return {boolean}
+ */
+proto.data.Country.prototype.getIspostcodelookup = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 21, false));
+};
+
+
+/** @param {boolean} value */
+proto.data.Country.prototype.setIspostcodelookup = function(value) {
+  jspb.Message.setProto3BooleanField(this, 21, value);
+};
+
+
+/**
+ * optional Currency currency = 22;
  * @return {?proto.data.Currency}
  */
 proto.data.Country.prototype.getCurrency = function() {
   return /** @type{?proto.data.Currency} */ (
-    jspb.Message.getWrapperField(this, proto.data.Currency, 21));
+    jspb.Message.getWrapperField(this, proto.data.Currency, 22));
 };
 
 
 /** @param {?proto.data.Currency|undefined} value */
 proto.data.Country.prototype.setCurrency = function(value) {
-  jspb.Message.setWrapperField(this, 21, value);
+  jspb.Message.setWrapperField(this, 22, value);
 };
 
 
@@ -3494,7 +3548,7 @@ proto.data.Country.prototype.clearCurrency = function() {
  * @return {boolean}
  */
 proto.data.Country.prototype.hasCurrency = function() {
-  return jspb.Message.getField(this, 21) != null;
+  return jspb.Message.getField(this, 22) != null;
 };
 
 
@@ -3531,11 +3585,12 @@ proto.data.Currency.prototype.toObject = function(opt_includeInstance) {
 proto.data.Currency.toObject = function(includeInstance, msg) {
   var f, obj = {
     uuid: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    isocode: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    cursymbol: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    description: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    stdprecision: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    costingprecision: jspb.Message.getFieldWithDefault(msg, 6, 0)
+    id: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    isocode: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    cursymbol: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    description: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    stdprecision: jspb.Message.getFieldWithDefault(msg, 6, 0),
+    costingprecision: jspb.Message.getFieldWithDefault(msg, 7, 0)
   };
 
   if (includeInstance) {
@@ -3577,22 +3632,26 @@ proto.data.Currency.deserializeBinaryFromReader = function(msg, reader) {
       msg.setUuid(value);
       break;
     case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setIsocode(value);
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setId(value);
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
-      msg.setCursymbol(value);
+      msg.setIsocode(value);
       break;
     case 4:
       var value = /** @type {string} */ (reader.readString());
-      msg.setDescription(value);
+      msg.setCursymbol(value);
       break;
     case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setDescription(value);
+      break;
+    case 6:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setStdprecision(value);
       break;
-    case 6:
+    case 7:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setCostingprecision(value);
       break;
@@ -3632,38 +3691,45 @@ proto.data.Currency.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getIsocode();
-  if (f.length > 0) {
-    writer.writeString(
+  f = message.getId();
+  if (f !== 0) {
+    writer.writeInt32(
       2,
       f
     );
   }
-  f = message.getCursymbol();
+  f = message.getIsocode();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = message.getDescription();
+  f = message.getCursymbol();
   if (f.length > 0) {
     writer.writeString(
       4,
       f
     );
   }
+  f = message.getDescription();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
+      f
+    );
+  }
   f = message.getStdprecision();
   if (f !== 0) {
     writer.writeInt32(
-      5,
+      6,
       f
     );
   }
   f = message.getCostingprecision();
   if (f !== 0) {
     writer.writeInt32(
-      6,
+      7,
       f
     );
   }
@@ -3686,77 +3752,92 @@ proto.data.Currency.prototype.setUuid = function(value) {
 
 
 /**
- * optional string iSOCode = 2;
- * @return {string}
+ * optional int32 id = 2;
+ * @return {number}
  */
-proto.data.Currency.prototype.getIsocode = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+proto.data.Currency.prototype.getId = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {string} value */
-proto.data.Currency.prototype.setIsocode = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+/** @param {number} value */
+proto.data.Currency.prototype.setId = function(value) {
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
 /**
- * optional string curSymbol = 3;
+ * optional string iSOCode = 3;
  * @return {string}
  */
-proto.data.Currency.prototype.getCursymbol = function() {
+proto.data.Currency.prototype.getIsocode = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
 /** @param {string} value */
-proto.data.Currency.prototype.setCursymbol = function(value) {
+proto.data.Currency.prototype.setIsocode = function(value) {
   jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
 /**
- * optional string description = 4;
+ * optional string curSymbol = 4;
  * @return {string}
  */
-proto.data.Currency.prototype.getDescription = function() {
+proto.data.Currency.prototype.getCursymbol = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
 /** @param {string} value */
-proto.data.Currency.prototype.setDescription = function(value) {
+proto.data.Currency.prototype.setCursymbol = function(value) {
   jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
 /**
- * optional int32 stdPrecision = 5;
- * @return {number}
+ * optional string description = 5;
+ * @return {string}
  */
-proto.data.Currency.prototype.getStdprecision = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+proto.data.Currency.prototype.getDescription = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
 
-/** @param {number} value */
-proto.data.Currency.prototype.setStdprecision = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+/** @param {string} value */
+proto.data.Currency.prototype.setDescription = function(value) {
+  jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
 /**
- * optional int32 costingPrecision = 6;
+ * optional int32 stdPrecision = 6;
  * @return {number}
  */
-proto.data.Currency.prototype.getCostingprecision = function() {
+proto.data.Currency.prototype.getStdprecision = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
 /** @param {number} value */
-proto.data.Currency.prototype.setCostingprecision = function(value) {
+proto.data.Currency.prototype.setStdprecision = function(value) {
   jspb.Message.setProto3IntField(this, 6, value);
+};
+
+
+/**
+ * optional int32 costingPrecision = 7;
+ * @return {number}
+ */
+proto.data.Currency.prototype.getCostingprecision = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
+};
+
+
+/** @param {number} value */
+proto.data.Currency.prototype.setCostingprecision = function(value) {
+  jspb.Message.setProto3IntField(this, 7, value);
 };
 
 
