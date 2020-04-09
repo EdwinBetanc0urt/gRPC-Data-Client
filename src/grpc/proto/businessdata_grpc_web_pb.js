@@ -2066,5 +2066,60 @@ proto.data.BusinessDataServicePromiseClient.prototype.listDocumentStatuses =
 };
 
 
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.data.GetCountryRequest,
+ *   !proto.data.Country>}
+ */
+const methodInfo_BusinessDataService_GetCountry = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.data.Country,
+  /** @param {!proto.data.GetCountryRequest} request */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.Country.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.data.GetCountryRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.data.Country)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.data.Country>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.data.BusinessDataServiceClient.prototype.getCountry =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/data.BusinessDataService/GetCountry',
+      request,
+      metadata || {},
+      methodInfo_BusinessDataService_GetCountry,
+      callback);
+};
+
+
+/**
+ * @param {!proto.data.GetCountryRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.data.Country>}
+ *     A native promise that resolves to the response
+ */
+proto.data.BusinessDataServicePromiseClient.prototype.getCountry =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/data.BusinessDataService/GetCountry',
+      request,
+      metadata || {},
+      methodInfo_BusinessDataService_GetCountry);
+};
+
+
 module.exports = proto.data;
 
