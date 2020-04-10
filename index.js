@@ -202,8 +202,8 @@ class BusinessData {
     const request = new GetCountryRequest();
 
     request.setClientrequest(this.getClientRequest());
-    request.setCountryid(countryUuid);
-    request.setCountryuuid(countryId);
+    request.setCountryid(countryId);
+    request.setCountryuuid(countryUuid);
     //
     return this.getService().getCountry(request)
     .then(countryResponse => {
