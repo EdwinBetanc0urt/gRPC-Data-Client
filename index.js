@@ -19,12 +19,22 @@ class BusinessData {
    * Constructor, No authentication required
    * @param {string} host
    * @param {string} sessionUuid
+   * @param {string} organizationUuid
+   * @param {string} warehouseUuid
    * @param {string} language Languaje i18n
    */
-  constructor(host, sessionUuid, language = 'en_US') {
+  constructor({
+    host,
+    sessionUuid,
+    organizationUuid,
+    warehouseUuid,
+    language = 'en_US',
+  }) {
     this.sessionUuid = sessionUuid;
     this.host = host;
     this.language = language;
+    this.organizationUuid = organizationUuid;
+    this.warehouseUuid = warehouseUuid;
   }
 
   /**
@@ -45,6 +55,8 @@ class BusinessData {
     const clientRequest = new ClientRequest();
     clientRequest.setSessionuuid(this.sessionUuid);
     clientRequest.setLanguage(this.language);
+    clientRequest.setOrganizationuuid(this.organizationUuid);
+    clientRequest.setWarehouseuuid(this.warehouseUuid);
     return clientRequest;
   }
 
@@ -266,6 +278,68 @@ class BusinessData {
           };
         }
         return entitiesListResponse;
+      });
+  }
+
+  // Request Organization list
+  requestListOrganizations({ roleUuid, roleId, pageToken, pageSize, isConvert = true, formatToConvert = 'object' }) {
+    const { ListOrganizationsRequest } = require('./src/grpc/proto/businessdata_pb.js');
+
+    const request = new ListOrganizationsRequest();
+    request.setClientrequest(this.getClientRequest());
+    request.setRoleuuid(roleUuid);
+    request.setRoleid(roleId);
+    request.setPageToken(pageToken);
+    request.setPageSize(pageSize);
+
+    return this.getService().listOrganizations(request)
+      .then(organizationsListResponse => {
+        if (isConvert) {
+          const { convertOrganizationFromGRPC } = require('./src/convertUtils');
+
+          return {
+            recordCount: organizationsListResponse.getRecordcount(),
+            organizationsList: organizationsListResponse.getOrganizationsList().map(organization => {
+              return convertOrganizationFromGRPC({
+                organizationToConvert: organization,
+                formatToConvert
+              });
+            }),
+            nextPageToken: organizationsListResponse.getNextPageToken(),
+          };
+        }
+        return organizationsListResponse;
+      });
+  }
+
+  // Request Warehouse list
+  requestListWarehouses({ organizationUuid, organizationId, pageToken, pageSize, isConvert = true, formatToConvert = 'object' }) {
+    const { ListWarehousesRequest } = require('./src/grpc/proto/businessdata_pb.js');
+
+    const request = new ListWarehousesRequest();
+    request.setClientrequest(this.getClientRequest());
+    request.setOrganizationuuid(organizationUuid);
+    request.setOrganizationid(organizationId);
+    request.setPageToken(pageToken);
+    request.setPageSize(pageSize);
+
+    return this.getService().listWarehouses(request)
+      .then(warehousesListResponse => {
+        if (isConvert) {
+          const { convertWarehouseFromGRPC } = require('./src/convertUtils');
+
+          return {
+            recordCount: warehousesListResponse.getRecordcount(),
+            warehousesList: warehousesListResponse.getWarehousesList().map(warehouse => {
+              return convertWarehouseFromGRPC({
+                warehouseToConvert: warehouse,
+                formatToConvert
+              });
+            }),
+            nextPageToken: warehousesListResponse.getNextPageToken(),
+          };
+        }
+        return warehousesListResponse;
       });
   }
 

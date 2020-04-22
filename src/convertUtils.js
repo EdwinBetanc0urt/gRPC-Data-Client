@@ -371,7 +371,6 @@ const convertUtils = {
 
       return returnValues;
     },
-
     convertLookupFromGRPC(lookupToConvert) {
       if (lookupToConvert) {
         return {
@@ -391,7 +390,50 @@ const convertUtils = {
         values: undefined
       };
     },
-
+    convertWarehouseFromGRPC({ warehouseToConvert, formatToConvert = 'object' }) {
+      if (warehouseToConvert) {
+        return {
+          id: warehouseToConvert.getId(),
+          uuid: warehouseToConvert.getUuid(),
+          name: warehouseToConvert.getName(),
+          description: warehouseToConvert.getDescription()
+        };
+      }
+      return {
+        id: undefined,
+        uuid: undefined,
+        name: undefined,
+        description: undefined
+      };
+    },
+    convertOrganizationFromGRPC({ organizationToConvert, formatToConvert = 'object' }) {
+      if (organizationToConvert) {
+        return {
+          id: organizationToConvert.getId(),
+          uuid: organizationToConvert.getUuid(),
+          name: organizationToConvert.getName(),
+          description: organizationToConvert.getDescription(),
+          duns: organizationToConvert.getDuns(),
+          taxId: organizationToConvert.getTaxid(),
+          phone: organizationToConvert.getPhone(),
+          phone2: organizationToConvert.getPhone2(),
+          fax: organizationToConvert.getFax(),
+          isReadOnly: organizationToConvert.getIsreadonly()
+        };
+      }
+      return {
+        id: undefined,
+        uuid: undefined,
+        name: undefined,
+        description: undefined,
+        duns: undefined,
+        taxId: undefined,
+        phone: undefined,
+        phone2: undefined,
+        fax: undefined,
+        isReadOnly: undefined
+      };
+    },
     convertEntityFromGRPC({ entityToConvert, formatToConvert = 'object' }) {
       if (entityToConvert) {
         return {
