@@ -24,7 +24,7 @@ const convertUtils = {
     convertValueFromGRPC(value) {
       const { Value } = require('./grpc/proto/businessdata_pb.js');
 
-      if (value === undefined || value === null) {
+      if (value === undefined || value === null || value.getValuetype() === Value.ValueType.UNKNOWN) {
         return undefined;
       }
 
