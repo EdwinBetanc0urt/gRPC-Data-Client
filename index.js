@@ -583,27 +583,19 @@ class BusinessData {
 
     const criteriaForReport = convertCriteriaToGRPC({ tableName });
     if (parametersList && parametersList.length) {
-      parametersList.forEach(parameterItem => {
-        let valueTo;
-        let isAddCodition = true;
-        if (parameterItem.isRange) {
-          valueTo = parametersList.find(param => param.columnName === `${parameterItem.columnName}_To`);
-          if (!this.isEmptyValue(valueTo)) {
-            parameterItem.valueTo = valueTo.value;
-          } else {
-            isAddCodition = false;
+      parametersList.forEach(parameter => {
+        if(parameter.columnName.endsWith('_To')) {
+          var previousParemeter = parametersList.find(param => param.columnName === parameter.columnName.replace('_To', ''));
+          if(previousParemeter && previousParemeter.isRange) {
+            parameter.columnName = parameter.columnName.replace('_To', '');
           }
         }
-
-        if (isAddCodition) {
-          const { convertConditionToGRPC } = require('./src/convertUtils.js');
-          const convertedCondition = convertConditionToGRPC(parameterItem);
-          criteriaForReport.addConditions(convertedCondition);
-        }
+        const { convertConditionToGRPC } = require('./src/convertUtils.js');
+        const convertedCondition = convertConditionToGRPC(parameter);
+        criteriaForReport.addConditions(convertedCondition);
       });
     }
     reportOutputInstance.setCriteria(criteriaForReport);
-
     return this.getService().getReportOutput(reportOutputInstance)
       .then(reportOutputResponse => {
         if (isConvert) {
@@ -711,8 +703,8 @@ class BusinessData {
     if (parametersList && parametersList.length) {
       const { convertParameterToGRPC } = require('./src/convertUtils.js');
 
-      parametersList.forEach(parameterItem => {
-        const convertedParameter = convertParameterToGRPC(parameterItem);
+      parametersList.forEach(parameter => {
+        const convertedParameter = convertParameterToGRPC(parameter);
         processRequest.addParameters(convertedParameter);
       });
     }
@@ -770,8 +762,8 @@ class BusinessData {
     if (parametersList && parametersList.length) {
       const { convertParameterToGRPC } = require('./src/convertUtils.js');
 
-      parametersList.forEach(parameterItem => {
-        const convertedParameter = convertParameterToGRPC(parameterItem);
+      parametersList.forEach(parameter => {
+        const convertedParameter = convertParameterToGRPC(parameter);
         browserRequest.addParameters(convertedParameter);
       });
     }
