@@ -41,10 +41,75 @@ class BusinessData {
    * Load gRPC Connection
    * @return {object} requestService Return request for get data
    */
-  getService() {
+  getBusinessService() {
     const grpc_promise = require('grpc-promise');
     const { BusinessDataPromiseClient } = require('./src/grpc/proto/business_grpc_web_pb.js');
     const requestService = new BusinessDataPromiseClient(this.host);
+    grpc_promise.promisifyAll(requestService);
+    //  Return request for get data
+    return requestService;
+  }
+
+  /**
+   * Load gRPC Connection for core functionality service
+   * @return {object} requestService Return request for get data
+   */
+  getCoreFunctionalityService() {
+    const grpc_promise = require('grpc-promise');
+    const { CoreFunctionalityPromiseClient } = require('./src/grpc/proto/core_functionality_grpc_web_pb.js');
+    const requestService = new CoreFunctionalityPromiseClient(this.host);
+    grpc_promise.promisifyAll(requestService);
+    //  Return request for get data
+    return requestService;
+  }
+
+  /**
+   * Load gRPC Connection
+   * @return {object} requestService Return request for user interface service
+   */
+  getUserInterfaceService() {
+    const grpc_promise = require('grpc-promise');
+    const { UserInterfacePromiseClient } = require('./src/grpc/proto/business_grpc_web_pb.js');
+    const requestService = new UserInterfacePromiseClient(this.host);
+    grpc_promise.promisifyAll(requestService);
+    //  Return request for get data
+    return requestService;
+  }
+
+  /**
+   * Load gRPC Connection
+   * @return {object} requestService Return request workdlow service
+   */
+  getWorkflowService() {
+    const grpc_promise = require('grpc-promise');
+    const { WorkflowPromiseClient } = require('./src/grpc/proto/business_grpc_web_pb.js');
+    const requestService = new WorkflowPromiseClient(this.host);
+    grpc_promise.promisifyAll(requestService);
+    //  Return request for get data
+    return requestService;
+  }
+
+  /**
+   * Load gRPC Connection
+   * @return {object} requestService Return request for dashboarding service
+   */
+  getDashboardingService() {
+    const grpc_promise = require('grpc-promise');
+    const { DashboardingPromiseClient } = require('./src/grpc/proto/business_grpc_web_pb.js');
+    const requestService = new DashboardingPromiseClient(this.host);
+    grpc_promise.promisifyAll(requestService);
+    //  Return request for get data
+    return requestService;
+  }
+
+  /**
+   * Load gRPC Connection
+   * @return {object} requestService Return request for log service
+   */
+  getEntityLogService() {
+    const grpc_promise = require('grpc-promise');
+    const { EntityLogPromiseClient } = require('./src/grpc/proto/business_grpc_web_pb.js');
+    const requestService = new EntityLogPromiseClient(this.host);
     grpc_promise.promisifyAll(requestService);
     //  Return request for get data
     return requestService;
@@ -110,7 +175,7 @@ class BusinessData {
       });
     }
 
-    return this.getService().createEntity(request)
+    return this.getBusinessService().createEntity(request)
       .then(responseCreateEntity => {
         if (isConvert) {
           const { convertEntityFromGRPC } = require('./src/convertUtils');
@@ -152,7 +217,7 @@ class BusinessData {
       });
     }
 
-    return this.getService().updateEntity(request)
+    return this.getBusinessService().updateEntity(request)
       .then(responseUpdateEntity => {
         if (isConvert) {
           const { convertEntityFromGRPC } = require('./src/convertUtils');
@@ -187,7 +252,7 @@ class BusinessData {
     const criteriaForRequestEntity = convertCriteriaToGRPC({ tableName });
     request.setCriteria(criteriaForRequestEntity);
 
-    return this.getService().getEntity(request)
+    return this.getBusinessService().getEntity(request)
     .then(getEntityResponse => {
       if (isConvert) {
         const { convertEntityFromGRPC } = require('./src/convertUtils');
@@ -217,7 +282,7 @@ class BusinessData {
     request.setCountryid(countryId);
     request.setCountryuuid(countryUuid);
     //
-    return this.getService().getCountry(request)
+    return this.getCoreFunctionalityService().getCountry(request)
     .then(countryResponse => {
       if (isConvert) {
         const { convertCountryFromGRPC } = require('./src/convertUtils');
@@ -261,7 +326,7 @@ class BusinessData {
     request.setPageToken(pageToken);
     request.setPageSize(pageSize);
 
-    return this.getService().listEntities(request)
+    return this.getBusinessService().listEntities(request)
       .then(entitiesListResponse => {
         if (isConvert) {
           const { convertEntityFromGRPC } = require('./src/convertUtils');
@@ -292,7 +357,7 @@ class BusinessData {
     request.setPageToken(pageToken);
     request.setPageSize(pageSize);
 
-    return this.getService().listOrganizations(request)
+    return this.getCoreFunctionalityService().listOrganizations(request)
       .then(organizationsListResponse => {
         if (isConvert) {
           const { convertOrganizationFromGRPC } = require('./src/convertUtils');
@@ -323,7 +388,7 @@ class BusinessData {
     request.setPageToken(pageToken);
     request.setPageSize(pageSize);
 
-    return this.getService().listWarehouses(request)
+    return this.getCoreFunctionalityService().listWarehouses(request)
       .then(warehousesListResponse => {
         if (isConvert) {
           const { convertWarehouseFromGRPC } = require('./src/convertUtils');
@@ -359,7 +424,7 @@ class BusinessData {
     request.setRecordid(recordId);
     request.setUuid(recordUuid);
 
-    return this.getService().deleteEntity(request);
+    return this.getBusinessService().deleteEntity(request);
   }
 
   /**
@@ -383,7 +448,7 @@ class BusinessData {
     const eventType = getRollbackEntityRequestEventType({ keyMatch: eventTypeExecuted });
     rollbackRequest.setEventtype(eventType);
 
-    return this.getService().rollbackEntity(rollbackRequest)
+    return this.getUserInterfaceService().rollbackEntity(rollbackRequest)
       .then(rollBackResponse => {
         if (isConvert) {
           const { convertEntityFromGRPC } = require('./src/convertUtils');
@@ -408,7 +473,7 @@ class BusinessData {
     defaultValueInstance.setClientrequest(this.getClientRequest());
     defaultValueInstance.setQuery(query);
 
-    return this.getService().getDefaultValue(defaultValueInstance)
+    return this.getUserInterfaceService().getDefaultValue(defaultValueInstance)
       .then(defaultValueResponse => {
         const { convertValueFromGRPC } = require('./src/convertUtils.js');
 
@@ -429,7 +494,7 @@ class BusinessData {
     requestInstance.setQuery(query);
     requestInstance.setUuid(uuid);
 
-    return this.getService().getContextInfoValue(requestInstance)
+    return this.getUserInterfaceService().getContextInfoValue(requestInstance)
       .then(contextInfoResponse => {
         if (isConvert) {
           return {
@@ -457,7 +522,7 @@ class BusinessData {
     privateAccessInstance.setRecordid(recordId);
     privateAccessInstance.setUseruuid(userUuid);
 
-    return this.getService().getPrivateAccess(privateAccessInstance)
+    return this.getUserInterfaceService().getPrivateAccess(privateAccessInstance)
       .then(privateAccessResponse => {
         if (isConvert) {
           const { convertPrivateAccessFromGRPC } = require('./src/convertUtils.js');
@@ -483,7 +548,7 @@ class BusinessData {
     requestInstance.setRecordid(recordId);
     requestInstance.setUseruuid(userUuid);
 
-    return this.getService().lockPrivateAccess(requestInstance)
+    return this.getUserInterfaceService().lockPrivateAccess(requestInstance)
       .then(privateAccessResponse => {
         if (isConvert) {
           const { convertPrivateAccessFromGRPC } = require('./src/convertUtils.js');
@@ -510,7 +575,7 @@ class BusinessData {
     requestInstance.setRecordid(recordId);
     requestInstance.setUseruuid(userUuid);
 
-    return this.getService().unlockPrivateAccess(requestInstance)
+    return this.getUserInterfaceService().unlockPrivateAccess(requestInstance)
       .then(privateAccessResponse => {
         if (isConvert) {
           const { convertPrivateAccessFromGRPC } = require('./src/convertUtils.js');
@@ -542,7 +607,7 @@ class BusinessData {
     requestReference.setPageToken(pageToken);
     requestReference.setPageSize(pageSize);
 
-    return this.getService().listReferences(requestReference)
+    return this.getUserInterfaceService().listReferences(requestReference)
       .then(referenceResponse => {
         if (isConvert) {
           const { convertRecordReferenceInfoFromGRPC } = require('./src/convertUtils.js');
@@ -596,7 +661,7 @@ class BusinessData {
       });
     }
     reportOutputInstance.setCriteria(criteriaForReport);
-    return this.getService().getReportOutput(reportOutputInstance)
+    return this.getUserInterfaceService().getReportOutput(reportOutputInstance)
       .then(reportOutputResponse => {
         if (isConvert) {
           const { convertReportOutputFromGRPC } = require('./src/convertUtils.js');
@@ -626,7 +691,7 @@ class BusinessData {
     requestLookup.setClientrequest(this.getClientRequest());
     requestLookup.setCriteria(criteriaForLookup);
 
-    return this.getService().getLookupItem(requestLookup)
+    return this.getUserInterfaceService().getLookupItem(requestLookup)
       .then(lookupItemRepsonse => {
         if (isConvert) {
           const { convertLookupFromGRPC } = require('./src/convertUtils.js');
@@ -654,7 +719,7 @@ class BusinessData {
     requestLookup.setPageToken(pageToken);
     requestLookup.setPageSize(pageSize);
 
-    return this.getService().listLookupItems(requestLookup)
+    return this.getUserInterfaceService().listLookupItems(requestLookup)
       .then(lookupsListRepsonse => {
         if (isConvert) {
           const { convertLookupFromGRPC } = require('./src/convertUtils.js');
@@ -726,7 +791,7 @@ class BusinessData {
       });
     }
 
-    return this.getService().runBusinessProcess(processRequest)
+    return this.getBusinessService().runBusinessProcess(processRequest)
       .then(runProcessResponse => {
         if (isConvert) {
           const { convertProcessLogFromGRPC } = require('./src/convertUtils.js');
@@ -771,7 +836,7 @@ class BusinessData {
     const browserCriteria = convertCriteriaToGRPC({ query, whereClause, orderByClause });
     browserRequest.setCriteria(browserCriteria);
 
-    return this.getService().listBrowserItems(browserRequest)
+    return this.getUserInterfaceService().listBrowserItems(browserRequest)
       .then(browserSearchResponse => {
         if (isConvert) {
           const { convertEntityFromGRPC } = require('./src/convertUtils');
@@ -806,7 +871,7 @@ class BusinessData {
     request.setTablename(tableName);
     request.setRecordid(recordId);
     //  return
-    return this.getService().listProcessLogs(request)
+    return this.getEntityLogService().listProcessLogs(request)
       .then(processLogsResponse => {
         if (isConvert) {
           const { convertProcessLogFromGRPC } = require('./src/convertUtils.js');
@@ -843,7 +908,7 @@ class BusinessData {
     requestInstance.setPageToken(pageToken);
     requestInstance.setPageSize(pageSize);
 
-    return this.getService().listPrintFormats(requestInstance)
+    return this.getUserInterfaceService().listPrintFormats(requestInstance)
       .then(printFormatResponse => {
         if (isConvert) {
           const { convertPrintFromatFromGRPC } = require('./src/convertUtils.js');
@@ -877,7 +942,7 @@ class BusinessData {
     requestInstance.setPageToken(pageToken);
     requestInstance.setPageSize(pageSize);
 
-    return this.getService().listReportViews(requestInstance)
+    return this.getUserInterfaceService().listReportViews(requestInstance)
       .then(reportViewsResponse => {
         if (isConvert) {
           const { convertReportViewFromGRPC } = require('./src/convertUtils.js');
@@ -909,7 +974,7 @@ class BusinessData {
     requestInstance.setPageToken(pageToken);
     requestInstance.setPageSize(pageSize);
 
-    return this.getService().listDrillTables(requestInstance)
+    return this.getUserInterfaceService().listDrillTables(requestInstance)
       .then(drillTableResponse => {
         if (isConvert) {
           const { convertDrillTableFromGRPC } = require('./src/convertUtils.js');
@@ -940,7 +1005,7 @@ class BusinessData {
     request.setPageToken(pageToken);
     request.setPageSize(pageSize);
 
-    return this.getService().listDashboards(request)
+    return this.getDashboardingService().listDashboards(request)
       .then(dashboardResponse => {
         const { convertDashboardFromGRPC } = require('./src/convertUtils.js');
 
@@ -968,7 +1033,7 @@ class BusinessData {
     request.setPageToken(pageToken);
     request.setPageSize(pageSize);
 
-    return this.getService().listRecentItems(request)
+    return this.getEntityLogService().listRecentItems(request)
       .then(recentItemsResponse => {
         if (isConvert) {
           const { convertRecentItemFromGRPC } = require('./src/convertUtils.js');
@@ -1003,7 +1068,7 @@ class BusinessData {
     requestInstance.setPageToken(pageToken);
     requestInstance.setPageSize(pageSize);
 
-    return this.getService().listPendingDocuments(requestInstance)
+    return this.getDashboardingService().listPendingDocuments(requestInstance)
       .then(pendingDocumentsResponse => {
         if (isConvert) {
           const { convertPendingDocumentFromGRPC } = require('./src/convertUtils.js');
@@ -1036,7 +1101,7 @@ class BusinessData {
     requestInstance.setPageToken(pageToken);
     requestInstance.setPageSize(pageSize);
 
-    return this.getService().listFavorites(requestInstance)
+    return this.getDashboardingService().listFavorites(requestInstance)
       .then(favoritesResponse => {
         if (isConvert) {
           const { convertFavoriteFromGRPC } = require('./src/convertUtils.js');
@@ -1066,7 +1131,7 @@ class BusinessData {
     request.setPageToken(pageToken);
     request.setPageSize(pageSize);
 
-    return this.getService().listLanguages(request)
+    return this.getCoreFunctionalityService().listLanguages(request)
       .then(languageResponse => {
         if (isConvert) {
           const { convertLanguageFromGRPC } = require('./src/convertUtils.js');
@@ -1113,7 +1178,7 @@ class BusinessData {
     request.setRecordid(recordId);
     request.setLanguage(language);
 
-    return this.getService().listTranslations(request)
+    return this.getUserInterfaceService().listTranslations(request)
       .then(translationResponse => {
         if (isConvert) {
           const { convertTranslationFromGRPC } = require('./src/convertUtils.js');
@@ -1175,7 +1240,7 @@ class BusinessData {
       });
     }
 
-    return this.getService().runCallout(calloutRequestInstance)
+    return this.getUserInterfaceService().runCallout(calloutRequestInstance)
       .then(calloutResponse => {
         if (isConvert) {
           const { convertValuesMapFromGRPC } = require('./src/convertUtils.js');
@@ -1211,7 +1276,7 @@ class BusinessData {
     request.setPageSize(pageSize);
 
     //  return
-    return this.getService().listRecordLogs(request)
+    return this.getEntityLogService().listRecordLogs(request)
       .then(recordLogsResponse => {
         if (isConvert) {
           const { convertRecordLogFromGRPC } = require('./src/convertUtils.js');
@@ -1247,7 +1312,7 @@ class BusinessData {
     request.setPageSize(pageSize);
 
     //  return
-    return this.getService().listRecordChats(request)
+    return this.getEntityLogService().listRecordChats(request)
       .then(recordChatResponse => {
         if (isConvert) {
           const { convertRecordChatsFromGRPC } = require('./src/convertUtils.js');
@@ -1281,7 +1346,7 @@ class BusinessData {
     request.setPageSize(pageSize);
 
     //  return
-    return this.getService().listChatEntries(request)
+    return this.getEntityLogService().listChatEntries(request)
       .then(chatEntriesResponse => {
         if (isConvert) {
           const { convertChatEntryFromGRPC } = require('./src/convertUtils.js');
@@ -1315,7 +1380,7 @@ class BusinessData {
     request.setComment(comment);
 
     //  return
-    return this.getService().createChatEntry(request)
+    return this.getUserInterfaceService().createChatEntry(request)
       .then(chatEntryResponse => {
         if (isConvert) {
           const { convertChatEntryFromGRPC } = require('./src/convertUtils.js');
@@ -1344,7 +1409,7 @@ class BusinessData {
     request.setPageSize(pageSize);
 
     //  return
-    return this.getService().listWorkflowLogs(request)
+    return this.getEntityLogService().listWorkflowLogs(request)
       .then(workflowLogsResponse => {
         if (isConvert) {
           const { convertWorkflowProcessFomGRPC } = require('./src/convertUtils.js');
@@ -1370,7 +1435,7 @@ class BusinessData {
     request.setPageToken(pageToken);
     request.setPageSize(pageSize);
 
-    return this.getService().listWorkflows(request)
+    return this.getWorkflowService().listWorkflows(request)
       .then(workflowResponse => {
         if (isConvert) {
           const { convertWorkflowDefinitionFromGRPC } = require('./src/convertUtils.js');
@@ -1417,7 +1482,7 @@ class BusinessData {
     requestInstance.setDocumentaction(documentAction);
     requestInstance.setPageSize(pageSize);
     requestInstance.setPageToken(pageToken);
-    return this.getService().listDocumentActions(requestInstance)
+    return this.getWorkflowService().listDocumentActions(requestInstance)
       .then(listDocumentActionsResponse => {
         if (isConvert) {
           const { convertDocumentAction } = require('./src/convertUtils.js');
@@ -1459,7 +1524,7 @@ class BusinessData {
     requestInstance.setDocumentstatus(documentStatus);
     requestInstance.setPageSize(pageSize);
     requestInstance.setPageToken(pageToken);
-    return this.getService().listDocumentStatuses(requestInstance)
+    return this.getWorkflowService().listDocumentStatuses(requestInstance)
       .then(listDocumentStatusesResponse => {
         if (isConvert) {
           const { convertDocumentStatus } = require('./src/convertUtils.js');
