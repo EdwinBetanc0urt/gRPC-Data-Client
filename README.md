@@ -151,7 +151,19 @@ For recreate stub class you must have follow:
 - [gRPC](https://grpc.io/docs/tutorials/basic/web.html)
 After installed it just go to source code folder an run it:
 ```
-protoc proto/businessdata.proto \
+protoc proto/base_data_type.proto \
+--js_out=import_style=commonjs:src/grpc \
+--grpc-web_out=import_style=commonjs,mode=grpcwebtext:src/grpc
+```
+Core Functionality
+```
+protoc proto/core_functionality.proto \
+--js_out=import_style=commonjs:src/grpc \
+--grpc-web_out=import_style=commonjs,mode=grpcwebtext:src/grpc
+```
+Run Business gRPC
+```
+protoc proto/business.proto \
 --js_out=import_style=commonjs:src/grpc \
 --grpc-web_out=import_style=commonjs,mode=grpcwebtext:src/grpc
 ```

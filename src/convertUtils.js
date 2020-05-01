@@ -22,7 +22,7 @@ const convertUtils = {
      * @returns {mixed}
      */
     convertValueFromGRPC(value) {
-      const { Value } = require('./grpc/proto/businessdata_pb.js');
+      const { Value } = require('./grpc/proto/base_data_type_pb.js');
 
       if (value === undefined || value === null || value.getValuetype() === Value.ValueType.UNKNOWN) {
         return undefined;
@@ -128,7 +128,7 @@ const convertUtils = {
      * @return
      */
     getValueFromInteger(value) {
-      const { Value } = require('./grpc/proto/businessdata_pb.js');
+      const { Value } = require('./grpc/proto/base_data_type_pb.js');
       var convertedValue = new Value();
       convertedValue.setValuetype(Value.ValueType.INTEGER);
       if (value !== undefined && value !== null) {
@@ -147,7 +147,7 @@ const convertUtils = {
      * @return
      */
     getValueFromString(value) {
-      const { Value } = require('./grpc/proto/businessdata_pb.js');
+      const { Value } = require('./grpc/proto/base_data_type_pb.js');
       var convertedValue = new Value
       convertedValue.setValuetype(Value.ValueType.STRING);
       if (value) {
@@ -162,7 +162,7 @@ const convertUtils = {
      * @return
      */
     getValueFromBoolean(value) {
-      const { Value } = require('./grpc/proto/businessdata_pb.js');
+      const { Value } = require('./grpc/proto/base_data_type_pb.js');
       var convertedValue = new Value();
       convertedValue.setValuetype(Value.ValueType.BOOLEAN);
       if (typeof value === 'string') {
@@ -182,7 +182,7 @@ const convertUtils = {
      * @return
      */
     getValueFromDate(value) {
-      const { Value } = require('./grpc/proto/businessdata_pb.js');
+      const { Value } = require('./grpc/proto/base_data_type_pb.js');
       var convertedValue = new Value();
       if (Object.prototype.toString.call(value) === '[object Date]') {
         value = value.getTime();
@@ -198,7 +198,7 @@ const convertUtils = {
      * @return
      */
     getValueFromDecimal(value) {
-      const { Value } = require('./grpc/proto/businessdata_pb.js');
+      const { Value } = require('./grpc/proto/base_data_type_pb.js');
       var convertedValue = new Value();
       var convertedDecimalValue = convertUtils.getDecimalInstance();
       if(value !== undefined && value !== null) {
@@ -220,7 +220,7 @@ const convertUtils = {
       return convertedValue;
     },
     getDecimalInstance() {
-      const { Decimal } = require('./grpc/proto/businessdata_pb.js');
+      const { Decimal } = require('./grpc/proto/base_data_type_pb.js');
       return new Decimal();
     },
     /**
@@ -229,7 +229,7 @@ const convertUtils = {
      * @returns {Value}
      */
     convertValueToGRPC({ value, valueType }) {
-      const { Value } = require('./grpc/proto/businessdata_pb.js');
+      const { Value } = require('./grpc/proto/base_data_type_pb.js');
       var convertedValue;
       if (valueType) {
         switch (Value.ValueType[valueType]) {
@@ -281,7 +281,7 @@ const convertUtils = {
      * @param {number} keyFind
      */
     getValueTypes(keyFind) {
-      const { Value } = require('./grpc/proto/businessdata_pb.js');
+      const { Value } = require('./grpc/proto/base_data_type_pb.js');
       if (keyFind !== undefined) {
         return Object.keys(Value.ValueType).find(key => Value.ValueType[key] === keyFind);
       } else {
@@ -296,7 +296,7 @@ const convertUtils = {
      * @returns KeyValue Object
      */
     convertParameterToGRPC({ columnName, value, valueType }) {
-      const { KeyValue } = require('./grpc/proto/businessdata_pb.js');
+      const { KeyValue } = require('./grpc/proto/base_data_type_pb.js');
       const keyValue = new KeyValue();
       keyValue.setKey(columnName);
 
@@ -318,7 +318,7 @@ const convertUtils = {
      * Return a list of KeyValue Object
      */
     convertSelectionToGRPC({ selectionId, selectionUuid, selectionValues = [] }) {
-      const { KeyValueSelection } = require('./grpc/proto/businessdata_pb.js');
+      const { KeyValueSelection } = require('./grpc/proto/base_data_type_pb.js');
       const selectionInstance = new KeyValueSelection();
 
       // set selection id from record
@@ -536,7 +536,7 @@ const convertUtils = {
         DELETE = 2;
      */
     getRollbackEntityRequestEventType({ keyMatch, valueMatch }) {
-      const { RollbackEntityRequest } = require('./grpc/proto/businessdata_pb.js');
+      const { RollbackEntityRequest } = require('./grpc/proto/business_pb.js');
       const { EventType } = RollbackEntityRequest;
       if (keyMatch !== undefined) {
         // return value
@@ -585,7 +585,7 @@ const convertUtils = {
      * TODO: Add support to orderByColumnsList
      */
     convertCriteriaToGRPC({ tableName, query, whereClause, referenceUuid, conditionsList = [], orderByClause, valuesList = [], orderByColumnList = [], limit }) {
-      const { Criteria } = require('./grpc/proto/businessdata_pb.js');
+      const { Criteria } = require('./grpc/proto/base_data_type_pb.js');
       const criteria = new Criteria();
 
       criteria.setTablename(tableName);
@@ -621,7 +621,7 @@ const convertUtils = {
      * @param {number} keyToFind
      */
     getConditionOperators(keyToFind) {
-      const { Condition } = require('./grpc/proto/businessdata_pb.js');
+      const { Condition } = require('./grpc/proto/base_data_type_pb.js');
       if (keyToFind !== undefined) {
         return Object.keys(Condition.Operator).find(key => Condition.Operator[key] === keyToFind);
       } else {
@@ -639,7 +639,7 @@ const convertUtils = {
      * @returns Object
      */
     convertConditionToGRPC({ columnName, value, valueTo, values = [], operator = 'EQUAL' }) {
-      const { Condition } = require('./grpc/proto/businessdata_pb.js');
+      const { Condition } = require('./grpc/proto/base_data_type_pb.js');
       const conditionInstance = new Condition();
 
       conditionInstance.setColumnname(columnName);
@@ -998,7 +998,7 @@ const convertUtils = {
      * @param {number} keyFind
      */
     getRecordLogEventType(keyFind) {
-      const { RecordLog } = require('./grpc/proto/businessdata_pb.js');
+      const { RecordLog } = require('./grpc/proto/base_data_type_pb.js');
       if (keyFind !== undefined) {
         return Object.keys(RecordLog.EventType).find(key => RecordLog.EventType[key] === keyFind);
       }
@@ -1059,7 +1059,7 @@ const convertUtils = {
           INTERNAL: 2,
      */
     getRecordChatsConfidentialType(keyFind) {
-      const { RecordChat } = require('./grpc/proto/businessdata_pb.js');
+      const { RecordChat } = require('./grpc/proto/business_pb.js');
       if (keyFind !== undefined) {
         return Object.keys(RecordChat.ConfidentialType).find(key => RecordChat.ConfidentialType[key] === keyFind);
       }
@@ -1074,7 +1074,7 @@ const convertUtils = {
           AFTER_PUBLISHING: 2,
      */
     getRecordChatsModerationType(keyFind) {
-      const { RecordChat } = require('./grpc/proto/businessdata_pb.js');
+      const { RecordChat } = require('./grpc/proto/business_pb.js');
       if (keyFind !== undefined) {
         return Object.keys(RecordChat.ModerationType).find(key => RecordChat.ModerationType[key] === keyFind);
       }
@@ -1122,7 +1122,7 @@ const convertUtils = {
           INTERNAL = 2;
      */
     getChatEntryConfidentialType(keyFind) {
-      const { ChatEntry } = require('./grpc/proto/businessdata_pb.js');
+      const { ChatEntry } = require('./grpc/proto/business_pb.js');
       if (keyFind !== undefined) {
         return Object.keys(ChatEntry.ConfidentialType).find(key => ChatEntry.ConfidentialType[key] === keyFind);
       }
@@ -1138,7 +1138,7 @@ const convertUtils = {
           TO_BE_REVIEWED = 3;
      */
     getChatEntryModeratorStatus(keyFind) {
-      const { ChatEntry } = require('./grpc/proto/businessdata_pb.js');
+      const { ChatEntry } = require('./grpc/proto/business_pb.js');
       if (keyFind !== undefined) {
         return Object.keys(ChatEntry.ModeratorStatus).find(key => ChatEntry.ModeratorStatus[key] === keyFind);
       }
@@ -1153,7 +1153,7 @@ const convertUtils = {
           WIKI = 2;
      */
     getChatEntryChatEntryType(keyFind) {
-      const { ChatEntry } = require('./grpc/proto/businessdata_pb.js');
+      const { ChatEntry } = require('./grpc/proto/business_pb.js');
       if (keyFind !== undefined) {
         return Object.keys(ChatEntry.ChatEntryType).find(key => ChatEntry.ChatEntryType[key] === keyFind);
       }
@@ -1225,7 +1225,7 @@ const convertUtils = {
           NOT_STARTED: 5,
      */
     getWorkflowProcessWorkflowState(keyFind) {
-      const { WorkflowProcess } = require('./grpc/proto/businessdata_pb.js');
+      const { WorkflowProcess } = require('./grpc/proto/business_pb.js');
       if (keyFind !== undefined) {
         return Object.keys(WorkflowProcess.WorkflowState).find(key => WorkflowProcess.WorkflowState[key] === keyFind);
       }
@@ -1242,7 +1242,7 @@ const convertUtils = {
           MINOR: 4,
      */
     getWorkflowProcessWorkflowPriority(keyFind) {
-      const { WorkflowProcess } = require('./grpc/proto/businessdata_pb.js');
+      const { WorkflowProcess } = require('./grpc/proto/business_pb.js');
       if (keyFind !== undefined) {
         return Object.keys(WorkflowProcess.Priority).find(key => WorkflowProcess.Priority[key] === keyFind);
       }
@@ -1305,7 +1305,7 @@ const convertUtils = {
           STATE_CHANGED = 2;
      */
     getWorkflowEventWorkflowEventType(keyFind) {
-      const { WorkflowEvent } = require('./grpc/proto/businessdata_pb.js');
+      const { WorkflowEvent } = require('./grpc/proto/business_pb.js');
       if (keyFind !== undefined) {
         return Object.keys(WorkflowEvent.EventType).find(key => WorkflowEvent.EventType[key] === keyFind);
       }
@@ -1368,7 +1368,7 @@ const convertUtils = {
           YEAR = 5;
      */
     getWorkflowDefinitionDurationUnit(keyFind) {
-      const { WorkflowDefinition } = require('./grpc/proto/businessdata_pb.js');
+      const { WorkflowDefinition } = require('./grpc/proto/business_pb.js');
       if (keyFind !== undefined) {
         return Object.keys(WorkflowDefinition.DurationUnit).find(key => WorkflowDefinition.DurationUnit[key] === keyFind);
       }
@@ -1385,7 +1385,7 @@ const convertUtils = {
           VOID = 3;
      */
     getWorkflowDefinitionPublishStatus(keyFind) {
-      const { WorkflowDefinition } = require('./grpc/proto/businessdata_pb.js');
+      const { WorkflowDefinition } = require('./grpc/proto/business_pb.js');
       if (keyFind !== undefined) {
         return Object.keys(WorkflowDefinition.PublishStatus).find(key => WorkflowDefinition.PublishStatus[key] === keyFind);
       }
@@ -1403,7 +1403,7 @@ const convertUtils = {
           YEAR = 5;
      */
     getWorkflowDefinitionDurationUnit(keyFind) {
-      const { WorkflowDefinition } = require('./grpc/proto/businessdata_pb.js');
+      const { WorkflowDefinition } = require('./grpc/proto/business_pb.js');
       if (keyFind !== undefined) {
         return Object.keys(WorkflowDefinition.DurationUnit).find(key => WorkflowDefinition.DurationUnit[key] === keyFind);
       }
@@ -1478,7 +1478,7 @@ const convertUtils = {
         WAIT_SLEEP = 12;
      */
     getWorkflowNodeAction(keyFind) {
-      const { WorkflowNode } = require('./grpc/proto/businessdata_pb.js');
+      const { WorkflowNode } = require('./grpc/proto/business_pb.js');
       if (keyFind !== undefined) {
         return Object.keys(WorkflowNode.Action).find(key => WorkflowNode.Action[key] === keyFind);
       }
@@ -1552,7 +1552,7 @@ const convertUtils = {
         OR = 1;
      */
     getWorkflowConditionConditionType() {
-      const { WorkflowCondition } = require('./grpc/proto/businessdata_pb.js');
+      const { WorkflowCondition } = require('./grpc/proto/business_pb.js');
       if (keyFind !== undefined) {
         return Object.keys(WorkflowCondition.ConditionType).find(key => WorkflowCondition.ConditionType[key] === keyFind);
       }
@@ -1573,7 +1573,7 @@ const convertUtils = {
         SQL = 9;
      */
     getWorkflowConditionOperation() {
-      const { WorkflowCondition } = require('./grpc/proto/businessdata_pb.js');
+      const { WorkflowCondition } = require('./grpc/proto/business_pb.js');
       if (keyFind !== undefined) {
         return Object.keys(WorkflowCondition.Operation).find(key => WorkflowCondition.Operation[key] === keyFind);
       }

@@ -43,15 +43,15 @@ class BusinessData {
    */
   getService() {
     const grpc_promise = require('grpc-promise');
-    const { BusinessDataServicePromiseClient } = require('./src/grpc/proto/businessdata_grpc_web_pb.js');
-    const requestService = new BusinessDataServicePromiseClient(this.host);
+    const { BusinessDataPromiseClient } = require('./src/grpc/proto/business_grpc_web_pb.js');
+    const requestService = new BusinessDataPromiseClient(this.host);
     grpc_promise.promisifyAll(requestService);
     //  Return request for get data
     return requestService;
   }
 
   getClientRequest() {
-    const { ClientRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { ClientRequest } = require('./src/grpc/proto/core_functionality_pb.js');
     const clientRequest = new ClientRequest();
     clientRequest.setSessionuuid(this.sessionUuid);
     clientRequest.setLanguage(this.language);
@@ -95,7 +95,7 @@ class BusinessData {
    * @return {Entity} Entity created.
    */
   requestCreateEntity({ tableName, attributesList = [], isConvert = true, formatToConvert = 'object' }) {
-    const { CreateEntityRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { CreateEntityRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new CreateEntityRequest();
 
     request.setClientrequest(this.getClientRequest());
@@ -135,7 +135,7 @@ class BusinessData {
    * @return {Entity} Entity updated.
    */
   requestUpdateEntity({ tableName, recordId, recordUuid, attributesList = [], isConvert = true, formatToConvert = 'object' }) {
-    const { UpdateEntityRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { UpdateEntityRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new UpdateEntityRequest();
 
     request.setClientrequest(this.getClientRequest());
@@ -176,7 +176,7 @@ class BusinessData {
    * @return {object} Entity with records
    */
   requestGetEntity({ tableName, recordUuid, recordId, isConvert = true, formatToConvert = 'object' }) {
-    const { GetEntityRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { GetEntityRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new GetEntityRequest();
 
     request.setClientrequest(this.getClientRequest());
@@ -210,7 +210,7 @@ class BusinessData {
    * @return {object} Entity with records
    */
   requestGetCountry({ countryUuid, countryId, isConvert = true, formatToConvert = 'object' }) {
-    const { GetCountryRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { GetCountryRequest } = require('./src/grpc/proto/core_functionality_pb.js');
     const request = new GetCountryRequest();
 
     request.setClientrequest(this.getClientRequest());
@@ -244,7 +244,7 @@ class BusinessData {
    * @returns {ListEntitiesResponse}
    */
   requestListEntities({ tableName, query, whereClause, conditionsList = [], orderByClause, pageToken, pageSize, isConvert = true, formatToConvert = 'object' }) {
-    const { ListEntitiesRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { ListEntitiesRequest } = require('./src/grpc/proto/business_pb.js');
 
     const request = new ListEntitiesRequest();
     request.setClientrequest(this.getClientRequest());
@@ -283,7 +283,7 @@ class BusinessData {
 
   // Request Organization list
   requestListOrganizations({ roleUuid, roleId, pageToken, pageSize, isConvert = true, formatToConvert = 'object' }) {
-    const { ListOrganizationsRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { ListOrganizationsRequest } = require('./src/grpc/proto/core_functionality_pb.js');
 
     const request = new ListOrganizationsRequest();
     request.setClientrequest(this.getClientRequest());
@@ -314,7 +314,7 @@ class BusinessData {
 
   // Request Warehouse list
   requestListWarehouses({ organizationUuid, organizationId, pageToken, pageSize, isConvert = true, formatToConvert = 'object' }) {
-    const { ListWarehousesRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { ListWarehousesRequest } = require('./src/grpc/proto/core_functionality_pb.js');
 
     const request = new ListWarehousesRequest();
     request.setClientrequest(this.getClientRequest());
@@ -351,7 +351,7 @@ class BusinessData {
    * @return {Empty} empty for deleted and throw for error.
    */
   requestDeleteEntity({ tableName, recordId, recordUuid }) {
-    const { DeleteEntityRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { DeleteEntityRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new DeleteEntityRequest();
     request.setClientrequest(this.getClientRequest());
 
@@ -371,7 +371,7 @@ class BusinessData {
    * @param {string}  formatToConvert
    */
   requestRollbackEntity({ tableName, recordId, eventTypeExecuted, isConvert = true, formatToConvert = 'object' }) {
-    const { RollbackEntityRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { RollbackEntityRequest } = require('./src/grpc/proto/business_pb.js');
     const { getRollbackEntityRequestEventType } = require('./src/convertUtils.js');
 
     const rollbackRequest = new RollbackEntityRequest();
@@ -402,7 +402,7 @@ class BusinessData {
    * @param {string} query
    */
   requestGetDefaultValue(query) {
-    const { GetDefaultValueRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { GetDefaultValueRequest } = require('./src/grpc/proto/business_pb.js');
     const defaultValueInstance = new GetDefaultValueRequest();
 
     defaultValueInstance.setClientrequest(this.getClientRequest());
@@ -423,7 +423,7 @@ class BusinessData {
    * @param {boolean} isConvert
    */
   requestGetContextInfoValue({ uuid, query, isConvert = true }) {
-    const { GetContextInfoValueRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { GetContextInfoValueRequest } = require('./src/grpc/proto/business_pb.js');
     const requestInstance = new GetContextInfoValueRequest();
     requestInstance.setClientrequest(this.getClientRequest());
     requestInstance.setQuery(query);
@@ -450,7 +450,7 @@ class BusinessData {
    * TODO: Add support with userId and recordUuid
    */
   requestGetPrivateAccess({ tableName, recordId, userUuid, isConvert = true }) {
-    const { GetPrivateAccessRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { GetPrivateAccessRequest } = require('./src/grpc/proto/business_pb.js');
     const privateAccessInstance = new GetPrivateAccessRequest();
     privateAccessInstance.setClientrequest(this.getClientRequest());
     privateAccessInstance.setTablename(tableName);
@@ -476,7 +476,7 @@ class BusinessData {
    * TODO: Add support with userId and recordUuid
    */
   requestLockPrivateAccess({ tableName, recordId, userUuid, isConvert = true }) {
-    const { LockPrivateAccessRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { LockPrivateAccessRequest } = require('./src/grpc/proto/business_pb.js');
     const requestInstance = new LockPrivateAccessRequest();
     requestInstance.setClientrequest(this.getClientRequest());
     requestInstance.setTablename(tableName);
@@ -502,7 +502,7 @@ class BusinessData {
    * TODO: Add support with userId and recordUuid
    */
   requestUnlockPrivateAccess({ tableName, recordId, userUuid, isConvert = true }) {
-    const { UnlockPrivateAccessRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { UnlockPrivateAccessRequest } = require('./src/grpc/proto/business_pb.js');
     const requestInstance = new UnlockPrivateAccessRequest();
 
     requestInstance.setClientrequest(this.getClientRequest());
@@ -531,7 +531,7 @@ class BusinessData {
    * @param {boolean} isConvert
    */
   requestListReferences({ windowUuid, tableName, recordId, recordUuid, pageToken, pageSize, isConvert = true }) {
-    const { ListReferencesRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { ListReferencesRequest } = require('./src/grpc/proto/business_pb.js');
     const requestReference = new ListReferencesRequest();
     requestReference.setClientrequest(this.getClientRequest());
 
@@ -570,7 +570,7 @@ class BusinessData {
    * @param {boolean} isConvert
    */
   requestGetReportOutput({ parametersList = [], tableName, printFormatUuid, reportViewUuid, isSummary, reportName, reportType, isConvert = true }) {
-    const { GetReportOutputRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { GetReportOutputRequest } = require('./src/grpc/proto/business_pb.js');
     const { convertCriteriaToGRPC } = require('./src/convertUtils.js');
 
     const reportOutputInstance = new GetReportOutputRequest();
@@ -621,7 +621,7 @@ class BusinessData {
       valuesList: [ value ]
     });
 
-    const { GetLookupItemRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { GetLookupItemRequest } = require('./src/grpc/proto/business_pb.js');
     const requestLookup = new GetLookupItemRequest();
     requestLookup.setClientrequest(this.getClientRequest());
     requestLookup.setCriteria(criteriaForLookup);
@@ -644,7 +644,7 @@ class BusinessData {
    * @param {string}  pageSize
    */
   requestListLookupFromReference({ tableName, query, valuesList, pageToken, pageSize, isConvert = true }) {
-    const { ListLookupItemsRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { ListLookupItemsRequest } = require('./src/grpc/proto/business_pb.js');
     const { convertCriteriaToGRPC } = require('./src/convertUtils.js');
     const criteriaForLookup = convertCriteriaToGRPC({ tableName, query, valuesList });
 
@@ -686,7 +686,7 @@ class BusinessData {
    * @param {boolean} isConvert
    */
   requestRunProcess({ uuid, reportType, printFormatUuid, parametersList, tableName, recordId, recordUuid, selectionsList = [], isConvert = true }) {
-    const { RunBusinessProcessRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { RunBusinessProcessRequest } = require('./src/grpc/proto/business_pb.js');
     const processRequest = new RunBusinessProcessRequest();
     processRequest.setClientrequest(this.getClientRequest());
 
@@ -749,7 +749,7 @@ class BusinessData {
    * @param {string}  formatToConvert
    */
   requestListBrowserSearch({ uuid, parametersList = [], query, whereClause, orderByClause, pageToken, pageSize, isConvert = true, formatToConvert = 'object' }) {
-    const { ListBrowserItemsRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { ListBrowserItemsRequest } = require('./src/grpc/proto/business_pb.js');
     const browserRequest = new ListBrowserItemsRequest();
     browserRequest.setClientrequest(this.getClientRequest());
 
@@ -798,7 +798,7 @@ class BusinessData {
    * @param {boolean} isConvert
    */
   requestListProcessesLogs({ tableName, recordId, pageToken, pageSize, isConvert = true }) {
-    const { ListProcessLogsRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { ListProcessLogsRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new ListProcessLogsRequest();
     request.setClientrequest(this.getClientRequest());
     request.setPageToken(pageToken);
@@ -833,7 +833,7 @@ class BusinessData {
    * @param {boolean} isConvert
    */
   requestListPrintFormats({ tableName, reportViewUuid, processUuid, pageToken, pageSize, isConvert = true }) {
-    const { ListPrintFormatsRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { ListPrintFormatsRequest } = require('./src/grpc/proto/business_pb.js');
     const requestInstance = new ListPrintFormatsRequest();
 
     requestInstance.setClientrequest(this.getClientRequest());
@@ -869,7 +869,7 @@ class BusinessData {
    * @param {boolean} isConvert, default value is true
    */
   requestListReportViews({ tableName, processUuid, pageToken, pageSize, isConvert = true }) {
-    const { ListReportViewsRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { ListReportViewsRequest } = require('./src/grpc/proto/business_pb.js');
     const requestInstance = new ListReportViewsRequest();
     requestInstance.setClientrequest(this.getClientRequest());
     requestInstance.setTablename(tableName);
@@ -901,7 +901,7 @@ class BusinessData {
    * @param {string}  pageSize
    */
   requestListDrillTables({ tableName, pageToken, pageSize, isConvert = true }) {
-    const { ListDrillTablesRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { ListDrillTablesRequest } = require('./src/grpc/proto/business_pb.js');
     const requestInstance = new ListDrillTablesRequest();
 
     requestInstance.setClientrequest(this.getClientRequest());
@@ -933,7 +933,7 @@ class BusinessData {
    * @param {string}  pageSize
    */
   requestListDashboards({ roleUuid, pageToken, pageSize }) {
-    const { ListDashboardsRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { ListDashboardsRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new ListDashboardsRequest();
     request.setClientrequest(this.getClientRequest());
     request.setRoleuuid(roleUuid);
@@ -961,7 +961,7 @@ class BusinessData {
    * @param {boolean} isConvert
    */
   requestListRecentItems({ pageToken, pageSize, isConvert = true }) {
-    const { ListRecentItemsRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { ListRecentItemsRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new ListRecentItemsRequest();
 
     request.setClientrequest(this.getClientRequest());
@@ -994,7 +994,7 @@ class BusinessData {
    * @param {boolean} isConvert
    */
   requestListPendingDocuments({ userUuid, roleUuid, pageToken, pageSize, isConvert = true }) {
-    const { ListPendingDocumentsRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { ListPendingDocumentsRequest } = require('./src/grpc/proto/business_pb.js');
     const requestInstance = new ListPendingDocumentsRequest();
 
     requestInstance.setClientrequest(this.getClientRequest());
@@ -1028,7 +1028,7 @@ class BusinessData {
    * @param {boolean} isConvert
    */
   requestListFavorites({ userUuid, pageToken, pageSize, isConvert = true }) {
-    const { ListFavoritesRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { ListFavoritesRequest } = require('./src/grpc/proto/business_pb.js');
     const requestInstance = new ListFavoritesRequest();
 
     requestInstance.setClientrequest(this.getClientRequest());
@@ -1059,7 +1059,7 @@ class BusinessData {
    * @param {string}  pageSize
    */
   requestListLanguages({ pageToken, pageSize, isConvert = true }) {
-    const { ListLanguagesRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { ListLanguagesRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new ListLanguagesRequest();
 
     request.setClientrequest(this.getClientRequest());
@@ -1101,7 +1101,7 @@ class BusinessData {
     pageSize,
     isConvert = true
   }) {
-    const { ListTranslationsRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { ListTranslationsRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new ListTranslationsRequest();
 
     request.setClientrequest(this.getClientRequest());
@@ -1142,7 +1142,7 @@ class BusinessData {
    * @returns {Entity}
    */
   requestRunCallout({ windowUuid, windowNo, tabUuid, tableName, columnName, value, oldValue, valueType, callout, attributesList = [], isConvert = true }) {
-    const { RunCalloutRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { RunCalloutRequest } = require('./src/grpc/proto/business_pb.js');
     const { convertValueToGRPC } = require('./src/convertUtils.js');
 
     const calloutRequestInstance = new RunCalloutRequest();
@@ -1201,7 +1201,7 @@ class BusinessData {
    * @param {boolean} isConvert
    */
   requestListRecordsLogs({ tableName, recordId, pageToken, pageSize, isConvert = true }) {
-    const { ListRecordLogsRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { ListRecordLogsRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new ListRecordLogsRequest();
 
     request.setClientrequest(this.getClientRequest());
@@ -1237,7 +1237,7 @@ class BusinessData {
    * @param {boolean} isConvert
    */
   requestListRecordChats({ tableName, recordId, pageToken, pageSize, isConvert = true }) {
-    const { ListRecordChatsRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { ListRecordChatsRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new ListRecordChatsRequest();
 
     request.setClientrequest(this.getClientRequest());
@@ -1272,7 +1272,7 @@ class BusinessData {
    * @param {boolean} isConvert
    */
   requestListChatEntries({ uuid, pageToken, pageSize, isConvert = true }) {
-    const { ListChatEntriesRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { ListChatEntriesRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new ListChatEntriesRequest();
 
     request.setClientrequest(this.getClientRequest());
@@ -1306,7 +1306,7 @@ class BusinessData {
    * @param {boolean} isConvert
    */
   requestCreateChatEntry({ tableName, recordId, comment, isConvert = true }) {
-    const { CreateChatEntryRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { CreateChatEntryRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new CreateChatEntryRequest();
 
     request.setClientrequest(this.getClientRequest());
@@ -1334,7 +1334,7 @@ class BusinessData {
    * @param {boolean} isConvert
    */
   requestListWorkflowsLogs({ tableName, recordId, pageToken, pageSize, isConvert = true }) {
-    const { ListWorkflowLogsRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { ListWorkflowLogsRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new ListWorkflowLogsRequest();
 
     request.setClientrequest(this.getClientRequest());
@@ -1362,7 +1362,7 @@ class BusinessData {
   }
 
   requestListWorkflows({ tableName, pageToken, pageSize, isConvert = true }) {
-    const { ListWorkflowsRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { ListWorkflowsRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new ListWorkflowsRequest();
 
     request.setClientrequest(this.getClientRequest());
@@ -1406,7 +1406,7 @@ class BusinessData {
    * @param {string} pageToken
    */
   requestListDocumentActions({ tableName, recordId, recordUuid, documentStatus, documentAction, pageSize, pageToken, isConvert = true }) {
-    const { ListDocumentActionsRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { ListDocumentActionsRequest } = require('./src/grpc/proto/business_pb.js');
     const requestInstance = new ListDocumentActionsRequest;
 
     requestInstance.setClientrequest(this.getClientRequest());
@@ -1449,7 +1449,7 @@ class BusinessData {
    * @param {string} pageToken
    */
   requestListDocumentStatuses({ tableName, recordId, recordUuid, documentStatus, pageSize, pageToken, isConvert = true }) {
-    const { ListDocumentStatusesRequest } = require('./src/grpc/proto/businessdata_pb.js');
+    const { ListDocumentStatusesRequest } = require('./src/grpc/proto/business_pb.js');
     const requestInstance = new ListDocumentStatusesRequest;
 
     requestInstance.setClientrequest(this.getClientRequest());
