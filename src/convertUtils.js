@@ -15,6 +15,31 @@
  ************************************************************************************/
 
 const convertUtils = {
+    /**
+     * Checks if value is empty. Deep-checks arrays and objects
+     * Note: isEmpty([]) == true, isEmpty({}) == true, isEmpty([{0:false},"",0]) == true, isEmpty({0:1}) == false
+     * @param   {boolean|array|object|number|string|date|map|set|function} value
+     * @returns {boolean}
+     */
+    isEmptyValue(value) {
+      if (value === undefined || value == null || value === NaN) {
+        return true;
+      } else if (String(value).trim() === '-1') {
+        return true;
+      } else if (typeof value === 'string') {
+        return Boolean(!value.trim().length);
+      } else if (typeof value === 'function' || typeof value === 'number' || typeof value === 'boolean' || Object.prototype.toString.call(value) === '[object Date]') {
+        return false;
+      } else if (Object.prototype.toString.call(value) === '[object Map]' || Object.prototype.toString.call(value) === '[object Set]') {
+        return Boolean(!value.size);
+      } else if (Array.isArray(value)) {
+        return Boolean(!value.length);
+      } else if (typeof value === 'object') {
+        return Boolean(!Object.keys(value).length);
+      }
+
+      return true;
+    },
 
     /**
      * convert the value obtained from gRPC according to the type of value
@@ -23,31 +48,36 @@ const convertUtils = {
      */
     convertValueFromGRPC(value) {
       const { Value } = require('./grpc/proto/base_data_type_pb.js');
+      const { ValueType } = Value;
 
-      if (value === undefined || value === null || value.getValuetype() === Value.ValueType.UNKNOWN) {
+      if (value === undefined || value === null || value.getValuetype() === ValueType.UNKNOWN) {
         return undefined;
       }
 
       var returnValue;
       switch (value.getValuetype()) {
-        case Value.ValueType.INTEGER:
+        case ValueType.INTEGER:
           returnValue = convertUtils.getIntegerFromValue(value);
           break;
         // data type Number (float)
-        case Value.ValueType.DECIMAL:
+        case ValueType.DECIMAL:
           returnValue = convertUtils.getDecimalFromValue(value);
           break;
         // data type Boolean
-        case Value.ValueType.BOOLEAN:
+        case ValueType.BOOLEAN:
           returnValue = convertUtils.getBooleanFromValue(value);
           break;
         // data type String
-        case Value.ValueType.STRING:
+        case ValueType.STRING:
           returnValue = convertUtils.getStringFromValue(value);
           break;
         // data type Date
-        case Value.ValueType.DATE:
+        case ValueType.DATE:
           returnValue = convertUtils.getDateFromValue(value);
+          break;
+        default:
+        case ValueType.UNKNOWN:
+          returnValue = undefined;
           break;
       }
       return returnValue;
@@ -59,26 +89,28 @@ const convertUtils = {
   	 * @return
   	 */
   	getDecimalFromValue(value) {
-      var decimalValue = value.getDecimalvalue();
-      if (!decimalValue) {
-  			return undefined;
-  		}
+      const decimalValue = value.getDecimalvalue();
+      if (convertUtils.isEmptyValue(decimalValue)) {
+        return undefined;
+      }
       //  Convert it
       return Number(decimalValue.getDecimalvalue());
-  	},
+    },
+
     /**
   	 * Get Date from a value
   	 * @param value value to convert
   	 * @return
   	 */
-  	getDateFromValue(value) {
-      if (!value || value.getLongvalue() === 0) {
-  			return undefined;
-  		}
-  		if(value.getLongvalue() > 0) {
+    getDateFromValue(value) {
+      if (convertUtils.isEmptyValue(value) || value.getLongvalue() === 0) {
+        return undefined;
+      }
+      if (value.getLongvalue() > 0) {
         return new Date(value.getLongvalue());
-  		}
-  	},
+      }
+      return undefined;
+    },
 
   	/**
   	 * Get String from a value
@@ -86,13 +118,14 @@ const convertUtils = {
   	 * @param uppercase
   	 * @return
   	 */
-  	getStringFromValue(value, uppercase) {
-  		var stringValue = value.getStringvalue();
-  		if (!value) {
-  			return undefined;
-  		}
+    getStringFromValue(value, uppercase = false) {
+      if (convertUtils.isEmptyValue(value)) {
+        return undefined;
+      }
+
+      let stringValue = value.getStringvalue();
   		//	To Upper case
-  		if(uppercase) {
+  		if (uppercase) {
   			stringValue = stringValue.toUpperCase();
   		}
   		return stringValue;
@@ -104,11 +137,11 @@ const convertUtils = {
   	 * @return
   	 */
   	getIntegerFromValue(value) {
-      if (value === undefined || value === null) {
-  			return undefined;
-  		}
-  		return value.getIntvalue();
-  	},
+      if (convertUtils.isEmptyValue(value)) {
+        return undefined;
+      }
+      return value.getIntvalue();
+    },
 
   	/**
   	 * Get Boolean from a value
@@ -116,11 +149,11 @@ const convertUtils = {
   	 * @return
   	 */
   	getBooleanFromValue(value) {
-      if (!value) {
-  			return false;
-  		}
-  		return value.getBooleanvalue();
-  	},
+      if (convertUtils.isEmptyValue(value)) {
+        return false;
+      }
+      return value.getBooleanvalue();
+    },
 
     /**
      * Get value from Integer
@@ -129,15 +162,17 @@ const convertUtils = {
      */
     getValueFromInteger(value) {
       const { Value } = require('./grpc/proto/base_data_type_pb.js');
-      var convertedValue = new Value();
-      convertedValue.setValuetype(Value.ValueType.INTEGER);
-      if (value !== undefined && value !== null) {
+      const { ValueType } = Value;
+      let convertedValue = new Value();
+
+      convertedValue.setValuetype(ValueType.INTEGER);
+      if (!convertUtils.isEmptyValue(value)) {
         if (String(value).length < 11) {
           convertedValue.setIntvalue(value);
         } else {
           convertedValue = convertUtils.getValueFromDecimal(value);
         }
-  		}
+      }
       return convertedValue;
     },
 
@@ -148,8 +183,10 @@ const convertUtils = {
      */
     getValueFromString(value) {
       const { Value } = require('./grpc/proto/base_data_type_pb.js');
-      var convertedValue = new Value
-      convertedValue.setValuetype(Value.ValueType.STRING);
+      const { ValueType } =  Value;
+      const convertedValue = new Value();
+
+      convertedValue.setValuetype(ValueType.STRING);
       if (value) {
         convertedValue.setStringvalue(String(value));
       }
@@ -163,10 +200,12 @@ const convertUtils = {
      */
     getValueFromBoolean(value) {
       const { Value } = require('./grpc/proto/base_data_type_pb.js');
-      var convertedValue = new Value();
-      convertedValue.setValuetype(Value.ValueType.BOOLEAN);
+      const { ValueType } = Value;
+      const convertedValue = new Value();
+
+      convertedValue.setValuetype(ValueType.BOOLEAN);
       if (typeof value === 'string') {
-        if (value.trim() === 'Y') {
+        if (value.trim() === 'N') {
           value = false;
         } else {
           value = true;
@@ -183,12 +222,15 @@ const convertUtils = {
      */
     getValueFromDate(value) {
       const { Value } = require('./grpc/proto/base_data_type_pb.js');
-      var convertedValue = new Value();
+      const { ValueType } = Value;
+      const convertedValue = new Value();
+
+      convertedValue.setValuetype(ValueType.DATE);
       if (Object.prototype.toString.call(value) === '[object Date]') {
         value = value.getTime();
         convertedValue.setLongvalue(value);
       }
-      convertedValue.setValuetype(Value.ValueType.DATE);
+      convertedValue.setValuetype(ValueType.DATE);
       return convertedValue;
     },
 
@@ -199,72 +241,56 @@ const convertUtils = {
      */
     getValueFromDecimal(value) {
       const { Value } = require('./grpc/proto/base_data_type_pb.js');
-      var convertedValue = new Value();
-      var convertedDecimalValue = convertUtils.getDecimalInstance();
-      if(value !== undefined && value !== null) {
+      const { ValueType } = Value;
+      const convertedValue = new Value();
+      const convertedDecimalValue = convertUtils.getDecimalInstance();
+
+      convertedValue.setValuetype(ValueType.DECIMAL);
+      if (!convertUtils.isEmptyValue(value)) {
         if (Number.isInteger(value)) {
           value = value.toFixed(2);
         }
         convertedDecimalValue.setDecimalvalue(value.toString());
+
         //  Set scale
-        var scale = value.toString().indexOf(".");
+        let scale = value.toString().indexOf('.');
         if (scale == -1){
-           scale = 0;
+          scale = 0;
         } else {
-           scale = value.toString().length - scale - 1;
+          scale = value.toString().length - scale - 1;
         }
         convertedDecimalValue.setScale(scale);
       }
-      convertedValue.setValuetype(Value.ValueType.DECIMAL);
       convertedValue.setDecimalvalue(convertedDecimalValue);
       return convertedValue;
     },
+
     getDecimalInstance() {
       const { Decimal } = require('./grpc/proto/base_data_type_pb.js');
       return new Decimal();
     },
+
     /**
      * Return value converted, compatible with grpc
      * @param {mixed} value
      * @returns {Value}
      */
     convertValueToGRPC({ value, valueType }) {
-      const { Value } = require('./grpc/proto/base_data_type_pb.js');
       var convertedValue;
+
       if (valueType) {
-        switch (Value.ValueType[valueType]) {
-          // data type Number (integer)
-          case Value.ValueType.INTEGER:
-            convertedValue = convertUtils.getValueFromInteger(value);
-            break;
-          // data type Number (float)
-          case Value.ValueType.DECIMAL:
-            convertedValue = convertUtils.getValueFromDecimal(value);
-            break;
-          // data type Boolean
-          case Value.ValueType.BOOLEAN:
-            convertedValue = convertUtils.getValueFromBoolean(value);
-            break;
-          // data type String
-          case Value.ValueType.STRING:
-            convertedValue = convertUtils.getValueFromString(value);
-            break;
-          // data type Date
-          case Value.ValueType.DATE:
-            convertedValue = convertUtils.getValueFromDate(value);
-            break;
-        }
-        return convertedValue;
+        return convertUtils.convertValueToGRPCWithValueType({ value, valueType });
       }
-      // evaluate type value
+
+      // evaluate type of value
       if (value === undefined || value === null) {
         return convertUtils.getValueFromString(value);
       }
       if (typeof(value) === 'number') {
-        if (valueType === 'DOUBLE') {
-          convertedValue = convertUtils.getValueFromDecimal(value);
-        } else {
+        if (Number.isInteger(value)) {
           convertedValue = convertUtils.getValueFromInteger(value);
+        } else {
+          convertedValue = convertUtils.getValueFromDecimal(value);
         }
       } else if (typeof(value) === 'boolean') {
         convertedValue = convertUtils.getValueFromBoolean(value);
@@ -276,17 +302,52 @@ const convertUtils = {
       return convertedValue;
     },
 
+    convertValueToGRPCWithValueType({ value, valueType }) {
+      const { Value } = require('./grpc/proto/base_data_type_pb.js');
+      const { ValueType } = Value;
+      let convertedValue;
+
+      switch (ValueType[valueType]) {
+        // data type Number (integer)
+        case ValueType.INTEGER:
+          convertedValue = convertUtils.getValueFromInteger(value);
+          break;
+        // data type Number (float)
+        case ValueType.DECIMAL:
+          convertedValue = convertUtils.getValueFromDecimal(value);
+          break;
+        // data type Boolean
+        case ValueType.BOOLEAN:
+          convertedValue = convertUtils.getValueFromBoolean(value);
+          break;
+        // data type String
+        case ValueType.STRING:
+          convertedValue = convertUtils.getValueFromString(value);
+          break;
+        // data type Date
+        case ValueType.DATE:
+          convertedValue = convertUtils.getValueFromDate(value);
+          break;
+        case ValueType.UNKNOWN:
+        default:
+          convertedValue = undefined;
+          break;
+      }
+      return convertedValue;
+    },
+
     /**
      * Get all values type or get key value type from value
      * @param {number} keyFind
      */
     getValueTypes(keyFind) {
       const { Value } = require('./grpc/proto/base_data_type_pb.js');
+      const { ValueType } = Value;
+
       if (keyFind !== undefined) {
-        return Object.keys(Value.ValueType).find(key => Value.ValueType[key] === keyFind);
-      } else {
-        return Value.ValueType;
+        return Object.keys(ValueType).find(key => ValueType[key] === keyFind);
       }
+      return ValueType;
     },
 
     /**
@@ -371,6 +432,7 @@ const convertUtils = {
 
       return returnValues;
     },
+
     convertLookupFromGRPC(lookupToConvert) {
       if (lookupToConvert) {
         return {
@@ -390,7 +452,8 @@ const convertUtils = {
         values: undefined
       };
     },
-    convertWarehouseFromGRPC({ warehouseToConvert, formatToConvert = 'object' }) {
+
+    convertWarehouseFromGRPC(warehouseToConvert) {
       if (warehouseToConvert) {
         return {
           id: warehouseToConvert.getId(),
@@ -406,7 +469,8 @@ const convertUtils = {
         description: undefined
       };
     },
-    convertOrganizationFromGRPC({ organizationToConvert, formatToConvert = 'object' }) {
+
+    convertOrganizationFromGRPC(organizationToConvert) {
       if (organizationToConvert) {
         return {
           id: organizationToConvert.getId(),
@@ -434,6 +498,7 @@ const convertUtils = {
         isReadOnly: undefined
       };
     },
+
     convertEntityFromGRPC({ entityToConvert, formatToConvert = 'object' }) {
       if (entityToConvert) {
         return {
@@ -453,20 +518,32 @@ const convertUtils = {
         values: undefined
       };
     },
-    convertCountryFromGRPC({ countryToConvert, formatToConvert = 'object' }) {
+
+    convertCurrencyFromGRPC(currencyToConvert) {
+      if (currencyToConvert) {
+        return {
+          currencyId: currencyToConvert.getId(),
+          currencyUuid: currencyToConvert.getUuid(),
+          iSOCode: currencyToConvert.getIsocode(),
+          curSymbol: currencyToConvert.getCursymbol(),
+          description: currencyToConvert.getDescription(),
+          stdPrecision: currencyToConvert.getStdprecision(),
+          costingPrecision: currencyToConvert.getCostingprecision()
+        };
+      }
+      return {
+        currencyId: undefined,
+        currencyUuid: undefined,
+        iSOCode: undefined,
+        curSymbol: undefined,
+        description: undefined,
+        stdPrecision: undefined,
+        costingPrecision: undefined
+      };
+    },
+
+    convertCountryFromGRPC(countryToConvert) {
       if (countryToConvert) {
-        var currency;
-        if(countryToConvert.getCurrency()) {
-          currency = {
-            currencyId: countryToConvert.getCurrency().getId(),
-            currencyUuid: countryToConvert.getCurrency().getUuid(),
-            iSOCode: countryToConvert.getCurrency().getIsocode(),
-            curSymbol: countryToConvert.getCurrency().getCursymbol(),
-            description: countryToConvert.getCurrency().getDescription(),
-            stdPrecision: countryToConvert.getCurrency().getStdprecision(),
-            costingPrecision: countryToConvert.getCurrency().getCostingprecision()
-          }
-        }
         return {
           countryId: countryToConvert.getId(),
           countryUuid: countryToConvert.getUuid(),
@@ -489,7 +566,9 @@ const convertUtils = {
           language: countryToConvert.getLanguage(),
           allowCitiesOutOfList: countryToConvert.getAllowcitiesoutoflist(),
           isPostcodeLookup: countryToConvert.getIspostcodelookup(),
-          currency: currency
+          currency: convertUtils.convertCurrencyFromGRPC(
+            countryToConvert.getCurrency()
+          )
         };
       }
       return {
@@ -514,36 +593,29 @@ const convertUtils = {
         language: undefined,
         allowCitiesOutOfList: undefined,
         isPostcodeLookup: undefined,
-        currency: {
-          currencyId: undefined,
-          currencyUuid: undefined,
-          iSOCode: undefined,
-          curSymbol: undefined,
-          description: undefined,
-          stdPrecision: undefined,
-          costingPrecision: undefined
-        }
+        currency: undefined
       };
     },
 
     /**
      * Get all event type or get key value type from value
-     * @param {number} valueMatch
-     * @param {string} keyMatch
+     * @param {number} value
+     * @param {string} key
      * @returns {number|string|object}
         INSERT = 0;
         UPDATE = 1;
         DELETE = 2;
      */
-    getRollbackEntityRequestEventType({ keyMatch, valueMatch }) {
+    getRollbackEntityRequestEventType({ key, value }) {
       const { RollbackEntityRequest } = require('./grpc/proto/business_pb.js');
       const { EventType } = RollbackEntityRequest;
-      if (keyMatch !== undefined) {
+
+      if (key !== undefined) {
         // return value
-        return EventType[keyMatch];
-      } else if (valueMatch !== undefined) {
+        return EventType[key];
+      } else if (value !== undefined) {
         // retrun key
-        return Object.keys(EventType).find(keyItem => EventType[keyItem] === valueMatch);
+        return Object.keys(EventType).find(keyItem => EventType[keyItem] === value);
       }
       // return all event type list
       return EventType;
@@ -555,23 +627,75 @@ const convertUtils = {
      * TODO: Add convert condition from gRPC and order by column from gRPC
      */
     convertCriteriaFromGRPC(criteriaToConvert) {
+      if (criteriaToConvert) {
+        return {
+          tableName: criteriaToConvert.getTablename(),
+          query: criteriaToConvert.getQuery(),
+          whereClause: criteriaToConvert.getWhereclause(),
+          orderByClause: criteriaToConvert.getOrderbyclause(),
+          referenceUuid: criteriaToConvert.getReferenceuuid(),
+          conditionsList: criteriaToConvert.getConditionsList().map(condition => {
+            return condition;
+          }),
+          valuesList: criteriaToConvert.getValuesList().map(value => {
+            return convertUtils.convertValueFromGRPC(value);
+          }),
+          orderByColumnList: criteriaToConvert.getOrderbycolumnList().map(orderBy => {
+            return convertUtils.convertOrderByPropertyFromGRPC(orderBy);
+          }),
+          limit: criteriaToConvert.getLimit()
+        };
+      }
       return {
-        tableName: criteriaToConvert.getTablename(),
-        query: criteriaToConvert.getQuery(),
-        whereClause: criteriaToConvert.getWhereclause(),
-        orderByClause: criteriaToConvert.getOrderbyclause(),
-        referenceUuid: criteriaToConvert.getReferenceuuid(),
-        conditionsList: criteriaToConvert.getConditionsList().map(condition => {
-          return condition;
-        }),
-        valuesList: criteriaToConvert.getValuesList().map(value => {
-          return convertUtils.convertValueFromGRPC(value);
-        }),
-        orderByColumnList: criteriaToConvert.getOrderbycolumnList().map(orderBy => {
-          return orderBy;
-        }),
-        limit: criteriaToConvert.getLimit()
+        tableName: undefined,
+        query: undefined,
+        whereClause: undefined,
+        orderByClause: undefined,
+        referenceUuid: undefined,
+        conditionsList: undefined,
+        valuesList: undefined,
+        orderByColumnList: undefined,
+        limit: undefined
+      }
+    },
+
+    convertOrderByPropertyFromGRPC(orderByPropertyToConvert) {
+      if (orderByPropertyToConvert) {
+        return {
+          columnName: orderByPropertyToConvert.getColumnname(),
+          orderType: orderByPropertyToConvert.getOrdertype(),
+          orderTypeName: convertUtils.getOrderType({
+            value: orderByPropertyToConvert.getOrdertype()
+          })
+        };
+      }
+      return {
+        columnName: undefined,
+        orderType: undefined,
+        orderTypeName: undefined
       };
+    },
+
+    /**
+     * @param {number} value
+     * @param {string} key
+     * @returns {number|string|object}
+        ASCENDING = 0;
+        DESCENDING = 1;
+     */
+    getOrderType({ key, value }) {
+      const { OrderByProperty } = require('./grpc/proto/base_data_type_pb.js');
+      const { OrderType } = OrderByProperty;
+
+      if (key !== undefined) {
+        // return value
+        return OrderType[key];
+      } else if (value !== undefined) {
+        // retrun key
+        return Object.keys(OrderType).find(keyItem => OrderType[keyItem] === value);
+      }
+      // return all order type list
+      return OrderType;
     },
 
     /**
@@ -622,11 +746,12 @@ const convertUtils = {
      */
     getConditionOperators(keyToFind) {
       const { Condition } = require('./grpc/proto/base_data_type_pb.js');
+      const { Operator } = Condition;
+
       if (keyToFind !== undefined) {
-        return Object.keys(Condition.Operator).find(key => Condition.Operator[key] === keyToFind);
-      } else {
-        return Condition.Operator;
+        return Object.keys(Operator).find(key => Operator[key] === keyToFind);
       }
+      return Operator;
     },
 
     /**
@@ -640,14 +765,15 @@ const convertUtils = {
      */
     convertConditionToGRPC({ columnName, value, valueTo, values = [], operator = 'EQUAL' }) {
       const { Condition } = require('./grpc/proto/base_data_type_pb.js');
+      const { Operator } = Condition;
       const conditionInstance = new Condition();
 
       conditionInstance.setColumnname(columnName);
 
       // set operator
-      conditionInstance.setOperator(Condition.Operator.EQUAL); // 0
+      conditionInstance.setOperator(Operator.EQUAL); // 0
       if (operator) {
-        conditionInstance.setOperator(Condition.Operator[operator]); // 2
+        conditionInstance.setOperator(Operator[operator]); // 2
       }
 
       // set value and value to
@@ -774,7 +900,9 @@ const convertUtils = {
             mapToConvert: processLogToConvert.getParametersMap(),
             returnType: 'object'
           }),
-          output: convertUtils.convertReportOutputFromGRPC(processLogToConvert.getOutput())
+          output: convertUtils.convertReportOutputFromGRPC(
+            processLogToConvert.getOutput()
+          )
         };
       }
       return {
@@ -999,10 +1127,12 @@ const convertUtils = {
      */
     getRecordLogEventType(keyFind) {
       const { RecordLog } = require('./grpc/proto/base_data_type_pb.js');
+      const { EventType } = RecordLog;
+
       if (keyFind !== undefined) {
-        return Object.keys(RecordLog.EventType).find(key => RecordLog.EventType[key] === keyFind);
+        return Object.keys(EventType).find(key => EventType[key] === keyFind);
       }
-      return RecordLog.EventType;
+      return EventType;
     },
 
     convertRecordLogFromGRPC(recordLogToConvert) {
@@ -1060,10 +1190,12 @@ const convertUtils = {
      */
     getRecordChatsConfidentialType(keyFind) {
       const { RecordChat } = require('./grpc/proto/business_pb.js');
+      const { ConfidentialType } = RecordChat;
+
       if (keyFind !== undefined) {
-        return Object.keys(RecordChat.ConfidentialType).find(key => RecordChat.ConfidentialType[key] === keyFind);
+        return Object.keys(ConfidentialType).find(key => ConfidentialType[key] === keyFind);
       }
-      return RecordChat.ConfidentialType;
+      return ConfidentialType;
     },
 
     /**
@@ -1075,10 +1207,12 @@ const convertUtils = {
      */
     getRecordChatsModerationType(keyFind) {
       const { RecordChat } = require('./grpc/proto/business_pb.js');
+      const { ModerationType } = RecordChat;
+
       if (keyFind !== undefined) {
-        return Object.keys(RecordChat.ModerationType).find(key => RecordChat.ModerationType[key] === keyFind);
+        return Object.keys(ModerationType).find(key => ModerationType[key] === keyFind);
       }
-      return RecordChat.ModerationType;
+      return ModerationType;
     },
 
     convertRecordChatsFromGRPC(recordChatToConvert) {
@@ -1123,10 +1257,12 @@ const convertUtils = {
      */
     getChatEntryConfidentialType(keyFind) {
       const { ChatEntry } = require('./grpc/proto/business_pb.js');
+      const { ConfidentialType } = ChatEntry;
+
       if (keyFind !== undefined) {
-        return Object.keys(ChatEntry.ConfidentialType).find(key => ChatEntry.ConfidentialType[key] === keyFind);
+        return Object.keys(ConfidentialType).find(key => ConfidentialType[key] === keyFind);
       }
-      return ChatEntry.ConfidentialType;
+      return ConfidentialType;
     },
 
     /**
@@ -1139,10 +1275,12 @@ const convertUtils = {
      */
     getChatEntryModeratorStatus(keyFind) {
       const { ChatEntry } = require('./grpc/proto/business_pb.js');
+      const { ModeratorStatus } = ChatEntry;
+
       if (keyFind !== undefined) {
-        return Object.keys(ChatEntry.ModeratorStatus).find(key => ChatEntry.ModeratorStatus[key] === keyFind);
+        return Object.keys(ModeratorStatus).find(key => ModeratorStatus[key] === keyFind);
       }
-      return ChatEntry.ModeratorStatus;
+      return ModeratorStatus;
     },
 
     /**
@@ -1154,10 +1292,12 @@ const convertUtils = {
      */
     getChatEntryChatEntryType(keyFind) {
       const { ChatEntry } = require('./grpc/proto/business_pb.js');
+      const { ChatEntryType } = ChatEntry;
+
       if (keyFind !== undefined) {
-        return Object.keys(ChatEntry.ChatEntryType).find(key => ChatEntry.ChatEntryType[key] === keyFind);
+        return Object.keys(ChatEntryType).find(key => ChatEntryType[key] === keyFind);
       }
-      return ChatEntry.ChatEntryType;
+      return ChatEntryType;
     },
 
     convertChatEntryFromGRPC(chatEntryToConvert) {
@@ -1200,6 +1340,7 @@ const convertUtils = {
         logDate: undefined
       };
     },
+
     convertCreateChatEntryFromGRPC(createChatEntry) {
       if (createChatEntry) {
         return {
@@ -1214,7 +1355,8 @@ const convertUtils = {
         comment: undefined
       };
     },
-     /**
+
+    /**
      * Get all workflow state or get key value type from value
      * @param {number} keyFind
           RUNNING: 0,
@@ -1226,10 +1368,12 @@ const convertUtils = {
      */
     getWorkflowProcessWorkflowState(keyFind) {
       const { WorkflowProcess } = require('./grpc/proto/business_pb.js');
+      const { WorkflowState } = WorkflowProcess;
+
       if (keyFind !== undefined) {
-        return Object.keys(WorkflowProcess.WorkflowState).find(key => WorkflowProcess.WorkflowState[key] === keyFind);
+        return Object.keys(WorkflowState).find(key => WorkflowState[key] === keyFind);
       }
-      return WorkflowProcess.WorkflowState;
+      return WorkflowState;
     },
 
     /**
@@ -1243,10 +1387,12 @@ const convertUtils = {
      */
     getWorkflowProcessWorkflowPriority(keyFind) {
       const { WorkflowProcess } = require('./grpc/proto/business_pb.js');
+      const { Priority } = WorkflowProcess;
+
       if (keyFind !== undefined) {
-        return Object.keys(WorkflowProcess.Priority).find(key => WorkflowProcess.Priority[key] === keyFind);
+        return Object.keys(Priority).find(key => Priority[key] === keyFind);
       }
-      return WorkflowProcess.Priority;
+      return Priority;
     },
 
     convertWorkflowProcessFomGRPC(workflowProcessToConvert) {
@@ -1306,10 +1452,12 @@ const convertUtils = {
      */
     getWorkflowEventWorkflowEventType(keyFind) {
       const { WorkflowEvent } = require('./grpc/proto/business_pb.js');
+      const { EventType } = WorkflowEvent;
+
       if (keyFind !== undefined) {
-        return Object.keys(WorkflowEvent.EventType).find(key => WorkflowEvent.EventType[key] === keyFind);
+        return Object.keys(EventType).find(key => EventType[key] === keyFind);
       }
-      return WorkflowEvent.EventType;
+      return EventType;
     },
 
     convertWorkflowEventFromGRPC(workflowEventToConvert) {
@@ -1357,24 +1505,6 @@ const convertUtils = {
       };
     },
 
-    /**
-     * Get all workflow event type or get key value type from value
-     * @param {number} keyFind
-          DAY = 0;
-          HOUR = 1;
-          MINUTE = 2;
-          MONTH = 3;
-          SECOND = 4;
-          YEAR = 5;
-     */
-    getWorkflowDefinitionDurationUnit(keyFind) {
-      const { WorkflowDefinition } = require('./grpc/proto/business_pb.js');
-      if (keyFind !== undefined) {
-        return Object.keys(WorkflowDefinition.DurationUnit).find(key => WorkflowDefinition.DurationUnit[key] === keyFind);
-      }
-      return WorkflowDefinition.DurationUnit;
-    },
-
 
     /**
      * Get all workflow definition publush status or get key value type from value
@@ -1386,10 +1516,12 @@ const convertUtils = {
      */
     getWorkflowDefinitionPublishStatus(keyFind) {
       const { WorkflowDefinition } = require('./grpc/proto/business_pb.js');
+      const { PublishStatus } = WorkflowDefinition;
+
       if (keyFind !== undefined) {
-        return Object.keys(WorkflowDefinition.PublishStatus).find(key => WorkflowDefinition.PublishStatus[key] === keyFind);
+        return Object.keys(PublishStatus).find(key => PublishStatus[key] === keyFind);
       }
-      return WorkflowDefinition.PublishStatus;
+      return PublishStatus;
     },
 
     /**
@@ -1404,10 +1536,12 @@ const convertUtils = {
      */
     getWorkflowDefinitionDurationUnit(keyFind) {
       const { WorkflowDefinition } = require('./grpc/proto/business_pb.js');
+      const { DurationUnit } = WorkflowDefinition;
+
       if (keyFind !== undefined) {
-        return Object.keys(WorkflowDefinition.DurationUnit).find(key => WorkflowDefinition.DurationUnit[key] === keyFind);
+        return Object.keys(DurationUnit).find(key => DurationUnit[key] === keyFind);
       }
-      return WorkflowDefinition.DurationUnit;
+      return DurationUnit;
     },
 
     convertWorkflowDefinitionFromGRPC(workflowDefinitionToConvert) {
@@ -1479,10 +1613,12 @@ const convertUtils = {
      */
     getWorkflowNodeAction(keyFind) {
       const { WorkflowNode } = require('./grpc/proto/business_pb.js');
+      const { Action } = WorkflowNode;
+
       if (keyFind !== undefined) {
-        return Object.keys(WorkflowNode.Action).find(key => WorkflowNode.Action[key] === keyFind);
+        return Object.keys(Action).find(key => Action[key] === keyFind);
       }
-      return WorkflowNode.Action;
+      return Action;
     },
 
     convertWorkflowNodeFromGRPC(workflowNodeToConvert) {
@@ -1551,12 +1687,18 @@ const convertUtils = {
         AND = 0;
         OR = 1;
      */
-    getWorkflowConditionConditionType() {
+    getWorkflowConditionConditionType({ key, value }) {
       const { WorkflowCondition } = require('./grpc/proto/business_pb.js');
-      if (keyFind !== undefined) {
-        return Object.keys(WorkflowCondition.ConditionType).find(key => WorkflowCondition.ConditionType[key] === keyFind);
+      const { ConditionType } = WorkflowCondition;
+
+      if (key !== undefined) {
+        // return value
+        return ConditionType[key];
+      } else if (value !== undefined) {
+        // return key
+        return Object.keys(ConditionType).find(keyItem => ConditionType[keyItem] === value);
       }
-      return WorkflowCondition.ConditionType;
+      return ConditionType;
     },
 
     /**
@@ -1572,12 +1714,17 @@ const convertUtils = {
         BETWEEN = 8;
         SQL = 9;
      */
-    getWorkflowConditionOperation() {
+    getWorkflowConditionOperation({ value, key }) {
       const { WorkflowCondition } = require('./grpc/proto/business_pb.js');
-      if (keyFind !== undefined) {
-        return Object.keys(WorkflowCondition.Operation).find(key => WorkflowCondition.Operation[key] === keyFind);
+      const { Operation } = WorkflowCondition;
+
+      if (key !== undefined) {
+        // return value
+        return Operation[key];
+      } else if (value !== undefined) {
+        return Object.keys(Operation).find(key => Operation[key] === value);
       }
-      return WorkflowCondition.Operation;
+      return Operation;
     },
 
     convertWorkflowConditionFromGRPC(workflowConditionToConvert) {
@@ -1587,13 +1734,13 @@ const convertUtils = {
           columName: workflowConditionToConvert.getColumnname(),
           value: workflowConditionToConvert.getValue(),
           conditionType: workflowConditionToConvert.getConditiontype(),
-          conditionTypeName: convertUtils.getWorkflowConditionConditionType(
-            workflowConditionToConvert.getConditiontype()
-          ),
+          conditionTypeName: convertUtils.getWorkflowConditionConditionType({
+            value:workflowConditionToConvert.getConditiontype()
+          }),
           operation: workflowConditionToConvert.getOperation(),
-          operationName: convertUtils.getWorkflowConditionOperation(
-            workflowConditionToConvert.getOpetation()
-          )
+          operationName: convertUtils.getWorkflowConditionOperation({
+            value: workflowConditionToConvert.getOpetation()
+          })
         };
       }
       return {

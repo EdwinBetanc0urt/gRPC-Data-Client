@@ -132,23 +132,8 @@ class BusinessData {
    * @returns {boolean}
    */
   isEmptyValue(value) {
-    if (value === undefined || value == null) {
-      return true;
-    } else if (value === -1 || value === '-1') {
-      return true;
-    } else if (typeof value === 'string') {
-      return Boolean(!value.trim().length);
-    } else if (typeof value === 'function' || typeof value === 'number' || typeof value === 'boolean' || Object.prototype.toString.call(value) === '[object Date]') {
-      return false;
-    } else if (Object.prototype.toString.call(value) === '[object Map]' || Object.prototype.toString.call(value) === '[object Set]') {
-      return Boolean(!value.size);
-    } else if (Array.isArray(value)) {
-      return Boolean(!value.length);
-    } else if (typeof value === 'object') {
-      return Boolean(!Object.keys(value).length);
-    }
-
-    return true;
+    const { isEmptyValue } = require('./src/convertUtils');
+    return isEmptyValue(value);
   }
 
   /**
@@ -274,7 +259,7 @@ class BusinessData {
    * @param {string}  formatToConvert
    * @return {object} Entity with records
    */
-  requestGetCountry({ countryUuid, countryId, isConvert = true, formatToConvert = 'object' }) {
+  requestGetCountry({ countryUuid, countryId, isConvert = true }) {
     const { GetCountryRequest } = require('./src/grpc/proto/core_functionality_pb.js');
     const request = new GetCountryRequest();
 
@@ -283,16 +268,13 @@ class BusinessData {
     request.setCountryuuid(countryUuid);
     //
     return this.getCoreFunctionalityService().getCountry(request)
-    .then(countryResponse => {
-      if (isConvert) {
-        const { convertCountryFromGRPC } = require('./src/convertUtils');
-        return convertCountryFromGRPC({
-          countryToConvert: countryResponse,
-          formatToConvert
-        });
-      }
-      return countryResponse;
-    });
+      .then(countryResponse => {
+        if (isConvert) {
+          const { convertCountryFromGRPC } = require('./src/convertUtils');
+          return convertCountryFromGRPC(countryResponse);
+        }
+        return countryResponse;
+      });
   }
 
   /**
@@ -347,7 +329,7 @@ class BusinessData {
   }
 
   // Request Organization list
-  requestListOrganizations({ roleUuid, roleId, pageToken, pageSize, isConvert = true, formatToConvert = 'object' }) {
+  requestListOrganizations({ roleUuid, roleId, pageToken, pageSize, isConvert = true }) {
     const { ListOrganizationsRequest } = require('./src/grpc/proto/core_functionality_pb.js');
 
     const request = new ListOrganizationsRequest();
@@ -365,10 +347,7 @@ class BusinessData {
           return {
             recordCount: organizationsListResponse.getRecordcount(),
             organizationsList: organizationsListResponse.getOrganizationsList().map(organization => {
-              return convertOrganizationFromGRPC({
-                organizationToConvert: organization,
-                formatToConvert
-              });
+              return convertOrganizationFromGRPC(organization);
             }),
             nextPageToken: organizationsListResponse.getNextPageToken(),
           };
@@ -378,7 +357,7 @@ class BusinessData {
   }
 
   // Request Warehouse list
-  requestListWarehouses({ organizationUuid, organizationId, pageToken, pageSize, isConvert = true, formatToConvert = 'object' }) {
+  requestListWarehouses({ organizationUuid, organizationId, pageToken, pageSize, isConvert = true }) {
     const { ListWarehousesRequest } = require('./src/grpc/proto/core_functionality_pb.js');
 
     const request = new ListWarehousesRequest();
@@ -396,10 +375,7 @@ class BusinessData {
           return {
             recordCount: warehousesListResponse.getRecordcount(),
             warehousesList: warehousesListResponse.getWarehousesList().map(warehouse => {
-              return convertWarehouseFromGRPC({
-                warehouseToConvert: warehouse,
-                formatToConvert
-              });
+              return convertWarehouseFromGRPC(warehouse);
             }),
             nextPageToken: warehousesListResponse.getNextPageToken(),
           };
@@ -445,7 +421,7 @@ class BusinessData {
     rollbackRequest.setRecordid(recordId);
 
     // set event type
-    const eventType = getRollbackEntityRequestEventType({ keyMatch: eventTypeExecuted });
+    const eventType = getRollbackEntityRequestEventType({ key: eventTypeExecuted });
     rollbackRequest.setEventtype(eventType);
 
     return this.getUserInterfaceService().rollbackEntity(rollbackRequest)
