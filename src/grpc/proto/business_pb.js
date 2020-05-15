@@ -1,3 +1,4 @@
+// source: proto/business.proto
 /**
  * @fileoverview
  * @enhanceable
@@ -11,9 +12,9 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-var proto_core_functionality_pb = require('../proto/core_functionality_pb.js');
+var proto_core_functionality_pb = require('@adempiere/grpc-core-client/src/grpc/proto/core_functionality_pb.js');
 goog.object.extend(proto, proto_core_functionality_pb);
-var proto_base_data_type_pb = require('../proto/base_data_type_pb.js');
+var proto_base_data_type_pb = require('@adempiere/grpc-core-client/src/grpc/proto/base_data_type_pb.js');
 goog.object.extend(proto, proto_base_data_type_pb);
 goog.exportSymbol('proto.data.Callout', null, global);
 goog.exportSymbol('proto.data.ChatEntry', null, global);
@@ -1767,9 +1768,12 @@ proto.data.GetReportOutputRequest.prototype.getPrintformatuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.GetReportOutputRequest} returns this
+ */
 proto.data.GetReportOutputRequest.prototype.setPrintformatuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1782,9 +1786,12 @@ proto.data.GetReportOutputRequest.prototype.getReportviewuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.GetReportOutputRequest} returns this
+ */
 proto.data.GetReportOutputRequest.prototype.setReportviewuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -1797,9 +1804,12 @@ proto.data.GetReportOutputRequest.prototype.getIssummary = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.data.GetReportOutputRequest} returns this
+ */
 proto.data.GetReportOutputRequest.prototype.setIssummary = function(value) {
-  jspb.Message.setProto3BooleanField(this, 3, value);
+  return jspb.Message.setProto3BooleanField(this, 3, value);
 };
 
 
@@ -1812,9 +1822,12 @@ proto.data.GetReportOutputRequest.prototype.getReportname = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.GetReportOutputRequest} returns this
+ */
 proto.data.GetReportOutputRequest.prototype.setReportname = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -1827,9 +1840,12 @@ proto.data.GetReportOutputRequest.prototype.getReporttype = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.GetReportOutputRequest} returns this
+ */
 proto.data.GetReportOutputRequest.prototype.setReporttype = function(value) {
-  jspb.Message.setProto3StringField(this, 6, value);
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -1843,17 +1859,21 @@ proto.data.GetReportOutputRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.GetReportOutputRequest} returns this
+*/
 proto.data.GetReportOutputRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 7, value);
+  return jspb.Message.setWrapperField(this, 7, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.GetReportOutputRequest} returns this
  */
 proto.data.GetReportOutputRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -1876,17 +1896,21 @@ proto.data.GetReportOutputRequest.prototype.getCriteria = function() {
 };
 
 
-/** @param {?proto.data.Criteria|undefined} value */
+/**
+ * @param {?proto.data.Criteria|undefined} value
+ * @return {!proto.data.GetReportOutputRequest} returns this
+*/
 proto.data.GetReportOutputRequest.prototype.setCriteria = function(value) {
-  jspb.Message.setWrapperField(this, 8, value);
+  return jspb.Message.setWrapperField(this, 8, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.GetReportOutputRequest} returns this
  */
 proto.data.GetReportOutputRequest.prototype.clearCriteria = function() {
-  this.setCriteria(undefined);
+  return this.setCriteria(undefined);
 };
 
 
@@ -2057,17 +2081,21 @@ proto.data.CreateEntityRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.CreateEntityRequest} returns this
+*/
 proto.data.CreateEntityRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.CreateEntityRequest} returns this
  */
 proto.data.CreateEntityRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -2089,9 +2117,12 @@ proto.data.CreateEntityRequest.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.CreateEntityRequest} returns this
+ */
 proto.data.CreateEntityRequest.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -2105,9 +2136,12 @@ proto.data.CreateEntityRequest.prototype.getAttributesList = function() {
 };
 
 
-/** @param {!Array<!proto.data.KeyValue>} value */
+/**
+ * @param {!Array<!proto.data.KeyValue>} value
+ * @return {!proto.data.CreateEntityRequest} returns this
+*/
 proto.data.CreateEntityRequest.prototype.setAttributesList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 3, value);
+  return jspb.Message.setRepeatedWrapperField(this, 3, value);
 };
 
 
@@ -2123,9 +2157,10 @@ proto.data.CreateEntityRequest.prototype.addAttributes = function(opt_value, opt
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.CreateEntityRequest} returns this
  */
 proto.data.CreateEntityRequest.prototype.clearAttributesList = function() {
-  this.setAttributesList([]);
+  return this.setAttributesList([]);
 };
 
 
@@ -2289,17 +2324,21 @@ proto.data.LockPrivateAccessRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.LockPrivateAccessRequest} returns this
+*/
 proto.data.LockPrivateAccessRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.LockPrivateAccessRequest} returns this
  */
 proto.data.LockPrivateAccessRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -2321,9 +2360,12 @@ proto.data.LockPrivateAccessRequest.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.LockPrivateAccessRequest} returns this
+ */
 proto.data.LockPrivateAccessRequest.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -2336,9 +2378,12 @@ proto.data.LockPrivateAccessRequest.prototype.getRecordid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.LockPrivateAccessRequest} returns this
+ */
 proto.data.LockPrivateAccessRequest.prototype.setRecordid = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -2351,9 +2396,12 @@ proto.data.LockPrivateAccessRequest.prototype.getUseruuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.LockPrivateAccessRequest} returns this
+ */
 proto.data.LockPrivateAccessRequest.prototype.setUseruuid = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -2530,9 +2578,12 @@ proto.data.GetEntityRequest.prototype.getUuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.GetEntityRequest} returns this
+ */
 proto.data.GetEntityRequest.prototype.setUuid = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -2545,9 +2596,12 @@ proto.data.GetEntityRequest.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.GetEntityRequest} returns this
+ */
 proto.data.GetEntityRequest.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -2560,9 +2614,12 @@ proto.data.GetEntityRequest.prototype.getRecordid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.GetEntityRequest} returns this
+ */
 proto.data.GetEntityRequest.prototype.setRecordid = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -2576,17 +2633,21 @@ proto.data.GetEntityRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.GetEntityRequest} returns this
+*/
 proto.data.GetEntityRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 4, value);
+  return jspb.Message.setWrapperField(this, 4, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.GetEntityRequest} returns this
  */
 proto.data.GetEntityRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -2609,17 +2670,21 @@ proto.data.GetEntityRequest.prototype.getCriteria = function() {
 };
 
 
-/** @param {?proto.data.Criteria|undefined} value */
+/**
+ * @param {?proto.data.Criteria|undefined} value
+ * @return {!proto.data.GetEntityRequest} returns this
+*/
 proto.data.GetEntityRequest.prototype.setCriteria = function(value) {
-  jspb.Message.setWrapperField(this, 5, value);
+  return jspb.Message.setWrapperField(this, 5, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.GetEntityRequest} returns this
  */
 proto.data.GetEntityRequest.prototype.clearCriteria = function() {
-  this.setCriteria(undefined);
+  return this.setCriteria(undefined);
 };
 
 
@@ -2792,17 +2857,21 @@ proto.data.GetPrivateAccessRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.GetPrivateAccessRequest} returns this
+*/
 proto.data.GetPrivateAccessRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.GetPrivateAccessRequest} returns this
  */
 proto.data.GetPrivateAccessRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -2824,9 +2893,12 @@ proto.data.GetPrivateAccessRequest.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.GetPrivateAccessRequest} returns this
+ */
 proto.data.GetPrivateAccessRequest.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -2839,9 +2911,12 @@ proto.data.GetPrivateAccessRequest.prototype.getRecordid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.GetPrivateAccessRequest} returns this
+ */
 proto.data.GetPrivateAccessRequest.prototype.setRecordid = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -2854,9 +2929,12 @@ proto.data.GetPrivateAccessRequest.prototype.getUseruuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.GetPrivateAccessRequest} returns this
+ */
 proto.data.GetPrivateAccessRequest.prototype.setUseruuid = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -3020,17 +3098,21 @@ proto.data.UnlockPrivateAccessRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.UnlockPrivateAccessRequest} returns this
+*/
 proto.data.UnlockPrivateAccessRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.UnlockPrivateAccessRequest} returns this
  */
 proto.data.UnlockPrivateAccessRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -3052,9 +3134,12 @@ proto.data.UnlockPrivateAccessRequest.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.UnlockPrivateAccessRequest} returns this
+ */
 proto.data.UnlockPrivateAccessRequest.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -3067,9 +3152,12 @@ proto.data.UnlockPrivateAccessRequest.prototype.getRecordid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.UnlockPrivateAccessRequest} returns this
+ */
 proto.data.UnlockPrivateAccessRequest.prototype.setRecordid = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -3082,9 +3170,12 @@ proto.data.UnlockPrivateAccessRequest.prototype.getUseruuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.UnlockPrivateAccessRequest} returns this
+ */
 proto.data.UnlockPrivateAccessRequest.prototype.setUseruuid = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -3233,9 +3324,12 @@ proto.data.PrivateAccess.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.PrivateAccess} returns this
+ */
 proto.data.PrivateAccess.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -3248,9 +3342,12 @@ proto.data.PrivateAccess.prototype.getRecordid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.PrivateAccess} returns this
+ */
 proto.data.PrivateAccess.prototype.setRecordid = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -3263,9 +3360,12 @@ proto.data.PrivateAccess.prototype.getUseruuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.PrivateAccess} returns this
+ */
 proto.data.PrivateAccess.prototype.setUseruuid = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -3438,17 +3538,21 @@ proto.data.RollbackEntityRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.RollbackEntityRequest} returns this
+*/
 proto.data.RollbackEntityRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.RollbackEntityRequest} returns this
  */
 proto.data.RollbackEntityRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -3470,9 +3574,12 @@ proto.data.RollbackEntityRequest.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.RollbackEntityRequest} returns this
+ */
 proto.data.RollbackEntityRequest.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -3485,9 +3592,12 @@ proto.data.RollbackEntityRequest.prototype.getRecordid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.RollbackEntityRequest} returns this
+ */
 proto.data.RollbackEntityRequest.prototype.setRecordid = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -3500,9 +3610,12 @@ proto.data.RollbackEntityRequest.prototype.getEventtype = function() {
 };
 
 
-/** @param {!proto.data.RollbackEntityRequest.EventType} value */
+/**
+ * @param {!proto.data.RollbackEntityRequest.EventType} value
+ * @return {!proto.data.RollbackEntityRequest} returns this
+ */
 proto.data.RollbackEntityRequest.prototype.setEventtype = function(value) {
-  jspb.Message.setProto3EnumField(this, 4, value);
+  return jspb.Message.setProto3EnumField(this, 4, value);
 };
 
 
@@ -3688,17 +3801,21 @@ proto.data.UpdateEntityRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.UpdateEntityRequest} returns this
+*/
 proto.data.UpdateEntityRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.UpdateEntityRequest} returns this
  */
 proto.data.UpdateEntityRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -3720,9 +3837,12 @@ proto.data.UpdateEntityRequest.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.UpdateEntityRequest} returns this
+ */
 proto.data.UpdateEntityRequest.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -3735,9 +3855,12 @@ proto.data.UpdateEntityRequest.prototype.getUuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.UpdateEntityRequest} returns this
+ */
 proto.data.UpdateEntityRequest.prototype.setUuid = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -3750,9 +3873,12 @@ proto.data.UpdateEntityRequest.prototype.getRecordid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.UpdateEntityRequest} returns this
+ */
 proto.data.UpdateEntityRequest.prototype.setRecordid = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -3766,9 +3892,12 @@ proto.data.UpdateEntityRequest.prototype.getAttributesList = function() {
 };
 
 
-/** @param {!Array<!proto.data.KeyValue>} value */
+/**
+ * @param {!Array<!proto.data.KeyValue>} value
+ * @return {!proto.data.UpdateEntityRequest} returns this
+*/
 proto.data.UpdateEntityRequest.prototype.setAttributesList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 5, value);
+  return jspb.Message.setRepeatedWrapperField(this, 5, value);
 };
 
 
@@ -3784,9 +3913,10 @@ proto.data.UpdateEntityRequest.prototype.addAttributes = function(opt_value, opt
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.UpdateEntityRequest} returns this
  */
 proto.data.UpdateEntityRequest.prototype.clearAttributesList = function() {
-  this.setAttributesList([]);
+  return this.setAttributesList([]);
 };
 
 
@@ -3950,17 +4080,21 @@ proto.data.DeleteEntityRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.DeleteEntityRequest} returns this
+*/
 proto.data.DeleteEntityRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.DeleteEntityRequest} returns this
  */
 proto.data.DeleteEntityRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -3982,9 +4116,12 @@ proto.data.DeleteEntityRequest.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.DeleteEntityRequest} returns this
+ */
 proto.data.DeleteEntityRequest.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -3997,9 +4134,12 @@ proto.data.DeleteEntityRequest.prototype.getUuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.DeleteEntityRequest} returns this
+ */
 proto.data.DeleteEntityRequest.prototype.setUuid = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -4012,9 +4152,12 @@ proto.data.DeleteEntityRequest.prototype.getRecordid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.DeleteEntityRequest} returns this
+ */
 proto.data.DeleteEntityRequest.prototype.setRecordid = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -4173,9 +4316,12 @@ proto.data.ListBrowserItemsResponse.prototype.getRecordcount = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListBrowserItemsResponse} returns this
+ */
 proto.data.ListBrowserItemsResponse.prototype.setRecordcount = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -4189,9 +4335,12 @@ proto.data.ListBrowserItemsResponse.prototype.getRecordsList = function() {
 };
 
 
-/** @param {!Array<!proto.data.Entity>} value */
+/**
+ * @param {!Array<!proto.data.Entity>} value
+ * @return {!proto.data.ListBrowserItemsResponse} returns this
+*/
 proto.data.ListBrowserItemsResponse.prototype.setRecordsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -4207,9 +4356,10 @@ proto.data.ListBrowserItemsResponse.prototype.addRecords = function(opt_value, o
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.ListBrowserItemsResponse} returns this
  */
 proto.data.ListBrowserItemsResponse.prototype.clearRecordsList = function() {
-  this.setRecordsList([]);
+  return this.setRecordsList([]);
 };
 
 
@@ -4222,9 +4372,12 @@ proto.data.ListBrowserItemsResponse.prototype.getNextPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListBrowserItemsResponse} returns this
+ */
 proto.data.ListBrowserItemsResponse.prototype.setNextPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -4361,9 +4514,12 @@ proto.data.ContextInfoValue.prototype.getMessagetext = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ContextInfoValue} returns this
+ */
 proto.data.ContextInfoValue.prototype.setMessagetext = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -4376,9 +4532,12 @@ proto.data.ContextInfoValue.prototype.getMessagetip = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ContextInfoValue} returns this
+ */
 proto.data.ContextInfoValue.prototype.setMessagetip = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -4543,9 +4702,12 @@ proto.data.GetLookupItemRequest.prototype.getId = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.GetLookupItemRequest} returns this
+ */
 proto.data.GetLookupItemRequest.prototype.setId = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -4558,9 +4720,12 @@ proto.data.GetLookupItemRequest.prototype.getUuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.GetLookupItemRequest} returns this
+ */
 proto.data.GetLookupItemRequest.prototype.setUuid = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -4574,17 +4739,21 @@ proto.data.GetLookupItemRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.GetLookupItemRequest} returns this
+*/
 proto.data.GetLookupItemRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 3, value);
+  return jspb.Message.setWrapperField(this, 3, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.GetLookupItemRequest} returns this
  */
 proto.data.GetLookupItemRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -4607,17 +4776,21 @@ proto.data.GetLookupItemRequest.prototype.getCriteria = function() {
 };
 
 
-/** @param {?proto.data.Criteria|undefined} value */
+/**
+ * @param {?proto.data.Criteria|undefined} value
+ * @return {!proto.data.GetLookupItemRequest} returns this
+*/
 proto.data.GetLookupItemRequest.prototype.setCriteria = function(value) {
-  jspb.Message.setWrapperField(this, 4, value);
+  return jspb.Message.setWrapperField(this, 4, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.GetLookupItemRequest} returns this
  */
 proto.data.GetLookupItemRequest.prototype.clearCriteria = function() {
-  this.setCriteria(undefined);
+  return this.setCriteria(undefined);
 };
 
 
@@ -4766,17 +4939,21 @@ proto.data.GetDefaultValueRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.GetDefaultValueRequest} returns this
+*/
 proto.data.GetDefaultValueRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.GetDefaultValueRequest} returns this
  */
 proto.data.GetDefaultValueRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -4798,9 +4975,12 @@ proto.data.GetDefaultValueRequest.prototype.getQuery = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.GetDefaultValueRequest} returns this
+ */
 proto.data.GetDefaultValueRequest.prototype.setQuery = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -4952,17 +5132,21 @@ proto.data.GetContextInfoValueRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.GetContextInfoValueRequest} returns this
+*/
 proto.data.GetContextInfoValueRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.GetContextInfoValueRequest} returns this
  */
 proto.data.GetContextInfoValueRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -4984,9 +5168,12 @@ proto.data.GetContextInfoValueRequest.prototype.getUuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.GetContextInfoValueRequest} returns this
+ */
 proto.data.GetContextInfoValueRequest.prototype.setUuid = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -4999,9 +5186,12 @@ proto.data.GetContextInfoValueRequest.prototype.getQuery = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.GetContextInfoValueRequest} returns this
+ */
 proto.data.GetContextInfoValueRequest.prototype.setQuery = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -5092,7 +5282,7 @@ proto.data.LookupItem.deserializeBinaryFromReader = function(msg, reader) {
     case 4:
       var value = msg.getValuesMap();
       reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readMessage, proto.data.Value.deserializeBinaryFromReader, "");
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readMessage, proto.data.Value.deserializeBinaryFromReader, "", new proto.data.Value());
          });
       break;
     default:
@@ -5161,9 +5351,12 @@ proto.data.LookupItem.prototype.getId = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.LookupItem} returns this
+ */
 proto.data.LookupItem.prototype.setId = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -5176,9 +5369,12 @@ proto.data.LookupItem.prototype.getUuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.LookupItem} returns this
+ */
 proto.data.LookupItem.prototype.setUuid = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -5191,9 +5387,12 @@ proto.data.LookupItem.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.LookupItem} returns this
+ */
 proto.data.LookupItem.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -5212,10 +5411,11 @@ proto.data.LookupItem.prototype.getValuesMap = function(opt_noLazyCreate) {
 
 /**
  * Clears values from the map. The map will be non-null.
+ * @return {!proto.data.LookupItem} returns this
  */
 proto.data.LookupItem.prototype.clearValuesMap = function() {
   this.getValuesMap().clear();
-};
+  return this;};
 
 
 
@@ -5380,17 +5580,21 @@ proto.data.ListLookupItemsRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.ListLookupItemsRequest} returns this
+*/
 proto.data.ListLookupItemsRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 3, value);
+  return jspb.Message.setWrapperField(this, 3, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.ListLookupItemsRequest} returns this
  */
 proto.data.ListLookupItemsRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -5413,17 +5617,21 @@ proto.data.ListLookupItemsRequest.prototype.getCriteria = function() {
 };
 
 
-/** @param {?proto.data.Criteria|undefined} value */
+/**
+ * @param {?proto.data.Criteria|undefined} value
+ * @return {!proto.data.ListLookupItemsRequest} returns this
+*/
 proto.data.ListLookupItemsRequest.prototype.setCriteria = function(value) {
-  jspb.Message.setWrapperField(this, 4, value);
+  return jspb.Message.setWrapperField(this, 4, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.ListLookupItemsRequest} returns this
  */
 proto.data.ListLookupItemsRequest.prototype.clearCriteria = function() {
-  this.setCriteria(undefined);
+  return this.setCriteria(undefined);
 };
 
 
@@ -5445,9 +5653,12 @@ proto.data.ListLookupItemsRequest.prototype.getPageSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListLookupItemsRequest} returns this
+ */
 proto.data.ListLookupItemsRequest.prototype.setPageSize = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -5460,9 +5671,12 @@ proto.data.ListLookupItemsRequest.prototype.getPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListLookupItemsRequest} returns this
+ */
 proto.data.ListLookupItemsRequest.prototype.setPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 6, value);
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -5621,9 +5835,12 @@ proto.data.ListLookupItemsResponse.prototype.getRecordcount = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListLookupItemsResponse} returns this
+ */
 proto.data.ListLookupItemsResponse.prototype.setRecordcount = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -5637,9 +5854,12 @@ proto.data.ListLookupItemsResponse.prototype.getRecordsList = function() {
 };
 
 
-/** @param {!Array<!proto.data.LookupItem>} value */
+/**
+ * @param {!Array<!proto.data.LookupItem>} value
+ * @return {!proto.data.ListLookupItemsResponse} returns this
+*/
 proto.data.ListLookupItemsResponse.prototype.setRecordsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -5655,9 +5875,10 @@ proto.data.ListLookupItemsResponse.prototype.addRecords = function(opt_value, op
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.ListLookupItemsResponse} returns this
  */
 proto.data.ListLookupItemsResponse.prototype.clearRecordsList = function() {
-  this.setRecordsList([]);
+  return this.setRecordsList([]);
 };
 
 
@@ -5670,9 +5891,12 @@ proto.data.ListLookupItemsResponse.prototype.getNextPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListLookupItemsResponse} returns this
+ */
 proto.data.ListLookupItemsResponse.prototype.setNextPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -5838,17 +6062,21 @@ proto.data.ListEntitiesRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.ListEntitiesRequest} returns this
+*/
 proto.data.ListEntitiesRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 3, value);
+  return jspb.Message.setWrapperField(this, 3, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.ListEntitiesRequest} returns this
  */
 proto.data.ListEntitiesRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -5871,17 +6099,21 @@ proto.data.ListEntitiesRequest.prototype.getCriteria = function() {
 };
 
 
-/** @param {?proto.data.Criteria|undefined} value */
+/**
+ * @param {?proto.data.Criteria|undefined} value
+ * @return {!proto.data.ListEntitiesRequest} returns this
+*/
 proto.data.ListEntitiesRequest.prototype.setCriteria = function(value) {
-  jspb.Message.setWrapperField(this, 4, value);
+  return jspb.Message.setWrapperField(this, 4, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.ListEntitiesRequest} returns this
  */
 proto.data.ListEntitiesRequest.prototype.clearCriteria = function() {
-  this.setCriteria(undefined);
+  return this.setCriteria(undefined);
 };
 
 
@@ -5903,9 +6135,12 @@ proto.data.ListEntitiesRequest.prototype.getPageSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListEntitiesRequest} returns this
+ */
 proto.data.ListEntitiesRequest.prototype.setPageSize = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -5918,9 +6153,12 @@ proto.data.ListEntitiesRequest.prototype.getPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListEntitiesRequest} returns this
+ */
 proto.data.ListEntitiesRequest.prototype.setPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 6, value);
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -6079,9 +6317,12 @@ proto.data.ListEntitiesResponse.prototype.getRecordcount = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListEntitiesResponse} returns this
+ */
 proto.data.ListEntitiesResponse.prototype.setRecordcount = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -6095,9 +6336,12 @@ proto.data.ListEntitiesResponse.prototype.getRecordsList = function() {
 };
 
 
-/** @param {!Array<!proto.data.Entity>} value */
+/**
+ * @param {!Array<!proto.data.Entity>} value
+ * @return {!proto.data.ListEntitiesResponse} returns this
+*/
 proto.data.ListEntitiesResponse.prototype.setRecordsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -6113,9 +6357,10 @@ proto.data.ListEntitiesResponse.prototype.addRecords = function(opt_value, opt_i
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.ListEntitiesResponse} returns this
  */
 proto.data.ListEntitiesResponse.prototype.clearRecordsList = function() {
-  this.setRecordsList([]);
+  return this.setRecordsList([]);
 };
 
 
@@ -6128,9 +6373,12 @@ proto.data.ListEntitiesResponse.prototype.getNextPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListEntitiesResponse} returns this
+ */
 proto.data.ListEntitiesResponse.prototype.setNextPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -6380,17 +6628,21 @@ proto.data.RunCalloutRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.RunCalloutRequest} returns this
+*/
 proto.data.RunCalloutRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.RunCalloutRequest} returns this
  */
 proto.data.RunCalloutRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -6412,9 +6664,12 @@ proto.data.RunCalloutRequest.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.RunCalloutRequest} returns this
+ */
 proto.data.RunCalloutRequest.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -6427,9 +6682,12 @@ proto.data.RunCalloutRequest.prototype.getWindowuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.RunCalloutRequest} returns this
+ */
 proto.data.RunCalloutRequest.prototype.setWindowuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -6442,9 +6700,12 @@ proto.data.RunCalloutRequest.prototype.getTabuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.RunCalloutRequest} returns this
+ */
 proto.data.RunCalloutRequest.prototype.setTabuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -6457,9 +6718,12 @@ proto.data.RunCalloutRequest.prototype.getCallout = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.RunCalloutRequest} returns this
+ */
 proto.data.RunCalloutRequest.prototype.setCallout = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -6472,9 +6736,12 @@ proto.data.RunCalloutRequest.prototype.getColumnname = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.RunCalloutRequest} returns this
+ */
 proto.data.RunCalloutRequest.prototype.setColumnname = function(value) {
-  jspb.Message.setProto3StringField(this, 6, value);
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -6488,17 +6755,21 @@ proto.data.RunCalloutRequest.prototype.getOldvalue = function() {
 };
 
 
-/** @param {?proto.data.Value|undefined} value */
+/**
+ * @param {?proto.data.Value|undefined} value
+ * @return {!proto.data.RunCalloutRequest} returns this
+*/
 proto.data.RunCalloutRequest.prototype.setOldvalue = function(value) {
-  jspb.Message.setWrapperField(this, 7, value);
+  return jspb.Message.setWrapperField(this, 7, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.RunCalloutRequest} returns this
  */
 proto.data.RunCalloutRequest.prototype.clearOldvalue = function() {
-  this.setOldvalue(undefined);
+  return this.setOldvalue(undefined);
 };
 
 
@@ -6521,17 +6792,21 @@ proto.data.RunCalloutRequest.prototype.getValue = function() {
 };
 
 
-/** @param {?proto.data.Value|undefined} value */
+/**
+ * @param {?proto.data.Value|undefined} value
+ * @return {!proto.data.RunCalloutRequest} returns this
+*/
 proto.data.RunCalloutRequest.prototype.setValue = function(value) {
-  jspb.Message.setWrapperField(this, 8, value);
+  return jspb.Message.setWrapperField(this, 8, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.RunCalloutRequest} returns this
  */
 proto.data.RunCalloutRequest.prototype.clearValue = function() {
-  this.setValue(undefined);
+  return this.setValue(undefined);
 };
 
 
@@ -6553,9 +6828,12 @@ proto.data.RunCalloutRequest.prototype.getWindowno = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.RunCalloutRequest} returns this
+ */
 proto.data.RunCalloutRequest.prototype.setWindowno = function(value) {
-  jspb.Message.setProto3IntField(this, 9, value);
+  return jspb.Message.setProto3IntField(this, 9, value);
 };
 
 
@@ -6569,9 +6847,12 @@ proto.data.RunCalloutRequest.prototype.getAttributesList = function() {
 };
 
 
-/** @param {!Array<!proto.data.KeyValue>} value */
+/**
+ * @param {!Array<!proto.data.KeyValue>} value
+ * @return {!proto.data.RunCalloutRequest} returns this
+*/
 proto.data.RunCalloutRequest.prototype.setAttributesList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 10, value);
+  return jspb.Message.setRepeatedWrapperField(this, 10, value);
 };
 
 
@@ -6587,9 +6868,10 @@ proto.data.RunCalloutRequest.prototype.addAttributes = function(opt_value, opt_i
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.RunCalloutRequest} returns this
  */
 proto.data.RunCalloutRequest.prototype.clearAttributesList = function() {
-  this.setAttributesList([]);
+  return this.setAttributesList([]);
 };
 
 
@@ -6670,7 +6952,7 @@ proto.data.Callout.deserializeBinaryFromReader = function(msg, reader) {
     case 2:
       var value = msg.getValuesMap();
       reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readMessage, proto.data.Value.deserializeBinaryFromReader, "");
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readMessage, proto.data.Value.deserializeBinaryFromReader, "", new proto.data.Value());
          });
       break;
     default:
@@ -6725,9 +7007,12 @@ proto.data.Callout.prototype.getResult = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.Callout} returns this
+ */
 proto.data.Callout.prototype.setResult = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -6746,10 +7031,11 @@ proto.data.Callout.prototype.getValuesMap = function(opt_noLazyCreate) {
 
 /**
  * Clears values from the map. The map will be non-null.
+ * @return {!proto.data.Callout} returns this
  */
 proto.data.Callout.prototype.clearValuesMap = function() {
   this.getValuesMap().clear();
-};
+  return this;};
 
 
 
@@ -7009,17 +7295,21 @@ proto.data.RunBusinessProcessRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.RunBusinessProcessRequest} returns this
+*/
 proto.data.RunBusinessProcessRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.RunBusinessProcessRequest} returns this
  */
 proto.data.RunBusinessProcessRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -7041,9 +7331,12 @@ proto.data.RunBusinessProcessRequest.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.RunBusinessProcessRequest} returns this
+ */
 proto.data.RunBusinessProcessRequest.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -7056,9 +7349,12 @@ proto.data.RunBusinessProcessRequest.prototype.getUuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.RunBusinessProcessRequest} returns this
+ */
 proto.data.RunBusinessProcessRequest.prototype.setUuid = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -7071,9 +7367,12 @@ proto.data.RunBusinessProcessRequest.prototype.getRecordid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.RunBusinessProcessRequest} returns this
+ */
 proto.data.RunBusinessProcessRequest.prototype.setRecordid = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -7086,9 +7385,12 @@ proto.data.RunBusinessProcessRequest.prototype.getTableselectedid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.RunBusinessProcessRequest} returns this
+ */
 proto.data.RunBusinessProcessRequest.prototype.setTableselectedid = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -7101,9 +7403,12 @@ proto.data.RunBusinessProcessRequest.prototype.getReporttype = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.RunBusinessProcessRequest} returns this
+ */
 proto.data.RunBusinessProcessRequest.prototype.setReporttype = function(value) {
-  jspb.Message.setProto3StringField(this, 6, value);
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -7116,9 +7421,12 @@ proto.data.RunBusinessProcessRequest.prototype.getPrintformatuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.RunBusinessProcessRequest} returns this
+ */
 proto.data.RunBusinessProcessRequest.prototype.setPrintformatuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 7, value);
+  return jspb.Message.setProto3StringField(this, 7, value);
 };
 
 
@@ -7131,9 +7439,12 @@ proto.data.RunBusinessProcessRequest.prototype.getReportviewuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.RunBusinessProcessRequest} returns this
+ */
 proto.data.RunBusinessProcessRequest.prototype.setReportviewuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 8, value);
+  return jspb.Message.setProto3StringField(this, 8, value);
 };
 
 
@@ -7146,9 +7457,12 @@ proto.data.RunBusinessProcessRequest.prototype.getIssummary = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.data.RunBusinessProcessRequest} returns this
+ */
 proto.data.RunBusinessProcessRequest.prototype.setIssummary = function(value) {
-  jspb.Message.setProto3BooleanField(this, 9, value);
+  return jspb.Message.setProto3BooleanField(this, 9, value);
 };
 
 
@@ -7162,9 +7476,12 @@ proto.data.RunBusinessProcessRequest.prototype.getParametersList = function() {
 };
 
 
-/** @param {!Array<!proto.data.KeyValue>} value */
+/**
+ * @param {!Array<!proto.data.KeyValue>} value
+ * @return {!proto.data.RunBusinessProcessRequest} returns this
+*/
 proto.data.RunBusinessProcessRequest.prototype.setParametersList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 10, value);
+  return jspb.Message.setRepeatedWrapperField(this, 10, value);
 };
 
 
@@ -7180,9 +7497,10 @@ proto.data.RunBusinessProcessRequest.prototype.addParameters = function(opt_valu
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.RunBusinessProcessRequest} returns this
  */
 proto.data.RunBusinessProcessRequest.prototype.clearParametersList = function() {
-  this.setParametersList([]);
+  return this.setParametersList([]);
 };
 
 
@@ -7196,9 +7514,12 @@ proto.data.RunBusinessProcessRequest.prototype.getSelectionsList = function() {
 };
 
 
-/** @param {!Array<!proto.data.KeyValueSelection>} value */
+/**
+ * @param {!Array<!proto.data.KeyValueSelection>} value
+ * @return {!proto.data.RunBusinessProcessRequest} returns this
+*/
 proto.data.RunBusinessProcessRequest.prototype.setSelectionsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 11, value);
+  return jspb.Message.setRepeatedWrapperField(this, 11, value);
 };
 
 
@@ -7214,9 +7535,10 @@ proto.data.RunBusinessProcessRequest.prototype.addSelections = function(opt_valu
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.RunBusinessProcessRequest} returns this
  */
 proto.data.RunBusinessProcessRequest.prototype.clearSelectionsList = function() {
-  this.setSelectionsList([]);
+  return this.setSelectionsList([]);
 };
 
 
@@ -7416,17 +7738,21 @@ proto.data.ListProcessLogsRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.ListProcessLogsRequest} returns this
+*/
 proto.data.ListProcessLogsRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.ListProcessLogsRequest} returns this
  */
 proto.data.ListProcessLogsRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -7448,9 +7774,12 @@ proto.data.ListProcessLogsRequest.prototype.getUseruuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListProcessLogsRequest} returns this
+ */
 proto.data.ListProcessLogsRequest.prototype.setUseruuid = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -7463,9 +7792,12 @@ proto.data.ListProcessLogsRequest.prototype.getInstanceuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListProcessLogsRequest} returns this
+ */
 proto.data.ListProcessLogsRequest.prototype.setInstanceuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -7478,9 +7810,12 @@ proto.data.ListProcessLogsRequest.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListProcessLogsRequest} returns this
+ */
 proto.data.ListProcessLogsRequest.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -7493,9 +7828,12 @@ proto.data.ListProcessLogsRequest.prototype.getRecordid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListProcessLogsRequest} returns this
+ */
 proto.data.ListProcessLogsRequest.prototype.setRecordid = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -7508,9 +7846,12 @@ proto.data.ListProcessLogsRequest.prototype.getPageSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListProcessLogsRequest} returns this
+ */
 proto.data.ListProcessLogsRequest.prototype.setPageSize = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  return jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -7523,9 +7864,12 @@ proto.data.ListProcessLogsRequest.prototype.getPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListProcessLogsRequest} returns this
+ */
 proto.data.ListProcessLogsRequest.prototype.setPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 7, value);
+  return jspb.Message.setProto3StringField(this, 7, value);
 };
 
 
@@ -7684,9 +8028,12 @@ proto.data.ListProcessLogsResponse.prototype.getRecordcount = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListProcessLogsResponse} returns this
+ */
 proto.data.ListProcessLogsResponse.prototype.setRecordcount = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -7700,9 +8047,12 @@ proto.data.ListProcessLogsResponse.prototype.getProcesslogsList = function() {
 };
 
 
-/** @param {!Array<!proto.data.ProcessLog>} value */
+/**
+ * @param {!Array<!proto.data.ProcessLog>} value
+ * @return {!proto.data.ListProcessLogsResponse} returns this
+*/
 proto.data.ListProcessLogsResponse.prototype.setProcesslogsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -7718,9 +8068,10 @@ proto.data.ListProcessLogsResponse.prototype.addProcesslogs = function(opt_value
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.ListProcessLogsResponse} returns this
  */
 proto.data.ListProcessLogsResponse.prototype.clearProcesslogsList = function() {
-  this.setProcesslogsList([]);
+  return this.setProcesslogsList([]);
 };
 
 
@@ -7733,9 +8084,12 @@ proto.data.ListProcessLogsResponse.prototype.getNextPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListProcessLogsResponse} returns this
+ */
 proto.data.ListProcessLogsResponse.prototype.setNextPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -7923,17 +8277,21 @@ proto.data.ListRecentItemsRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.ListRecentItemsRequest} returns this
+*/
 proto.data.ListRecentItemsRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.ListRecentItemsRequest} returns this
  */
 proto.data.ListRecentItemsRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -7955,9 +8313,12 @@ proto.data.ListRecentItemsRequest.prototype.getUseruuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListRecentItemsRequest} returns this
+ */
 proto.data.ListRecentItemsRequest.prototype.setUseruuid = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -7970,9 +8331,12 @@ proto.data.ListRecentItemsRequest.prototype.getRoleuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListRecentItemsRequest} returns this
+ */
 proto.data.ListRecentItemsRequest.prototype.setRoleuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -7985,9 +8349,12 @@ proto.data.ListRecentItemsRequest.prototype.getCurrentsession = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.data.ListRecentItemsRequest} returns this
+ */
 proto.data.ListRecentItemsRequest.prototype.setCurrentsession = function(value) {
-  jspb.Message.setProto3BooleanField(this, 4, value);
+  return jspb.Message.setProto3BooleanField(this, 4, value);
 };
 
 
@@ -8000,9 +8367,12 @@ proto.data.ListRecentItemsRequest.prototype.getPageSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListRecentItemsRequest} returns this
+ */
 proto.data.ListRecentItemsRequest.prototype.setPageSize = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -8015,9 +8385,12 @@ proto.data.ListRecentItemsRequest.prototype.getPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListRecentItemsRequest} returns this
+ */
 proto.data.ListRecentItemsRequest.prototype.setPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 6, value);
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -8274,9 +8647,12 @@ proto.data.RecentItem.prototype.getMenuuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.RecentItem} returns this
+ */
 proto.data.RecentItem.prototype.setMenuuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -8289,9 +8665,12 @@ proto.data.RecentItem.prototype.getMenuname = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.RecentItem} returns this
+ */
 proto.data.RecentItem.prototype.setMenuname = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -8304,9 +8683,12 @@ proto.data.RecentItem.prototype.getMenudescription = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.RecentItem} returns this
+ */
 proto.data.RecentItem.prototype.setMenudescription = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -8319,9 +8701,12 @@ proto.data.RecentItem.prototype.getWindowuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.RecentItem} returns this
+ */
 proto.data.RecentItem.prototype.setWindowuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -8334,9 +8719,12 @@ proto.data.RecentItem.prototype.getTabuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.RecentItem} returns this
+ */
 proto.data.RecentItem.prototype.setTabuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -8349,9 +8737,12 @@ proto.data.RecentItem.prototype.getTableid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.RecentItem} returns this
+ */
 proto.data.RecentItem.prototype.setTableid = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  return jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -8364,9 +8755,12 @@ proto.data.RecentItem.prototype.getRecordid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.RecentItem} returns this
+ */
 proto.data.RecentItem.prototype.setRecordid = function(value) {
-  jspb.Message.setProto3IntField(this, 7, value);
+  return jspb.Message.setProto3IntField(this, 7, value);
 };
 
 
@@ -8379,9 +8773,12 @@ proto.data.RecentItem.prototype.getDisplayname = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.RecentItem} returns this
+ */
 proto.data.RecentItem.prototype.setDisplayname = function(value) {
-  jspb.Message.setProto3StringField(this, 8, value);
+  return jspb.Message.setProto3StringField(this, 8, value);
 };
 
 
@@ -8394,9 +8791,12 @@ proto.data.RecentItem.prototype.getRecorduuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.RecentItem} returns this
+ */
 proto.data.RecentItem.prototype.setRecorduuid = function(value) {
-  jspb.Message.setProto3StringField(this, 9, value);
+  return jspb.Message.setProto3StringField(this, 9, value);
 };
 
 
@@ -8409,9 +8809,12 @@ proto.data.RecentItem.prototype.getUpdated = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.RecentItem} returns this
+ */
 proto.data.RecentItem.prototype.setUpdated = function(value) {
-  jspb.Message.setProto3IntField(this, 10, value);
+  return jspb.Message.setProto3IntField(this, 10, value);
 };
 
 
@@ -8424,9 +8827,12 @@ proto.data.RecentItem.prototype.getReferenceuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.RecentItem} returns this
+ */
 proto.data.RecentItem.prototype.setReferenceuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 11, value);
+  return jspb.Message.setProto3StringField(this, 11, value);
 };
 
 
@@ -8439,9 +8845,12 @@ proto.data.RecentItem.prototype.getAction = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.RecentItem} returns this
+ */
 proto.data.RecentItem.prototype.setAction = function(value) {
-  jspb.Message.setProto3StringField(this, 12, value);
+  return jspb.Message.setProto3StringField(this, 12, value);
 };
 
 
@@ -8600,9 +9009,12 @@ proto.data.ListRecentItemsResponse.prototype.getRecordcount = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListRecentItemsResponse} returns this
+ */
 proto.data.ListRecentItemsResponse.prototype.setRecordcount = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -8616,9 +9028,12 @@ proto.data.ListRecentItemsResponse.prototype.getRecentitemsList = function() {
 };
 
 
-/** @param {!Array<!proto.data.RecentItem>} value */
+/**
+ * @param {!Array<!proto.data.RecentItem>} value
+ * @return {!proto.data.ListRecentItemsResponse} returns this
+*/
 proto.data.ListRecentItemsResponse.prototype.setRecentitemsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -8634,9 +9049,10 @@ proto.data.ListRecentItemsResponse.prototype.addRecentitems = function(opt_value
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.ListRecentItemsResponse} returns this
  */
 proto.data.ListRecentItemsResponse.prototype.clearRecentitemsList = function() {
-  this.setRecentitemsList([]);
+  return this.setRecentitemsList([]);
 };
 
 
@@ -8649,9 +9065,12 @@ proto.data.ListRecentItemsResponse.prototype.getNextPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListRecentItemsResponse} returns this
+ */
 proto.data.ListRecentItemsResponse.prototype.setNextPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -8815,17 +9234,21 @@ proto.data.ListFavoritesRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.ListFavoritesRequest} returns this
+*/
 proto.data.ListFavoritesRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.ListFavoritesRequest} returns this
  */
 proto.data.ListFavoritesRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -8847,9 +9270,12 @@ proto.data.ListFavoritesRequest.prototype.getUseruuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListFavoritesRequest} returns this
+ */
 proto.data.ListFavoritesRequest.prototype.setUseruuid = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -8862,9 +9288,12 @@ proto.data.ListFavoritesRequest.prototype.getPageSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListFavoritesRequest} returns this
+ */
 proto.data.ListFavoritesRequest.prototype.setPageSize = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -8877,9 +9306,12 @@ proto.data.ListFavoritesRequest.prototype.getPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListFavoritesRequest} returns this
+ */
 proto.data.ListFavoritesRequest.prototype.setPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -9052,9 +9484,12 @@ proto.data.Favorite.prototype.getMenuuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.Favorite} returns this
+ */
 proto.data.Favorite.prototype.setMenuuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -9067,9 +9502,12 @@ proto.data.Favorite.prototype.getMenuname = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.Favorite} returns this
+ */
 proto.data.Favorite.prototype.setMenuname = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -9082,9 +9520,12 @@ proto.data.Favorite.prototype.getMenudescription = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.Favorite} returns this
+ */
 proto.data.Favorite.prototype.setMenudescription = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -9097,9 +9538,12 @@ proto.data.Favorite.prototype.getReferenceuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.Favorite} returns this
+ */
 proto.data.Favorite.prototype.setReferenceuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -9112,9 +9556,12 @@ proto.data.Favorite.prototype.getAction = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.Favorite} returns this
+ */
 proto.data.Favorite.prototype.setAction = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -9273,9 +9720,12 @@ proto.data.ListFavoritesResponse.prototype.getRecordcount = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListFavoritesResponse} returns this
+ */
 proto.data.ListFavoritesResponse.prototype.setRecordcount = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -9289,9 +9739,12 @@ proto.data.ListFavoritesResponse.prototype.getFavoritesList = function() {
 };
 
 
-/** @param {!Array<!proto.data.Favorite>} value */
+/**
+ * @param {!Array<!proto.data.Favorite>} value
+ * @return {!proto.data.ListFavoritesResponse} returns this
+*/
 proto.data.ListFavoritesResponse.prototype.setFavoritesList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -9307,9 +9760,10 @@ proto.data.ListFavoritesResponse.prototype.addFavorites = function(opt_value, op
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.ListFavoritesResponse} returns this
  */
 proto.data.ListFavoritesResponse.prototype.clearFavoritesList = function() {
-  this.setFavoritesList([]);
+  return this.setFavoritesList([]);
 };
 
 
@@ -9322,9 +9776,12 @@ proto.data.ListFavoritesResponse.prototype.getNextPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListFavoritesResponse} returns this
+ */
 proto.data.ListFavoritesResponse.prototype.setNextPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -9524,17 +9981,21 @@ proto.data.ListTranslationsRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.ListTranslationsRequest} returns this
+*/
 proto.data.ListTranslationsRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.ListTranslationsRequest} returns this
  */
 proto.data.ListTranslationsRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -9556,9 +10017,12 @@ proto.data.ListTranslationsRequest.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListTranslationsRequest} returns this
+ */
 proto.data.ListTranslationsRequest.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -9571,9 +10035,12 @@ proto.data.ListTranslationsRequest.prototype.getRecorduuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListTranslationsRequest} returns this
+ */
 proto.data.ListTranslationsRequest.prototype.setRecorduuid = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -9586,9 +10053,12 @@ proto.data.ListTranslationsRequest.prototype.getRecordid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListTranslationsRequest} returns this
+ */
 proto.data.ListTranslationsRequest.prototype.setRecordid = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -9601,9 +10071,12 @@ proto.data.ListTranslationsRequest.prototype.getLanguage = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListTranslationsRequest} returns this
+ */
 proto.data.ListTranslationsRequest.prototype.setLanguage = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -9616,9 +10089,12 @@ proto.data.ListTranslationsRequest.prototype.getPageSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListTranslationsRequest} returns this
+ */
 proto.data.ListTranslationsRequest.prototype.setPageSize = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  return jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -9631,9 +10107,12 @@ proto.data.ListTranslationsRequest.prototype.getPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListTranslationsRequest} returns this
+ */
 proto.data.ListTranslationsRequest.prototype.setPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 7, value);
+  return jspb.Message.setProto3StringField(this, 7, value);
 };
 
 
@@ -9792,9 +10271,12 @@ proto.data.ListTranslationsResponse.prototype.getRecordcount = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListTranslationsResponse} returns this
+ */
 proto.data.ListTranslationsResponse.prototype.setRecordcount = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -9808,9 +10290,12 @@ proto.data.ListTranslationsResponse.prototype.getTranslationsList = function() {
 };
 
 
-/** @param {!Array<!proto.data.Translation>} value */
+/**
+ * @param {!Array<!proto.data.Translation>} value
+ * @return {!proto.data.ListTranslationsResponse} returns this
+*/
 proto.data.ListTranslationsResponse.prototype.setTranslationsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -9826,9 +10311,10 @@ proto.data.ListTranslationsResponse.prototype.addTranslations = function(opt_val
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.ListTranslationsResponse} returns this
  */
 proto.data.ListTranslationsResponse.prototype.clearTranslationsList = function() {
-  this.setTranslationsList([]);
+  return this.setTranslationsList([]);
 };
 
 
@@ -9841,9 +10327,12 @@ proto.data.ListTranslationsResponse.prototype.getNextPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListTranslationsResponse} returns this
+ */
 proto.data.ListTranslationsResponse.prototype.setNextPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -10019,17 +10508,21 @@ proto.data.ListPendingDocumentsRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.ListPendingDocumentsRequest} returns this
+*/
 proto.data.ListPendingDocumentsRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.ListPendingDocumentsRequest} returns this
  */
 proto.data.ListPendingDocumentsRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -10051,9 +10544,12 @@ proto.data.ListPendingDocumentsRequest.prototype.getUseruuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListPendingDocumentsRequest} returns this
+ */
 proto.data.ListPendingDocumentsRequest.prototype.setUseruuid = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -10066,9 +10562,12 @@ proto.data.ListPendingDocumentsRequest.prototype.getRoleuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListPendingDocumentsRequest} returns this
+ */
 proto.data.ListPendingDocumentsRequest.prototype.setRoleuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -10081,9 +10580,12 @@ proto.data.ListPendingDocumentsRequest.prototype.getPageSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListPendingDocumentsRequest} returns this
+ */
 proto.data.ListPendingDocumentsRequest.prototype.setPageSize = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -10096,9 +10598,12 @@ proto.data.ListPendingDocumentsRequest.prototype.getPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListPendingDocumentsRequest} returns this
+ */
 proto.data.ListPendingDocumentsRequest.prototype.setPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -10297,9 +10802,12 @@ proto.data.PendingDocument.prototype.getWindowuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.PendingDocument} returns this
+ */
 proto.data.PendingDocument.prototype.setWindowuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -10312,9 +10820,12 @@ proto.data.PendingDocument.prototype.getFormuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.PendingDocument} returns this
+ */
 proto.data.PendingDocument.prototype.setFormuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -10327,9 +10838,12 @@ proto.data.PendingDocument.prototype.getDocumentname = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.PendingDocument} returns this
+ */
 proto.data.PendingDocument.prototype.setDocumentname = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -10342,9 +10856,12 @@ proto.data.PendingDocument.prototype.getDocumentdescription = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.PendingDocument} returns this
+ */
 proto.data.PendingDocument.prototype.setDocumentdescription = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -10357,9 +10874,12 @@ proto.data.PendingDocument.prototype.getSequence = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.PendingDocument} returns this
+ */
 proto.data.PendingDocument.prototype.setSequence = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -10372,9 +10892,12 @@ proto.data.PendingDocument.prototype.getRecordcount = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.PendingDocument} returns this
+ */
 proto.data.PendingDocument.prototype.setRecordcount = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  return jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -10388,17 +10911,21 @@ proto.data.PendingDocument.prototype.getCriteria = function() {
 };
 
 
-/** @param {?proto.data.Criteria|undefined} value */
+/**
+ * @param {?proto.data.Criteria|undefined} value
+ * @return {!proto.data.PendingDocument} returns this
+*/
 proto.data.PendingDocument.prototype.setCriteria = function(value) {
-  jspb.Message.setWrapperField(this, 7, value);
+  return jspb.Message.setWrapperField(this, 7, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.PendingDocument} returns this
  */
 proto.data.PendingDocument.prototype.clearCriteria = function() {
-  this.setCriteria(undefined);
+  return this.setCriteria(undefined);
 };
 
 
@@ -10566,9 +11093,12 @@ proto.data.ListPendingDocumentsResponse.prototype.getRecordcount = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListPendingDocumentsResponse} returns this
+ */
 proto.data.ListPendingDocumentsResponse.prototype.setRecordcount = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -10582,9 +11112,12 @@ proto.data.ListPendingDocumentsResponse.prototype.getPendingdocumentsList = func
 };
 
 
-/** @param {!Array<!proto.data.PendingDocument>} value */
+/**
+ * @param {!Array<!proto.data.PendingDocument>} value
+ * @return {!proto.data.ListPendingDocumentsResponse} returns this
+*/
 proto.data.ListPendingDocumentsResponse.prototype.setPendingdocumentsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -10600,9 +11133,10 @@ proto.data.ListPendingDocumentsResponse.prototype.addPendingdocuments = function
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.ListPendingDocumentsResponse} returns this
  */
 proto.data.ListPendingDocumentsResponse.prototype.clearPendingdocumentsList = function() {
-  this.setPendingdocumentsList([]);
+  return this.setPendingdocumentsList([]);
 };
 
 
@@ -10615,9 +11149,12 @@ proto.data.ListPendingDocumentsResponse.prototype.getNextPageToken = function() 
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListPendingDocumentsResponse} returns this
+ */
 proto.data.ListPendingDocumentsResponse.prototype.setNextPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -10781,17 +11318,21 @@ proto.data.ListDashboardsRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.ListDashboardsRequest} returns this
+*/
 proto.data.ListDashboardsRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.ListDashboardsRequest} returns this
  */
 proto.data.ListDashboardsRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -10813,9 +11354,12 @@ proto.data.ListDashboardsRequest.prototype.getRoleuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListDashboardsRequest} returns this
+ */
 proto.data.ListDashboardsRequest.prototype.setRoleuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -10828,9 +11372,12 @@ proto.data.ListDashboardsRequest.prototype.getPageSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListDashboardsRequest} returns this
+ */
 proto.data.ListDashboardsRequest.prototype.setPageSize = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -10843,9 +11390,12 @@ proto.data.ListDashboardsRequest.prototype.getPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListDashboardsRequest} returns this
+ */
 proto.data.ListDashboardsRequest.prototype.setPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -11004,9 +11554,12 @@ proto.data.ListDashboardsResponse.prototype.getRecordcount = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListDashboardsResponse} returns this
+ */
 proto.data.ListDashboardsResponse.prototype.setRecordcount = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -11020,9 +11573,12 @@ proto.data.ListDashboardsResponse.prototype.getDashboardsList = function() {
 };
 
 
-/** @param {!Array<!proto.data.Dashboard>} value */
+/**
+ * @param {!Array<!proto.data.Dashboard>} value
+ * @return {!proto.data.ListDashboardsResponse} returns this
+*/
 proto.data.ListDashboardsResponse.prototype.setDashboardsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -11038,9 +11594,10 @@ proto.data.ListDashboardsResponse.prototype.addDashboards = function(opt_value, 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.ListDashboardsResponse} returns this
  */
 proto.data.ListDashboardsResponse.prototype.clearDashboardsList = function() {
-  this.setDashboardsList([]);
+  return this.setDashboardsList([]);
 };
 
 
@@ -11053,9 +11610,12 @@ proto.data.ListDashboardsResponse.prototype.getNextPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListDashboardsResponse} returns this
+ */
 proto.data.ListDashboardsResponse.prototype.setNextPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -11243,17 +11803,21 @@ proto.data.ListPrintFormatsRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.ListPrintFormatsRequest} returns this
+*/
 proto.data.ListPrintFormatsRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.ListPrintFormatsRequest} returns this
  */
 proto.data.ListPrintFormatsRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -11275,9 +11839,12 @@ proto.data.ListPrintFormatsRequest.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListPrintFormatsRequest} returns this
+ */
 proto.data.ListPrintFormatsRequest.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -11290,9 +11857,12 @@ proto.data.ListPrintFormatsRequest.prototype.getReportviewuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListPrintFormatsRequest} returns this
+ */
 proto.data.ListPrintFormatsRequest.prototype.setReportviewuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -11305,9 +11875,12 @@ proto.data.ListPrintFormatsRequest.prototype.getProcessuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListPrintFormatsRequest} returns this
+ */
 proto.data.ListPrintFormatsRequest.prototype.setProcessuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -11320,9 +11893,12 @@ proto.data.ListPrintFormatsRequest.prototype.getPageSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListPrintFormatsRequest} returns this
+ */
 proto.data.ListPrintFormatsRequest.prototype.setPageSize = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -11335,9 +11911,12 @@ proto.data.ListPrintFormatsRequest.prototype.getPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListPrintFormatsRequest} returns this
+ */
 proto.data.ListPrintFormatsRequest.prototype.setPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 6, value);
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -11496,9 +12075,12 @@ proto.data.ListPrintFormatsResponse.prototype.getRecordcount = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListPrintFormatsResponse} returns this
+ */
 proto.data.ListPrintFormatsResponse.prototype.setRecordcount = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -11512,9 +12094,12 @@ proto.data.ListPrintFormatsResponse.prototype.getPrintformatsList = function() {
 };
 
 
-/** @param {!Array<!proto.data.PrintFormat>} value */
+/**
+ * @param {!Array<!proto.data.PrintFormat>} value
+ * @return {!proto.data.ListPrintFormatsResponse} returns this
+*/
 proto.data.ListPrintFormatsResponse.prototype.setPrintformatsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -11530,9 +12115,10 @@ proto.data.ListPrintFormatsResponse.prototype.addPrintformats = function(opt_val
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.ListPrintFormatsResponse} returns this
  */
 proto.data.ListPrintFormatsResponse.prototype.clearPrintformatsList = function() {
-  this.setPrintformatsList([]);
+  return this.setPrintformatsList([]);
 };
 
 
@@ -11545,9 +12131,12 @@ proto.data.ListPrintFormatsResponse.prototype.getNextPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListPrintFormatsResponse} returns this
+ */
 proto.data.ListPrintFormatsResponse.prototype.setNextPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -11723,17 +12312,21 @@ proto.data.ListRecordLogsRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.ListRecordLogsRequest} returns this
+*/
 proto.data.ListRecordLogsRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.ListRecordLogsRequest} returns this
  */
 proto.data.ListRecordLogsRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -11755,9 +12348,12 @@ proto.data.ListRecordLogsRequest.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListRecordLogsRequest} returns this
+ */
 proto.data.ListRecordLogsRequest.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -11770,9 +12366,12 @@ proto.data.ListRecordLogsRequest.prototype.getRecordid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListRecordLogsRequest} returns this
+ */
 proto.data.ListRecordLogsRequest.prototype.setRecordid = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -11785,9 +12384,12 @@ proto.data.ListRecordLogsRequest.prototype.getPageSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListRecordLogsRequest} returns this
+ */
 proto.data.ListRecordLogsRequest.prototype.setPageSize = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -11800,9 +12402,12 @@ proto.data.ListRecordLogsRequest.prototype.getPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListRecordLogsRequest} returns this
+ */
 proto.data.ListRecordLogsRequest.prototype.setPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -11961,9 +12566,12 @@ proto.data.ListRecordLogsResponse.prototype.getRecordcount = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListRecordLogsResponse} returns this
+ */
 proto.data.ListRecordLogsResponse.prototype.setRecordcount = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -11977,9 +12585,12 @@ proto.data.ListRecordLogsResponse.prototype.getRecordlogsList = function() {
 };
 
 
-/** @param {!Array<!proto.data.RecordLog>} value */
+/**
+ * @param {!Array<!proto.data.RecordLog>} value
+ * @return {!proto.data.ListRecordLogsResponse} returns this
+*/
 proto.data.ListRecordLogsResponse.prototype.setRecordlogsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -11995,9 +12606,10 @@ proto.data.ListRecordLogsResponse.prototype.addRecordlogs = function(opt_value, 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.ListRecordLogsResponse} returns this
  */
 proto.data.ListRecordLogsResponse.prototype.clearRecordlogsList = function() {
-  this.setRecordlogsList([]);
+  return this.setRecordlogsList([]);
 };
 
 
@@ -12010,9 +12622,12 @@ proto.data.ListRecordLogsResponse.prototype.getNextPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListRecordLogsResponse} returns this
+ */
 proto.data.ListRecordLogsResponse.prototype.setNextPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -12188,17 +12803,21 @@ proto.data.ListRecordChatsRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.ListRecordChatsRequest} returns this
+*/
 proto.data.ListRecordChatsRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.ListRecordChatsRequest} returns this
  */
 proto.data.ListRecordChatsRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -12220,9 +12839,12 @@ proto.data.ListRecordChatsRequest.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListRecordChatsRequest} returns this
+ */
 proto.data.ListRecordChatsRequest.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -12235,9 +12857,12 @@ proto.data.ListRecordChatsRequest.prototype.getRecordid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListRecordChatsRequest} returns this
+ */
 proto.data.ListRecordChatsRequest.prototype.setRecordid = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -12250,9 +12875,12 @@ proto.data.ListRecordChatsRequest.prototype.getPageSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListRecordChatsRequest} returns this
+ */
 proto.data.ListRecordChatsRequest.prototype.setPageSize = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -12265,9 +12893,12 @@ proto.data.ListRecordChatsRequest.prototype.getPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListRecordChatsRequest} returns this
+ */
 proto.data.ListRecordChatsRequest.prototype.setPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -12494,9 +13125,12 @@ proto.data.RecordChat.prototype.getChatuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.RecordChat} returns this
+ */
 proto.data.RecordChat.prototype.setChatuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -12509,9 +13143,12 @@ proto.data.RecordChat.prototype.getRecordid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.RecordChat} returns this
+ */
 proto.data.RecordChat.prototype.setRecordid = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -12524,9 +13161,12 @@ proto.data.RecordChat.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.RecordChat} returns this
+ */
 proto.data.RecordChat.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -12539,9 +13179,12 @@ proto.data.RecordChat.prototype.getChattypeuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.RecordChat} returns this
+ */
 proto.data.RecordChat.prototype.setChattypeuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -12554,9 +13197,12 @@ proto.data.RecordChat.prototype.getDescription = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.RecordChat} returns this
+ */
 proto.data.RecordChat.prototype.setDescription = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -12569,9 +13215,12 @@ proto.data.RecordChat.prototype.getConfidentialtype = function() {
 };
 
 
-/** @param {!proto.data.RecordChat.ConfidentialType} value */
+/**
+ * @param {!proto.data.RecordChat.ConfidentialType} value
+ * @return {!proto.data.RecordChat} returns this
+ */
 proto.data.RecordChat.prototype.setConfidentialtype = function(value) {
-  jspb.Message.setProto3EnumField(this, 6, value);
+  return jspb.Message.setProto3EnumField(this, 6, value);
 };
 
 
@@ -12584,9 +13233,12 @@ proto.data.RecordChat.prototype.getModerationtype = function() {
 };
 
 
-/** @param {!proto.data.RecordChat.ModerationType} value */
+/**
+ * @param {!proto.data.RecordChat.ModerationType} value
+ * @return {!proto.data.RecordChat} returns this
+ */
 proto.data.RecordChat.prototype.setModerationtype = function(value) {
-  jspb.Message.setProto3EnumField(this, 7, value);
+  return jspb.Message.setProto3EnumField(this, 7, value);
 };
 
 
@@ -12599,9 +13251,12 @@ proto.data.RecordChat.prototype.getLogdate = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.RecordChat} returns this
+ */
 proto.data.RecordChat.prototype.setLogdate = function(value) {
-  jspb.Message.setProto3IntField(this, 8, value);
+  return jspb.Message.setProto3IntField(this, 8, value);
 };
 
 
@@ -12760,9 +13415,12 @@ proto.data.ListRecordChatsResponse.prototype.getRecordcount = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListRecordChatsResponse} returns this
+ */
 proto.data.ListRecordChatsResponse.prototype.setRecordcount = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -12776,9 +13434,12 @@ proto.data.ListRecordChatsResponse.prototype.getRecordchatsList = function() {
 };
 
 
-/** @param {!Array<!proto.data.RecordChat>} value */
+/**
+ * @param {!Array<!proto.data.RecordChat>} value
+ * @return {!proto.data.ListRecordChatsResponse} returns this
+*/
 proto.data.ListRecordChatsResponse.prototype.setRecordchatsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -12794,9 +13455,10 @@ proto.data.ListRecordChatsResponse.prototype.addRecordchats = function(opt_value
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.ListRecordChatsResponse} returns this
  */
 proto.data.ListRecordChatsResponse.prototype.clearRecordchatsList = function() {
-  this.setRecordchatsList([]);
+  return this.setRecordchatsList([]);
 };
 
 
@@ -12809,9 +13471,12 @@ proto.data.ListRecordChatsResponse.prototype.getNextPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListRecordChatsResponse} returns this
+ */
 proto.data.ListRecordChatsResponse.prototype.setNextPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -12975,17 +13640,21 @@ proto.data.ListChatEntriesRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.ListChatEntriesRequest} returns this
+*/
 proto.data.ListChatEntriesRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.ListChatEntriesRequest} returns this
  */
 proto.data.ListChatEntriesRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -13007,9 +13676,12 @@ proto.data.ListChatEntriesRequest.prototype.getChatuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListChatEntriesRequest} returns this
+ */
 proto.data.ListChatEntriesRequest.prototype.setChatuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -13022,9 +13694,12 @@ proto.data.ListChatEntriesRequest.prototype.getPageSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListChatEntriesRequest} returns this
+ */
 proto.data.ListChatEntriesRequest.prototype.setPageSize = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -13037,9 +13712,12 @@ proto.data.ListChatEntriesRequest.prototype.getPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListChatEntriesRequest} returns this
+ */
 proto.data.ListChatEntriesRequest.prototype.setPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -13300,9 +13978,12 @@ proto.data.ChatEntry.prototype.getChatuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ChatEntry} returns this
+ */
 proto.data.ChatEntry.prototype.setChatuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -13315,9 +13996,12 @@ proto.data.ChatEntry.prototype.getChatentryuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ChatEntry} returns this
+ */
 proto.data.ChatEntry.prototype.setChatentryuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -13330,9 +14014,12 @@ proto.data.ChatEntry.prototype.getSubject = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ChatEntry} returns this
+ */
 proto.data.ChatEntry.prototype.setSubject = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -13345,9 +14032,12 @@ proto.data.ChatEntry.prototype.getCharacterdata = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ChatEntry} returns this
+ */
 proto.data.ChatEntry.prototype.setCharacterdata = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -13360,9 +14050,12 @@ proto.data.ChatEntry.prototype.getUseruuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ChatEntry} returns this
+ */
 proto.data.ChatEntry.prototype.setUseruuid = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -13375,9 +14068,12 @@ proto.data.ChatEntry.prototype.getUsername = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ChatEntry} returns this
+ */
 proto.data.ChatEntry.prototype.setUsername = function(value) {
-  jspb.Message.setProto3StringField(this, 6, value);
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -13390,9 +14086,12 @@ proto.data.ChatEntry.prototype.getChatentrytype = function() {
 };
 
 
-/** @param {!proto.data.ChatEntry.ChatEntryType} value */
+/**
+ * @param {!proto.data.ChatEntry.ChatEntryType} value
+ * @return {!proto.data.ChatEntry} returns this
+ */
 proto.data.ChatEntry.prototype.setChatentrytype = function(value) {
-  jspb.Message.setProto3EnumField(this, 7, value);
+  return jspb.Message.setProto3EnumField(this, 7, value);
 };
 
 
@@ -13405,9 +14104,12 @@ proto.data.ChatEntry.prototype.getConfidentialtype = function() {
 };
 
 
-/** @param {!proto.data.ChatEntry.ConfidentialType} value */
+/**
+ * @param {!proto.data.ChatEntry.ConfidentialType} value
+ * @return {!proto.data.ChatEntry} returns this
+ */
 proto.data.ChatEntry.prototype.setConfidentialtype = function(value) {
-  jspb.Message.setProto3EnumField(this, 8, value);
+  return jspb.Message.setProto3EnumField(this, 8, value);
 };
 
 
@@ -13420,9 +14122,12 @@ proto.data.ChatEntry.prototype.getModeratorstatus = function() {
 };
 
 
-/** @param {!proto.data.ChatEntry.ModeratorStatus} value */
+/**
+ * @param {!proto.data.ChatEntry.ModeratorStatus} value
+ * @return {!proto.data.ChatEntry} returns this
+ */
 proto.data.ChatEntry.prototype.setModeratorstatus = function(value) {
-  jspb.Message.setProto3EnumField(this, 9, value);
+  return jspb.Message.setProto3EnumField(this, 9, value);
 };
 
 
@@ -13435,9 +14140,12 @@ proto.data.ChatEntry.prototype.getLogdate = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ChatEntry} returns this
+ */
 proto.data.ChatEntry.prototype.setLogdate = function(value) {
-  jspb.Message.setProto3IntField(this, 10, value);
+  return jspb.Message.setProto3IntField(this, 10, value);
 };
 
 
@@ -13601,17 +14309,21 @@ proto.data.CreateChatEntryRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.CreateChatEntryRequest} returns this
+*/
 proto.data.CreateChatEntryRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.CreateChatEntryRequest} returns this
  */
 proto.data.CreateChatEntryRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -13633,9 +14345,12 @@ proto.data.CreateChatEntryRequest.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.CreateChatEntryRequest} returns this
+ */
 proto.data.CreateChatEntryRequest.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -13648,9 +14363,12 @@ proto.data.CreateChatEntryRequest.prototype.getRecordid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.CreateChatEntryRequest} returns this
+ */
 proto.data.CreateChatEntryRequest.prototype.setRecordid = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -13663,9 +14381,12 @@ proto.data.CreateChatEntryRequest.prototype.getComment = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.CreateChatEntryRequest} returns this
+ */
 proto.data.CreateChatEntryRequest.prototype.setComment = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -13824,9 +14545,12 @@ proto.data.ListChatEntriesResponse.prototype.getRecordcount = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListChatEntriesResponse} returns this
+ */
 proto.data.ListChatEntriesResponse.prototype.setRecordcount = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -13840,9 +14564,12 @@ proto.data.ListChatEntriesResponse.prototype.getChatentriesList = function() {
 };
 
 
-/** @param {!Array<!proto.data.ChatEntry>} value */
+/**
+ * @param {!Array<!proto.data.ChatEntry>} value
+ * @return {!proto.data.ListChatEntriesResponse} returns this
+*/
 proto.data.ListChatEntriesResponse.prototype.setChatentriesList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -13858,9 +14585,10 @@ proto.data.ListChatEntriesResponse.prototype.addChatentries = function(opt_value
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.ListChatEntriesResponse} returns this
  */
 proto.data.ListChatEntriesResponse.prototype.clearChatentriesList = function() {
-  this.setChatentriesList([]);
+  return this.setChatentriesList([]);
 };
 
 
@@ -13873,9 +14601,12 @@ proto.data.ListChatEntriesResponse.prototype.getNextPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListChatEntriesResponse} returns this
+ */
 proto.data.ListChatEntriesResponse.prototype.setNextPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -14039,17 +14770,21 @@ proto.data.ListWorkflowsRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.ListWorkflowsRequest} returns this
+*/
 proto.data.ListWorkflowsRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.ListWorkflowsRequest} returns this
  */
 proto.data.ListWorkflowsRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -14071,9 +14806,12 @@ proto.data.ListWorkflowsRequest.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListWorkflowsRequest} returns this
+ */
 proto.data.ListWorkflowsRequest.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -14086,9 +14824,12 @@ proto.data.ListWorkflowsRequest.prototype.getPageSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListWorkflowsRequest} returns this
+ */
 proto.data.ListWorkflowsRequest.prototype.setPageSize = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -14101,9 +14842,12 @@ proto.data.ListWorkflowsRequest.prototype.getPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListWorkflowsRequest} returns this
+ */
 proto.data.ListWorkflowsRequest.prototype.setPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -14442,9 +15186,12 @@ proto.data.WorkflowDefinition.prototype.getWorkflowuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowDefinition} returns this
+ */
 proto.data.WorkflowDefinition.prototype.setWorkflowuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -14457,9 +15204,12 @@ proto.data.WorkflowDefinition.prototype.getValue = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowDefinition} returns this
+ */
 proto.data.WorkflowDefinition.prototype.setValue = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -14472,9 +15222,12 @@ proto.data.WorkflowDefinition.prototype.getName = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowDefinition} returns this
+ */
 proto.data.WorkflowDefinition.prototype.setName = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -14487,9 +15240,12 @@ proto.data.WorkflowDefinition.prototype.getDescription = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowDefinition} returns this
+ */
 proto.data.WorkflowDefinition.prototype.setDescription = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -14502,9 +15258,12 @@ proto.data.WorkflowDefinition.prototype.getHelp = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowDefinition} returns this
+ */
 proto.data.WorkflowDefinition.prototype.setHelp = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -14517,9 +15276,12 @@ proto.data.WorkflowDefinition.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowDefinition} returns this
+ */
 proto.data.WorkflowDefinition.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 6, value);
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -14532,9 +15294,12 @@ proto.data.WorkflowDefinition.prototype.getResponsibleuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowDefinition} returns this
+ */
 proto.data.WorkflowDefinition.prototype.setResponsibleuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 7, value);
+  return jspb.Message.setProto3StringField(this, 7, value);
 };
 
 
@@ -14547,9 +15312,12 @@ proto.data.WorkflowDefinition.prototype.getResponsiblename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowDefinition} returns this
+ */
 proto.data.WorkflowDefinition.prototype.setResponsiblename = function(value) {
-  jspb.Message.setProto3StringField(this, 8, value);
+  return jspb.Message.setProto3StringField(this, 8, value);
 };
 
 
@@ -14562,9 +15330,12 @@ proto.data.WorkflowDefinition.prototype.getPriority = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.WorkflowDefinition} returns this
+ */
 proto.data.WorkflowDefinition.prototype.setPriority = function(value) {
-  jspb.Message.setProto3IntField(this, 9, value);
+  return jspb.Message.setProto3IntField(this, 9, value);
 };
 
 
@@ -14577,9 +15348,12 @@ proto.data.WorkflowDefinition.prototype.getValidfrom = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.WorkflowDefinition} returns this
+ */
 proto.data.WorkflowDefinition.prototype.setValidfrom = function(value) {
-  jspb.Message.setProto3IntField(this, 10, value);
+  return jspb.Message.setProto3IntField(this, 10, value);
 };
 
 
@@ -14592,9 +15366,12 @@ proto.data.WorkflowDefinition.prototype.getIsdefault = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.data.WorkflowDefinition} returns this
+ */
 proto.data.WorkflowDefinition.prototype.setIsdefault = function(value) {
-  jspb.Message.setProto3BooleanField(this, 11, value);
+  return jspb.Message.setProto3BooleanField(this, 11, value);
 };
 
 
@@ -14607,9 +15384,12 @@ proto.data.WorkflowDefinition.prototype.getIsvalid = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.data.WorkflowDefinition} returns this
+ */
 proto.data.WorkflowDefinition.prototype.setIsvalid = function(value) {
-  jspb.Message.setProto3BooleanField(this, 12, value);
+  return jspb.Message.setProto3BooleanField(this, 12, value);
 };
 
 
@@ -14622,9 +15402,12 @@ proto.data.WorkflowDefinition.prototype.getPublishstatus = function() {
 };
 
 
-/** @param {!proto.data.WorkflowDefinition.PublishStatus} value */
+/**
+ * @param {!proto.data.WorkflowDefinition.PublishStatus} value
+ * @return {!proto.data.WorkflowDefinition} returns this
+ */
 proto.data.WorkflowDefinition.prototype.setPublishstatus = function(value) {
-  jspb.Message.setProto3EnumField(this, 13, value);
+  return jspb.Message.setProto3EnumField(this, 13, value);
 };
 
 
@@ -14637,9 +15420,12 @@ proto.data.WorkflowDefinition.prototype.getDurationunit = function() {
 };
 
 
-/** @param {!proto.data.WorkflowDefinition.DurationUnit} value */
+/**
+ * @param {!proto.data.WorkflowDefinition.DurationUnit} value
+ * @return {!proto.data.WorkflowDefinition} returns this
+ */
 proto.data.WorkflowDefinition.prototype.setDurationunit = function(value) {
-  jspb.Message.setProto3EnumField(this, 14, value);
+  return jspb.Message.setProto3EnumField(this, 14, value);
 };
 
 
@@ -14653,17 +15439,21 @@ proto.data.WorkflowDefinition.prototype.getStartnode = function() {
 };
 
 
-/** @param {?proto.data.WorkflowNode|undefined} value */
+/**
+ * @param {?proto.data.WorkflowNode|undefined} value
+ * @return {!proto.data.WorkflowDefinition} returns this
+*/
 proto.data.WorkflowDefinition.prototype.setStartnode = function(value) {
-  jspb.Message.setWrapperField(this, 15, value);
+  return jspb.Message.setWrapperField(this, 15, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.WorkflowDefinition} returns this
  */
 proto.data.WorkflowDefinition.prototype.clearStartnode = function() {
-  this.setStartnode(undefined);
+  return this.setStartnode(undefined);
 };
 
 
@@ -14686,9 +15476,12 @@ proto.data.WorkflowDefinition.prototype.getWorkflownodesList = function() {
 };
 
 
-/** @param {!Array<!proto.data.WorkflowNode>} value */
+/**
+ * @param {!Array<!proto.data.WorkflowNode>} value
+ * @return {!proto.data.WorkflowDefinition} returns this
+*/
 proto.data.WorkflowDefinition.prototype.setWorkflownodesList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 16, value);
+  return jspb.Message.setRepeatedWrapperField(this, 16, value);
 };
 
 
@@ -14704,9 +15497,10 @@ proto.data.WorkflowDefinition.prototype.addWorkflownodes = function(opt_value, o
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.WorkflowDefinition} returns this
  */
 proto.data.WorkflowDefinition.prototype.clearWorkflownodesList = function() {
-  this.setWorkflownodesList([]);
+  return this.setWorkflownodesList([]);
 };
 
 
@@ -14992,9 +15786,12 @@ proto.data.WorkflowNode.prototype.getNodeuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowNode} returns this
+ */
 proto.data.WorkflowNode.prototype.setNodeuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -15007,9 +15804,12 @@ proto.data.WorkflowNode.prototype.getValue = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowNode} returns this
+ */
 proto.data.WorkflowNode.prototype.setValue = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -15022,9 +15822,12 @@ proto.data.WorkflowNode.prototype.getName = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowNode} returns this
+ */
 proto.data.WorkflowNode.prototype.setName = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -15037,9 +15840,12 @@ proto.data.WorkflowNode.prototype.getDescription = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowNode} returns this
+ */
 proto.data.WorkflowNode.prototype.setDescription = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -15052,9 +15858,12 @@ proto.data.WorkflowNode.prototype.getHelp = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowNode} returns this
+ */
 proto.data.WorkflowNode.prototype.setHelp = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -15067,9 +15876,12 @@ proto.data.WorkflowNode.prototype.getResponsibleuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowNode} returns this
+ */
 proto.data.WorkflowNode.prototype.setResponsibleuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 6, value);
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -15082,9 +15894,12 @@ proto.data.WorkflowNode.prototype.getResponsiblename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowNode} returns this
+ */
 proto.data.WorkflowNode.prototype.setResponsiblename = function(value) {
-  jspb.Message.setProto3StringField(this, 7, value);
+  return jspb.Message.setProto3StringField(this, 7, value);
 };
 
 
@@ -15097,9 +15912,12 @@ proto.data.WorkflowNode.prototype.getDocumentactionvalue = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowNode} returns this
+ */
 proto.data.WorkflowNode.prototype.setDocumentactionvalue = function(value) {
-  jspb.Message.setProto3StringField(this, 8, value);
+  return jspb.Message.setProto3StringField(this, 8, value);
 };
 
 
@@ -15112,9 +15930,12 @@ proto.data.WorkflowNode.prototype.getDocumentactionname = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowNode} returns this
+ */
 proto.data.WorkflowNode.prototype.setDocumentactionname = function(value) {
-  jspb.Message.setProto3StringField(this, 9, value);
+  return jspb.Message.setProto3StringField(this, 9, value);
 };
 
 
@@ -15127,9 +15948,12 @@ proto.data.WorkflowNode.prototype.getPriority = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.WorkflowNode} returns this
+ */
 proto.data.WorkflowNode.prototype.setPriority = function(value) {
-  jspb.Message.setProto3IntField(this, 10, value);
+  return jspb.Message.setProto3IntField(this, 10, value);
 };
 
 
@@ -15142,9 +15966,12 @@ proto.data.WorkflowNode.prototype.getAction = function() {
 };
 
 
-/** @param {!proto.data.WorkflowNode.Action} value */
+/**
+ * @param {!proto.data.WorkflowNode.Action} value
+ * @return {!proto.data.WorkflowNode} returns this
+ */
 proto.data.WorkflowNode.prototype.setAction = function(value) {
-  jspb.Message.setProto3EnumField(this, 11, value);
+  return jspb.Message.setProto3EnumField(this, 11, value);
 };
 
 
@@ -15158,9 +15985,12 @@ proto.data.WorkflowNode.prototype.getTransitionsList = function() {
 };
 
 
-/** @param {!Array<!proto.data.WorkflowTransition>} value */
+/**
+ * @param {!Array<!proto.data.WorkflowTransition>} value
+ * @return {!proto.data.WorkflowNode} returns this
+*/
 proto.data.WorkflowNode.prototype.setTransitionsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 12, value);
+  return jspb.Message.setRepeatedWrapperField(this, 12, value);
 };
 
 
@@ -15176,9 +16006,10 @@ proto.data.WorkflowNode.prototype.addTransitions = function(opt_value, opt_index
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.WorkflowNode} returns this
  */
 proto.data.WorkflowNode.prototype.clearTransitionsList = function() {
-  this.setTransitionsList([]);
+  return this.setTransitionsList([]);
 };
 
 
@@ -15374,9 +16205,12 @@ proto.data.WorkflowCondition.prototype.getSequence = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.WorkflowCondition} returns this
+ */
 proto.data.WorkflowCondition.prototype.setSequence = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -15389,9 +16223,12 @@ proto.data.WorkflowCondition.prototype.getColumnname = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowCondition} returns this
+ */
 proto.data.WorkflowCondition.prototype.setColumnname = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -15404,9 +16241,12 @@ proto.data.WorkflowCondition.prototype.getValue = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowCondition} returns this
+ */
 proto.data.WorkflowCondition.prototype.setValue = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -15419,9 +16259,12 @@ proto.data.WorkflowCondition.prototype.getConditiontype = function() {
 };
 
 
-/** @param {!proto.data.WorkflowCondition.ConditionType} value */
+/**
+ * @param {!proto.data.WorkflowCondition.ConditionType} value
+ * @return {!proto.data.WorkflowCondition} returns this
+ */
 proto.data.WorkflowCondition.prototype.setConditiontype = function(value) {
-  jspb.Message.setProto3EnumField(this, 4, value);
+  return jspb.Message.setProto3EnumField(this, 4, value);
 };
 
 
@@ -15434,9 +16277,12 @@ proto.data.WorkflowCondition.prototype.getOperation = function() {
 };
 
 
-/** @param {!proto.data.WorkflowCondition.Operation} value */
+/**
+ * @param {!proto.data.WorkflowCondition.Operation} value
+ * @return {!proto.data.WorkflowCondition} returns this
+ */
 proto.data.WorkflowCondition.prototype.setOperation = function(value) {
-  jspb.Message.setProto3EnumField(this, 5, value);
+  return jspb.Message.setProto3EnumField(this, 5, value);
 };
 
 
@@ -15619,9 +16465,12 @@ proto.data.WorkflowTransition.prototype.getNodenextuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowTransition} returns this
+ */
 proto.data.WorkflowTransition.prototype.setNodenextuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -15634,9 +16483,12 @@ proto.data.WorkflowTransition.prototype.getDescription = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowTransition} returns this
+ */
 proto.data.WorkflowTransition.prototype.setDescription = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -15649,9 +16501,12 @@ proto.data.WorkflowTransition.prototype.getIsstduserworkflow = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.data.WorkflowTransition} returns this
+ */
 proto.data.WorkflowTransition.prototype.setIsstduserworkflow = function(value) {
-  jspb.Message.setProto3BooleanField(this, 3, value);
+  return jspb.Message.setProto3BooleanField(this, 3, value);
 };
 
 
@@ -15664,9 +16519,12 @@ proto.data.WorkflowTransition.prototype.getSequence = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.WorkflowTransition} returns this
+ */
 proto.data.WorkflowTransition.prototype.setSequence = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -15680,9 +16538,12 @@ proto.data.WorkflowTransition.prototype.getWorkflowconditionsList = function() {
 };
 
 
-/** @param {!Array<!proto.data.WorkflowCondition>} value */
+/**
+ * @param {!Array<!proto.data.WorkflowCondition>} value
+ * @return {!proto.data.WorkflowTransition} returns this
+*/
 proto.data.WorkflowTransition.prototype.setWorkflowconditionsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 5, value);
+  return jspb.Message.setRepeatedWrapperField(this, 5, value);
 };
 
 
@@ -15698,9 +16559,10 @@ proto.data.WorkflowTransition.prototype.addWorkflowconditions = function(opt_val
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.WorkflowTransition} returns this
  */
 proto.data.WorkflowTransition.prototype.clearWorkflowconditionsList = function() {
-  this.setWorkflowconditionsList([]);
+  return this.setWorkflowconditionsList([]);
 };
 
 
@@ -15859,9 +16721,12 @@ proto.data.ListWorkflowsResponse.prototype.getRecordcount = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListWorkflowsResponse} returns this
+ */
 proto.data.ListWorkflowsResponse.prototype.setRecordcount = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -15875,9 +16740,12 @@ proto.data.ListWorkflowsResponse.prototype.getWorkflowsList = function() {
 };
 
 
-/** @param {!Array<!proto.data.WorkflowDefinition>} value */
+/**
+ * @param {!Array<!proto.data.WorkflowDefinition>} value
+ * @return {!proto.data.ListWorkflowsResponse} returns this
+*/
 proto.data.ListWorkflowsResponse.prototype.setWorkflowsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -15893,9 +16761,10 @@ proto.data.ListWorkflowsResponse.prototype.addWorkflows = function(opt_value, op
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.ListWorkflowsResponse} returns this
  */
 proto.data.ListWorkflowsResponse.prototype.clearWorkflowsList = function() {
-  this.setWorkflowsList([]);
+  return this.setWorkflowsList([]);
 };
 
 
@@ -15908,9 +16777,12 @@ proto.data.ListWorkflowsResponse.prototype.getNextPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListWorkflowsResponse} returns this
+ */
 proto.data.ListWorkflowsResponse.prototype.setNextPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -16122,17 +16994,21 @@ proto.data.ListDocumentActionsRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.ListDocumentActionsRequest} returns this
+*/
 proto.data.ListDocumentActionsRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.ListDocumentActionsRequest} returns this
  */
 proto.data.ListDocumentActionsRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -16154,9 +17030,12 @@ proto.data.ListDocumentActionsRequest.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListDocumentActionsRequest} returns this
+ */
 proto.data.ListDocumentActionsRequest.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -16169,9 +17048,12 @@ proto.data.ListDocumentActionsRequest.prototype.getRecordid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListDocumentActionsRequest} returns this
+ */
 proto.data.ListDocumentActionsRequest.prototype.setRecordid = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -16184,9 +17066,12 @@ proto.data.ListDocumentActionsRequest.prototype.getRecorduuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListDocumentActionsRequest} returns this
+ */
 proto.data.ListDocumentActionsRequest.prototype.setRecorduuid = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -16199,9 +17084,12 @@ proto.data.ListDocumentActionsRequest.prototype.getDocumentstatus = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListDocumentActionsRequest} returns this
+ */
 proto.data.ListDocumentActionsRequest.prototype.setDocumentstatus = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -16214,9 +17102,12 @@ proto.data.ListDocumentActionsRequest.prototype.getDocumentaction = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListDocumentActionsRequest} returns this
+ */
 proto.data.ListDocumentActionsRequest.prototype.setDocumentaction = function(value) {
-  jspb.Message.setProto3StringField(this, 6, value);
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -16229,9 +17120,12 @@ proto.data.ListDocumentActionsRequest.prototype.getPageSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListDocumentActionsRequest} returns this
+ */
 proto.data.ListDocumentActionsRequest.prototype.setPageSize = function(value) {
-  jspb.Message.setProto3IntField(this, 7, value);
+  return jspb.Message.setProto3IntField(this, 7, value);
 };
 
 
@@ -16244,9 +17138,12 @@ proto.data.ListDocumentActionsRequest.prototype.getPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListDocumentActionsRequest} returns this
+ */
 proto.data.ListDocumentActionsRequest.prototype.setPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 8, value);
+  return jspb.Message.setProto3StringField(this, 8, value);
 };
 
 
@@ -16419,9 +17316,12 @@ proto.data.ListDocumentActionsResponse.prototype.getRecordcount = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListDocumentActionsResponse} returns this
+ */
 proto.data.ListDocumentActionsResponse.prototype.setRecordcount = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -16435,9 +17335,12 @@ proto.data.ListDocumentActionsResponse.prototype.getDocumentactionsList = functi
 };
 
 
-/** @param {!Array<!proto.data.DocumentAction>} value */
+/**
+ * @param {!Array<!proto.data.DocumentAction>} value
+ * @return {!proto.data.ListDocumentActionsResponse} returns this
+*/
 proto.data.ListDocumentActionsResponse.prototype.setDocumentactionsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -16453,9 +17356,10 @@ proto.data.ListDocumentActionsResponse.prototype.addDocumentactions = function(o
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.ListDocumentActionsResponse} returns this
  */
 proto.data.ListDocumentActionsResponse.prototype.clearDocumentactionsList = function() {
-  this.setDocumentactionsList([]);
+  return this.setDocumentactionsList([]);
 };
 
 
@@ -16469,17 +17373,21 @@ proto.data.ListDocumentActionsResponse.prototype.getDefaultdocumentaction = func
 };
 
 
-/** @param {?proto.data.DocumentAction|undefined} value */
+/**
+ * @param {?proto.data.DocumentAction|undefined} value
+ * @return {!proto.data.ListDocumentActionsResponse} returns this
+*/
 proto.data.ListDocumentActionsResponse.prototype.setDefaultdocumentaction = function(value) {
-  jspb.Message.setWrapperField(this, 3, value);
+  return jspb.Message.setWrapperField(this, 3, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.ListDocumentActionsResponse} returns this
  */
 proto.data.ListDocumentActionsResponse.prototype.clearDefaultdocumentaction = function() {
-  this.setDefaultdocumentaction(undefined);
+  return this.setDefaultdocumentaction(undefined);
 };
 
 
@@ -16501,9 +17409,12 @@ proto.data.ListDocumentActionsResponse.prototype.getNextPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListDocumentActionsResponse} returns this
+ */
 proto.data.ListDocumentActionsResponse.prototype.setNextPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -16703,17 +17614,21 @@ proto.data.ListDocumentStatusesRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.ListDocumentStatusesRequest} returns this
+*/
 proto.data.ListDocumentStatusesRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.ListDocumentStatusesRequest} returns this
  */
 proto.data.ListDocumentStatusesRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -16735,9 +17650,12 @@ proto.data.ListDocumentStatusesRequest.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListDocumentStatusesRequest} returns this
+ */
 proto.data.ListDocumentStatusesRequest.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -16750,9 +17668,12 @@ proto.data.ListDocumentStatusesRequest.prototype.getRecordid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListDocumentStatusesRequest} returns this
+ */
 proto.data.ListDocumentStatusesRequest.prototype.setRecordid = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -16765,9 +17686,12 @@ proto.data.ListDocumentStatusesRequest.prototype.getRecorduuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListDocumentStatusesRequest} returns this
+ */
 proto.data.ListDocumentStatusesRequest.prototype.setRecorduuid = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -16780,9 +17704,12 @@ proto.data.ListDocumentStatusesRequest.prototype.getDocumentstatus = function() 
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListDocumentStatusesRequest} returns this
+ */
 proto.data.ListDocumentStatusesRequest.prototype.setDocumentstatus = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -16795,9 +17722,12 @@ proto.data.ListDocumentStatusesRequest.prototype.getPageSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListDocumentStatusesRequest} returns this
+ */
 proto.data.ListDocumentStatusesRequest.prototype.setPageSize = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  return jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -16810,9 +17740,12 @@ proto.data.ListDocumentStatusesRequest.prototype.getPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListDocumentStatusesRequest} returns this
+ */
 proto.data.ListDocumentStatusesRequest.prototype.setPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 7, value);
+  return jspb.Message.setProto3StringField(this, 7, value);
 };
 
 
@@ -16971,9 +17904,12 @@ proto.data.ListDocumentStatusesResponse.prototype.getRecordcount = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListDocumentStatusesResponse} returns this
+ */
 proto.data.ListDocumentStatusesResponse.prototype.setRecordcount = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -16987,9 +17923,12 @@ proto.data.ListDocumentStatusesResponse.prototype.getDocumentstatusesList = func
 };
 
 
-/** @param {!Array<!proto.data.DocumentStatus>} value */
+/**
+ * @param {!Array<!proto.data.DocumentStatus>} value
+ * @return {!proto.data.ListDocumentStatusesResponse} returns this
+*/
 proto.data.ListDocumentStatusesResponse.prototype.setDocumentstatusesList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -17005,9 +17944,10 @@ proto.data.ListDocumentStatusesResponse.prototype.addDocumentstatuses = function
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.ListDocumentStatusesResponse} returns this
  */
 proto.data.ListDocumentStatusesResponse.prototype.clearDocumentstatusesList = function() {
-  this.setDocumentstatusesList([]);
+  return this.setDocumentstatusesList([]);
 };
 
 
@@ -17020,9 +17960,12 @@ proto.data.ListDocumentStatusesResponse.prototype.getNextPageToken = function() 
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListDocumentStatusesResponse} returns this
+ */
 proto.data.ListDocumentStatusesResponse.prototype.setNextPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -17198,17 +18141,21 @@ proto.data.ListWorkflowLogsRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.ListWorkflowLogsRequest} returns this
+*/
 proto.data.ListWorkflowLogsRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.ListWorkflowLogsRequest} returns this
  */
 proto.data.ListWorkflowLogsRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -17230,9 +18177,12 @@ proto.data.ListWorkflowLogsRequest.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListWorkflowLogsRequest} returns this
+ */
 proto.data.ListWorkflowLogsRequest.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -17245,9 +18195,12 @@ proto.data.ListWorkflowLogsRequest.prototype.getRecordid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListWorkflowLogsRequest} returns this
+ */
 proto.data.ListWorkflowLogsRequest.prototype.setRecordid = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -17260,9 +18213,12 @@ proto.data.ListWorkflowLogsRequest.prototype.getPageSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListWorkflowLogsRequest} returns this
+ */
 proto.data.ListWorkflowLogsRequest.prototype.setPageSize = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -17275,9 +18231,12 @@ proto.data.ListWorkflowLogsRequest.prototype.getPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListWorkflowLogsRequest} returns this
+ */
 proto.data.ListWorkflowLogsRequest.prototype.setPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -17603,9 +18562,12 @@ proto.data.WorkflowProcess.prototype.getProcessuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowProcess} returns this
+ */
 proto.data.WorkflowProcess.prototype.setProcessuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -17618,9 +18580,12 @@ proto.data.WorkflowProcess.prototype.getWorkflowuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowProcess} returns this
+ */
 proto.data.WorkflowProcess.prototype.setWorkflowuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -17633,9 +18598,12 @@ proto.data.WorkflowProcess.prototype.getWorkflowname = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowProcess} returns this
+ */
 proto.data.WorkflowProcess.prototype.setWorkflowname = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -17648,9 +18616,12 @@ proto.data.WorkflowProcess.prototype.getRecordid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.WorkflowProcess} returns this
+ */
 proto.data.WorkflowProcess.prototype.setRecordid = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -17663,9 +18634,12 @@ proto.data.WorkflowProcess.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowProcess} returns this
+ */
 proto.data.WorkflowProcess.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -17678,9 +18652,12 @@ proto.data.WorkflowProcess.prototype.getUseruuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowProcess} returns this
+ */
 proto.data.WorkflowProcess.prototype.setUseruuid = function(value) {
-  jspb.Message.setProto3StringField(this, 6, value);
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -17693,9 +18670,12 @@ proto.data.WorkflowProcess.prototype.getUsername = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowProcess} returns this
+ */
 proto.data.WorkflowProcess.prototype.setUsername = function(value) {
-  jspb.Message.setProto3StringField(this, 7, value);
+  return jspb.Message.setProto3StringField(this, 7, value);
 };
 
 
@@ -17708,9 +18688,12 @@ proto.data.WorkflowProcess.prototype.getResponsibleuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowProcess} returns this
+ */
 proto.data.WorkflowProcess.prototype.setResponsibleuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 8, value);
+  return jspb.Message.setProto3StringField(this, 8, value);
 };
 
 
@@ -17723,9 +18706,12 @@ proto.data.WorkflowProcess.prototype.getResponsiblename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowProcess} returns this
+ */
 proto.data.WorkflowProcess.prototype.setResponsiblename = function(value) {
-  jspb.Message.setProto3StringField(this, 9, value);
+  return jspb.Message.setProto3StringField(this, 9, value);
 };
 
 
@@ -17738,9 +18724,12 @@ proto.data.WorkflowProcess.prototype.getTextmessage = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowProcess} returns this
+ */
 proto.data.WorkflowProcess.prototype.setTextmessage = function(value) {
-  jspb.Message.setProto3StringField(this, 10, value);
+  return jspb.Message.setProto3StringField(this, 10, value);
 };
 
 
@@ -17753,9 +18742,12 @@ proto.data.WorkflowProcess.prototype.getProcessed = function() {
 };
 
 
-/** @param {boolean} value */
+/**
+ * @param {boolean} value
+ * @return {!proto.data.WorkflowProcess} returns this
+ */
 proto.data.WorkflowProcess.prototype.setProcessed = function(value) {
-  jspb.Message.setProto3BooleanField(this, 11, value);
+  return jspb.Message.setProto3BooleanField(this, 11, value);
 };
 
 
@@ -17768,9 +18760,12 @@ proto.data.WorkflowProcess.prototype.getWorkflowstate = function() {
 };
 
 
-/** @param {!proto.data.WorkflowProcess.WorkflowState} value */
+/**
+ * @param {!proto.data.WorkflowProcess.WorkflowState} value
+ * @return {!proto.data.WorkflowProcess} returns this
+ */
 proto.data.WorkflowProcess.prototype.setWorkflowstate = function(value) {
-  jspb.Message.setProto3EnumField(this, 12, value);
+  return jspb.Message.setProto3EnumField(this, 12, value);
 };
 
 
@@ -17783,9 +18778,12 @@ proto.data.WorkflowProcess.prototype.getPriority = function() {
 };
 
 
-/** @param {!proto.data.WorkflowProcess.Priority} value */
+/**
+ * @param {!proto.data.WorkflowProcess.Priority} value
+ * @return {!proto.data.WorkflowProcess} returns this
+ */
 proto.data.WorkflowProcess.prototype.setPriority = function(value) {
-  jspb.Message.setProto3EnumField(this, 13, value);
+  return jspb.Message.setProto3EnumField(this, 13, value);
 };
 
 
@@ -17799,9 +18797,12 @@ proto.data.WorkflowProcess.prototype.getWorkfloweventsList = function() {
 };
 
 
-/** @param {!Array<!proto.data.WorkflowEvent>} value */
+/**
+ * @param {!Array<!proto.data.WorkflowEvent>} value
+ * @return {!proto.data.WorkflowProcess} returns this
+*/
 proto.data.WorkflowProcess.prototype.setWorkfloweventsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 14, value);
+  return jspb.Message.setRepeatedWrapperField(this, 14, value);
 };
 
 
@@ -17817,9 +18818,10 @@ proto.data.WorkflowProcess.prototype.addWorkflowevents = function(opt_value, opt
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.WorkflowProcess} returns this
  */
 proto.data.WorkflowProcess.prototype.clearWorkfloweventsList = function() {
-  this.setWorkfloweventsList([]);
+  return this.setWorkfloweventsList([]);
 };
 
 
@@ -17832,9 +18834,12 @@ proto.data.WorkflowProcess.prototype.getLogdate = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.WorkflowProcess} returns this
+ */
 proto.data.WorkflowProcess.prototype.setLogdate = function(value) {
-  jspb.Message.setProto3IntField(this, 15, value);
+  return jspb.Message.setProto3IntField(this, 15, value);
 };
 
 
@@ -18160,9 +19165,12 @@ proto.data.WorkflowEvent.prototype.getNodeuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowEvent} returns this
+ */
 proto.data.WorkflowEvent.prototype.setNodeuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -18175,9 +19183,12 @@ proto.data.WorkflowEvent.prototype.getNodename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowEvent} returns this
+ */
 proto.data.WorkflowEvent.prototype.setNodename = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -18190,9 +19201,12 @@ proto.data.WorkflowEvent.prototype.getRecordid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.WorkflowEvent} returns this
+ */
 proto.data.WorkflowEvent.prototype.setRecordid = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -18205,9 +19219,12 @@ proto.data.WorkflowEvent.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowEvent} returns this
+ */
 proto.data.WorkflowEvent.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -18220,9 +19237,12 @@ proto.data.WorkflowEvent.prototype.getUseruuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowEvent} returns this
+ */
 proto.data.WorkflowEvent.prototype.setUseruuid = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -18235,9 +19255,12 @@ proto.data.WorkflowEvent.prototype.getUsername = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowEvent} returns this
+ */
 proto.data.WorkflowEvent.prototype.setUsername = function(value) {
-  jspb.Message.setProto3StringField(this, 6, value);
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -18250,9 +19273,12 @@ proto.data.WorkflowEvent.prototype.getResponsibleuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowEvent} returns this
+ */
 proto.data.WorkflowEvent.prototype.setResponsibleuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 7, value);
+  return jspb.Message.setProto3StringField(this, 7, value);
 };
 
 
@@ -18265,9 +19291,12 @@ proto.data.WorkflowEvent.prototype.getResponsiblename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowEvent} returns this
+ */
 proto.data.WorkflowEvent.prototype.setResponsiblename = function(value) {
-  jspb.Message.setProto3StringField(this, 8, value);
+  return jspb.Message.setProto3StringField(this, 8, value);
 };
 
 
@@ -18280,9 +19309,12 @@ proto.data.WorkflowEvent.prototype.getTextmessage = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowEvent} returns this
+ */
 proto.data.WorkflowEvent.prototype.setTextmessage = function(value) {
-  jspb.Message.setProto3StringField(this, 9, value);
+  return jspb.Message.setProto3StringField(this, 9, value);
 };
 
 
@@ -18295,9 +19327,12 @@ proto.data.WorkflowEvent.prototype.getTimeelapsed = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.WorkflowEvent} returns this
+ */
 proto.data.WorkflowEvent.prototype.setTimeelapsed = function(value) {
-  jspb.Message.setProto3IntField(this, 10, value);
+  return jspb.Message.setProto3IntField(this, 10, value);
 };
 
 
@@ -18310,9 +19345,12 @@ proto.data.WorkflowEvent.prototype.getAttributename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowEvent} returns this
+ */
 proto.data.WorkflowEvent.prototype.setAttributename = function(value) {
-  jspb.Message.setProto3StringField(this, 11, value);
+  return jspb.Message.setProto3StringField(this, 11, value);
 };
 
 
@@ -18325,9 +19363,12 @@ proto.data.WorkflowEvent.prototype.getOldvalue = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowEvent} returns this
+ */
 proto.data.WorkflowEvent.prototype.setOldvalue = function(value) {
-  jspb.Message.setProto3StringField(this, 12, value);
+  return jspb.Message.setProto3StringField(this, 12, value);
 };
 
 
@@ -18340,9 +19381,12 @@ proto.data.WorkflowEvent.prototype.getNewvalue = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.WorkflowEvent} returns this
+ */
 proto.data.WorkflowEvent.prototype.setNewvalue = function(value) {
-  jspb.Message.setProto3StringField(this, 13, value);
+  return jspb.Message.setProto3StringField(this, 13, value);
 };
 
 
@@ -18355,9 +19399,12 @@ proto.data.WorkflowEvent.prototype.getWorkflowstate = function() {
 };
 
 
-/** @param {!proto.data.WorkflowEvent.WorkflowState} value */
+/**
+ * @param {!proto.data.WorkflowEvent.WorkflowState} value
+ * @return {!proto.data.WorkflowEvent} returns this
+ */
 proto.data.WorkflowEvent.prototype.setWorkflowstate = function(value) {
-  jspb.Message.setProto3EnumField(this, 14, value);
+  return jspb.Message.setProto3EnumField(this, 14, value);
 };
 
 
@@ -18370,9 +19417,12 @@ proto.data.WorkflowEvent.prototype.getEventtype = function() {
 };
 
 
-/** @param {!proto.data.WorkflowEvent.EventType} value */
+/**
+ * @param {!proto.data.WorkflowEvent.EventType} value
+ * @return {!proto.data.WorkflowEvent} returns this
+ */
 proto.data.WorkflowEvent.prototype.setEventtype = function(value) {
-  jspb.Message.setProto3EnumField(this, 15, value);
+  return jspb.Message.setProto3EnumField(this, 15, value);
 };
 
 
@@ -18385,9 +19435,12 @@ proto.data.WorkflowEvent.prototype.getLogdate = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.WorkflowEvent} returns this
+ */
 proto.data.WorkflowEvent.prototype.setLogdate = function(value) {
-  jspb.Message.setProto3IntField(this, 16, value);
+  return jspb.Message.setProto3IntField(this, 16, value);
 };
 
 
@@ -18546,9 +19599,12 @@ proto.data.ListWorkflowLogsResponse.prototype.getRecordcount = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListWorkflowLogsResponse} returns this
+ */
 proto.data.ListWorkflowLogsResponse.prototype.setRecordcount = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -18562,9 +19618,12 @@ proto.data.ListWorkflowLogsResponse.prototype.getWorkflowlogsList = function() {
 };
 
 
-/** @param {!Array<!proto.data.WorkflowProcess>} value */
+/**
+ * @param {!Array<!proto.data.WorkflowProcess>} value
+ * @return {!proto.data.ListWorkflowLogsResponse} returns this
+*/
 proto.data.ListWorkflowLogsResponse.prototype.setWorkflowlogsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -18580,9 +19639,10 @@ proto.data.ListWorkflowLogsResponse.prototype.addWorkflowlogs = function(opt_val
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.ListWorkflowLogsResponse} returns this
  */
 proto.data.ListWorkflowLogsResponse.prototype.clearWorkflowlogsList = function() {
-  this.setWorkflowlogsList([]);
+  return this.setWorkflowlogsList([]);
 };
 
 
@@ -18595,9 +19655,12 @@ proto.data.ListWorkflowLogsResponse.prototype.getNextPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListWorkflowLogsResponse} returns this
+ */
 proto.data.ListWorkflowLogsResponse.prototype.setNextPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -18773,17 +19836,21 @@ proto.data.ListReportViewsRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.ListReportViewsRequest} returns this
+*/
 proto.data.ListReportViewsRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.ListReportViewsRequest} returns this
  */
 proto.data.ListReportViewsRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -18805,9 +19872,12 @@ proto.data.ListReportViewsRequest.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListReportViewsRequest} returns this
+ */
 proto.data.ListReportViewsRequest.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -18820,9 +19890,12 @@ proto.data.ListReportViewsRequest.prototype.getProcessuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListReportViewsRequest} returns this
+ */
 proto.data.ListReportViewsRequest.prototype.setProcessuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -18835,9 +19908,12 @@ proto.data.ListReportViewsRequest.prototype.getPageSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListReportViewsRequest} returns this
+ */
 proto.data.ListReportViewsRequest.prototype.setPageSize = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -18850,9 +19926,12 @@ proto.data.ListReportViewsRequest.prototype.getPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListReportViewsRequest} returns this
+ */
 proto.data.ListReportViewsRequest.prototype.setPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -19011,9 +20090,12 @@ proto.data.ListReportViewsResponse.prototype.getRecordcount = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListReportViewsResponse} returns this
+ */
 proto.data.ListReportViewsResponse.prototype.setRecordcount = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -19027,9 +20109,12 @@ proto.data.ListReportViewsResponse.prototype.getReportviewsList = function() {
 };
 
 
-/** @param {!Array<!proto.data.ReportView>} value */
+/**
+ * @param {!Array<!proto.data.ReportView>} value
+ * @return {!proto.data.ListReportViewsResponse} returns this
+*/
 proto.data.ListReportViewsResponse.prototype.setReportviewsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -19045,9 +20130,10 @@ proto.data.ListReportViewsResponse.prototype.addReportviews = function(opt_value
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.ListReportViewsResponse} returns this
  */
 proto.data.ListReportViewsResponse.prototype.clearReportviewsList = function() {
-  this.setReportviewsList([]);
+  return this.setReportviewsList([]);
 };
 
 
@@ -19060,9 +20146,12 @@ proto.data.ListReportViewsResponse.prototype.getNextPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListReportViewsResponse} returns this
+ */
 proto.data.ListReportViewsResponse.prototype.setNextPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -19226,17 +20315,21 @@ proto.data.ListDrillTablesRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.ListDrillTablesRequest} returns this
+*/
 proto.data.ListDrillTablesRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.ListDrillTablesRequest} returns this
  */
 proto.data.ListDrillTablesRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -19258,9 +20351,12 @@ proto.data.ListDrillTablesRequest.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListDrillTablesRequest} returns this
+ */
 proto.data.ListDrillTablesRequest.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -19273,9 +20369,12 @@ proto.data.ListDrillTablesRequest.prototype.getPageSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListDrillTablesRequest} returns this
+ */
 proto.data.ListDrillTablesRequest.prototype.setPageSize = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -19288,9 +20387,12 @@ proto.data.ListDrillTablesRequest.prototype.getPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListDrillTablesRequest} returns this
+ */
 proto.data.ListDrillTablesRequest.prototype.setPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -19449,9 +20551,12 @@ proto.data.ListDrillTablesResponse.prototype.getRecordcount = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListDrillTablesResponse} returns this
+ */
 proto.data.ListDrillTablesResponse.prototype.setRecordcount = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -19465,9 +20570,12 @@ proto.data.ListDrillTablesResponse.prototype.getDrilltablesList = function() {
 };
 
 
-/** @param {!Array<!proto.data.DrillTable>} value */
+/**
+ * @param {!Array<!proto.data.DrillTable>} value
+ * @return {!proto.data.ListDrillTablesResponse} returns this
+*/
 proto.data.ListDrillTablesResponse.prototype.setDrilltablesList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -19483,9 +20591,10 @@ proto.data.ListDrillTablesResponse.prototype.addDrilltables = function(opt_value
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.ListDrillTablesResponse} returns this
  */
 proto.data.ListDrillTablesResponse.prototype.clearDrilltablesList = function() {
-  this.setDrilltablesList([]);
+  return this.setDrilltablesList([]);
 };
 
 
@@ -19498,9 +20607,12 @@ proto.data.ListDrillTablesResponse.prototype.getNextPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListDrillTablesResponse} returns this
+ */
 proto.data.ListDrillTablesResponse.prototype.setNextPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -19699,9 +20811,12 @@ proto.data.ListBrowserItemsRequest.prototype.getUuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListBrowserItemsRequest} returns this
+ */
 proto.data.ListBrowserItemsRequest.prototype.setUuid = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -19715,17 +20830,21 @@ proto.data.ListBrowserItemsRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.ListBrowserItemsRequest} returns this
+*/
 proto.data.ListBrowserItemsRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 2, value);
+  return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.ListBrowserItemsRequest} returns this
  */
 proto.data.ListBrowserItemsRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -19748,17 +20867,21 @@ proto.data.ListBrowserItemsRequest.prototype.getCriteria = function() {
 };
 
 
-/** @param {?proto.data.Criteria|undefined} value */
+/**
+ * @param {?proto.data.Criteria|undefined} value
+ * @return {!proto.data.ListBrowserItemsRequest} returns this
+*/
 proto.data.ListBrowserItemsRequest.prototype.setCriteria = function(value) {
-  jspb.Message.setWrapperField(this, 3, value);
+  return jspb.Message.setWrapperField(this, 3, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.ListBrowserItemsRequest} returns this
  */
 proto.data.ListBrowserItemsRequest.prototype.clearCriteria = function() {
-  this.setCriteria(undefined);
+  return this.setCriteria(undefined);
 };
 
 
@@ -19781,9 +20904,12 @@ proto.data.ListBrowserItemsRequest.prototype.getParametersList = function() {
 };
 
 
-/** @param {!Array<!proto.data.KeyValue>} value */
+/**
+ * @param {!Array<!proto.data.KeyValue>} value
+ * @return {!proto.data.ListBrowserItemsRequest} returns this
+*/
 proto.data.ListBrowserItemsRequest.prototype.setParametersList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 4, value);
+  return jspb.Message.setRepeatedWrapperField(this, 4, value);
 };
 
 
@@ -19799,9 +20925,10 @@ proto.data.ListBrowserItemsRequest.prototype.addParameters = function(opt_value,
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.ListBrowserItemsRequest} returns this
  */
 proto.data.ListBrowserItemsRequest.prototype.clearParametersList = function() {
-  this.setParametersList([]);
+  return this.setParametersList([]);
 };
 
 
@@ -19814,9 +20941,12 @@ proto.data.ListBrowserItemsRequest.prototype.getPageSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListBrowserItemsRequest} returns this
+ */
 proto.data.ListBrowserItemsRequest.prototype.setPageSize = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -19829,9 +20959,12 @@ proto.data.ListBrowserItemsRequest.prototype.getPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListBrowserItemsRequest} returns this
+ */
 proto.data.ListBrowserItemsRequest.prototype.setPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 6, value);
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -20030,9 +21163,12 @@ proto.data.ListReferencesRequest.prototype.getUuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListReferencesRequest} returns this
+ */
 proto.data.ListReferencesRequest.prototype.setUuid = function(value) {
-  jspb.Message.setProto3StringField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -20045,9 +21181,12 @@ proto.data.ListReferencesRequest.prototype.getTablename = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListReferencesRequest} returns this
+ */
 proto.data.ListReferencesRequest.prototype.setTablename = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -20060,9 +21199,12 @@ proto.data.ListReferencesRequest.prototype.getRecordid = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListReferencesRequest} returns this
+ */
 proto.data.ListReferencesRequest.prototype.setRecordid = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -20075,9 +21217,12 @@ proto.data.ListReferencesRequest.prototype.getWindowuuid = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListReferencesRequest} returns this
+ */
 proto.data.ListReferencesRequest.prototype.setWindowuuid = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -20091,17 +21236,21 @@ proto.data.ListReferencesRequest.prototype.getClientrequest = function() {
 };
 
 
-/** @param {?proto.data.ClientRequest|undefined} value */
+/**
+ * @param {?proto.data.ClientRequest|undefined} value
+ * @return {!proto.data.ListReferencesRequest} returns this
+*/
 proto.data.ListReferencesRequest.prototype.setClientrequest = function(value) {
-  jspb.Message.setWrapperField(this, 5, value);
+  return jspb.Message.setWrapperField(this, 5, value);
 };
 
 
 /**
  * Clears the message field making it undefined.
+ * @return {!proto.data.ListReferencesRequest} returns this
  */
 proto.data.ListReferencesRequest.prototype.clearClientrequest = function() {
-  this.setClientrequest(undefined);
+  return this.setClientrequest(undefined);
 };
 
 
@@ -20123,9 +21272,12 @@ proto.data.ListReferencesRequest.prototype.getPageSize = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListReferencesRequest} returns this
+ */
 proto.data.ListReferencesRequest.prototype.setPageSize = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+  return jspb.Message.setProto3IntField(this, 6, value);
 };
 
 
@@ -20138,9 +21290,12 @@ proto.data.ListReferencesRequest.prototype.getPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListReferencesRequest} returns this
+ */
 proto.data.ListReferencesRequest.prototype.setPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 7, value);
+  return jspb.Message.setProto3StringField(this, 7, value);
 };
 
 
@@ -20299,9 +21454,12 @@ proto.data.ListReferencesResponse.prototype.getRecordcount = function() {
 };
 
 
-/** @param {number} value */
+/**
+ * @param {number} value
+ * @return {!proto.data.ListReferencesResponse} returns this
+ */
 proto.data.ListReferencesResponse.prototype.setRecordcount = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -20315,9 +21473,12 @@ proto.data.ListReferencesResponse.prototype.getReferencesList = function() {
 };
 
 
-/** @param {!Array<!proto.data.RecordReferenceInfo>} value */
+/**
+ * @param {!Array<!proto.data.RecordReferenceInfo>} value
+ * @return {!proto.data.ListReferencesResponse} returns this
+*/
 proto.data.ListReferencesResponse.prototype.setReferencesList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 2, value);
+  return jspb.Message.setRepeatedWrapperField(this, 2, value);
 };
 
 
@@ -20333,9 +21494,10 @@ proto.data.ListReferencesResponse.prototype.addReferences = function(opt_value, 
 
 /**
  * Clears the list making it empty but non-null.
+ * @return {!proto.data.ListReferencesResponse} returns this
  */
 proto.data.ListReferencesResponse.prototype.clearReferencesList = function() {
-  this.setReferencesList([]);
+  return this.setReferencesList([]);
 };
 
 
@@ -20348,9 +21510,12 @@ proto.data.ListReferencesResponse.prototype.getNextPageToken = function() {
 };
 
 
-/** @param {string} value */
+/**
+ * @param {string} value
+ * @return {!proto.data.ListReferencesResponse} returns this
+ */
 proto.data.ListReferencesResponse.prototype.setNextPageToken = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 

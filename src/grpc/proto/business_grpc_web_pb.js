@@ -12,9 +12,9 @@ const grpc = {};
 grpc.web = require('grpc-web');
 
 
-var proto_core_functionality_pb = require('../proto/core_functionality_pb.js')
+var proto_core_functionality_pb = require('@adempiere/grpc-core-client/src/grpc/proto/core_functionality_pb.js');
 
-var proto_base_data_type_pb = require('../proto/base_data_type_pb.js')
+var proto_base_data_type_pb = require('@adempiere/grpc-core-client/src/grpc/proto/base_data_type_pb.js');
 const proto = {};
 proto.data = require('./business_pb.js');
 
@@ -41,16 +41,6 @@ proto.data.BusinessDataClient =
    */
   this.hostname_ = hostname;
 
-  /**
-   * @private @const {?Object} The credentials to be used to connect
-   *    to the server
-   */
-  this.credentials_ = credentials;
-
-  /**
-   * @private @const {?Object} Options for the client
-   */
-  this.options_ = options;
 };
 
 
@@ -77,17 +67,29 @@ proto.data.BusinessDataPromiseClient =
    */
   this.hostname_ = hostname;
 
-  /**
-   * @private @const {?Object} The credentials to be used to connect
-   *    to the server
-   */
-  this.credentials_ = credentials;
-
-  /**
-   * @private @const {?Object} Options for the client
-   */
-  this.options_ = options;
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.GetEntityRequest,
+ *   !proto.data.Entity>}
+ */
+const methodDescriptor_BusinessData_GetEntity = new grpc.web.MethodDescriptor(
+  '/data.BusinessData/GetEntity',
+  grpc.web.MethodType.UNARY,
+  proto.data.GetEntityRequest,
+  proto_base_data_type_pb.Entity,
+  /**
+   * @param {!proto.data.GetEntityRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto_base_data_type_pb.Entity.deserializeBinary
+);
 
 
 /**
@@ -98,7 +100,10 @@ proto.data.BusinessDataPromiseClient =
  */
 const methodInfo_BusinessData_GetEntity = new grpc.web.AbstractClientBase.MethodInfo(
   proto_base_data_type_pb.Entity,
-  /** @param {!proto.data.GetEntityRequest} request */
+  /**
+   * @param {!proto.data.GetEntityRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -122,7 +127,7 @@ proto.data.BusinessDataClient.prototype.getEntity =
       '/data.BusinessData/GetEntity',
       request,
       metadata || {},
-      methodInfo_BusinessData_GetEntity,
+      methodDescriptor_BusinessData_GetEntity,
       callback);
 };
 
@@ -141,8 +146,30 @@ proto.data.BusinessDataPromiseClient.prototype.getEntity =
       '/data.BusinessData/GetEntity',
       request,
       metadata || {},
-      methodInfo_BusinessData_GetEntity);
+      methodDescriptor_BusinessData_GetEntity);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.CreateEntityRequest,
+ *   !proto.data.Entity>}
+ */
+const methodDescriptor_BusinessData_CreateEntity = new grpc.web.MethodDescriptor(
+  '/data.BusinessData/CreateEntity',
+  grpc.web.MethodType.UNARY,
+  proto.data.CreateEntityRequest,
+  proto_base_data_type_pb.Entity,
+  /**
+   * @param {!proto.data.CreateEntityRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto_base_data_type_pb.Entity.deserializeBinary
+);
 
 
 /**
@@ -153,7 +180,10 @@ proto.data.BusinessDataPromiseClient.prototype.getEntity =
  */
 const methodInfo_BusinessData_CreateEntity = new grpc.web.AbstractClientBase.MethodInfo(
   proto_base_data_type_pb.Entity,
-  /** @param {!proto.data.CreateEntityRequest} request */
+  /**
+   * @param {!proto.data.CreateEntityRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -177,7 +207,7 @@ proto.data.BusinessDataClient.prototype.createEntity =
       '/data.BusinessData/CreateEntity',
       request,
       metadata || {},
-      methodInfo_BusinessData_CreateEntity,
+      methodDescriptor_BusinessData_CreateEntity,
       callback);
 };
 
@@ -196,8 +226,30 @@ proto.data.BusinessDataPromiseClient.prototype.createEntity =
       '/data.BusinessData/CreateEntity',
       request,
       metadata || {},
-      methodInfo_BusinessData_CreateEntity);
+      methodDescriptor_BusinessData_CreateEntity);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.UpdateEntityRequest,
+ *   !proto.data.Entity>}
+ */
+const methodDescriptor_BusinessData_UpdateEntity = new grpc.web.MethodDescriptor(
+  '/data.BusinessData/UpdateEntity',
+  grpc.web.MethodType.UNARY,
+  proto.data.UpdateEntityRequest,
+  proto_base_data_type_pb.Entity,
+  /**
+   * @param {!proto.data.UpdateEntityRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto_base_data_type_pb.Entity.deserializeBinary
+);
 
 
 /**
@@ -208,7 +260,10 @@ proto.data.BusinessDataPromiseClient.prototype.createEntity =
  */
 const methodInfo_BusinessData_UpdateEntity = new grpc.web.AbstractClientBase.MethodInfo(
   proto_base_data_type_pb.Entity,
-  /** @param {!proto.data.UpdateEntityRequest} request */
+  /**
+   * @param {!proto.data.UpdateEntityRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -232,7 +287,7 @@ proto.data.BusinessDataClient.prototype.updateEntity =
       '/data.BusinessData/UpdateEntity',
       request,
       metadata || {},
-      methodInfo_BusinessData_UpdateEntity,
+      methodDescriptor_BusinessData_UpdateEntity,
       callback);
 };
 
@@ -251,8 +306,30 @@ proto.data.BusinessDataPromiseClient.prototype.updateEntity =
       '/data.BusinessData/UpdateEntity',
       request,
       metadata || {},
-      methodInfo_BusinessData_UpdateEntity);
+      methodDescriptor_BusinessData_UpdateEntity);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.DeleteEntityRequest,
+ *   !proto.data.Empty>}
+ */
+const methodDescriptor_BusinessData_DeleteEntity = new grpc.web.MethodDescriptor(
+  '/data.BusinessData/DeleteEntity',
+  grpc.web.MethodType.UNARY,
+  proto.data.DeleteEntityRequest,
+  proto_base_data_type_pb.Empty,
+  /**
+   * @param {!proto.data.DeleteEntityRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto_base_data_type_pb.Empty.deserializeBinary
+);
 
 
 /**
@@ -263,7 +340,10 @@ proto.data.BusinessDataPromiseClient.prototype.updateEntity =
  */
 const methodInfo_BusinessData_DeleteEntity = new grpc.web.AbstractClientBase.MethodInfo(
   proto_base_data_type_pb.Empty,
-  /** @param {!proto.data.DeleteEntityRequest} request */
+  /**
+   * @param {!proto.data.DeleteEntityRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -287,7 +367,7 @@ proto.data.BusinessDataClient.prototype.deleteEntity =
       '/data.BusinessData/DeleteEntity',
       request,
       metadata || {},
-      methodInfo_BusinessData_DeleteEntity,
+      methodDescriptor_BusinessData_DeleteEntity,
       callback);
 };
 
@@ -306,8 +386,30 @@ proto.data.BusinessDataPromiseClient.prototype.deleteEntity =
       '/data.BusinessData/DeleteEntity',
       request,
       metadata || {},
-      methodInfo_BusinessData_DeleteEntity);
+      methodDescriptor_BusinessData_DeleteEntity);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.ListEntitiesRequest,
+ *   !proto.data.ListEntitiesResponse>}
+ */
+const methodDescriptor_BusinessData_ListEntities = new grpc.web.MethodDescriptor(
+  '/data.BusinessData/ListEntities',
+  grpc.web.MethodType.UNARY,
+  proto.data.ListEntitiesRequest,
+  proto.data.ListEntitiesResponse,
+  /**
+   * @param {!proto.data.ListEntitiesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.ListEntitiesResponse.deserializeBinary
+);
 
 
 /**
@@ -318,7 +420,10 @@ proto.data.BusinessDataPromiseClient.prototype.deleteEntity =
  */
 const methodInfo_BusinessData_ListEntities = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.ListEntitiesResponse,
-  /** @param {!proto.data.ListEntitiesRequest} request */
+  /**
+   * @param {!proto.data.ListEntitiesRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -342,7 +447,7 @@ proto.data.BusinessDataClient.prototype.listEntities =
       '/data.BusinessData/ListEntities',
       request,
       metadata || {},
-      methodInfo_BusinessData_ListEntities,
+      methodDescriptor_BusinessData_ListEntities,
       callback);
 };
 
@@ -361,8 +466,30 @@ proto.data.BusinessDataPromiseClient.prototype.listEntities =
       '/data.BusinessData/ListEntities',
       request,
       metadata || {},
-      methodInfo_BusinessData_ListEntities);
+      methodDescriptor_BusinessData_ListEntities);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.RunBusinessProcessRequest,
+ *   !proto.data.ProcessLog>}
+ */
+const methodDescriptor_BusinessData_RunBusinessProcess = new grpc.web.MethodDescriptor(
+  '/data.BusinessData/RunBusinessProcess',
+  grpc.web.MethodType.UNARY,
+  proto.data.RunBusinessProcessRequest,
+  proto_base_data_type_pb.ProcessLog,
+  /**
+   * @param {!proto.data.RunBusinessProcessRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto_base_data_type_pb.ProcessLog.deserializeBinary
+);
 
 
 /**
@@ -373,7 +500,10 @@ proto.data.BusinessDataPromiseClient.prototype.listEntities =
  */
 const methodInfo_BusinessData_RunBusinessProcess = new grpc.web.AbstractClientBase.MethodInfo(
   proto_base_data_type_pb.ProcessLog,
-  /** @param {!proto.data.RunBusinessProcessRequest} request */
+  /**
+   * @param {!proto.data.RunBusinessProcessRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -397,7 +527,7 @@ proto.data.BusinessDataClient.prototype.runBusinessProcess =
       '/data.BusinessData/RunBusinessProcess',
       request,
       metadata || {},
-      methodInfo_BusinessData_RunBusinessProcess,
+      methodDescriptor_BusinessData_RunBusinessProcess,
       callback);
 };
 
@@ -416,7 +546,7 @@ proto.data.BusinessDataPromiseClient.prototype.runBusinessProcess =
       '/data.BusinessData/RunBusinessProcess',
       request,
       metadata || {},
-      methodInfo_BusinessData_RunBusinessProcess);
+      methodDescriptor_BusinessData_RunBusinessProcess);
 };
 
 
@@ -443,16 +573,6 @@ proto.data.UserInterfaceClient =
    */
   this.hostname_ = hostname;
 
-  /**
-   * @private @const {?Object} The credentials to be used to connect
-   *    to the server
-   */
-  this.credentials_ = credentials;
-
-  /**
-   * @private @const {?Object} Options for the client
-   */
-  this.options_ = options;
 };
 
 
@@ -479,17 +599,29 @@ proto.data.UserInterfacePromiseClient =
    */
   this.hostname_ = hostname;
 
-  /**
-   * @private @const {?Object} The credentials to be used to connect
-   *    to the server
-   */
-  this.credentials_ = credentials;
-
-  /**
-   * @private @const {?Object} Options for the client
-   */
-  this.options_ = options;
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.RollbackEntityRequest,
+ *   !proto.data.Entity>}
+ */
+const methodDescriptor_UserInterface_RollbackEntity = new grpc.web.MethodDescriptor(
+  '/data.UserInterface/RollbackEntity',
+  grpc.web.MethodType.UNARY,
+  proto.data.RollbackEntityRequest,
+  proto_base_data_type_pb.Entity,
+  /**
+   * @param {!proto.data.RollbackEntityRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto_base_data_type_pb.Entity.deserializeBinary
+);
 
 
 /**
@@ -500,7 +632,10 @@ proto.data.UserInterfacePromiseClient =
  */
 const methodInfo_UserInterface_RollbackEntity = new grpc.web.AbstractClientBase.MethodInfo(
   proto_base_data_type_pb.Entity,
-  /** @param {!proto.data.RollbackEntityRequest} request */
+  /**
+   * @param {!proto.data.RollbackEntityRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -524,7 +659,7 @@ proto.data.UserInterfaceClient.prototype.rollbackEntity =
       '/data.UserInterface/RollbackEntity',
       request,
       metadata || {},
-      methodInfo_UserInterface_RollbackEntity,
+      methodDescriptor_UserInterface_RollbackEntity,
       callback);
 };
 
@@ -543,8 +678,30 @@ proto.data.UserInterfacePromiseClient.prototype.rollbackEntity =
       '/data.UserInterface/RollbackEntity',
       request,
       metadata || {},
-      methodInfo_UserInterface_RollbackEntity);
+      methodDescriptor_UserInterface_RollbackEntity);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.RunCalloutRequest,
+ *   !proto.data.Callout>}
+ */
+const methodDescriptor_UserInterface_RunCallout = new grpc.web.MethodDescriptor(
+  '/data.UserInterface/RunCallout',
+  grpc.web.MethodType.UNARY,
+  proto.data.RunCalloutRequest,
+  proto.data.Callout,
+  /**
+   * @param {!proto.data.RunCalloutRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.Callout.deserializeBinary
+);
 
 
 /**
@@ -555,7 +712,10 @@ proto.data.UserInterfacePromiseClient.prototype.rollbackEntity =
  */
 const methodInfo_UserInterface_RunCallout = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.Callout,
-  /** @param {!proto.data.RunCalloutRequest} request */
+  /**
+   * @param {!proto.data.RunCalloutRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -579,7 +739,7 @@ proto.data.UserInterfaceClient.prototype.runCallout =
       '/data.UserInterface/RunCallout',
       request,
       metadata || {},
-      methodInfo_UserInterface_RunCallout,
+      methodDescriptor_UserInterface_RunCallout,
       callback);
 };
 
@@ -598,8 +758,30 @@ proto.data.UserInterfacePromiseClient.prototype.runCallout =
       '/data.UserInterface/RunCallout',
       request,
       metadata || {},
-      methodInfo_UserInterface_RunCallout);
+      methodDescriptor_UserInterface_RunCallout);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.ListTranslationsRequest,
+ *   !proto.data.ListTranslationsResponse>}
+ */
+const methodDescriptor_UserInterface_ListTranslations = new grpc.web.MethodDescriptor(
+  '/data.UserInterface/ListTranslations',
+  grpc.web.MethodType.UNARY,
+  proto.data.ListTranslationsRequest,
+  proto.data.ListTranslationsResponse,
+  /**
+   * @param {!proto.data.ListTranslationsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.ListTranslationsResponse.deserializeBinary
+);
 
 
 /**
@@ -610,7 +792,10 @@ proto.data.UserInterfacePromiseClient.prototype.runCallout =
  */
 const methodInfo_UserInterface_ListTranslations = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.ListTranslationsResponse,
-  /** @param {!proto.data.ListTranslationsRequest} request */
+  /**
+   * @param {!proto.data.ListTranslationsRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -634,7 +819,7 @@ proto.data.UserInterfaceClient.prototype.listTranslations =
       '/data.UserInterface/ListTranslations',
       request,
       metadata || {},
-      methodInfo_UserInterface_ListTranslations,
+      methodDescriptor_UserInterface_ListTranslations,
       callback);
 };
 
@@ -653,8 +838,30 @@ proto.data.UserInterfacePromiseClient.prototype.listTranslations =
       '/data.UserInterface/ListTranslations',
       request,
       metadata || {},
-      methodInfo_UserInterface_ListTranslations);
+      methodDescriptor_UserInterface_ListTranslations);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.GetDefaultValueRequest,
+ *   !proto.data.Value>}
+ */
+const methodDescriptor_UserInterface_GetDefaultValue = new grpc.web.MethodDescriptor(
+  '/data.UserInterface/GetDefaultValue',
+  grpc.web.MethodType.UNARY,
+  proto.data.GetDefaultValueRequest,
+  proto_base_data_type_pb.Value,
+  /**
+   * @param {!proto.data.GetDefaultValueRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto_base_data_type_pb.Value.deserializeBinary
+);
 
 
 /**
@@ -665,7 +872,10 @@ proto.data.UserInterfacePromiseClient.prototype.listTranslations =
  */
 const methodInfo_UserInterface_GetDefaultValue = new grpc.web.AbstractClientBase.MethodInfo(
   proto_base_data_type_pb.Value,
-  /** @param {!proto.data.GetDefaultValueRequest} request */
+  /**
+   * @param {!proto.data.GetDefaultValueRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -689,7 +899,7 @@ proto.data.UserInterfaceClient.prototype.getDefaultValue =
       '/data.UserInterface/GetDefaultValue',
       request,
       metadata || {},
-      methodInfo_UserInterface_GetDefaultValue,
+      methodDescriptor_UserInterface_GetDefaultValue,
       callback);
 };
 
@@ -708,8 +918,30 @@ proto.data.UserInterfacePromiseClient.prototype.getDefaultValue =
       '/data.UserInterface/GetDefaultValue',
       request,
       metadata || {},
-      methodInfo_UserInterface_GetDefaultValue);
+      methodDescriptor_UserInterface_GetDefaultValue);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.GetLookupItemRequest,
+ *   !proto.data.LookupItem>}
+ */
+const methodDescriptor_UserInterface_GetLookupItem = new grpc.web.MethodDescriptor(
+  '/data.UserInterface/GetLookupItem',
+  grpc.web.MethodType.UNARY,
+  proto.data.GetLookupItemRequest,
+  proto.data.LookupItem,
+  /**
+   * @param {!proto.data.GetLookupItemRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.LookupItem.deserializeBinary
+);
 
 
 /**
@@ -720,7 +952,10 @@ proto.data.UserInterfacePromiseClient.prototype.getDefaultValue =
  */
 const methodInfo_UserInterface_GetLookupItem = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.LookupItem,
-  /** @param {!proto.data.GetLookupItemRequest} request */
+  /**
+   * @param {!proto.data.GetLookupItemRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -744,7 +979,7 @@ proto.data.UserInterfaceClient.prototype.getLookupItem =
       '/data.UserInterface/GetLookupItem',
       request,
       metadata || {},
-      methodInfo_UserInterface_GetLookupItem,
+      methodDescriptor_UserInterface_GetLookupItem,
       callback);
 };
 
@@ -763,8 +998,30 @@ proto.data.UserInterfacePromiseClient.prototype.getLookupItem =
       '/data.UserInterface/GetLookupItem',
       request,
       metadata || {},
-      methodInfo_UserInterface_GetLookupItem);
+      methodDescriptor_UserInterface_GetLookupItem);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.ListLookupItemsRequest,
+ *   !proto.data.ListLookupItemsResponse>}
+ */
+const methodDescriptor_UserInterface_ListLookupItems = new grpc.web.MethodDescriptor(
+  '/data.UserInterface/ListLookupItems',
+  grpc.web.MethodType.UNARY,
+  proto.data.ListLookupItemsRequest,
+  proto.data.ListLookupItemsResponse,
+  /**
+   * @param {!proto.data.ListLookupItemsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.ListLookupItemsResponse.deserializeBinary
+);
 
 
 /**
@@ -775,7 +1032,10 @@ proto.data.UserInterfacePromiseClient.prototype.getLookupItem =
  */
 const methodInfo_UserInterface_ListLookupItems = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.ListLookupItemsResponse,
-  /** @param {!proto.data.ListLookupItemsRequest} request */
+  /**
+   * @param {!proto.data.ListLookupItemsRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -799,7 +1059,7 @@ proto.data.UserInterfaceClient.prototype.listLookupItems =
       '/data.UserInterface/ListLookupItems',
       request,
       metadata || {},
-      methodInfo_UserInterface_ListLookupItems,
+      methodDescriptor_UserInterface_ListLookupItems,
       callback);
 };
 
@@ -818,8 +1078,30 @@ proto.data.UserInterfacePromiseClient.prototype.listLookupItems =
       '/data.UserInterface/ListLookupItems',
       request,
       metadata || {},
-      methodInfo_UserInterface_ListLookupItems);
+      methodDescriptor_UserInterface_ListLookupItems);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.ListBrowserItemsRequest,
+ *   !proto.data.ListBrowserItemsResponse>}
+ */
+const methodDescriptor_UserInterface_ListBrowserItems = new grpc.web.MethodDescriptor(
+  '/data.UserInterface/ListBrowserItems',
+  grpc.web.MethodType.UNARY,
+  proto.data.ListBrowserItemsRequest,
+  proto.data.ListBrowserItemsResponse,
+  /**
+   * @param {!proto.data.ListBrowserItemsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.ListBrowserItemsResponse.deserializeBinary
+);
 
 
 /**
@@ -830,7 +1112,10 @@ proto.data.UserInterfacePromiseClient.prototype.listLookupItems =
  */
 const methodInfo_UserInterface_ListBrowserItems = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.ListBrowserItemsResponse,
-  /** @param {!proto.data.ListBrowserItemsRequest} request */
+  /**
+   * @param {!proto.data.ListBrowserItemsRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -854,7 +1139,7 @@ proto.data.UserInterfaceClient.prototype.listBrowserItems =
       '/data.UserInterface/ListBrowserItems',
       request,
       metadata || {},
-      methodInfo_UserInterface_ListBrowserItems,
+      methodDescriptor_UserInterface_ListBrowserItems,
       callback);
 };
 
@@ -873,8 +1158,30 @@ proto.data.UserInterfacePromiseClient.prototype.listBrowserItems =
       '/data.UserInterface/ListBrowserItems',
       request,
       metadata || {},
-      methodInfo_UserInterface_ListBrowserItems);
+      methodDescriptor_UserInterface_ListBrowserItems);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.ListReferencesRequest,
+ *   !proto.data.ListReferencesResponse>}
+ */
+const methodDescriptor_UserInterface_ListReferences = new grpc.web.MethodDescriptor(
+  '/data.UserInterface/ListReferences',
+  grpc.web.MethodType.UNARY,
+  proto.data.ListReferencesRequest,
+  proto.data.ListReferencesResponse,
+  /**
+   * @param {!proto.data.ListReferencesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.ListReferencesResponse.deserializeBinary
+);
 
 
 /**
@@ -885,7 +1192,10 @@ proto.data.UserInterfacePromiseClient.prototype.listBrowserItems =
  */
 const methodInfo_UserInterface_ListReferences = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.ListReferencesResponse,
-  /** @param {!proto.data.ListReferencesRequest} request */
+  /**
+   * @param {!proto.data.ListReferencesRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -909,7 +1219,7 @@ proto.data.UserInterfaceClient.prototype.listReferences =
       '/data.UserInterface/ListReferences',
       request,
       metadata || {},
-      methodInfo_UserInterface_ListReferences,
+      methodDescriptor_UserInterface_ListReferences,
       callback);
 };
 
@@ -928,8 +1238,30 @@ proto.data.UserInterfacePromiseClient.prototype.listReferences =
       '/data.UserInterface/ListReferences',
       request,
       metadata || {},
-      methodInfo_UserInterface_ListReferences);
+      methodDescriptor_UserInterface_ListReferences);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.GetContextInfoValueRequest,
+ *   !proto.data.ContextInfoValue>}
+ */
+const methodDescriptor_UserInterface_GetContextInfoValue = new grpc.web.MethodDescriptor(
+  '/data.UserInterface/GetContextInfoValue',
+  grpc.web.MethodType.UNARY,
+  proto.data.GetContextInfoValueRequest,
+  proto.data.ContextInfoValue,
+  /**
+   * @param {!proto.data.GetContextInfoValueRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.ContextInfoValue.deserializeBinary
+);
 
 
 /**
@@ -940,7 +1272,10 @@ proto.data.UserInterfacePromiseClient.prototype.listReferences =
  */
 const methodInfo_UserInterface_GetContextInfoValue = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.ContextInfoValue,
-  /** @param {!proto.data.GetContextInfoValueRequest} request */
+  /**
+   * @param {!proto.data.GetContextInfoValueRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -964,7 +1299,7 @@ proto.data.UserInterfaceClient.prototype.getContextInfoValue =
       '/data.UserInterface/GetContextInfoValue',
       request,
       metadata || {},
-      methodInfo_UserInterface_GetContextInfoValue,
+      methodDescriptor_UserInterface_GetContextInfoValue,
       callback);
 };
 
@@ -983,8 +1318,30 @@ proto.data.UserInterfacePromiseClient.prototype.getContextInfoValue =
       '/data.UserInterface/GetContextInfoValue',
       request,
       metadata || {},
-      methodInfo_UserInterface_GetContextInfoValue);
+      methodDescriptor_UserInterface_GetContextInfoValue);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.GetPrivateAccessRequest,
+ *   !proto.data.PrivateAccess>}
+ */
+const methodDescriptor_UserInterface_GetPrivateAccess = new grpc.web.MethodDescriptor(
+  '/data.UserInterface/GetPrivateAccess',
+  grpc.web.MethodType.UNARY,
+  proto.data.GetPrivateAccessRequest,
+  proto.data.PrivateAccess,
+  /**
+   * @param {!proto.data.GetPrivateAccessRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.PrivateAccess.deserializeBinary
+);
 
 
 /**
@@ -995,7 +1352,10 @@ proto.data.UserInterfacePromiseClient.prototype.getContextInfoValue =
  */
 const methodInfo_UserInterface_GetPrivateAccess = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.PrivateAccess,
-  /** @param {!proto.data.GetPrivateAccessRequest} request */
+  /**
+   * @param {!proto.data.GetPrivateAccessRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -1019,7 +1379,7 @@ proto.data.UserInterfaceClient.prototype.getPrivateAccess =
       '/data.UserInterface/GetPrivateAccess',
       request,
       metadata || {},
-      methodInfo_UserInterface_GetPrivateAccess,
+      methodDescriptor_UserInterface_GetPrivateAccess,
       callback);
 };
 
@@ -1038,8 +1398,30 @@ proto.data.UserInterfacePromiseClient.prototype.getPrivateAccess =
       '/data.UserInterface/GetPrivateAccess',
       request,
       metadata || {},
-      methodInfo_UserInterface_GetPrivateAccess);
+      methodDescriptor_UserInterface_GetPrivateAccess);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.LockPrivateAccessRequest,
+ *   !proto.data.PrivateAccess>}
+ */
+const methodDescriptor_UserInterface_LockPrivateAccess = new grpc.web.MethodDescriptor(
+  '/data.UserInterface/LockPrivateAccess',
+  grpc.web.MethodType.UNARY,
+  proto.data.LockPrivateAccessRequest,
+  proto.data.PrivateAccess,
+  /**
+   * @param {!proto.data.LockPrivateAccessRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.PrivateAccess.deserializeBinary
+);
 
 
 /**
@@ -1050,7 +1432,10 @@ proto.data.UserInterfacePromiseClient.prototype.getPrivateAccess =
  */
 const methodInfo_UserInterface_LockPrivateAccess = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.PrivateAccess,
-  /** @param {!proto.data.LockPrivateAccessRequest} request */
+  /**
+   * @param {!proto.data.LockPrivateAccessRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -1074,7 +1459,7 @@ proto.data.UserInterfaceClient.prototype.lockPrivateAccess =
       '/data.UserInterface/LockPrivateAccess',
       request,
       metadata || {},
-      methodInfo_UserInterface_LockPrivateAccess,
+      methodDescriptor_UserInterface_LockPrivateAccess,
       callback);
 };
 
@@ -1093,8 +1478,30 @@ proto.data.UserInterfacePromiseClient.prototype.lockPrivateAccess =
       '/data.UserInterface/LockPrivateAccess',
       request,
       metadata || {},
-      methodInfo_UserInterface_LockPrivateAccess);
+      methodDescriptor_UserInterface_LockPrivateAccess);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.UnlockPrivateAccessRequest,
+ *   !proto.data.PrivateAccess>}
+ */
+const methodDescriptor_UserInterface_UnlockPrivateAccess = new grpc.web.MethodDescriptor(
+  '/data.UserInterface/UnlockPrivateAccess',
+  grpc.web.MethodType.UNARY,
+  proto.data.UnlockPrivateAccessRequest,
+  proto.data.PrivateAccess,
+  /**
+   * @param {!proto.data.UnlockPrivateAccessRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.PrivateAccess.deserializeBinary
+);
 
 
 /**
@@ -1105,7 +1512,10 @@ proto.data.UserInterfacePromiseClient.prototype.lockPrivateAccess =
  */
 const methodInfo_UserInterface_UnlockPrivateAccess = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.PrivateAccess,
-  /** @param {!proto.data.UnlockPrivateAccessRequest} request */
+  /**
+   * @param {!proto.data.UnlockPrivateAccessRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -1129,7 +1539,7 @@ proto.data.UserInterfaceClient.prototype.unlockPrivateAccess =
       '/data.UserInterface/UnlockPrivateAccess',
       request,
       metadata || {},
-      methodInfo_UserInterface_UnlockPrivateAccess,
+      methodDescriptor_UserInterface_UnlockPrivateAccess,
       callback);
 };
 
@@ -1148,8 +1558,30 @@ proto.data.UserInterfacePromiseClient.prototype.unlockPrivateAccess =
       '/data.UserInterface/UnlockPrivateAccess',
       request,
       metadata || {},
-      methodInfo_UserInterface_UnlockPrivateAccess);
+      methodDescriptor_UserInterface_UnlockPrivateAccess);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.ListPrintFormatsRequest,
+ *   !proto.data.ListPrintFormatsResponse>}
+ */
+const methodDescriptor_UserInterface_ListPrintFormats = new grpc.web.MethodDescriptor(
+  '/data.UserInterface/ListPrintFormats',
+  grpc.web.MethodType.UNARY,
+  proto.data.ListPrintFormatsRequest,
+  proto.data.ListPrintFormatsResponse,
+  /**
+   * @param {!proto.data.ListPrintFormatsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.ListPrintFormatsResponse.deserializeBinary
+);
 
 
 /**
@@ -1160,7 +1592,10 @@ proto.data.UserInterfacePromiseClient.prototype.unlockPrivateAccess =
  */
 const methodInfo_UserInterface_ListPrintFormats = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.ListPrintFormatsResponse,
-  /** @param {!proto.data.ListPrintFormatsRequest} request */
+  /**
+   * @param {!proto.data.ListPrintFormatsRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -1184,7 +1619,7 @@ proto.data.UserInterfaceClient.prototype.listPrintFormats =
       '/data.UserInterface/ListPrintFormats',
       request,
       metadata || {},
-      methodInfo_UserInterface_ListPrintFormats,
+      methodDescriptor_UserInterface_ListPrintFormats,
       callback);
 };
 
@@ -1203,8 +1638,30 @@ proto.data.UserInterfacePromiseClient.prototype.listPrintFormats =
       '/data.UserInterface/ListPrintFormats',
       request,
       metadata || {},
-      methodInfo_UserInterface_ListPrintFormats);
+      methodDescriptor_UserInterface_ListPrintFormats);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.ListReportViewsRequest,
+ *   !proto.data.ListReportViewsResponse>}
+ */
+const methodDescriptor_UserInterface_ListReportViews = new grpc.web.MethodDescriptor(
+  '/data.UserInterface/ListReportViews',
+  grpc.web.MethodType.UNARY,
+  proto.data.ListReportViewsRequest,
+  proto.data.ListReportViewsResponse,
+  /**
+   * @param {!proto.data.ListReportViewsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.ListReportViewsResponse.deserializeBinary
+);
 
 
 /**
@@ -1215,7 +1672,10 @@ proto.data.UserInterfacePromiseClient.prototype.listPrintFormats =
  */
 const methodInfo_UserInterface_ListReportViews = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.ListReportViewsResponse,
-  /** @param {!proto.data.ListReportViewsRequest} request */
+  /**
+   * @param {!proto.data.ListReportViewsRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -1239,7 +1699,7 @@ proto.data.UserInterfaceClient.prototype.listReportViews =
       '/data.UserInterface/ListReportViews',
       request,
       metadata || {},
-      methodInfo_UserInterface_ListReportViews,
+      methodDescriptor_UserInterface_ListReportViews,
       callback);
 };
 
@@ -1258,8 +1718,30 @@ proto.data.UserInterfacePromiseClient.prototype.listReportViews =
       '/data.UserInterface/ListReportViews',
       request,
       metadata || {},
-      methodInfo_UserInterface_ListReportViews);
+      methodDescriptor_UserInterface_ListReportViews);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.ListDrillTablesRequest,
+ *   !proto.data.ListDrillTablesResponse>}
+ */
+const methodDescriptor_UserInterface_ListDrillTables = new grpc.web.MethodDescriptor(
+  '/data.UserInterface/ListDrillTables',
+  grpc.web.MethodType.UNARY,
+  proto.data.ListDrillTablesRequest,
+  proto.data.ListDrillTablesResponse,
+  /**
+   * @param {!proto.data.ListDrillTablesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.ListDrillTablesResponse.deserializeBinary
+);
 
 
 /**
@@ -1270,7 +1752,10 @@ proto.data.UserInterfacePromiseClient.prototype.listReportViews =
  */
 const methodInfo_UserInterface_ListDrillTables = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.ListDrillTablesResponse,
-  /** @param {!proto.data.ListDrillTablesRequest} request */
+  /**
+   * @param {!proto.data.ListDrillTablesRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -1294,7 +1779,7 @@ proto.data.UserInterfaceClient.prototype.listDrillTables =
       '/data.UserInterface/ListDrillTables',
       request,
       metadata || {},
-      methodInfo_UserInterface_ListDrillTables,
+      methodDescriptor_UserInterface_ListDrillTables,
       callback);
 };
 
@@ -1313,8 +1798,30 @@ proto.data.UserInterfacePromiseClient.prototype.listDrillTables =
       '/data.UserInterface/ListDrillTables',
       request,
       metadata || {},
-      methodInfo_UserInterface_ListDrillTables);
+      methodDescriptor_UserInterface_ListDrillTables);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.GetReportOutputRequest,
+ *   !proto.data.ReportOutput>}
+ */
+const methodDescriptor_UserInterface_GetReportOutput = new grpc.web.MethodDescriptor(
+  '/data.UserInterface/GetReportOutput',
+  grpc.web.MethodType.UNARY,
+  proto.data.GetReportOutputRequest,
+  proto_base_data_type_pb.ReportOutput,
+  /**
+   * @param {!proto.data.GetReportOutputRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto_base_data_type_pb.ReportOutput.deserializeBinary
+);
 
 
 /**
@@ -1325,7 +1832,10 @@ proto.data.UserInterfacePromiseClient.prototype.listDrillTables =
  */
 const methodInfo_UserInterface_GetReportOutput = new grpc.web.AbstractClientBase.MethodInfo(
   proto_base_data_type_pb.ReportOutput,
-  /** @param {!proto.data.GetReportOutputRequest} request */
+  /**
+   * @param {!proto.data.GetReportOutputRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -1349,7 +1859,7 @@ proto.data.UserInterfaceClient.prototype.getReportOutput =
       '/data.UserInterface/GetReportOutput',
       request,
       metadata || {},
-      methodInfo_UserInterface_GetReportOutput,
+      methodDescriptor_UserInterface_GetReportOutput,
       callback);
 };
 
@@ -1368,8 +1878,30 @@ proto.data.UserInterfacePromiseClient.prototype.getReportOutput =
       '/data.UserInterface/GetReportOutput',
       request,
       metadata || {},
-      methodInfo_UserInterface_GetReportOutput);
+      methodDescriptor_UserInterface_GetReportOutput);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.CreateChatEntryRequest,
+ *   !proto.data.ChatEntry>}
+ */
+const methodDescriptor_UserInterface_CreateChatEntry = new grpc.web.MethodDescriptor(
+  '/data.UserInterface/CreateChatEntry',
+  grpc.web.MethodType.UNARY,
+  proto.data.CreateChatEntryRequest,
+  proto.data.ChatEntry,
+  /**
+   * @param {!proto.data.CreateChatEntryRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.ChatEntry.deserializeBinary
+);
 
 
 /**
@@ -1380,7 +1912,10 @@ proto.data.UserInterfacePromiseClient.prototype.getReportOutput =
  */
 const methodInfo_UserInterface_CreateChatEntry = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.ChatEntry,
-  /** @param {!proto.data.CreateChatEntryRequest} request */
+  /**
+   * @param {!proto.data.CreateChatEntryRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -1404,7 +1939,7 @@ proto.data.UserInterfaceClient.prototype.createChatEntry =
       '/data.UserInterface/CreateChatEntry',
       request,
       metadata || {},
-      methodInfo_UserInterface_CreateChatEntry,
+      methodDescriptor_UserInterface_CreateChatEntry,
       callback);
 };
 
@@ -1423,7 +1958,7 @@ proto.data.UserInterfacePromiseClient.prototype.createChatEntry =
       '/data.UserInterface/CreateChatEntry',
       request,
       metadata || {},
-      methodInfo_UserInterface_CreateChatEntry);
+      methodDescriptor_UserInterface_CreateChatEntry);
 };
 
 
@@ -1450,16 +1985,6 @@ proto.data.WorkflowClient =
    */
   this.hostname_ = hostname;
 
-  /**
-   * @private @const {?Object} The credentials to be used to connect
-   *    to the server
-   */
-  this.credentials_ = credentials;
-
-  /**
-   * @private @const {?Object} Options for the client
-   */
-  this.options_ = options;
 };
 
 
@@ -1486,17 +2011,29 @@ proto.data.WorkflowPromiseClient =
    */
   this.hostname_ = hostname;
 
-  /**
-   * @private @const {?Object} The credentials to be used to connect
-   *    to the server
-   */
-  this.credentials_ = credentials;
-
-  /**
-   * @private @const {?Object} Options for the client
-   */
-  this.options_ = options;
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.ListWorkflowsRequest,
+ *   !proto.data.ListWorkflowsResponse>}
+ */
+const methodDescriptor_Workflow_ListWorkflows = new grpc.web.MethodDescriptor(
+  '/data.Workflow/ListWorkflows',
+  grpc.web.MethodType.UNARY,
+  proto.data.ListWorkflowsRequest,
+  proto.data.ListWorkflowsResponse,
+  /**
+   * @param {!proto.data.ListWorkflowsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.ListWorkflowsResponse.deserializeBinary
+);
 
 
 /**
@@ -1507,7 +2044,10 @@ proto.data.WorkflowPromiseClient =
  */
 const methodInfo_Workflow_ListWorkflows = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.ListWorkflowsResponse,
-  /** @param {!proto.data.ListWorkflowsRequest} request */
+  /**
+   * @param {!proto.data.ListWorkflowsRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -1531,7 +2071,7 @@ proto.data.WorkflowClient.prototype.listWorkflows =
       '/data.Workflow/ListWorkflows',
       request,
       metadata || {},
-      methodInfo_Workflow_ListWorkflows,
+      methodDescriptor_Workflow_ListWorkflows,
       callback);
 };
 
@@ -1550,8 +2090,30 @@ proto.data.WorkflowPromiseClient.prototype.listWorkflows =
       '/data.Workflow/ListWorkflows',
       request,
       metadata || {},
-      methodInfo_Workflow_ListWorkflows);
+      methodDescriptor_Workflow_ListWorkflows);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.ListDocumentActionsRequest,
+ *   !proto.data.ListDocumentActionsResponse>}
+ */
+const methodDescriptor_Workflow_ListDocumentActions = new grpc.web.MethodDescriptor(
+  '/data.Workflow/ListDocumentActions',
+  grpc.web.MethodType.UNARY,
+  proto.data.ListDocumentActionsRequest,
+  proto.data.ListDocumentActionsResponse,
+  /**
+   * @param {!proto.data.ListDocumentActionsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.ListDocumentActionsResponse.deserializeBinary
+);
 
 
 /**
@@ -1562,7 +2124,10 @@ proto.data.WorkflowPromiseClient.prototype.listWorkflows =
  */
 const methodInfo_Workflow_ListDocumentActions = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.ListDocumentActionsResponse,
-  /** @param {!proto.data.ListDocumentActionsRequest} request */
+  /**
+   * @param {!proto.data.ListDocumentActionsRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -1586,7 +2151,7 @@ proto.data.WorkflowClient.prototype.listDocumentActions =
       '/data.Workflow/ListDocumentActions',
       request,
       metadata || {},
-      methodInfo_Workflow_ListDocumentActions,
+      methodDescriptor_Workflow_ListDocumentActions,
       callback);
 };
 
@@ -1605,8 +2170,30 @@ proto.data.WorkflowPromiseClient.prototype.listDocumentActions =
       '/data.Workflow/ListDocumentActions',
       request,
       metadata || {},
-      methodInfo_Workflow_ListDocumentActions);
+      methodDescriptor_Workflow_ListDocumentActions);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.ListDocumentStatusesRequest,
+ *   !proto.data.ListDocumentStatusesResponse>}
+ */
+const methodDescriptor_Workflow_ListDocumentStatuses = new grpc.web.MethodDescriptor(
+  '/data.Workflow/ListDocumentStatuses',
+  grpc.web.MethodType.UNARY,
+  proto.data.ListDocumentStatusesRequest,
+  proto.data.ListDocumentStatusesResponse,
+  /**
+   * @param {!proto.data.ListDocumentStatusesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.ListDocumentStatusesResponse.deserializeBinary
+);
 
 
 /**
@@ -1617,7 +2204,10 @@ proto.data.WorkflowPromiseClient.prototype.listDocumentActions =
  */
 const methodInfo_Workflow_ListDocumentStatuses = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.ListDocumentStatusesResponse,
-  /** @param {!proto.data.ListDocumentStatusesRequest} request */
+  /**
+   * @param {!proto.data.ListDocumentStatusesRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -1641,7 +2231,7 @@ proto.data.WorkflowClient.prototype.listDocumentStatuses =
       '/data.Workflow/ListDocumentStatuses',
       request,
       metadata || {},
-      methodInfo_Workflow_ListDocumentStatuses,
+      methodDescriptor_Workflow_ListDocumentStatuses,
       callback);
 };
 
@@ -1660,7 +2250,7 @@ proto.data.WorkflowPromiseClient.prototype.listDocumentStatuses =
       '/data.Workflow/ListDocumentStatuses',
       request,
       metadata || {},
-      methodInfo_Workflow_ListDocumentStatuses);
+      methodDescriptor_Workflow_ListDocumentStatuses);
 };
 
 
@@ -1687,16 +2277,6 @@ proto.data.DashboardingClient =
    */
   this.hostname_ = hostname;
 
-  /**
-   * @private @const {?Object} The credentials to be used to connect
-   *    to the server
-   */
-  this.credentials_ = credentials;
-
-  /**
-   * @private @const {?Object} Options for the client
-   */
-  this.options_ = options;
 };
 
 
@@ -1723,17 +2303,29 @@ proto.data.DashboardingPromiseClient =
    */
   this.hostname_ = hostname;
 
-  /**
-   * @private @const {?Object} The credentials to be used to connect
-   *    to the server
-   */
-  this.credentials_ = credentials;
-
-  /**
-   * @private @const {?Object} Options for the client
-   */
-  this.options_ = options;
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.ListDashboardsRequest,
+ *   !proto.data.ListDashboardsResponse>}
+ */
+const methodDescriptor_Dashboarding_ListDashboards = new grpc.web.MethodDescriptor(
+  '/data.Dashboarding/ListDashboards',
+  grpc.web.MethodType.UNARY,
+  proto.data.ListDashboardsRequest,
+  proto.data.ListDashboardsResponse,
+  /**
+   * @param {!proto.data.ListDashboardsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.ListDashboardsResponse.deserializeBinary
+);
 
 
 /**
@@ -1744,7 +2336,10 @@ proto.data.DashboardingPromiseClient =
  */
 const methodInfo_Dashboarding_ListDashboards = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.ListDashboardsResponse,
-  /** @param {!proto.data.ListDashboardsRequest} request */
+  /**
+   * @param {!proto.data.ListDashboardsRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -1768,7 +2363,7 @@ proto.data.DashboardingClient.prototype.listDashboards =
       '/data.Dashboarding/ListDashboards',
       request,
       metadata || {},
-      methodInfo_Dashboarding_ListDashboards,
+      methodDescriptor_Dashboarding_ListDashboards,
       callback);
 };
 
@@ -1787,8 +2382,30 @@ proto.data.DashboardingPromiseClient.prototype.listDashboards =
       '/data.Dashboarding/ListDashboards',
       request,
       metadata || {},
-      methodInfo_Dashboarding_ListDashboards);
+      methodDescriptor_Dashboarding_ListDashboards);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.ListFavoritesRequest,
+ *   !proto.data.ListFavoritesResponse>}
+ */
+const methodDescriptor_Dashboarding_ListFavorites = new grpc.web.MethodDescriptor(
+  '/data.Dashboarding/ListFavorites',
+  grpc.web.MethodType.UNARY,
+  proto.data.ListFavoritesRequest,
+  proto.data.ListFavoritesResponse,
+  /**
+   * @param {!proto.data.ListFavoritesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.ListFavoritesResponse.deserializeBinary
+);
 
 
 /**
@@ -1799,7 +2416,10 @@ proto.data.DashboardingPromiseClient.prototype.listDashboards =
  */
 const methodInfo_Dashboarding_ListFavorites = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.ListFavoritesResponse,
-  /** @param {!proto.data.ListFavoritesRequest} request */
+  /**
+   * @param {!proto.data.ListFavoritesRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -1823,7 +2443,7 @@ proto.data.DashboardingClient.prototype.listFavorites =
       '/data.Dashboarding/ListFavorites',
       request,
       metadata || {},
-      methodInfo_Dashboarding_ListFavorites,
+      methodDescriptor_Dashboarding_ListFavorites,
       callback);
 };
 
@@ -1842,8 +2462,30 @@ proto.data.DashboardingPromiseClient.prototype.listFavorites =
       '/data.Dashboarding/ListFavorites',
       request,
       metadata || {},
-      methodInfo_Dashboarding_ListFavorites);
+      methodDescriptor_Dashboarding_ListFavorites);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.ListPendingDocumentsRequest,
+ *   !proto.data.ListPendingDocumentsResponse>}
+ */
+const methodDescriptor_Dashboarding_ListPendingDocuments = new grpc.web.MethodDescriptor(
+  '/data.Dashboarding/ListPendingDocuments',
+  grpc.web.MethodType.UNARY,
+  proto.data.ListPendingDocumentsRequest,
+  proto.data.ListPendingDocumentsResponse,
+  /**
+   * @param {!proto.data.ListPendingDocumentsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.ListPendingDocumentsResponse.deserializeBinary
+);
 
 
 /**
@@ -1854,7 +2496,10 @@ proto.data.DashboardingPromiseClient.prototype.listFavorites =
  */
 const methodInfo_Dashboarding_ListPendingDocuments = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.ListPendingDocumentsResponse,
-  /** @param {!proto.data.ListPendingDocumentsRequest} request */
+  /**
+   * @param {!proto.data.ListPendingDocumentsRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -1878,7 +2523,7 @@ proto.data.DashboardingClient.prototype.listPendingDocuments =
       '/data.Dashboarding/ListPendingDocuments',
       request,
       metadata || {},
-      methodInfo_Dashboarding_ListPendingDocuments,
+      methodDescriptor_Dashboarding_ListPendingDocuments,
       callback);
 };
 
@@ -1897,7 +2542,7 @@ proto.data.DashboardingPromiseClient.prototype.listPendingDocuments =
       '/data.Dashboarding/ListPendingDocuments',
       request,
       metadata || {},
-      methodInfo_Dashboarding_ListPendingDocuments);
+      methodDescriptor_Dashboarding_ListPendingDocuments);
 };
 
 
@@ -1924,16 +2569,6 @@ proto.data.EntityLogClient =
    */
   this.hostname_ = hostname;
 
-  /**
-   * @private @const {?Object} The credentials to be used to connect
-   *    to the server
-   */
-  this.credentials_ = credentials;
-
-  /**
-   * @private @const {?Object} Options for the client
-   */
-  this.options_ = options;
 };
 
 
@@ -1960,17 +2595,29 @@ proto.data.EntityLogPromiseClient =
    */
   this.hostname_ = hostname;
 
-  /**
-   * @private @const {?Object} The credentials to be used to connect
-   *    to the server
-   */
-  this.credentials_ = credentials;
-
-  /**
-   * @private @const {?Object} Options for the client
-   */
-  this.options_ = options;
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.ListProcessLogsRequest,
+ *   !proto.data.ListProcessLogsResponse>}
+ */
+const methodDescriptor_EntityLog_ListProcessLogs = new grpc.web.MethodDescriptor(
+  '/data.EntityLog/ListProcessLogs',
+  grpc.web.MethodType.UNARY,
+  proto.data.ListProcessLogsRequest,
+  proto.data.ListProcessLogsResponse,
+  /**
+   * @param {!proto.data.ListProcessLogsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.ListProcessLogsResponse.deserializeBinary
+);
 
 
 /**
@@ -1981,7 +2628,10 @@ proto.data.EntityLogPromiseClient =
  */
 const methodInfo_EntityLog_ListProcessLogs = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.ListProcessLogsResponse,
-  /** @param {!proto.data.ListProcessLogsRequest} request */
+  /**
+   * @param {!proto.data.ListProcessLogsRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -2005,7 +2655,7 @@ proto.data.EntityLogClient.prototype.listProcessLogs =
       '/data.EntityLog/ListProcessLogs',
       request,
       metadata || {},
-      methodInfo_EntityLog_ListProcessLogs,
+      methodDescriptor_EntityLog_ListProcessLogs,
       callback);
 };
 
@@ -2024,8 +2674,30 @@ proto.data.EntityLogPromiseClient.prototype.listProcessLogs =
       '/data.EntityLog/ListProcessLogs',
       request,
       metadata || {},
-      methodInfo_EntityLog_ListProcessLogs);
+      methodDescriptor_EntityLog_ListProcessLogs);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.ListRecordLogsRequest,
+ *   !proto.data.ListRecordLogsResponse>}
+ */
+const methodDescriptor_EntityLog_ListRecordLogs = new grpc.web.MethodDescriptor(
+  '/data.EntityLog/ListRecordLogs',
+  grpc.web.MethodType.UNARY,
+  proto.data.ListRecordLogsRequest,
+  proto.data.ListRecordLogsResponse,
+  /**
+   * @param {!proto.data.ListRecordLogsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.ListRecordLogsResponse.deserializeBinary
+);
 
 
 /**
@@ -2036,7 +2708,10 @@ proto.data.EntityLogPromiseClient.prototype.listProcessLogs =
  */
 const methodInfo_EntityLog_ListRecordLogs = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.ListRecordLogsResponse,
-  /** @param {!proto.data.ListRecordLogsRequest} request */
+  /**
+   * @param {!proto.data.ListRecordLogsRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -2060,7 +2735,7 @@ proto.data.EntityLogClient.prototype.listRecordLogs =
       '/data.EntityLog/ListRecordLogs',
       request,
       metadata || {},
-      methodInfo_EntityLog_ListRecordLogs,
+      methodDescriptor_EntityLog_ListRecordLogs,
       callback);
 };
 
@@ -2079,8 +2754,30 @@ proto.data.EntityLogPromiseClient.prototype.listRecordLogs =
       '/data.EntityLog/ListRecordLogs',
       request,
       metadata || {},
-      methodInfo_EntityLog_ListRecordLogs);
+      methodDescriptor_EntityLog_ListRecordLogs);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.ListRecordChatsRequest,
+ *   !proto.data.ListRecordChatsResponse>}
+ */
+const methodDescriptor_EntityLog_ListRecordChats = new grpc.web.MethodDescriptor(
+  '/data.EntityLog/ListRecordChats',
+  grpc.web.MethodType.UNARY,
+  proto.data.ListRecordChatsRequest,
+  proto.data.ListRecordChatsResponse,
+  /**
+   * @param {!proto.data.ListRecordChatsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.ListRecordChatsResponse.deserializeBinary
+);
 
 
 /**
@@ -2091,7 +2788,10 @@ proto.data.EntityLogPromiseClient.prototype.listRecordLogs =
  */
 const methodInfo_EntityLog_ListRecordChats = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.ListRecordChatsResponse,
-  /** @param {!proto.data.ListRecordChatsRequest} request */
+  /**
+   * @param {!proto.data.ListRecordChatsRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -2115,7 +2815,7 @@ proto.data.EntityLogClient.prototype.listRecordChats =
       '/data.EntityLog/ListRecordChats',
       request,
       metadata || {},
-      methodInfo_EntityLog_ListRecordChats,
+      methodDescriptor_EntityLog_ListRecordChats,
       callback);
 };
 
@@ -2134,8 +2834,30 @@ proto.data.EntityLogPromiseClient.prototype.listRecordChats =
       '/data.EntityLog/ListRecordChats',
       request,
       metadata || {},
-      methodInfo_EntityLog_ListRecordChats);
+      methodDescriptor_EntityLog_ListRecordChats);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.ListChatEntriesRequest,
+ *   !proto.data.ListChatEntriesResponse>}
+ */
+const methodDescriptor_EntityLog_ListChatEntries = new grpc.web.MethodDescriptor(
+  '/data.EntityLog/ListChatEntries',
+  grpc.web.MethodType.UNARY,
+  proto.data.ListChatEntriesRequest,
+  proto.data.ListChatEntriesResponse,
+  /**
+   * @param {!proto.data.ListChatEntriesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.ListChatEntriesResponse.deserializeBinary
+);
 
 
 /**
@@ -2146,7 +2868,10 @@ proto.data.EntityLogPromiseClient.prototype.listRecordChats =
  */
 const methodInfo_EntityLog_ListChatEntries = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.ListChatEntriesResponse,
-  /** @param {!proto.data.ListChatEntriesRequest} request */
+  /**
+   * @param {!proto.data.ListChatEntriesRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -2170,7 +2895,7 @@ proto.data.EntityLogClient.prototype.listChatEntries =
       '/data.EntityLog/ListChatEntries',
       request,
       metadata || {},
-      methodInfo_EntityLog_ListChatEntries,
+      methodDescriptor_EntityLog_ListChatEntries,
       callback);
 };
 
@@ -2189,8 +2914,30 @@ proto.data.EntityLogPromiseClient.prototype.listChatEntries =
       '/data.EntityLog/ListChatEntries',
       request,
       metadata || {},
-      methodInfo_EntityLog_ListChatEntries);
+      methodDescriptor_EntityLog_ListChatEntries);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.ListWorkflowLogsRequest,
+ *   !proto.data.ListWorkflowLogsResponse>}
+ */
+const methodDescriptor_EntityLog_ListWorkflowLogs = new grpc.web.MethodDescriptor(
+  '/data.EntityLog/ListWorkflowLogs',
+  grpc.web.MethodType.UNARY,
+  proto.data.ListWorkflowLogsRequest,
+  proto.data.ListWorkflowLogsResponse,
+  /**
+   * @param {!proto.data.ListWorkflowLogsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.ListWorkflowLogsResponse.deserializeBinary
+);
 
 
 /**
@@ -2201,7 +2948,10 @@ proto.data.EntityLogPromiseClient.prototype.listChatEntries =
  */
 const methodInfo_EntityLog_ListWorkflowLogs = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.ListWorkflowLogsResponse,
-  /** @param {!proto.data.ListWorkflowLogsRequest} request */
+  /**
+   * @param {!proto.data.ListWorkflowLogsRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -2225,7 +2975,7 @@ proto.data.EntityLogClient.prototype.listWorkflowLogs =
       '/data.EntityLog/ListWorkflowLogs',
       request,
       metadata || {},
-      methodInfo_EntityLog_ListWorkflowLogs,
+      methodDescriptor_EntityLog_ListWorkflowLogs,
       callback);
 };
 
@@ -2244,8 +2994,30 @@ proto.data.EntityLogPromiseClient.prototype.listWorkflowLogs =
       '/data.EntityLog/ListWorkflowLogs',
       request,
       metadata || {},
-      methodInfo_EntityLog_ListWorkflowLogs);
+      methodDescriptor_EntityLog_ListWorkflowLogs);
 };
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.ListRecentItemsRequest,
+ *   !proto.data.ListRecentItemsResponse>}
+ */
+const methodDescriptor_EntityLog_ListRecentItems = new grpc.web.MethodDescriptor(
+  '/data.EntityLog/ListRecentItems',
+  grpc.web.MethodType.UNARY,
+  proto.data.ListRecentItemsRequest,
+  proto.data.ListRecentItemsResponse,
+  /**
+   * @param {!proto.data.ListRecentItemsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.ListRecentItemsResponse.deserializeBinary
+);
 
 
 /**
@@ -2256,7 +3028,10 @@ proto.data.EntityLogPromiseClient.prototype.listWorkflowLogs =
  */
 const methodInfo_EntityLog_ListRecentItems = new grpc.web.AbstractClientBase.MethodInfo(
   proto.data.ListRecentItemsResponse,
-  /** @param {!proto.data.ListRecentItemsRequest} request */
+  /**
+   * @param {!proto.data.ListRecentItemsRequest} request
+   * @return {!Uint8Array}
+   */
   function(request) {
     return request.serializeBinary();
   },
@@ -2280,7 +3055,7 @@ proto.data.EntityLogClient.prototype.listRecentItems =
       '/data.EntityLog/ListRecentItems',
       request,
       metadata || {},
-      methodInfo_EntityLog_ListRecentItems,
+      methodDescriptor_EntityLog_ListRecentItems,
       callback);
 };
 
@@ -2299,9 +3074,8 @@ proto.data.EntityLogPromiseClient.prototype.listRecentItems =
       '/data.EntityLog/ListRecentItems',
       request,
       metadata || {},
-      methodInfo_EntityLog_ListRecentItems);
+      methodDescriptor_EntityLog_ListRecentItems);
 };
 
 
 module.exports = proto.data;
-
