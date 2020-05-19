@@ -266,15 +266,12 @@ class BusinessData {
    * Get Country Information
    * @param {string} countryUuid, Universally Unique IDentifier from country
    * @param {number} countryId, IDentifier from country
-   * @param {boolean} isConvert
-   * @param {string}  formatToConvert
-   * @return {object} Entity with records
+   * @return {object}
    */
-  requestGetCountry({ countryUuid, countryId, isConvert = true }) {
-    return this.getSystemCoreInstance().requestListOrganizations({
+  requestGetCountry({ countryUuid, countryId }) {
+    return this.getSystemCoreInstance().requestGetCountry({
       countryId,
-      countryUuid,
-      isConvert
+      countryUuid
     });
   }
 
