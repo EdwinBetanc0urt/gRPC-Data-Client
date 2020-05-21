@@ -155,7 +155,7 @@ class BusinessData {
    * @param {string}  formatToConvert
    * @return {Entity} Entity created.
    */
-  requestCreateEntity({ tableName, attributesList = [], isConvert = true, formatToConvert = 'object' }) {
+  requestCreateEntity({ tableName, attributesList = [], isConvert = true, formatToConvert = 'array' }) {
     const { CreateEntityRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new CreateEntityRequest();
 
@@ -195,7 +195,7 @@ class BusinessData {
    * @param {string}  formatToConvert
    * @return {Entity} Entity updated.
    */
-  requestUpdateEntity({ tableName, recordId, recordUuid, attributesList = [], isConvert = true, formatToConvert = 'object' }) {
+  requestUpdateEntity({ tableName, recordId, recordUuid, attributesList = [], isConvert = true, formatToConvert = 'array' }) {
     const { UpdateEntityRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new UpdateEntityRequest();
 
