@@ -1,11 +1,10 @@
 # ADempiere Data Client for gRPC
 
 [![npm version](https://img.shields.io/npm/v/@adempiere/grpc-data-client.svg)](https://www.npmjs.com/package/@adempiere/grpc-data-client)
-[![License](https://img.shields.io/npm/l/@adempiere/grpc-data-client.svg)](https://github.com/erpcya/adempiere-gRPC-Server/blob/master/LICENSE)
+[![License](https://img.shields.io/npm/l/@adempiere/grpc-data-client.svg)](https://github.com/erpcya/grpc-data-client/blob/master/LICENSE)
 [![Downloads](https://img.shields.io/npm/dm/@adempiere/grpc-data-client.svg)](https://www.npmjs.com/package/@adempiere/grpc-data-client)
-<!--
 [![Dependencies](https://img.shields.io/librariesio/github/erpcya/grpc-data-client.svg)](https://www.npmjs.com/package/@adempiere/grpc-data-client)
--->
+
 
 ADempiere Data Client write in Javascript for gRPC service, use it for connect with
 [ADempiere-gRPC-Server](https://github.com/erpcya/adempiere-gRPC-Server).
@@ -18,7 +17,7 @@ ADempiere Data Client write in Javascript for gRPC service, use it for connect w
 
 ``` bash
 # installing via NPM
-npm i @adempiere/grpc-data-client
+npm i @adempiere/grpc-data-client --save
 ```
 ``` bash
 # installing via Yarn
@@ -149,22 +148,26 @@ For recreate stub class you must have follow:
 - [protoc](https://github.com/grpc/grpc-web/releases)
 - Also you can see it: [gRPC-web](https://github.com/grpc/grpc-web)
 - [gRPC](https://grpc.io/docs/tutorials/basic/web.html)
+
+Note: You can also install `protoc` and `protoc-gen-grpc-web` by going to the repository directory and run the command:
+```Shell
+sh install-protoc.sh
+```
+
+When installation is complete, check the version with
+```Shell
+protoc --version
+```
+
 After installed it just go to source code folder an run it:
-```
-protoc proto/base_data_type.proto \
---js_out=import_style=commonjs:src/grpc \
---grpc-web_out=import_style=commonjs,mode=grpcwebtext:src/grpc
-```
-Core Functionality
-```
-protoc proto/core_functionality.proto \
---js_out=import_style=commonjs:src/grpc \
---grpc-web_out=import_style=commonjs,mode=grpcwebtext:src/grpc
-```
+
 Run Business gRPC
 ```
 protoc proto/business.proto \
 --js_out=import_style=commonjs:src/grpc \
 --grpc-web_out=import_style=commonjs,mode=grpcwebtext:src/grpc
 ```
+
 The result is generated on: src/grpc folder
+- `business_pb.js`
+- `business_grpc_web_pb.js`

@@ -151,11 +151,10 @@ class BusinessData {
    * Create a entity from CreateEntityRequest object
    * @param {string} tableName
    * @param {array}  attributesList [{ value, columnName }]
-   * @param {boolean} isConvert
    * @param {string}  formatToConvert
    * @return {Entity} Entity created.
    */
-  requestCreateEntity({ tableName, attributesList = [], isConvert = true, formatToConvert = 'array' }) {
+  requestCreateEntity({ tableName, attributesList = [], formatToConvert = 'array' }) {
     const { CreateEntityRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new CreateEntityRequest();
 
@@ -173,15 +172,12 @@ class BusinessData {
 
     return this.getBusinessService().createEntity(request)
       .then(responseCreateEntity => {
-        if (isConvert) {
-          const { convertEntityFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
+        const { convertEntityFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
 
-          return convertEntityFromGRPC({
-            entityToConvert: responseCreateEntity,
-            formatToConvert
-          });
-        }
-        return responseCreateEntity;
+        return convertEntityFromGRPC({
+          entityToConvert: responseCreateEntity,
+          formatToConvert
+        });
       });
   }
 
@@ -191,11 +187,10 @@ class BusinessData {
    * @param {number} recordId
    * @param {string} recordUuid
    * @param {array}  attributesList [{ value, columnName }]
-   * @param {boolean} isConvert
    * @param {string}  formatToConvert
    * @return {Entity} Entity updated.
    */
-  requestUpdateEntity({ tableName, recordId, recordUuid, attributesList = [], isConvert = true, formatToConvert = 'array' }) {
+  requestUpdateEntity({ tableName, recordId, recordUuid, attributesList = [], formatToConvert = 'array' }) {
     const { UpdateEntityRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new UpdateEntityRequest();
 
@@ -215,15 +210,12 @@ class BusinessData {
 
     return this.getBusinessService().updateEntity(request)
       .then(responseUpdateEntity => {
-        if (isConvert) {
-          const { convertEntityFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
+        const { convertEntityFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
 
-          return convertEntityFromGRPC({
-            entityToConvert: responseUpdateEntity,
-            formatToConvert
-          });
-        }
-        return responseUpdateEntity;
+        return convertEntityFromGRPC({
+          entityToConvert: responseUpdateEntity,
+          formatToConvert
+        });
       });
   }
 
@@ -232,11 +224,10 @@ class BusinessData {
    * @param {string} tableName, Table name from request
    * @param {string} recordUuid, Universally Unique IDentifier from record
    * @param {number} recordId, IDentifier from record
-   * @param {boolean} isConvert
    * @param {string}  formatToConvert
    * @return {object} Entity with records
    */
-  requestGetEntity({ tableName, recordUuid, recordId, isConvert = true, formatToConvert = 'object' }) {
+  requestGetEntity({ tableName, recordUuid, recordId, formatToConvert = 'object' }) {
     const { GetEntityRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new GetEntityRequest();
 
@@ -250,15 +241,12 @@ class BusinessData {
 
     return this.getBusinessService().getEntity(request)
       .then(getEntityResponse => {
-        if (isConvert) {
-          const { convertEntityFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
+        const { convertEntityFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
 
-          return convertEntityFromGRPC({
-            entityToConvert: getEntityResponse,
-            formatToConvert
-          });
-        }
-        return getEntityResponse;
+        return convertEntityFromGRPC({
+          entityToConvert: getEntityResponse,
+          formatToConvert
+        });
       });
   }
 
@@ -284,7 +272,6 @@ class BusinessData {
    * @param {string} orderByClause
    * @param {string}  pageToken
    * @param {string}  pageSize
-   * @param {boolean} isConvert
    * @param {string}  formatToConvert
    * @returns {ListEntitiesResponse}
    */
@@ -324,24 +311,22 @@ class BusinessData {
   }
 
   // Request Organization list
-  requestListOrganizations({ roleUuid, roleId, pageToken, pageSize, isConvert = true }) {
+  requestListOrganizations({ roleUuid, roleId, pageToken, pageSize }) {
     return this.getSystemCoreInstance().requestListOrganizations({
       roleId,
       roleUuid,
       pageToken,
-      pageSize,
-      isConvert
+      pageSize
     });
   }
 
   // Request Warehouse list
-  requestListWarehouses({ organizationUuid, organizationId, pageToken, pageSize, isConvert = true }) {
+  requestListWarehouses({ organizationUuid, organizationId, pageToken, pageSize }) {
     return this.getSystemCoreInstance().requestListWarehouses({
       organizationUuid,
       organizationId,
       pageToken,
-      pageSize,
-      isConvert
+      pageSize
     });
   }
 
@@ -369,10 +354,9 @@ class BusinessData {
    * @param {string} tableName
    * @param {string} recordId
    * @param {string} eventTypeExecuted
-   * @param {boolean} isConvert
    * @param {string}  formatToConvert
    */
-  requestRollbackEntity({ tableName, recordId, eventTypeExecuted, isConvert = true, formatToConvert = 'object' }) {
+  requestRollbackEntity({ tableName, recordId, eventTypeExecuted, formatToConvert = 'object' }) {
     const { RollbackEntityRequest } = require('./src/grpc/proto/business_pb.js');
     const { getRollbackEntityRequest_EventType } = require('./src/convertEnums.js');
 
@@ -387,15 +371,12 @@ class BusinessData {
 
     return this.getUserInterfaceService().rollbackEntity(rollbackRequest)
       .then(rollBackResponse => {
-        if (isConvert) {
-          const { convertEntityFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
+        const { convertEntityFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
 
-          return convertEntityFromGRPC({
-            entityToConvert: rollBackResponse,
-            formatToConvert
-          });
-        }
-        return rollBackResponse;
+        return convertEntityFromGRPC({
+          entityToConvert: rollBackResponse,
+          formatToConvert
+        });
       });
   }
 
@@ -422,9 +403,8 @@ class BusinessData {
    * Request context info value
    * @param {string}  uuid
    * @param {string}  query
-   * @param {boolean} isConvert
    */
-  requestGetContextInfoValue({ uuid, query, isConvert = true }) {
+  requestGetContextInfoValue({ uuid, query }) {
     const { GetContextInfoValueRequest } = require('./src/grpc/proto/business_pb.js');
     const requestInstance = new GetContextInfoValueRequest();
 
@@ -434,13 +414,10 @@ class BusinessData {
 
     return this.getUserInterfaceService().getContextInfoValue(requestInstance)
       .then(contextInfoResponse => {
-        if (isConvert) {
-          return {
-            messageText: contextInfoResponse.getMessagetext(),
-            messageTip: contextInfoResponse.getMessagetip()
-          };
-        }
-        return contextInfoResponse;
+        return {
+          messageText: contextInfoResponse.getMessagetext(),
+          messageTip: contextInfoResponse.getMessagetip()
+        };
       });
   }
 
@@ -449,10 +426,9 @@ class BusinessData {
    * @param {string} tableName
    * @param {string} userUuid
    * @param {number} recordId
-   * @param {boolean} isConvert
    * TODO: Add support with userId and recordUuid
    */
-  requestGetPrivateAccess({ tableName, recordId, userUuid, isConvert = true }) {
+  requestGetPrivateAccess({ tableName, recordId, userUuid }) {
     const { GetPrivateAccessRequest } = require('./src/grpc/proto/business_pb.js');
     const privateAccessInstance = new GetPrivateAccessRequest();
 
@@ -463,11 +439,9 @@ class BusinessData {
 
     return this.getUserInterfaceService().getPrivateAccess(privateAccessInstance)
       .then(privateAccessResponse => {
-        if (isConvert) {
-          const { convertPrivateAccessFromGRPC } = require('./src/convertUtils.js');
-          return convertPrivateAccessFromGRPC(privateAccessResponse);
-        }
-        return privateAccessResponse;
+        const { convertPrivateAccessFromGRPC } = require('./src/convertUtils.js');
+
+        return convertPrivateAccessFromGRPC(privateAccessResponse);
       });
   }
 
@@ -476,10 +450,9 @@ class BusinessData {
    * @param {string} tableName
    * @param {string} userUuid
    * @param {number} recordId
-   * @param {boolean} isConvert
    * TODO: Add support with userId and recordUuid
    */
-  requestLockPrivateAccess({ tableName, recordId, userUuid, isConvert = true }) {
+  requestLockPrivateAccess({ tableName, recordId, userUuid }) {
     const { LockPrivateAccessRequest } = require('./src/grpc/proto/business_pb.js');
     const requestInstance = new LockPrivateAccessRequest();
 
@@ -490,11 +463,9 @@ class BusinessData {
 
     return this.getUserInterfaceService().lockPrivateAccess(requestInstance)
       .then(privateAccessResponse => {
-        if (isConvert) {
-          const { convertPrivateAccessFromGRPC } = require('./src/convertUtils.js');
-          return convertPrivateAccessFromGRPC(privateAccessResponse);
-        }
-        return privateAccessResponse;
+        const { convertPrivateAccessFromGRPC } = require('./src/convertUtils.js');
+
+        return convertPrivateAccessFromGRPC(privateAccessResponse);
       });
   }
 
@@ -503,10 +474,9 @@ class BusinessData {
    * @param {string} tableName
    * @param {string} userUuid
    * @param {number} recordId
-   * @param {boolean} isConvert
    * TODO: Add support with userId and recordUuid
    */
-  requestUnlockPrivateAccess({ tableName, recordId, userUuid, isConvert = true }) {
+  requestUnlockPrivateAccess({ tableName, recordId, userUuid }) {
     const { UnlockPrivateAccessRequest } = require('./src/grpc/proto/business_pb.js');
     const requestInstance = new UnlockPrivateAccessRequest();
 
@@ -517,11 +487,9 @@ class BusinessData {
 
     return this.getUserInterfaceService().unlockPrivateAccess(requestInstance)
       .then(privateAccessResponse => {
-        if (isConvert) {
-          const { convertPrivateAccessFromGRPC } = require('./src/convertUtils.js');
-          return convertPrivateAccessFromGRPC(privateAccessResponse);
-        }
-        return privateAccessResponse;
+        const { convertPrivateAccessFromGRPC } = require('./src/convertUtils.js');
+
+        return convertPrivateAccessFromGRPC(privateAccessResponse);
       });
   }
 
@@ -533,9 +501,8 @@ class BusinessData {
    * @param {number}  recordId
    * @param {string}  pageToken
    * @param {string}  pageSize
-   * @param {boolean} isConvert
    */
-  requestListReferences({ windowUuid, tableName, recordId, recordUuid, pageToken, pageSize, isConvert = true }) {
+  requestListReferences({ windowUuid, tableName, recordId, recordUuid, pageToken, pageSize }) {
     const { ListReferencesRequest } = require('./src/grpc/proto/business_pb.js');
     const requestReference = new ListReferencesRequest();
     requestReference.setClientrequest(this.getClientRequest());
@@ -549,18 +516,15 @@ class BusinessData {
 
     return this.getUserInterfaceService().listReferences(requestReference)
       .then(referenceResponse => {
-        if (isConvert) {
-          const { convertRecordReferenceInfoFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
+        const { convertRecordReferenceInfoFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
 
-          return {
-            recordCount: referenceResponse.getRecordcount(),
-            referencesList: referenceResponse.getReferencesList().map(referenceItem => {
-              return convertRecordReferenceInfoFromGRPC(referenceItem);
-            }),
-            nextPageToken: referenceResponse.getNextPageToken()
-          };
-        }
-        return referenceResponse;
+        return {
+          recordCount: referenceResponse.getRecordcount(),
+          referencesList: referenceResponse.getReferencesList().map(referenceItem => {
+            return convertRecordReferenceInfoFromGRPC(referenceItem);
+          }),
+          nextPageToken: referenceResponse.getNextPageToken()
+        };
       });
   }
 
@@ -572,9 +536,8 @@ class BusinessData {
    * @param {string}  reportName
    * @param {string}  reportType
    * @param {array}   parametersList
-   * @param {boolean} isConvert
    */
-  requestGetReportOutput({ parametersList = [], tableName, printFormatUuid, reportViewUuid, isSummary, reportName, reportType, isConvert = true }) {
+  requestGetReportOutput({ parametersList = [], tableName, printFormatUuid, reportViewUuid, isSummary, reportName, reportType }) {
     const { GetReportOutputRequest } = require('./src/grpc/proto/business_pb.js');
     const { convertCriteriaToGRPC } = require('@adempiere/grpc-core-client/src/convertValues.js');
 
@@ -604,11 +567,9 @@ class BusinessData {
 
     return this.getUserInterfaceService().getReportOutput(reportOutputInstance)
       .then(reportOutputResponse => {
-        if (isConvert) {
-          const { convertReportOutputFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
-          return convertReportOutputFromGRPC(reportOutputResponse);
-        }
-        return reportOutputResponse;
+        const { convertReportOutputFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
+
+        return convertReportOutputFromGRPC(reportOutputResponse);
       });
   }
 
@@ -684,9 +645,8 @@ class BusinessData {
           selectionId,
           selectionValues: [{ columnName, value }]
         }]
-   * @param {boolean} isConvert
    */
-  requestRunProcess({ uuid, reportType, printFormatUuid, parametersList, tableName, recordId, recordUuid, selectionsList = [], isConvert = true }) {
+  requestRunProcess({ uuid, reportType, printFormatUuid, parametersList, tableName, recordId, recordUuid, selectionsList = [] }) {
     const { RunBusinessProcessRequest } = require('./src/grpc/proto/business_pb.js');
     const processRequest = new RunBusinessProcessRequest();
     processRequest.setClientrequest(this.getClientRequest());
@@ -729,11 +689,9 @@ class BusinessData {
 
     return this.getBusinessService().runBusinessProcess(processRequest)
       .then(runProcessResponse => {
-        if (isConvert) {
-          const { convertProcessLogFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
-          return convertProcessLogFromGRPC(runProcessResponse);
-        }
-        return runProcessResponse;
+        const { convertProcessLogFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
+
+        return convertProcessLogFromGRPC(runProcessResponse);
       });
   }
 
@@ -746,10 +704,9 @@ class BusinessData {
    * @param {string} orderByClause
    * @param {string}  pageToken
    * @param {string}  pageSize
-   * @param {boolean} isConvert
    * @param {string}  formatToConvert
    */
-  requestListBrowserSearch({ uuid, parametersList = [], query, whereClause, orderByClause, pageToken, pageSize, isConvert = true, formatToConvert = 'object' }) {
+  requestListBrowserSearch({ uuid, parametersList = [], query, whereClause, orderByClause, pageToken, pageSize, formatToConvert = 'object' }) {
     const { ListBrowserItemsRequest } = require('./src/grpc/proto/business_pb.js');
     const browserRequest = new ListBrowserItemsRequest();
     browserRequest.setClientrequest(this.getClientRequest());
@@ -774,21 +731,18 @@ class BusinessData {
 
     return this.getUserInterfaceService().listBrowserItems(browserRequest)
       .then(browserSearchResponse => {
-        if (isConvert) {
-          const { convertEntityFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
+        const { convertEntityFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
 
-          return {
-            recordCount: browserSearchResponse.getRecordcount(),
-            recordsList: browserSearchResponse.getRecordsList().map(entityItem => {
-              return convertEntityFromGRPC({
-                entityToConvert: entityItem,
-                formatToConvert
-              });
-            }),
-            nextPageToken: browserSearchResponse.getNextPageToken()
-          };
-        }
-        return browserSearchResponse;
+        return {
+          recordCount: browserSearchResponse.getRecordcount(),
+          recordsList: browserSearchResponse.getRecordsList().map(entityItem => {
+            return convertEntityFromGRPC({
+              entityToConvert: entityItem,
+              formatToConvert
+            });
+          }),
+          nextPageToken: browserSearchResponse.getNextPageToken()
+        };
       });
   }
 
@@ -796,9 +750,8 @@ class BusinessData {
    * Request Processes Logs List
    * @param {string}  pageToken
    * @param {string}  pageSize
-   * @param {boolean} isConvert
    */
-  requestListProcessesLogs({ tableName, recordId, pageToken, pageSize, isConvert = true }) {
+  requestListProcessesLogs({ tableName, recordId, pageToken, pageSize }) {
     const { ListProcessLogsRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new ListProcessLogsRequest();
 
@@ -811,18 +764,15 @@ class BusinessData {
     //  return
     return this.getEntityLogService().listProcessLogs(request)
       .then(processLogsResponse => {
-        if (isConvert) {
-          const { convertProcessLogFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
+        const { convertProcessLogFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
 
-          return {
-            recordCount: processLogsResponse.getRecordcount(),
-            processLogsList: processLogsResponse.getProcesslogsList().map(processItem => {
-              return convertProcessLogFromGRPC(processItem);
-            }),
-            nextPageToken: processLogsResponse.getNextPageToken()
-          };
-        }
-        return processLogsResponse;
+        return {
+          recordCount: processLogsResponse.getRecordcount(),
+          processLogsList: processLogsResponse.getProcesslogsList().map(processItem => {
+            return convertProcessLogFromGRPC(processItem);
+          }),
+          nextPageToken: processLogsResponse.getNextPageToken()
+        };
       });
   }
 
@@ -833,9 +783,8 @@ class BusinessData {
    * @param {string} processUuid
    * @param {string}  pageToken
    * @param {string}  pageSize
-   * @param {boolean} isConvert
    */
-  requestListPrintFormats({ tableName, reportViewUuid, processUuid, pageToken, pageSize, isConvert = true }) {
+  requestListPrintFormats({ tableName, reportViewUuid, processUuid, pageToken, pageSize }) {
     const { ListPrintFormatsRequest } = require('./src/grpc/proto/business_pb.js');
     const requestInstance = new ListPrintFormatsRequest();
 
@@ -848,18 +797,15 @@ class BusinessData {
 
     return this.getUserInterfaceService().listPrintFormats(requestInstance)
       .then(printFormatResponse => {
-        if (isConvert) {
-          const { convertPrintFromatFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
+        const { convertPrintFromatFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
 
-          return {
-            recordCount: printFormatResponse.getRecordcount(),
-            printFormatsList: printFormatResponse.getPrintformatsList().map(printFormatItem => {
-              return convertPrintFromatFromGRPC(printFormatItem);
-            }),
-            nextPageToken: printFormatResponse.getNextPageToken()
-          };
-        }
-        return printFormatResponse;
+        return {
+          recordCount: printFormatResponse.getRecordcount(),
+          printFormatsList: printFormatResponse.getPrintformatsList().map(printFormatItem => {
+            return convertPrintFromatFromGRPC(printFormatItem);
+          }),
+          nextPageToken: printFormatResponse.getNextPageToken()
+        };
       });
   }
 
@@ -869,9 +815,8 @@ class BusinessData {
    * @param {string}  processUuid
    * @param {string}  pageToken
    * @param {string}  pageSize
-   * @param {boolean} isConvert, default value is true
    */
-  requestListReportViews({ tableName, processUuid, pageToken, pageSize, isConvert = true }) {
+  requestListReportViews({ tableName, processUuid, pageToken, pageSize }) {
     const { ListReportViewsRequest } = require('./src/grpc/proto/business_pb.js');
     const requestInstance = new ListReportViewsRequest();
     requestInstance.setClientrequest(this.getClientRequest());
@@ -882,18 +827,15 @@ class BusinessData {
 
     return this.getUserInterfaceService().listReportViews(requestInstance)
       .then(reportViewsResponse => {
-        if (isConvert) {
-          const { convertReportViewFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
+        const { convertReportViewFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
 
-          return {
-            recordCount: reportViewsResponse.getRecordcount(),
-            reportViewsList: reportViewsResponse.getReportviewsList().map(reportViewItem => {
-              return convertReportViewFromGRPC(reportViewItem);
-            }),
-            nextPageToken: reportViewsResponse.getNextPageToken()
-          };
-        }
-        return reportViewsResponse;
+        return {
+          recordCount: reportViewsResponse.getRecordcount(),
+          reportViewsList: reportViewsResponse.getReportviewsList().map(reportViewItem => {
+            return convertReportViewFromGRPC(reportViewItem);
+          }),
+          nextPageToken: reportViewsResponse.getNextPageToken()
+        };
       });
   }
 
@@ -903,7 +845,7 @@ class BusinessData {
    * @param {string}  pageToken
    * @param {string}  pageSize
    */
-  requestListDrillTables({ tableName, pageToken, pageSize, isConvert = true }) {
+  requestListDrillTables({ tableName, pageToken, pageSize }) {
     const { ListDrillTablesRequest } = require('./src/grpc/proto/business_pb.js');
     const requestInstance = new ListDrillTablesRequest();
 
@@ -914,18 +856,15 @@ class BusinessData {
 
     return this.getUserInterfaceService().listDrillTables(requestInstance)
       .then(drillTableResponse => {
-        if (isConvert) {
-          const { convertDrillTableFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
+        const { convertDrillTableFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
 
-          return {
-            recordCount: drillTableResponse.getRecordcount(),
-            drillTablesList: drillTableResponse.getDrilltablesList().map(itemDrillTable => {
-              return convertDrillTableFromGRPC(itemDrillTable);
-            }),
-            nextPageToken: drillTableResponse.getNextPageToken()
-          };
-        }
-        return drillTableResponse;
+        return {
+          recordCount: drillTableResponse.getRecordcount(),
+          drillTablesList: drillTableResponse.getDrilltablesList().map(itemDrillTable => {
+            return convertDrillTableFromGRPC(itemDrillTable);
+          }),
+          nextPageToken: drillTableResponse.getNextPageToken()
+        };
       });
   }
 
@@ -961,9 +900,8 @@ class BusinessData {
    * Request Recent Items Activity List
    * @param {string}  pageToken
    * @param {string}  pageSize
-   * @param {boolean} isConvert
    */
-  requestListRecentItems({ pageToken, pageSize, isConvert = true }) {
+  requestListRecentItems({ pageToken, pageSize }) {
     const { ListRecentItemsRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new ListRecentItemsRequest();
 
@@ -973,18 +911,15 @@ class BusinessData {
 
     return this.getEntityLogService().listRecentItems(request)
       .then(recentItemsResponse => {
-        if (isConvert) {
-          const { convertRecentItemFromGRPC } = require('./src/convertUtils.js');
+        const { convertRecentItemFromGRPC } = require('./src/convertUtils.js');
 
-          return {
-            recordCount: recentItemsResponse.getRecordcount(),
-            recentItemsList: recentItemsResponse.getRecentitemsList().map(recentItem => {
-              return convertRecentItemFromGRPC(recentItem);
-            }),
-            nextPageToken: recentItemsResponse.getNextPageToken()
-          };
-        }
-        return recentItemsResponse;
+        return {
+          recordCount: recentItemsResponse.getRecordcount(),
+          recentItemsList: recentItemsResponse.getRecentitemsList().map(recentItem => {
+            return convertRecentItemFromGRPC(recentItem);
+          }),
+          nextPageToken: recentItemsResponse.getNextPageToken()
+        };
       });
   }
 
@@ -994,9 +929,8 @@ class BusinessData {
    * @param {string} roleUuid
    * @param {string}  pageToken
    * @param {string}  pageSize
-   * @param {boolean} isConvert
    */
-  requestListPendingDocuments({ userUuid, roleUuid, pageToken, pageSize, isConvert = true }) {
+  requestListPendingDocuments({ userUuid, roleUuid, pageToken, pageSize }) {
     const { ListPendingDocumentsRequest } = require('./src/grpc/proto/business_pb.js');
     const requestInstance = new ListPendingDocumentsRequest();
 
@@ -1008,18 +942,15 @@ class BusinessData {
 
     return this.getDashboardingService().listPendingDocuments(requestInstance)
       .then(pendingDocumentsResponse => {
-        if (isConvert) {
-          const { convertPendingDocumentFromGRPC } = require('./src/convertUtils.js');
+        const { convertPendingDocumentFromGRPC } = require('./src/convertUtils.js');
 
-          return {
-            recordCount: pendingDocumentsResponse.getRecordcount(),
-            pendingDocumentsList: pendingDocumentsResponse.getPendingdocumentsList().map(documentItem => {
-              return convertPendingDocumentFromGRPC(documentItem);
-            }),
-            nextPageToken: pendingDocumentsResponse.getNextPageToken()
-          };
-        }
-        return pendingDocumentsResponse;
+        return {
+          recordCount: pendingDocumentsResponse.getRecordcount(),
+          pendingDocumentsList: pendingDocumentsResponse.getPendingdocumentsList().map(documentItem => {
+            return convertPendingDocumentFromGRPC(documentItem);
+          }),
+          nextPageToken: pendingDocumentsResponse.getNextPageToken()
+        };
       });
   }
 
@@ -1028,9 +959,8 @@ class BusinessData {
    * @param {string}  userUuid
    * @param {string}  pageToken
    * @param {string}  pageSize
-   * @param {boolean} isConvert
    */
-  requestListFavorites({ userUuid, pageToken, pageSize, isConvert = true }) {
+  requestListFavorites({ userUuid, pageToken, pageSize }) {
     const { ListFavoritesRequest } = require('./src/grpc/proto/business_pb.js');
     const requestInstance = new ListFavoritesRequest();
 
@@ -1041,18 +971,15 @@ class BusinessData {
 
     return this.getDashboardingService().listFavorites(requestInstance)
       .then(favoritesResponse => {
-        if (isConvert) {
-          const { convertFavoriteFromGRPC } = require('./src/convertUtils.js');
+        const { convertFavoriteFromGRPC } = require('./src/convertUtils.js');
 
-          return {
-            recordCount: favoritesResponse.getRecordcount(),
-            favoritesList: favoritesResponse.getFavoritesList().map(favoriteItem => {
-              return convertFavoriteFromGRPC(favoriteItem);
-            }),
-            nextPageToken: favoritesResponse.getNextPageToken()
-          };
-        }
-        return favoritesResponse;
+        return {
+          recordCount: favoritesResponse.getRecordcount(),
+          favoritesList: favoritesResponse.getFavoritesList().map(favoriteItem => {
+            return convertFavoriteFromGRPC(favoriteItem);
+          }),
+          nextPageToken: favoritesResponse.getNextPageToken()
+        };
       });
   }
 
@@ -1061,11 +988,10 @@ class BusinessData {
    * @param {string}  pageToken
    * @param {string}  pageSize
    */
-  requestListLanguages({ pageToken, pageSize, isConvert = true }) {
+  requestListLanguages({ pageToken, pageSize }) {
     return this.getSystemCoreInstance().requestListLanguages({
       pageToken,
-      pageSize,
-      isConvert
+      pageSize
     });
   }
 
@@ -1085,7 +1011,6 @@ class BusinessData {
     language,
     pageToken,
     pageSize,
-    isConvert = true
   }) {
     const { ListTranslationsRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new ListTranslationsRequest();
@@ -1101,18 +1026,15 @@ class BusinessData {
 
     return this.getUserInterfaceService().listTranslations(request)
       .then(translationResponse => {
-        if (isConvert) {
-          const { convertTranslationFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
+        const { convertTranslationFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
 
-          return {
-            recordCount: translationResponse.getRecordcount(),
-            translationsList: translationResponse.getTranslationsList().map(translationItem => {
-              return convertTranslationFromGRPC(translationItem);
-            }),
-            nextPageToken: translationResponse.getNextPageToken()
-          };
-        }
-        return translationResponse;
+        return {
+          recordCount: translationResponse.getRecordcount(),
+          translationsList: translationResponse.getTranslationsList().map(translationItem => {
+            return convertTranslationFromGRPC(translationItem);
+          }),
+          nextPageToken: translationResponse.getNextPageToken()
+        };
       });
   }
 
@@ -1195,9 +1117,8 @@ class BusinessData {
    * @param {number}  recordId
    * @param {string}  pageToken
    * @param {string}  pageSize
-   * @param {boolean} isConvert
    */
-  requestListRecordsLogs({ tableName, recordId, pageToken, pageSize, isConvert = true }) {
+  requestListRecordsLogs({ tableName, recordId, pageToken, pageSize }) {
     const { ListRecordLogsRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new ListRecordLogsRequest();
 
@@ -1210,18 +1131,15 @@ class BusinessData {
     //  return
     return this.getEntityLogService().listRecordLogs(request)
       .then(recordLogsResponse => {
-        if (isConvert) {
-          const { convertRecordLogFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
+        const { convertRecordLogFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
 
-          return {
-            recordCount: recordLogsResponse.getRecordcount(),
-            recordLogsList: recordLogsResponse.getRecordlogsList().map(recordItem => {
-              return convertRecordLogFromGRPC(recordItem);
-            }),
-            nextPageToken: recordLogsResponse.getNextPageToken()
-          };
-        }
-        return recordLogsResponse;
+        return {
+          recordCount: recordLogsResponse.getRecordcount(),
+          recordLogsList: recordLogsResponse.getRecordlogsList().map(recordItem => {
+            return convertRecordLogFromGRPC(recordItem);
+          }),
+          nextPageToken: recordLogsResponse.getNextPageToken()
+        };
       });
   }
 
@@ -1231,9 +1149,8 @@ class BusinessData {
    * @param {number}  recordId
    * @param {string}  pageToken
    * @param {string}  pageSize
-   * @param {boolean} isConvert
    */
-  requestListRecordChats({ tableName, recordId, pageToken, pageSize, isConvert = true }) {
+  requestListRecordChats({ tableName, recordId, pageToken, pageSize }) {
     const { ListRecordChatsRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new ListRecordChatsRequest();
 
@@ -1246,18 +1163,15 @@ class BusinessData {
     //  return
     return this.getEntityLogService().listRecordChats(request)
       .then(recordChatResponse => {
-        if (isConvert) {
-          const { convertRecordChatsFromGRPC } = require('./src/convertUtils.js');
+        const { convertRecordChatsFromGRPC } = require('./src/convertUtils.js');
 
-          return {
-            recordCount: recordChatResponse.getRecordcount(),
-            recordChatsList: recordChatResponse.getRecordchatsList().map(recordChatsItem => {
-              return convertRecordChatsFromGRPC(recordChatsItem);
-            }),
-            nextPageToken: recordChatResponse.getNextPageToken()
-          };
-        }
-        return recordChatResponse;
+        return {
+          recordCount: recordChatResponse.getRecordcount(),
+          recordChatsList: recordChatResponse.getRecordchatsList().map(recordChatsItem => {
+            return convertRecordChatsFromGRPC(recordChatsItem);
+          }),
+          nextPageToken: recordChatResponse.getNextPageToken()
+        };
       });
   }
 
@@ -1266,9 +1180,8 @@ class BusinessData {
    * @param {string}  uuid
    * @param {string}  pageToken
    * @param {string}  pageSize
-   * @param {boolean} isConvert
    */
-  requestListChatEntries({ uuid, pageToken, pageSize, isConvert = true }) {
+  requestListChatEntries({ uuid, pageToken, pageSize }) {
     const { ListChatEntriesRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new ListChatEntriesRequest();
 
@@ -1280,18 +1193,15 @@ class BusinessData {
     //  return
     return this.getEntityLogService().listChatEntries(request)
       .then(chatEntriesResponse => {
-        if (isConvert) {
-          const { convertChatEntryFromGRPC } = require('./src/convertUtils.js');
+        const { convertChatEntryFromGRPC } = require('./src/convertUtils.js');
 
-          return {
-            recordCount: chatEntriesResponse.getRecordcount(),
-            chatEntriesList: chatEntriesResponse.getChatentriesList().map(chatEntryItem => {
-              return convertChatEntryFromGRPC(chatEntryItem);
-            }),
-            nextPageToken: chatEntriesResponse.getNextPageToken()
-          };
-        }
-        return chatEntriesResponse;
+        return {
+          recordCount: chatEntriesResponse.getRecordcount(),
+          chatEntriesList: chatEntriesResponse.getChatentriesList().map(chatEntryItem => {
+            return convertChatEntryFromGRPC(chatEntryItem);
+          }),
+          nextPageToken: chatEntriesResponse.getNextPageToken()
+        };
       });
   }
 
@@ -1300,9 +1210,8 @@ class BusinessData {
    * @param {string}  tableName
    * @param {number}  recordId
    * @param {string}  comment
-   * @param {boolean} isConvert
    */
-  requestCreateChatEntry({ tableName, recordId, comment, isConvert = true }) {
+  requestCreateChatEntry({ tableName, recordId, comment }) {
     const { CreateChatEntryRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new CreateChatEntryRequest();
 
@@ -1314,11 +1223,9 @@ class BusinessData {
     //  return
     return this.getUserInterfaceService().createChatEntry(request)
       .then(chatEntryResponse => {
-        if (isConvert) {
-          const { convertChatEntryFromGRPC } = require('./src/convertUtils.js');
-          return convertChatEntryFromGRPC(chatEntryResponse);
-        }
-        return chatEntryResponse;
+        const { convertChatEntryFromGRPC } = require('./src/convertUtils.js');
+
+        return convertChatEntryFromGRPC(chatEntryResponse);
       });
   }
 
@@ -1328,9 +1235,8 @@ class BusinessData {
    * @param {number}  recordId
    * @param {string}  pageToken
    * @param {string}  pageSize
-   * @param {boolean} isConvert
    */
-  requestListWorkflowsLogs({ tableName, recordId, pageToken, pageSize, isConvert = true }) {
+  requestListWorkflowsLogs({ tableName, recordId, pageToken, pageSize }) {
     const { ListWorkflowLogsRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new ListWorkflowLogsRequest();
 
@@ -1343,22 +1249,19 @@ class BusinessData {
     //  return
     return this.getEntityLogService().listWorkflowLogs(request)
       .then(workflowLogsResponse => {
-        if (isConvert) {
-          const { convertWorkflowProcessFomGRPC } = require('./src/convertUtils.js');
+        const { convertWorkflowProcessFomGRPC } = require('./src/convertUtils.js');
 
-          return {
-            recordCount: workflowLogsResponse.getRecordcount(),
-            workflowLogsList: workflowLogsResponse.getWorkflowlogsList().map(workflowItem => {
-              return convertWorkflowProcessFomGRPC(workflowItem);
-            }),
-            nextPageToken: workflowLogsResponse.getNextPageToken()
-          };
-        }
-        return workflowLogsResponse;
+        return {
+          recordCount: workflowLogsResponse.getRecordcount(),
+          workflowLogsList: workflowLogsResponse.getWorkflowlogsList().map(workflowItem => {
+            return convertWorkflowProcessFomGRPC(workflowItem);
+          }),
+          nextPageToken: workflowLogsResponse.getNextPageToken()
+        };
       });
   }
 
-  requestListWorkflows({ tableName, pageToken, pageSize, isConvert = true }) {
+  requestListWorkflows({ tableName, pageToken, pageSize }) {
     const { ListWorkflowsRequest } = require('./src/grpc/proto/business_pb.js');
     const request = new ListWorkflowsRequest();
 
@@ -1369,18 +1272,15 @@ class BusinessData {
 
     return this.getWorkflowService().listWorkflows(request)
       .then(workflowResponse => {
-        if (isConvert) {
-          const { convertWorkflowDefinitionFromGRPC } = require('./src/convertUtils.js');
+        const { convertWorkflowDefinitionFromGRPC } = require('./src/convertUtils.js');
 
-          return {
-            recordCount: workflowResponse.getRecordcount(),
-            workflowsList: workflowResponse.getWorkflowsList().map(workflowItem => {
-              return convertWorkflowDefinitionFromGRPC(workflowItem);
-            }),
-            nextPageToken: workflowResponse.getNextPageToken()
-          };
-        }
-        return workflowResponse;
+        return {
+          recordCount: workflowResponse.getRecordcount(),
+          workflowsList: workflowResponse.getWorkflowsList().map(workflowItem => {
+            return convertWorkflowDefinitionFromGRPC(workflowItem);
+          }),
+          nextPageToken: workflowResponse.getNextPageToken()
+        };
       });
   }
 

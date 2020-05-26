@@ -29,12 +29,7 @@ const convertBusinessData = {
         })
       };
     }
-    return {
-      id: undefined,
-      uuid: undefined,
-      tableName: undefined,
-      values: undefined
-    };
+    return undefined;
   },
 
   convertPrivateAccessFromGRPC(privateAccessToConvert) {
@@ -45,11 +40,7 @@ const convertBusinessData = {
         userUuid: privateAccessToConvert.getUseruuid()
       };
     }
-    return {
-      tableName: undefined,
-      recordId: undefined,
-      userUuid: undefined
-    };
+    return undefined;
   },
 
   convertFavoriteFromGRPC(favoriteToConvert) {
@@ -62,13 +53,7 @@ const convertBusinessData = {
         action: favoriteToConvert.getAction()
       };
     }
-    return {
-      menuUuid: undefined,
-      menuName: undefined,
-      menuDescription: undefined,
-      referenceUuid: undefined,
-      action: undefined
-    };
+    return undefined;
   },
 
   convertRecentItemFromGRPC(recentItemToConvert) {
@@ -88,20 +73,7 @@ const convertBusinessData = {
         action: recentItemToConvert.getAction()
       };
     }
-    return {
-      menuUuid: undefined,
-      menuName: undefined,
-      menuDescription: undefined,
-      windowUuid: undefined,
-      tabUuid: undefined,
-      tableId: undefined,
-      recordId: undefined,
-      displayName: undefined,
-      recordUuid: undefined,
-      updated: undefined,
-      referenceUuid: undefined,
-      action: undefined,
-    };
+    return undefined;
   },
 
   convertPendingDocumentFromGRPC(pendingDocumentToConvert) {
@@ -120,15 +92,7 @@ const convertBusinessData = {
         )
       };
     }
-    return {
-      windowUuid: undefined,
-      formUuid: undefined,
-      documentName: undefined,
-      documentDescription: undefined,
-      sequence: undefined,
-      recordCount: undefined,
-      criteria: undefined
-    };
+    return undefined;
   },
 
   convertRecordChatsFromGRPC(recordChatToConvert) {
@@ -155,18 +119,7 @@ const convertBusinessData = {
         logDate: new Date(recordChatToConvert.getLogdate())
       };
     }
-    return {
-      chatUuid: undefined,
-      recordId: undefined,
-      tableName: undefined,
-      chatTypeUuid: undefined,
-      description: undefined,
-      confidentialType: undefined,
-      confidentialTypeName: undefined,
-      moderationType: undefined,
-      moderationTypeName: undefined,
-      logDate: undefined
-    };
+    return undefined;
   },
 
   convertChatEntryFromGRPC(chatEntryToConvert) {
@@ -199,21 +152,7 @@ const convertBusinessData = {
         logDate: new Date(chatEntryToConvert.getLogdate())
       };
     }
-    return {
-      chatUuid: undefined,
-      chatEntryUuid: undefined,
-      subject: undefined,
-      characterData: undefined,
-      userUuid: undefined,
-      userName: undefined,
-      chatEntryType: undefined,
-      chatEntryTypeName: undefined,
-      confidentialType: undefined,
-      confidentialTypeName: undefined,
-      moderatorStatus: undefined,
-      moderatorStatusName: undefined,
-      logDate: undefined
-    };
+    return undefined;
   },
 
   convertCreateChatEntryFromGRPC(createChatEntry) {
@@ -224,11 +163,7 @@ const convertBusinessData = {
         comment: createChatEntry.getComment(),
       };
     }
-    return {
-      tableName: undefined,
-      recordId: undefined,
-      comment: undefined
-    };
+    return undefined;
   },
 
   convertWorkflowProcessFomGRPC(workflowProcessToConvert) {
@@ -264,26 +199,7 @@ const convertBusinessData = {
         logDate: new Date(workflowProcessToConvert.getLogdate())
       };
     }
-    return {
-      processUuid: undefined,
-      workflowUuid: undefined,
-      workflowName: undefined,
-      recordId: undefined,
-      tableName: undefined,
-      userUuid: undefined,
-      userName: undefined,
-      responsibleUuid: undefined,
-      responsibleName: undefined,
-      message: undefined,
-      textMessage: undefined,
-      processed: undefined,
-      workflowState: undefined,
-      workflowStateName: undefined,
-      priority: undefined,
-      priorityName: undefined,
-      workflowEventsList: undefined,
-      logDate: undefined
-    };
+    return undefined;
   },
 
   convertWorkflowEventFromGRPC(workflowEventToConvert) {
@@ -319,25 +235,7 @@ const convertBusinessData = {
       };
     }
 
-    return {
-      nodeUuid: undefined,
-      nodeName: undefined,
-      recordId: undefined,
-      tableName: undefined,
-      userUuid: undefined,
-      userName: undefined,
-      responsibleUuid: undefined,
-      responsibleName: undefined,
-      textMessage: undefined,
-      timeElapsed: undefined,
-      attributeName: undefined,
-      oldValue: undefined,
-      newValue: undefined,
-      workflowState: undefined,
-      eventType: undefined,
-      eventTypeName: undefined,
-      logDate: undefined
-    };
+    return undefined;
   },
 
   convertWorkflowDefinitionFromGRPC(workflowDefinitionToConvert) {
@@ -373,26 +271,7 @@ const convertBusinessData = {
         })
       };
     }
-    return {
-      workflowUuid: undefined,
-      value: undefined,
-      name: undefined,
-      description: undefined,
-      help: undefined,
-      tableName: undefined,
-      responsibleUuid: undefined,
-      responsibleName: undefined,
-      priority: undefined,
-      validFrom: undefined,
-      isDefault: undefined,
-      isValid: undefined,
-      publishStatus: undefined,
-      publishStatusName: undefined,
-      durationUnit: undefined,
-      durationUnitName: undefined,
-      startNode: undefined,
-      workflowNodesList: undefined
-    };
+    return undefined;
   },
 
   convertWorkflowNodeFromGRPC(workflowNodeToConvert) {
@@ -419,21 +298,7 @@ const convertBusinessData = {
       }
     }
     // Workflow Node
-    return {
-      nodeUuid: undefined,
-      value: undefined,
-      name: undefined,
-      description: undefined,
-      help: undefined,
-      responsibleUuid: undefined,
-      responsibleName: undefined,
-      documentActionValue: undefined,
-      documentActionName: undefined,
-      priority: undefined,
-      action: undefined,
-      actionName: undefined,
-      transitionsList: undefined
-    };
+    return undefined;
   },
 
   convertWorkflowTransitionFromGRPC(workflowTransitionToConvert) {
@@ -448,13 +313,7 @@ const convertBusinessData = {
         })
       };
     }
-    return {
-      nodeNextUuid: undefined,
-      description: undefined,
-      isStdUserWorkflow: undefined,
-      sequence: undefined,
-      workflowConditionsList: undefined
-    };
+    return undefined;
   },
 
   convertWorkflowConditionFromGRPC(workflowConditionToConvert) {
@@ -478,15 +337,7 @@ const convertBusinessData = {
         })
       };
     }
-    return {
-      sequence: undefined,
-      columName: undefined,
-      value: undefined,
-      conditionType: undefined,
-      conditionTypeName: undefined,
-      operation: undefined,
-      operationName: undefined
-    };
+    return undefined;
   },
 
   convertDocumentAction(documentActionToConvert) {
@@ -497,11 +348,7 @@ const convertBusinessData = {
         description: documentActionToConvert.getDescription()
       };
     }
-    return {
-      value: undefined,
-      name: undefined,
-      description: undefined
-    };
+    return undefined;
   },
 
   convertDocumentStatus(documentStatusToConvert) {
@@ -512,12 +359,9 @@ const convertBusinessData = {
         description: documentStatusToConvert.getDescription()
       };
     }
-    return {
-      value: undefined,
-      name: undefined,
-      description: undefined
-    };
+    return undefined;
   }
+
 };
 
 module.exports = convertBusinessData;
