@@ -7,6 +7,10 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 
+/* eslint-disable */
+// @ts-nocheck
+
+
 
 const grpc = {};
 grpc.web = require('grpc-web');
@@ -547,6 +551,81 @@ proto.data.BusinessDataPromiseClient.prototype.runBusinessProcess =
       request,
       metadata || {},
       methodDescriptor_BusinessData_RunBusinessProcess);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.DownloadResourceRequest,
+ *   !proto.data.ResourceChunk>}
+ */
+const methodDescriptor_BusinessData_DownloadResource = new grpc.web.MethodDescriptor(
+  '/data.BusinessData/DownloadResource',
+  grpc.web.MethodType.SERVER_STREAMING,
+  proto.data.DownloadResourceRequest,
+  proto.data.ResourceChunk,
+  /**
+   * @param {!proto.data.DownloadResourceRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.ResourceChunk.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.data.DownloadResourceRequest,
+ *   !proto.data.ResourceChunk>}
+ */
+const methodInfo_BusinessData_DownloadResource = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.data.ResourceChunk,
+  /**
+   * @param {!proto.data.DownloadResourceRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.data.ResourceChunk.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.data.DownloadResourceRequest} request The request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!grpc.web.ClientReadableStream<!proto.data.ResourceChunk>}
+ *     The XHR Node Readable Stream
+ */
+proto.data.BusinessDataClient.prototype.downloadResource =
+    function(request, metadata) {
+  return this.client_.serverStreaming(this.hostname_ +
+      '/data.BusinessData/DownloadResource',
+      request,
+      metadata || {},
+      methodDescriptor_BusinessData_DownloadResource);
+};
+
+
+/**
+ * @param {!proto.data.DownloadResourceRequest} request The request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!grpc.web.ClientReadableStream<!proto.data.ResourceChunk>}
+ *     The XHR Node Readable Stream
+ */
+proto.data.BusinessDataPromiseClient.prototype.downloadResource =
+    function(request, metadata) {
+  return this.client_.serverStreaming(this.hostname_ +
+      '/data.BusinessData/DownloadResource',
+      request,
+      metadata || {},
+      methodDescriptor_BusinessData_DownloadResource);
 };
 
 
@@ -3079,3 +3158,4 @@ proto.data.EntityLogPromiseClient.prototype.listRecentItems =
 
 
 module.exports = proto.data;
+

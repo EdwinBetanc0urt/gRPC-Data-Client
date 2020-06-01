@@ -1371,6 +1371,16 @@ class BusinessData {
       });
   }
 
+  downloadResource({ fileName }) {
+    const { DownloadResourceRequest } = require('./src/grpc/proto/business_pb.js');
+    const requestInstance = new DownloadResourceRequest;
+
+    requestInstance.setClientrequest(this.getClientRequest());
+    requestInstance.setFielname(fileName);
+
+    return this.getBusinessService().downloadResource(requestInstance);
+  }
+
 }
 
 module.exports = BusinessData;
