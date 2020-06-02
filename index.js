@@ -1376,7 +1376,7 @@ class BusinessData {
     const requestInstance = new DownloadResourceRequest;
 
     requestInstance.setClientrequest(this.getClientRequest());
-    requestInstance.setFielname(fileName);
+    requestInstance.setFilename(fileName);
 
     return this.getBusinessService().downloadResource(requestInstance);
   }
