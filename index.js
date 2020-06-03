@@ -1372,8 +1372,8 @@ class BusinessData {
   }
 
   getResource({ resourceUuid }) {
-    const { DownloadResourceRequest } = require('./src/grpc/proto/business_pb.js');
-    const requestInstance = new DownloadResourceRequest;
+    const { GetResourceRequest } = require('./src/grpc/proto/business_pb.js');
+    const requestInstance = new GetResourceRequest;
 
     requestInstance.setClientrequest(this.getClientRequest());
     requestInstance.setResourceuuid(resourceUuid);

@@ -1,6 +1,6 @@
 {
   "name": "@adempiere/grpc-data-client",
-  "version": "2.4.2",
+  "version": "2.4.3",
   "description": "ADempiere Data Client write in Javascript for gRPC service",
   "main": "index.js",
   "scripts": {
