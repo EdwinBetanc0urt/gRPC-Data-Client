@@ -557,75 +557,75 @@ proto.data.BusinessDataPromiseClient.prototype.runBusinessProcess =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.data.DownloadResourceRequest,
- *   !proto.data.ResourceChunk>}
+ *   !proto.data.GetResourceRequest,
+ *   !proto.data.Resource>}
  */
-const methodDescriptor_BusinessData_DownloadResource = new grpc.web.MethodDescriptor(
-  '/data.BusinessData/DownloadResource',
+const methodDescriptor_BusinessData_GetResource = new grpc.web.MethodDescriptor(
+  '/data.BusinessData/GetResource',
   grpc.web.MethodType.SERVER_STREAMING,
-  proto.data.DownloadResourceRequest,
-  proto.data.ResourceChunk,
+  proto.data.GetResourceRequest,
+  proto_base_data_type_pb.Resource,
   /**
-   * @param {!proto.data.DownloadResourceRequest} request
+   * @param {!proto.data.GetResourceRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.data.ResourceChunk.deserializeBinary
+  proto_base_data_type_pb.Resource.deserializeBinary
 );
 
 
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.data.DownloadResourceRequest,
- *   !proto.data.ResourceChunk>}
+ *   !proto.data.GetResourceRequest,
+ *   !proto.data.Resource>}
  */
-const methodInfo_BusinessData_DownloadResource = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.data.ResourceChunk,
+const methodInfo_BusinessData_GetResource = new grpc.web.AbstractClientBase.MethodInfo(
+  proto_base_data_type_pb.Resource,
   /**
-   * @param {!proto.data.DownloadResourceRequest} request
+   * @param {!proto.data.GetResourceRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.data.ResourceChunk.deserializeBinary
+  proto_base_data_type_pb.Resource.deserializeBinary
 );
 
 
 /**
- * @param {!proto.data.DownloadResourceRequest} request The request proto
+ * @param {!proto.data.GetResourceRequest} request The request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @return {!grpc.web.ClientReadableStream<!proto.data.ResourceChunk>}
+ * @return {!grpc.web.ClientReadableStream<!proto.data.Resource>}
  *     The XHR Node Readable Stream
  */
-proto.data.BusinessDataClient.prototype.downloadResource =
+proto.data.BusinessDataClient.prototype.getResource =
     function(request, metadata) {
   return this.client_.serverStreaming(this.hostname_ +
-      '/data.BusinessData/DownloadResource',
+      '/data.BusinessData/GetResource',
       request,
       metadata || {},
-      methodDescriptor_BusinessData_DownloadResource);
+      methodDescriptor_BusinessData_GetResource);
 };
 
 
 /**
- * @param {!proto.data.DownloadResourceRequest} request The request proto
+ * @param {!proto.data.GetResourceRequest} request The request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @return {!grpc.web.ClientReadableStream<!proto.data.ResourceChunk>}
+ * @return {!grpc.web.ClientReadableStream<!proto.data.Resource>}
  *     The XHR Node Readable Stream
  */
-proto.data.BusinessDataPromiseClient.prototype.downloadResource =
+proto.data.BusinessDataPromiseClient.prototype.getResource =
     function(request, metadata) {
   return this.client_.serverStreaming(this.hostname_ +
-      '/data.BusinessData/DownloadResource',
+      '/data.BusinessData/GetResource',
       request,
       metadata || {},
-      methodDescriptor_BusinessData_DownloadResource);
+      methodDescriptor_BusinessData_GetResource);
 };
 
 
@@ -2038,6 +2038,81 @@ proto.data.UserInterfacePromiseClient.prototype.createChatEntry =
       request,
       metadata || {},
       methodDescriptor_UserInterface_CreateChatEntry);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.GetResourceRequest,
+ *   !proto.data.Resource>}
+ */
+const methodDescriptor_UserInterface_GetResource = new grpc.web.MethodDescriptor(
+  '/data.UserInterface/GetResource',
+  grpc.web.MethodType.SERVER_STREAMING,
+  proto.data.GetResourceRequest,
+  proto_base_data_type_pb.Resource,
+  /**
+   * @param {!proto.data.GetResourceRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto_base_data_type_pb.Resource.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.data.GetResourceRequest,
+ *   !proto.data.Resource>}
+ */
+const methodInfo_UserInterface_GetResource = new grpc.web.AbstractClientBase.MethodInfo(
+  proto_base_data_type_pb.Resource,
+  /**
+   * @param {!proto.data.GetResourceRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto_base_data_type_pb.Resource.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.data.GetResourceRequest} request The request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!grpc.web.ClientReadableStream<!proto.data.Resource>}
+ *     The XHR Node Readable Stream
+ */
+proto.data.UserInterfaceClient.prototype.getResource =
+    function(request, metadata) {
+  return this.client_.serverStreaming(this.hostname_ +
+      '/data.UserInterface/GetResource',
+      request,
+      metadata || {},
+      methodDescriptor_UserInterface_GetResource);
+};
+
+
+/**
+ * @param {!proto.data.GetResourceRequest} request The request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!grpc.web.ClientReadableStream<!proto.data.Resource>}
+ *     The XHR Node Readable Stream
+ */
+proto.data.UserInterfacePromiseClient.prototype.getResource =
+    function(request, metadata) {
+  return this.client_.serverStreaming(this.hostname_ +
+      '/data.UserInterface/GetResource',
+      request,
+      metadata || {},
+      methodDescriptor_UserInterface_GetResource);
 };
 
 

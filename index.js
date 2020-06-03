@@ -1371,14 +1371,14 @@ class BusinessData {
       });
   }
 
-  downloadResource({ fileName }) {
+  getResource({ resourceUuid }) {
     const { DownloadResourceRequest } = require('./src/grpc/proto/business_pb.js');
     const requestInstance = new DownloadResourceRequest;
 
     requestInstance.setClientrequest(this.getClientRequest());
-    requestInstance.setFilename(fileName);
+    requestInstance.setResourceuuid(resourceUuid);
 
-    return this.getBusinessService().downloadResource(requestInstance);
+    return this.getBusinessService().getResource(requestInstance);
   }
 
 }
