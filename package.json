@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/erpcya/gRPC-Data-Client#readme",
   "dependencies": {
-    "@adempiere/grpc-core-client": "^1.1.3",
+    "@adempiere/grpc-core-client": "^1.1.4",
     "google-protobuf": "^3.12.2",
     "grpc": "^1.24.2",
     "grpc-promise": "^1.4.0",

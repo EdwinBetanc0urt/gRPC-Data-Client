@@ -1378,7 +1378,38 @@ class BusinessData {
     requestInstance.setClientrequest(this.getClientRequest());
     requestInstance.setResourceuuid(resourceUuid);
 
-    return this.getBusinessService().getResource(requestInstance);
+    return this.getUserInterfaceService().getResource(requestInstance);
+  }
+
+  getResourceReference({ imageId }) {
+    const { GetResourceReferenceRequest } = require('./src/grpc/proto/business_pb.js');
+    const requestInstance = new GetResourceReferenceRequest;
+
+    requestInstance.setClientrequest(this.getClientRequest());
+    requestInstance.setImageid(imageId);
+
+    return this.getUserInterfaceService().getResourceReference(requestInstance)
+      .then(responseResourceReference => {
+        const { convertResourceReferenceFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
+
+        return convertResourceReferenceFromGRPC(responseResourceReference);
+      });
+  }
+
+  getAttachment({ tableName, recordUuid }) {
+    const { GetAttachmentRequest } = require('./src/grpc/proto/business_pb.js');
+    const requestInstance = new GetAttachmentRequest;
+
+    requestInstance.setClientrequest(this.getClientRequest());
+    requestInstance.setTablename(tableName);
+    requestInstance.setResourceuuid(recordUuid);
+
+    return this.getUserInterfaceService().getAttachment(requestInstance)
+      .then(responseAttachment => {
+        const { convertAttachmentFromGRPC } = require('@adempiere/grpc-core-client/src/convertBaseDataType.js');
+
+        return convertAttachmentFromGRPC(responseAttachment);
+      });
   }
 
 }

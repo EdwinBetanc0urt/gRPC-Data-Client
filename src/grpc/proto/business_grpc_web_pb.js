@@ -555,81 +555,6 @@ proto.data.BusinessDataPromiseClient.prototype.runBusinessProcess =
 
 
 /**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.data.GetResourceRequest,
- *   !proto.data.Resource>}
- */
-const methodDescriptor_BusinessData_GetResource = new grpc.web.MethodDescriptor(
-  '/data.BusinessData/GetResource',
-  grpc.web.MethodType.SERVER_STREAMING,
-  proto.data.GetResourceRequest,
-  proto_base_data_type_pb.Resource,
-  /**
-   * @param {!proto.data.GetResourceRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto_base_data_type_pb.Resource.deserializeBinary
-);
-
-
-/**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.data.GetResourceRequest,
- *   !proto.data.Resource>}
- */
-const methodInfo_BusinessData_GetResource = new grpc.web.AbstractClientBase.MethodInfo(
-  proto_base_data_type_pb.Resource,
-  /**
-   * @param {!proto.data.GetResourceRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto_base_data_type_pb.Resource.deserializeBinary
-);
-
-
-/**
- * @param {!proto.data.GetResourceRequest} request The request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @return {!grpc.web.ClientReadableStream<!proto.data.Resource>}
- *     The XHR Node Readable Stream
- */
-proto.data.BusinessDataClient.prototype.getResource =
-    function(request, metadata) {
-  return this.client_.serverStreaming(this.hostname_ +
-      '/data.BusinessData/GetResource',
-      request,
-      metadata || {},
-      methodDescriptor_BusinessData_GetResource);
-};
-
-
-/**
- * @param {!proto.data.GetResourceRequest} request The request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @return {!grpc.web.ClientReadableStream<!proto.data.Resource>}
- *     The XHR Node Readable Stream
- */
-proto.data.BusinessDataPromiseClient.prototype.getResource =
-    function(request, metadata) {
-  return this.client_.serverStreaming(this.hostname_ +
-      '/data.BusinessData/GetResource',
-      request,
-      metadata || {},
-      methodDescriptor_BusinessData_GetResource);
-};
-
-
-/**
  * @param {string} hostname
  * @param {?Object} credentials
  * @param {?Object} options
@@ -2113,6 +2038,166 @@ proto.data.UserInterfacePromiseClient.prototype.getResource =
       request,
       metadata || {},
       methodDescriptor_UserInterface_GetResource);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.GetResourceReferenceRequest,
+ *   !proto.data.ResourceReference>}
+ */
+const methodDescriptor_UserInterface_GetResourceReference = new grpc.web.MethodDescriptor(
+  '/data.UserInterface/GetResourceReference',
+  grpc.web.MethodType.UNARY,
+  proto.data.GetResourceReferenceRequest,
+  proto_base_data_type_pb.ResourceReference,
+  /**
+   * @param {!proto.data.GetResourceReferenceRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto_base_data_type_pb.ResourceReference.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.data.GetResourceReferenceRequest,
+ *   !proto.data.ResourceReference>}
+ */
+const methodInfo_UserInterface_GetResourceReference = new grpc.web.AbstractClientBase.MethodInfo(
+  proto_base_data_type_pb.ResourceReference,
+  /**
+   * @param {!proto.data.GetResourceReferenceRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto_base_data_type_pb.ResourceReference.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.data.GetResourceReferenceRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.data.ResourceReference)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.data.ResourceReference>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.data.UserInterfaceClient.prototype.getResourceReference =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/data.UserInterface/GetResourceReference',
+      request,
+      metadata || {},
+      methodDescriptor_UserInterface_GetResourceReference,
+      callback);
+};
+
+
+/**
+ * @param {!proto.data.GetResourceReferenceRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.data.ResourceReference>}
+ *     A native promise that resolves to the response
+ */
+proto.data.UserInterfacePromiseClient.prototype.getResourceReference =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/data.UserInterface/GetResourceReference',
+      request,
+      metadata || {},
+      methodDescriptor_UserInterface_GetResourceReference);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.data.GetAttachmentRequest,
+ *   !proto.data.Attachment>}
+ */
+const methodDescriptor_UserInterface_GetAttachment = new grpc.web.MethodDescriptor(
+  '/data.UserInterface/GetAttachment',
+  grpc.web.MethodType.UNARY,
+  proto.data.GetAttachmentRequest,
+  proto_base_data_type_pb.Attachment,
+  /**
+   * @param {!proto.data.GetAttachmentRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto_base_data_type_pb.Attachment.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.data.GetAttachmentRequest,
+ *   !proto.data.Attachment>}
+ */
+const methodInfo_UserInterface_GetAttachment = new grpc.web.AbstractClientBase.MethodInfo(
+  proto_base_data_type_pb.Attachment,
+  /**
+   * @param {!proto.data.GetAttachmentRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto_base_data_type_pb.Attachment.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.data.GetAttachmentRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.data.Attachment)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.data.Attachment>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.data.UserInterfaceClient.prototype.getAttachment =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/data.UserInterface/GetAttachment',
+      request,
+      metadata || {},
+      methodDescriptor_UserInterface_GetAttachment,
+      callback);
+};
+
+
+/**
+ * @param {!proto.data.GetAttachmentRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.data.Attachment>}
+ *     A native promise that resolves to the response
+ */
+proto.data.UserInterfacePromiseClient.prototype.getAttachment =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/data.UserInterface/GetAttachment',
+      request,
+      metadata || {},
+      methodDescriptor_UserInterface_GetAttachment);
 };
 
 
