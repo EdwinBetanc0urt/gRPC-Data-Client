@@ -168,6 +168,11 @@ protoc proto/business.proto \
 --grpc-web_out=import_style=commonjs,mode=grpcwebtext:src/grpc
 ```
 
+Or run:
+```Shell
+sh generate-stub.sh
+```
+
 The result is generated on: src/grpc folder
 - `business_pb.js`
 - `business_grpc_web_pb.js`
