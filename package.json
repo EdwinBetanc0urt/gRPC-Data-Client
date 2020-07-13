@@ -1,6 +1,6 @@
 {
   "name": "@adempiere/grpc-data-client",
-  "version": "2.4.6",
+  "version": "2.4.7",
   "description": "ADempiere Data Client write in Javascript for gRPC service",
   "main": "index.js",
   "scripts": {
@@ -23,12 +23,10 @@
   },
   "homepage": "https://github.com/erpcya/gRPC-Data-Client#readme",
   "dependencies": {
-    "@adempiere/grpc-core-client": "^1.1.6",
+    "@adempiere/grpc-core-client": "^1.2.0",
     "google-protobuf": "^3.12.2",
-    "grpc": "^1.24.3",
     "grpc-promise": "^1.4.0",
-    "grpc-web": "^1.1.0",
-    "xmlhttprequest": "^1.8.0"
+    "grpc-web": "^1.2.0"
   },
   "devDependencies": {},
   "keywords": [

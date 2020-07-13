@@ -3318,4 +3318,3 @@ proto.data.EntityLogPromiseClient.prototype.listRecentItems =
 
 
 module.exports = proto.data;
-
