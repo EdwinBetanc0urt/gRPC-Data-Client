@@ -2,6 +2,7 @@
  * Product: ADempiere gRPC Business Data Client                                      *
  * Copyright (C) 2012-2018 E.R.P. Consultores y Asociados, C.A.                      *
  * Contributor(s): Yamel Senih ysenih@erpya.com                                      *
+ * Contributor(s): Edwin Betancourt EdwinBetanc0urt@outlook.com                                      *
  * This program is free software: you can redistribute it and/or modify              *
  * it under the terms of the GNU General Public License as published by              *
  * the Free Software Foundation, either version 3 of the License, or                 *
@@ -530,16 +531,16 @@ class BusinessData {
 
   /**
    * Get Report Output from criteria
+   * @param {array}   parametersList
+   * @param {string}  tableName
    * @param {string}  printFormatUuid
    * @param {string}  reportViewUuid
    * @param {boolean} isSummary
    * @param {string}  reportName
    * @param {string}  reportType
-   * @param {array}   parametersList
    */
   requestGetReportOutput({ parametersList = [], tableName, printFormatUuid, reportViewUuid, isSummary, reportName, reportType }) {
     const { GetReportOutputRequest } = require('./src/grpc/proto/business_pb.js');
-    const { convertCriteriaToGRPC } = require('@adempiere/grpc-core-client/src/convertValues.js');
 
     const reportOutputInstance = new GetReportOutputRequest();
     reportOutputInstance.setClientrequest(this.getClientRequest());
@@ -549,8 +550,10 @@ class BusinessData {
     reportOutputInstance.setReportviewuuid(reportViewUuid);
     reportOutputInstance.setReportname(reportName);
 
+    const { convertCriteriaToGRPC } = require('@adempiere/grpc-core-client/src/convertValues.js');
     const criteriaForReport = convertCriteriaToGRPC({ tableName });
     if (parametersList && parametersList.length) {
+      const { convertConditionToGRPC } = require('@adempiere/grpc-core-client/src/convertValues.js');
       parametersList.forEach(parameter => {
         if (parameter.columnName.endsWith('_To')) {
           const previousParemeter = parametersList.find(param => param.columnName === parameter.columnName.replace('_To', ''));
@@ -558,7 +561,7 @@ class BusinessData {
             parameter.columnName = parameter.columnName.replace('_To', '');
           }
         }
-        const { convertConditionToGRPC } = require('@adempiere/grpc-core-client/src/convertValues.js');
+
         const convertedCondition = convertConditionToGRPC(parameter);
         criteriaForReport.addConditions(convertedCondition);
       });
@@ -579,13 +582,16 @@ class BusinessData {
    * @param {string} directQuery
    * @param {string|number} value current value to get display column
    */
-  requestLookupFromReference({ tableName, directQuery, value }) {
-    const { convertCriteriaToGRPC } = require('@adempiere/grpc-core-client/src/convertValues.js');
+  requestLookupFromReference({ tableName, directQuery, value: valuesList = [] }) {
+    const { convertCriteriaToGRPC, isEmptyValue } = require('@adempiere/grpc-core-client/src/convertValues.js');
 
+    if (!isEmptyValue(valuesList) && !Array.isArray(valuesList)) {
+      valuesList = Array(valuesList);
+    }
     const criteriaForLookup = convertCriteriaToGRPC({
       tableName,
       query: directQuery,
-      valuesList: [value]
+      valuesList
     });
 
     const { GetLookupItemRequest } = require('./src/grpc/proto/business_pb.js');
@@ -605,14 +611,23 @@ class BusinessData {
    * Request Lookup List from Reference
    * @param {string} tableName
    * @param {string} query
-   * @param {string}  pageToken
-   * @param {string}  pageSize
+   * @param {array}  valuesList values to match in response list
+   * @param {string} pageToken
+   * @param {string} pageSize
    */
-  requestListLookupFromReference({ tableName, query, valuesList, pageToken, pageSize }) {
-    const { ListLookupItemsRequest } = require('./src/grpc/proto/business_pb.js');
-    const { convertCriteriaToGRPC } = require('@adempiere/grpc-core-client/src/convertValues.js');
-    const criteriaForLookup = convertCriteriaToGRPC({ tableName, query, valuesList });
+  requestListLookupFromReference({ tableName, query, valuesList = [], pageToken, pageSize }) {
+    const { convertCriteriaToGRPC, isEmptyValue } = require('@adempiere/grpc-core-client/src/convertValues.js');
 
+    if (!isEmptyValue(valuesList) && !Array.isArray(valuesList)) {
+      valuesList = Array(valuesList);
+    }
+    const criteriaForLookup = convertCriteriaToGRPC({
+      tableName,
+      query,
+      valuesList
+    });
+
+    const { ListLookupItemsRequest } = require('./src/grpc/proto/business_pb.js');
     const requestLookup = new ListLookupItemsRequest();
     requestLookup.setClientrequest(this.getClientRequest());
     requestLookup.setCriteria(criteriaForLookup);
@@ -643,7 +658,10 @@ class BusinessData {
    * @param {array}   selectionsList, selection records, used only browser
         [{
           selectionId,
-          selectionValues: [{ columnName, value }]
+          selectionValues: [{
+            columnName,
+            value
+          }]
         }]
    */
   requestRunProcess({ uuid, reportType, printFormatUuid, parametersList, tableName, recordId, recordUuid, selectionsList = [] }) {
@@ -702,9 +720,9 @@ class BusinessData {
    * @param {string} query
    * @param {string} whereClause
    * @param {string} orderByClause
-   * @param {string}  pageToken
-   * @param {string}  pageSize
-   * @param {string}  formatToConvert
+   * @param {string} pageToken
+   * @param {string} pageSize
+   * @param {string} formatToConvert
    */
   requestListBrowserSearch({ uuid, parametersList = [], query, whereClause, orderByClause, pageToken, pageSize, formatToConvert = 'object' }) {
     const { ListBrowserItemsRequest } = require('./src/grpc/proto/business_pb.js');
