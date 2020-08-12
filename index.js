@@ -611,11 +611,12 @@ class BusinessData {
    * Request Lookup List from Reference
    * @param {string} tableName
    * @param {string} query
+   * @param {string} whereClause
    * @param {array}  valuesList values to match in response list
    * @param {string} pageToken
    * @param {string} pageSize
    */
-  requestListLookupFromReference({ tableName, query, valuesList = [], pageToken, pageSize }) {
+  requestListLookupFromReference({ tableName, query, whereClause, valuesList = [], pageToken, pageSize }) {
     const { convertCriteriaToGRPC, isEmptyValue } = require('@adempiere/grpc-core-client/src/convertValues.js');
 
     if (!isEmptyValue(valuesList) && !Array.isArray(valuesList)) {
@@ -624,6 +625,7 @@ class BusinessData {
     const criteriaForLookup = convertCriteriaToGRPC({
       tableName,
       query,
+      whereClause,
       valuesList
     });
 
