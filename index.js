@@ -586,7 +586,9 @@ class BusinessData {
     const { convertCriteriaToGRPC, isEmptyValue } = require('@adempiere/grpc-core-client/src/convertValues.js');
 
     if (!isEmptyValue(valuesList) && !Array.isArray(valuesList)) {
-      valuesList = Array(valuesList);
+      valuesList = [
+        valuesList
+      ];
     }
     const criteriaForLookup = convertCriteriaToGRPC({
       tableName,
@@ -620,7 +622,9 @@ class BusinessData {
     const { convertCriteriaToGRPC, isEmptyValue } = require('@adempiere/grpc-core-client/src/convertValues.js');
 
     if (!isEmptyValue(valuesList) && !Array.isArray(valuesList)) {
-      valuesList = Array(valuesList);
+      valuesList = [
+        valuesList
+      ];
     }
     const criteriaForLookup = convertCriteriaToGRPC({
       tableName,
