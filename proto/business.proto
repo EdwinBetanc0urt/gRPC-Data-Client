@@ -21,6 +21,7 @@ option objc_class_prefix = "HLW";
 
 import "proto/core_functionality.proto";
 import "proto/base_data_type.proto";
+import "proto/client.proto";
 
 package data;
 
@@ -654,7 +655,6 @@ message WorkflowNode {
 	string documentActionValue = 8;
 	string documentActionName = 9;
 	int32 priority = 10;
-
 	enum Action {
 		USER_CHOICE = 0;
 		DOCUMENT_ACTION = 1;
@@ -679,12 +679,10 @@ message WorkflowCondition {
 	int32 sequence = 1;
 	string columnName = 2;
 	string value = 3;
-
 	enum ConditionType {
 		AND = 0;
 		OR = 1;
 	}
-
 	enum Operation {
 		EQUAL = 0;
 		NOT_EQUAL = 1;
@@ -696,7 +694,6 @@ message WorkflowCondition {
 		BETWEEN = 8;
 		SQL = 9;
 	}
-
 	ConditionType conditionType = 4;
 	Operation operation = 5;
 }
@@ -786,7 +783,6 @@ message WorkflowProcess {
 		TERMINATED = 3;
 		SUSPENDED = 4;
 		NOT_STARTED = 5;
-
 	}
 	enum Priority {
 		URGENT = 0;
@@ -823,7 +819,6 @@ message WorkflowEvent {
 		TERMINATED = 3;
 		SUSPENDED = 4;
 		NOT_STARTED = 5;
-
 	}
 	enum EventType {
 		PROCESS_CREATED = 0;
