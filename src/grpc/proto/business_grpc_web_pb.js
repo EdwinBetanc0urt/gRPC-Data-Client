@@ -19,6 +19,8 @@ grpc.web = require('grpc-web');
 var proto_core_functionality_pb = require('@adempiere/grpc-core-client/src/grpc/proto/core_functionality_pb.js');
 
 var proto_base_data_type_pb = require('@adempiere/grpc-core-client/src/grpc/proto/base_data_type_pb.js');
+
+var proto_client_pb = require('@adempiere/grpc-core-client/src/grpc/proto/client_pb.js')
 const proto = {};
 proto.data = require('./business_pb.js');
 
@@ -142,7 +144,7 @@ proto.data.BusinessDataClient.prototype.getEntity =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.Entity>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.BusinessDataPromiseClient.prototype.getEntity =
     function(request, metadata) {
@@ -222,7 +224,7 @@ proto.data.BusinessDataClient.prototype.createEntity =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.Entity>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.BusinessDataPromiseClient.prototype.createEntity =
     function(request, metadata) {
@@ -302,7 +304,7 @@ proto.data.BusinessDataClient.prototype.updateEntity =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.Entity>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.BusinessDataPromiseClient.prototype.updateEntity =
     function(request, metadata) {
@@ -382,7 +384,7 @@ proto.data.BusinessDataClient.prototype.deleteEntity =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.Empty>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.BusinessDataPromiseClient.prototype.deleteEntity =
     function(request, metadata) {
@@ -462,7 +464,7 @@ proto.data.BusinessDataClient.prototype.listEntities =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.ListEntitiesResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.BusinessDataPromiseClient.prototype.listEntities =
     function(request, metadata) {
@@ -542,7 +544,7 @@ proto.data.BusinessDataClient.prototype.runBusinessProcess =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.ProcessLog>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.BusinessDataPromiseClient.prototype.runBusinessProcess =
     function(request, metadata) {
@@ -674,7 +676,7 @@ proto.data.UserInterfaceClient.prototype.rollbackEntity =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.Entity>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.UserInterfacePromiseClient.prototype.rollbackEntity =
     function(request, metadata) {
@@ -754,7 +756,7 @@ proto.data.UserInterfaceClient.prototype.runCallout =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.Callout>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.UserInterfacePromiseClient.prototype.runCallout =
     function(request, metadata) {
@@ -834,7 +836,7 @@ proto.data.UserInterfaceClient.prototype.listTranslations =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.ListTranslationsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.UserInterfacePromiseClient.prototype.listTranslations =
     function(request, metadata) {
@@ -914,7 +916,7 @@ proto.data.UserInterfaceClient.prototype.getDefaultValue =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.Value>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.UserInterfacePromiseClient.prototype.getDefaultValue =
     function(request, metadata) {
@@ -994,7 +996,7 @@ proto.data.UserInterfaceClient.prototype.getLookupItem =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.LookupItem>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.UserInterfacePromiseClient.prototype.getLookupItem =
     function(request, metadata) {
@@ -1074,7 +1076,7 @@ proto.data.UserInterfaceClient.prototype.listLookupItems =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.ListLookupItemsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.UserInterfacePromiseClient.prototype.listLookupItems =
     function(request, metadata) {
@@ -1154,7 +1156,7 @@ proto.data.UserInterfaceClient.prototype.listBrowserItems =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.ListBrowserItemsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.UserInterfacePromiseClient.prototype.listBrowserItems =
     function(request, metadata) {
@@ -1234,7 +1236,7 @@ proto.data.UserInterfaceClient.prototype.listReferences =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.ListReferencesResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.UserInterfacePromiseClient.prototype.listReferences =
     function(request, metadata) {
@@ -1314,7 +1316,7 @@ proto.data.UserInterfaceClient.prototype.getContextInfoValue =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.ContextInfoValue>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.UserInterfacePromiseClient.prototype.getContextInfoValue =
     function(request, metadata) {
@@ -1394,7 +1396,7 @@ proto.data.UserInterfaceClient.prototype.getPrivateAccess =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.PrivateAccess>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.UserInterfacePromiseClient.prototype.getPrivateAccess =
     function(request, metadata) {
@@ -1474,7 +1476,7 @@ proto.data.UserInterfaceClient.prototype.lockPrivateAccess =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.PrivateAccess>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.UserInterfacePromiseClient.prototype.lockPrivateAccess =
     function(request, metadata) {
@@ -1554,7 +1556,7 @@ proto.data.UserInterfaceClient.prototype.unlockPrivateAccess =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.PrivateAccess>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.UserInterfacePromiseClient.prototype.unlockPrivateAccess =
     function(request, metadata) {
@@ -1634,7 +1636,7 @@ proto.data.UserInterfaceClient.prototype.listPrintFormats =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.ListPrintFormatsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.UserInterfacePromiseClient.prototype.listPrintFormats =
     function(request, metadata) {
@@ -1714,7 +1716,7 @@ proto.data.UserInterfaceClient.prototype.listReportViews =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.ListReportViewsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.UserInterfacePromiseClient.prototype.listReportViews =
     function(request, metadata) {
@@ -1794,7 +1796,7 @@ proto.data.UserInterfaceClient.prototype.listDrillTables =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.ListDrillTablesResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.UserInterfacePromiseClient.prototype.listDrillTables =
     function(request, metadata) {
@@ -1874,7 +1876,7 @@ proto.data.UserInterfaceClient.prototype.getReportOutput =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.ReportOutput>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.UserInterfacePromiseClient.prototype.getReportOutput =
     function(request, metadata) {
@@ -1954,7 +1956,7 @@ proto.data.UserInterfaceClient.prototype.createChatEntry =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.ChatEntry>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.UserInterfacePromiseClient.prototype.createChatEntry =
     function(request, metadata) {
@@ -2109,7 +2111,7 @@ proto.data.UserInterfaceClient.prototype.getResourceReference =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.ResourceReference>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.UserInterfacePromiseClient.prototype.getResourceReference =
     function(request, metadata) {
@@ -2189,7 +2191,7 @@ proto.data.UserInterfaceClient.prototype.getAttachment =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.Attachment>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.UserInterfacePromiseClient.prototype.getAttachment =
     function(request, metadata) {
@@ -2321,7 +2323,7 @@ proto.data.WorkflowClient.prototype.listWorkflows =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.ListWorkflowsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.WorkflowPromiseClient.prototype.listWorkflows =
     function(request, metadata) {
@@ -2401,7 +2403,7 @@ proto.data.WorkflowClient.prototype.listDocumentActions =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.ListDocumentActionsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.WorkflowPromiseClient.prototype.listDocumentActions =
     function(request, metadata) {
@@ -2481,7 +2483,7 @@ proto.data.WorkflowClient.prototype.listDocumentStatuses =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.ListDocumentStatusesResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.WorkflowPromiseClient.prototype.listDocumentStatuses =
     function(request, metadata) {
@@ -2613,7 +2615,7 @@ proto.data.DashboardingClient.prototype.listDashboards =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.ListDashboardsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.DashboardingPromiseClient.prototype.listDashboards =
     function(request, metadata) {
@@ -2693,7 +2695,7 @@ proto.data.DashboardingClient.prototype.listFavorites =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.ListFavoritesResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.DashboardingPromiseClient.prototype.listFavorites =
     function(request, metadata) {
@@ -2773,7 +2775,7 @@ proto.data.DashboardingClient.prototype.listPendingDocuments =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.ListPendingDocumentsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.DashboardingPromiseClient.prototype.listPendingDocuments =
     function(request, metadata) {
@@ -2905,7 +2907,7 @@ proto.data.EntityLogClient.prototype.listProcessLogs =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.ListProcessLogsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.EntityLogPromiseClient.prototype.listProcessLogs =
     function(request, metadata) {
@@ -2985,7 +2987,7 @@ proto.data.EntityLogClient.prototype.listRecordLogs =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.ListRecordLogsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.EntityLogPromiseClient.prototype.listRecordLogs =
     function(request, metadata) {
@@ -3065,7 +3067,7 @@ proto.data.EntityLogClient.prototype.listRecordChats =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.ListRecordChatsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.EntityLogPromiseClient.prototype.listRecordChats =
     function(request, metadata) {
@@ -3145,7 +3147,7 @@ proto.data.EntityLogClient.prototype.listChatEntries =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.ListChatEntriesResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.EntityLogPromiseClient.prototype.listChatEntries =
     function(request, metadata) {
@@ -3225,7 +3227,7 @@ proto.data.EntityLogClient.prototype.listWorkflowLogs =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.ListWorkflowLogsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.EntityLogPromiseClient.prototype.listWorkflowLogs =
     function(request, metadata) {
@@ -3305,7 +3307,7 @@ proto.data.EntityLogClient.prototype.listRecentItems =
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.data.ListRecentItemsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.data.EntityLogPromiseClient.prototype.listRecentItems =
     function(request, metadata) {

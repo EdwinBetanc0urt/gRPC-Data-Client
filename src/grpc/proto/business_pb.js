@@ -16,6 +16,8 @@ var proto_core_functionality_pb = require('@adempiere/grpc-core-client/src/grpc/
 goog.object.extend(proto, proto_core_functionality_pb);
 var proto_base_data_type_pb = require('@adempiere/grpc-core-client/src/grpc/proto/base_data_type_pb.js');
 goog.object.extend(proto, proto_base_data_type_pb);
+var proto_client_pb = require('@adempiere/grpc-core-client/src/grpc/proto/client_pb.js');
+goog.object.extend(proto, proto_client_pb);
 goog.exportSymbol('proto.data.Callout', null, global);
 goog.exportSymbol('proto.data.ChatEntry', null, global);
 goog.exportSymbol('proto.data.ChatEntry.ChatEntryType', null, global);
@@ -1669,7 +1671,7 @@ proto.data.GetAttachmentRequest.prototype.toObject = function(opt_includeInstanc
  */
 proto.data.GetAttachmentRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     tablename: jspb.Message.getFieldWithDefault(msg, 2, ""),
     recorduuid: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
@@ -1709,8 +1711,8 @@ proto.data.GetAttachmentRequest.deserializeBinaryFromReader = function(msg, read
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -1755,7 +1757,7 @@ proto.data.GetAttachmentRequest.serializeBinaryToWriter = function(message, writ
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getTablename();
@@ -1781,7 +1783,7 @@ proto.data.GetAttachmentRequest.serializeBinaryToWriter = function(message, writ
  */
 proto.data.GetAttachmentRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -1880,7 +1882,7 @@ proto.data.GetResourceRequest.prototype.toObject = function(opt_includeInstance)
  */
 proto.data.GetResourceRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     resourceuuid: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
@@ -1919,8 +1921,8 @@ proto.data.GetResourceRequest.deserializeBinaryFromReader = function(msg, reader
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -1961,7 +1963,7 @@ proto.data.GetResourceRequest.serializeBinaryToWriter = function(message, writer
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getResourceuuid();
@@ -1980,7 +1982,7 @@ proto.data.GetResourceRequest.serializeBinaryToWriter = function(message, writer
  */
 proto.data.GetResourceRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -2061,7 +2063,7 @@ proto.data.GetResourceReferenceRequest.prototype.toObject = function(opt_include
  */
 proto.data.GetResourceReferenceRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     imageid: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
@@ -2100,8 +2102,8 @@ proto.data.GetResourceReferenceRequest.deserializeBinaryFromReader = function(ms
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -2142,7 +2144,7 @@ proto.data.GetResourceReferenceRequest.serializeBinaryToWriter = function(messag
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getImageid();
@@ -2161,7 +2163,7 @@ proto.data.GetResourceReferenceRequest.serializeBinaryToWriter = function(messag
  */
 proto.data.GetResourceReferenceRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -2247,7 +2249,7 @@ proto.data.GetReportOutputRequest.toObject = function(includeInstance, msg) {
     issummary: jspb.Message.getBooleanFieldWithDefault(msg, 3, false),
     reportname: jspb.Message.getFieldWithDefault(msg, 5, ""),
     reporttype: jspb.Message.getFieldWithDefault(msg, 6, ""),
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     criteria: (f = msg.getCriteria()) && proto_base_data_type_pb.Criteria.toObject(includeInstance, f)
   };
 
@@ -2306,8 +2308,8 @@ proto.data.GetReportOutputRequest.deserializeBinaryFromReader = function(msg, re
       msg.setReporttype(value);
       break;
     case 7:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 8:
@@ -2384,7 +2386,7 @@ proto.data.GetReportOutputRequest.serializeBinaryToWriter = function(message, wr
     writer.writeMessage(
       7,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getCriteria();
@@ -2494,7 +2496,7 @@ proto.data.GetReportOutputRequest.prototype.setReporttype = function(value) {
  */
 proto.data.GetReportOutputRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 7));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 7));
 };
 
 
@@ -2601,7 +2603,7 @@ proto.data.CreateEntityRequest.prototype.toObject = function(opt_includeInstance
  */
 proto.data.CreateEntityRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     tablename: jspb.Message.getFieldWithDefault(msg, 2, ""),
     attributesList: jspb.Message.toObjectList(msg.getAttributesList(),
     proto_base_data_type_pb.KeyValue.toObject, includeInstance)
@@ -2642,8 +2644,8 @@ proto.data.CreateEntityRequest.deserializeBinaryFromReader = function(msg, reade
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -2689,7 +2691,7 @@ proto.data.CreateEntityRequest.serializeBinaryToWriter = function(message, write
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getTablename();
@@ -2716,7 +2718,7 @@ proto.data.CreateEntityRequest.serializeBinaryToWriter = function(message, write
  */
 proto.data.CreateEntityRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -2835,7 +2837,7 @@ proto.data.LockPrivateAccessRequest.prototype.toObject = function(opt_includeIns
  */
 proto.data.LockPrivateAccessRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     tablename: jspb.Message.getFieldWithDefault(msg, 2, ""),
     recordid: jspb.Message.getFieldWithDefault(msg, 3, 0),
     useruuid: jspb.Message.getFieldWithDefault(msg, 4, "")
@@ -2876,8 +2878,8 @@ proto.data.LockPrivateAccessRequest.deserializeBinaryFromReader = function(msg, 
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -2926,7 +2928,7 @@ proto.data.LockPrivateAccessRequest.serializeBinaryToWriter = function(message, 
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getTablename();
@@ -2959,7 +2961,7 @@ proto.data.LockPrivateAccessRequest.serializeBinaryToWriter = function(message, 
  */
 proto.data.LockPrivateAccessRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -3079,7 +3081,7 @@ proto.data.GetEntityRequest.toObject = function(includeInstance, msg) {
     uuid: jspb.Message.getFieldWithDefault(msg, 1, ""),
     tablename: jspb.Message.getFieldWithDefault(msg, 2, ""),
     recordid: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     criteria: (f = msg.getCriteria()) && proto_base_data_type_pb.Criteria.toObject(includeInstance, f)
   };
 
@@ -3130,8 +3132,8 @@ proto.data.GetEntityRequest.deserializeBinaryFromReader = function(msg, reader) 
       msg.setRecordid(value);
       break;
     case 4:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 5:
@@ -3194,7 +3196,7 @@ proto.data.GetEntityRequest.serializeBinaryToWriter = function(message, writer) 
     writer.writeMessage(
       4,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getCriteria();
@@ -3268,7 +3270,7 @@ proto.data.GetEntityRequest.prototype.setRecordid = function(value) {
  */
 proto.data.GetEntityRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 4));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 4));
 };
 
 
@@ -3368,7 +3370,7 @@ proto.data.GetPrivateAccessRequest.prototype.toObject = function(opt_includeInst
  */
 proto.data.GetPrivateAccessRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     tablename: jspb.Message.getFieldWithDefault(msg, 2, ""),
     recordid: jspb.Message.getFieldWithDefault(msg, 3, 0),
     useruuid: jspb.Message.getFieldWithDefault(msg, 4, "")
@@ -3409,8 +3411,8 @@ proto.data.GetPrivateAccessRequest.deserializeBinaryFromReader = function(msg, r
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -3459,7 +3461,7 @@ proto.data.GetPrivateAccessRequest.serializeBinaryToWriter = function(message, w
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getTablename();
@@ -3492,7 +3494,7 @@ proto.data.GetPrivateAccessRequest.serializeBinaryToWriter = function(message, w
  */
 proto.data.GetPrivateAccessRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -3609,7 +3611,7 @@ proto.data.UnlockPrivateAccessRequest.prototype.toObject = function(opt_includeI
  */
 proto.data.UnlockPrivateAccessRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     tablename: jspb.Message.getFieldWithDefault(msg, 2, ""),
     recordid: jspb.Message.getFieldWithDefault(msg, 3, 0),
     useruuid: jspb.Message.getFieldWithDefault(msg, 4, "")
@@ -3650,8 +3652,8 @@ proto.data.UnlockPrivateAccessRequest.deserializeBinaryFromReader = function(msg
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -3700,7 +3702,7 @@ proto.data.UnlockPrivateAccessRequest.serializeBinaryToWriter = function(message
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getTablename();
@@ -3733,7 +3735,7 @@ proto.data.UnlockPrivateAccessRequest.serializeBinaryToWriter = function(message
  */
 proto.data.UnlockPrivateAccessRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -4040,7 +4042,7 @@ proto.data.RollbackEntityRequest.prototype.toObject = function(opt_includeInstan
  */
 proto.data.RollbackEntityRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     tablename: jspb.Message.getFieldWithDefault(msg, 2, ""),
     recordid: jspb.Message.getFieldWithDefault(msg, 3, 0),
     eventtype: jspb.Message.getFieldWithDefault(msg, 4, 0)
@@ -4081,8 +4083,8 @@ proto.data.RollbackEntityRequest.deserializeBinaryFromReader = function(msg, rea
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -4131,7 +4133,7 @@ proto.data.RollbackEntityRequest.serializeBinaryToWriter = function(message, wri
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getTablename();
@@ -4173,7 +4175,7 @@ proto.data.RollbackEntityRequest.EventType = {
  */
 proto.data.RollbackEntityRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -4297,7 +4299,7 @@ proto.data.UpdateEntityRequest.prototype.toObject = function(opt_includeInstance
  */
 proto.data.UpdateEntityRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     tablename: jspb.Message.getFieldWithDefault(msg, 2, ""),
     uuid: jspb.Message.getFieldWithDefault(msg, 3, ""),
     recordid: jspb.Message.getFieldWithDefault(msg, 4, 0),
@@ -4340,8 +4342,8 @@ proto.data.UpdateEntityRequest.deserializeBinaryFromReader = function(msg, reade
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -4395,7 +4397,7 @@ proto.data.UpdateEntityRequest.serializeBinaryToWriter = function(message, write
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getTablename();
@@ -4436,7 +4438,7 @@ proto.data.UpdateEntityRequest.serializeBinaryToWriter = function(message, write
  */
 proto.data.UpdateEntityRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -4591,7 +4593,7 @@ proto.data.DeleteEntityRequest.prototype.toObject = function(opt_includeInstance
  */
 proto.data.DeleteEntityRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     tablename: jspb.Message.getFieldWithDefault(msg, 2, ""),
     uuid: jspb.Message.getFieldWithDefault(msg, 3, ""),
     recordid: jspb.Message.getFieldWithDefault(msg, 4, 0)
@@ -4632,8 +4634,8 @@ proto.data.DeleteEntityRequest.deserializeBinaryFromReader = function(msg, reade
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -4682,7 +4684,7 @@ proto.data.DeleteEntityRequest.serializeBinaryToWriter = function(message, write
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getTablename();
@@ -4715,7 +4717,7 @@ proto.data.DeleteEntityRequest.serializeBinaryToWriter = function(message, write
  */
 proto.data.DeleteEntityRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -5214,7 +5216,7 @@ proto.data.GetLookupItemRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     id: jspb.Message.getFieldWithDefault(msg, 1, 0),
     uuid: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     criteria: (f = msg.getCriteria()) && proto_base_data_type_pb.Criteria.toObject(includeInstance, f)
   };
 
@@ -5261,8 +5263,8 @@ proto.data.GetLookupItemRequest.deserializeBinaryFromReader = function(msg, read
       msg.setUuid(value);
       break;
     case 3:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 4:
@@ -5318,7 +5320,7 @@ proto.data.GetLookupItemRequest.serializeBinaryToWriter = function(message, writ
     writer.writeMessage(
       3,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getCriteria();
@@ -5374,7 +5376,7 @@ proto.data.GetLookupItemRequest.prototype.setUuid = function(value) {
  */
 proto.data.GetLookupItemRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 3));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 3));
 };
 
 
@@ -5474,7 +5476,7 @@ proto.data.GetDefaultValueRequest.prototype.toObject = function(opt_includeInsta
  */
 proto.data.GetDefaultValueRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     query: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
@@ -5513,8 +5515,8 @@ proto.data.GetDefaultValueRequest.deserializeBinaryFromReader = function(msg, re
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -5555,7 +5557,7 @@ proto.data.GetDefaultValueRequest.serializeBinaryToWriter = function(message, wr
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getQuery();
@@ -5574,7 +5576,7 @@ proto.data.GetDefaultValueRequest.serializeBinaryToWriter = function(message, wr
  */
 proto.data.GetDefaultValueRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -5655,7 +5657,7 @@ proto.data.GetContextInfoValueRequest.prototype.toObject = function(opt_includeI
  */
 proto.data.GetContextInfoValueRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     uuid: jspb.Message.getFieldWithDefault(msg, 2, ""),
     query: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
@@ -5695,8 +5697,8 @@ proto.data.GetContextInfoValueRequest.deserializeBinaryFromReader = function(msg
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -5741,7 +5743,7 @@ proto.data.GetContextInfoValueRequest.serializeBinaryToWriter = function(message
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getUuid();
@@ -5767,7 +5769,7 @@ proto.data.GetContextInfoValueRequest.serializeBinaryToWriter = function(message
  */
 proto.data.GetContextInfoValueRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -6089,7 +6091,7 @@ proto.data.ListLookupItemsRequest.prototype.toObject = function(opt_includeInsta
  */
 proto.data.ListLookupItemsRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     criteria: (f = msg.getCriteria()) && proto_base_data_type_pb.Criteria.toObject(includeInstance, f),
     pageSize: jspb.Message.getFieldWithDefault(msg, 5, 0),
     pageToken: jspb.Message.getFieldWithDefault(msg, 6, "")
@@ -6130,8 +6132,8 @@ proto.data.ListLookupItemsRequest.deserializeBinaryFromReader = function(msg, re
     var field = reader.getFieldNumber();
     switch (field) {
     case 3:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 4:
@@ -6181,7 +6183,7 @@ proto.data.ListLookupItemsRequest.serializeBinaryToWriter = function(message, wr
     writer.writeMessage(
       3,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getCriteria();
@@ -6215,7 +6217,7 @@ proto.data.ListLookupItemsRequest.serializeBinaryToWriter = function(message, wr
  */
 proto.data.ListLookupItemsRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 3));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 3));
 };
 
 
@@ -6571,7 +6573,7 @@ proto.data.ListEntitiesRequest.prototype.toObject = function(opt_includeInstance
  */
 proto.data.ListEntitiesRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     criteria: (f = msg.getCriteria()) && proto_base_data_type_pb.Criteria.toObject(includeInstance, f),
     pageSize: jspb.Message.getFieldWithDefault(msg, 5, 0),
     pageToken: jspb.Message.getFieldWithDefault(msg, 6, "")
@@ -6612,8 +6614,8 @@ proto.data.ListEntitiesRequest.deserializeBinaryFromReader = function(msg, reade
     var field = reader.getFieldNumber();
     switch (field) {
     case 3:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 4:
@@ -6663,7 +6665,7 @@ proto.data.ListEntitiesRequest.serializeBinaryToWriter = function(message, write
     writer.writeMessage(
       3,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getCriteria();
@@ -6697,7 +6699,7 @@ proto.data.ListEntitiesRequest.serializeBinaryToWriter = function(message, write
  */
 proto.data.ListEntitiesRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 3));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 3));
 };
 
 
@@ -7060,7 +7062,7 @@ proto.data.RunCalloutRequest.prototype.toObject = function(opt_includeInstance) 
  */
 proto.data.RunCalloutRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     tablename: jspb.Message.getFieldWithDefault(msg, 2, ""),
     windowuuid: jspb.Message.getFieldWithDefault(msg, 3, ""),
     tabuuid: jspb.Message.getFieldWithDefault(msg, 4, ""),
@@ -7108,8 +7110,8 @@ proto.data.RunCalloutRequest.deserializeBinaryFromReader = function(msg, reader)
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -7185,7 +7187,7 @@ proto.data.RunCalloutRequest.serializeBinaryToWriter = function(message, writer)
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getTablename();
@@ -7263,7 +7265,7 @@ proto.data.RunCalloutRequest.serializeBinaryToWriter = function(message, writer)
  */
 proto.data.RunCalloutRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -7716,7 +7718,7 @@ proto.data.RunBusinessProcessRequest.prototype.toObject = function(opt_includeIn
  */
 proto.data.RunBusinessProcessRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     tablename: jspb.Message.getFieldWithDefault(msg, 2, ""),
     uuid: jspb.Message.getFieldWithDefault(msg, 3, ""),
     recordid: jspb.Message.getFieldWithDefault(msg, 4, 0),
@@ -7766,8 +7768,8 @@ proto.data.RunBusinessProcessRequest.deserializeBinaryFromReader = function(msg,
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -7846,7 +7848,7 @@ proto.data.RunBusinessProcessRequest.serializeBinaryToWriter = function(message,
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getTablename();
@@ -7930,7 +7932,7 @@ proto.data.RunBusinessProcessRequest.serializeBinaryToWriter = function(message,
  */
 proto.data.RunBusinessProcessRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -8213,7 +8215,7 @@ proto.data.ListProcessLogsRequest.prototype.toObject = function(opt_includeInsta
  */
 proto.data.ListProcessLogsRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     useruuid: jspb.Message.getFieldWithDefault(msg, 2, ""),
     instanceuuid: jspb.Message.getFieldWithDefault(msg, 3, ""),
     tablename: jspb.Message.getFieldWithDefault(msg, 4, ""),
@@ -8257,8 +8259,8 @@ proto.data.ListProcessLogsRequest.deserializeBinaryFromReader = function(msg, re
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -8319,7 +8321,7 @@ proto.data.ListProcessLogsRequest.serializeBinaryToWriter = function(message, wr
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getUseruuid();
@@ -8373,7 +8375,7 @@ proto.data.ListProcessLogsRequest.serializeBinaryToWriter = function(message, wr
  */
 proto.data.ListProcessLogsRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -8764,7 +8766,7 @@ proto.data.ListRecentItemsRequest.prototype.toObject = function(opt_includeInsta
  */
 proto.data.ListRecentItemsRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     useruuid: jspb.Message.getFieldWithDefault(msg, 2, ""),
     roleuuid: jspb.Message.getFieldWithDefault(msg, 3, ""),
     currentsession: jspb.Message.getBooleanFieldWithDefault(msg, 4, false),
@@ -8807,8 +8809,8 @@ proto.data.ListRecentItemsRequest.deserializeBinaryFromReader = function(msg, re
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -8865,7 +8867,7 @@ proto.data.ListRecentItemsRequest.serializeBinaryToWriter = function(message, wr
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getUseruuid();
@@ -8912,7 +8914,7 @@ proto.data.ListRecentItemsRequest.serializeBinaryToWriter = function(message, wr
  */
 proto.data.ListRecentItemsRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -9745,7 +9747,7 @@ proto.data.ListFavoritesRequest.prototype.toObject = function(opt_includeInstanc
  */
 proto.data.ListFavoritesRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     useruuid: jspb.Message.getFieldWithDefault(msg, 2, ""),
     pageSize: jspb.Message.getFieldWithDefault(msg, 3, 0),
     pageToken: jspb.Message.getFieldWithDefault(msg, 4, "")
@@ -9786,8 +9788,8 @@ proto.data.ListFavoritesRequest.deserializeBinaryFromReader = function(msg, read
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -9836,7 +9838,7 @@ proto.data.ListFavoritesRequest.serializeBinaryToWriter = function(message, writ
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getUseruuid();
@@ -9869,7 +9871,7 @@ proto.data.ListFavoritesRequest.serializeBinaryToWriter = function(message, writ
  */
 proto.data.ListFavoritesRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -10456,7 +10458,7 @@ proto.data.ListTranslationsRequest.prototype.toObject = function(opt_includeInst
  */
 proto.data.ListTranslationsRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     tablename: jspb.Message.getFieldWithDefault(msg, 2, ""),
     recorduuid: jspb.Message.getFieldWithDefault(msg, 3, ""),
     recordid: jspb.Message.getFieldWithDefault(msg, 4, 0),
@@ -10500,8 +10502,8 @@ proto.data.ListTranslationsRequest.deserializeBinaryFromReader = function(msg, r
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -10562,7 +10564,7 @@ proto.data.ListTranslationsRequest.serializeBinaryToWriter = function(message, w
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getTablename();
@@ -10616,7 +10618,7 @@ proto.data.ListTranslationsRequest.serializeBinaryToWriter = function(message, w
  */
 proto.data.ListTranslationsRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -11007,7 +11009,7 @@ proto.data.ListPendingDocumentsRequest.prototype.toObject = function(opt_include
  */
 proto.data.ListPendingDocumentsRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     useruuid: jspb.Message.getFieldWithDefault(msg, 2, ""),
     roleuuid: jspb.Message.getFieldWithDefault(msg, 3, ""),
     pageSize: jspb.Message.getFieldWithDefault(msg, 4, 0),
@@ -11049,8 +11051,8 @@ proto.data.ListPendingDocumentsRequest.deserializeBinaryFromReader = function(ms
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -11103,7 +11105,7 @@ proto.data.ListPendingDocumentsRequest.serializeBinaryToWriter = function(messag
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getUseruuid();
@@ -11143,7 +11145,7 @@ proto.data.ListPendingDocumentsRequest.serializeBinaryToWriter = function(messag
  */
 proto.data.ListPendingDocumentsRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -11829,7 +11831,7 @@ proto.data.ListDashboardsRequest.prototype.toObject = function(opt_includeInstan
  */
 proto.data.ListDashboardsRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     roleuuid: jspb.Message.getFieldWithDefault(msg, 2, ""),
     pageSize: jspb.Message.getFieldWithDefault(msg, 3, 0),
     pageToken: jspb.Message.getFieldWithDefault(msg, 4, "")
@@ -11870,8 +11872,8 @@ proto.data.ListDashboardsRequest.deserializeBinaryFromReader = function(msg, rea
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -11920,7 +11922,7 @@ proto.data.ListDashboardsRequest.serializeBinaryToWriter = function(message, wri
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getRoleuuid();
@@ -11953,7 +11955,7 @@ proto.data.ListDashboardsRequest.serializeBinaryToWriter = function(message, wri
  */
 proto.data.ListDashboardsRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -12290,7 +12292,7 @@ proto.data.ListPrintFormatsRequest.prototype.toObject = function(opt_includeInst
  */
 proto.data.ListPrintFormatsRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     tablename: jspb.Message.getFieldWithDefault(msg, 2, ""),
     reportviewuuid: jspb.Message.getFieldWithDefault(msg, 3, ""),
     processuuid: jspb.Message.getFieldWithDefault(msg, 4, ""),
@@ -12333,8 +12335,8 @@ proto.data.ListPrintFormatsRequest.deserializeBinaryFromReader = function(msg, r
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -12391,7 +12393,7 @@ proto.data.ListPrintFormatsRequest.serializeBinaryToWriter = function(message, w
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getTablename();
@@ -12438,7 +12440,7 @@ proto.data.ListPrintFormatsRequest.serializeBinaryToWriter = function(message, w
  */
 proto.data.ListPrintFormatsRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -12811,7 +12813,7 @@ proto.data.ListRecordLogsRequest.prototype.toObject = function(opt_includeInstan
  */
 proto.data.ListRecordLogsRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     tablename: jspb.Message.getFieldWithDefault(msg, 2, ""),
     recordid: jspb.Message.getFieldWithDefault(msg, 3, 0),
     pageSize: jspb.Message.getFieldWithDefault(msg, 4, 0),
@@ -12853,8 +12855,8 @@ proto.data.ListRecordLogsRequest.deserializeBinaryFromReader = function(msg, rea
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -12907,7 +12909,7 @@ proto.data.ListRecordLogsRequest.serializeBinaryToWriter = function(message, wri
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getTablename();
@@ -12947,7 +12949,7 @@ proto.data.ListRecordLogsRequest.serializeBinaryToWriter = function(message, wri
  */
 proto.data.ListRecordLogsRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -13302,7 +13304,7 @@ proto.data.ListRecordChatsRequest.prototype.toObject = function(opt_includeInsta
  */
 proto.data.ListRecordChatsRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     tablename: jspb.Message.getFieldWithDefault(msg, 2, ""),
     recordid: jspb.Message.getFieldWithDefault(msg, 3, 0),
     pageSize: jspb.Message.getFieldWithDefault(msg, 4, 0),
@@ -13344,8 +13346,8 @@ proto.data.ListRecordChatsRequest.deserializeBinaryFromReader = function(msg, re
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -13398,7 +13400,7 @@ proto.data.ListRecordChatsRequest.serializeBinaryToWriter = function(message, wr
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getTablename();
@@ -13438,7 +13440,7 @@ proto.data.ListRecordChatsRequest.serializeBinaryToWriter = function(message, wr
  */
 proto.data.ListRecordChatsRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -14151,7 +14153,7 @@ proto.data.ListChatEntriesRequest.prototype.toObject = function(opt_includeInsta
  */
 proto.data.ListChatEntriesRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     chatuuid: jspb.Message.getFieldWithDefault(msg, 2, ""),
     pageSize: jspb.Message.getFieldWithDefault(msg, 3, 0),
     pageToken: jspb.Message.getFieldWithDefault(msg, 4, "")
@@ -14192,8 +14194,8 @@ proto.data.ListChatEntriesRequest.deserializeBinaryFromReader = function(msg, re
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -14242,7 +14244,7 @@ proto.data.ListChatEntriesRequest.serializeBinaryToWriter = function(message, wr
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getChatuuid();
@@ -14275,7 +14277,7 @@ proto.data.ListChatEntriesRequest.serializeBinaryToWriter = function(message, wr
  */
 proto.data.ListChatEntriesRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -14820,7 +14822,7 @@ proto.data.CreateChatEntryRequest.prototype.toObject = function(opt_includeInsta
  */
 proto.data.CreateChatEntryRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     tablename: jspb.Message.getFieldWithDefault(msg, 2, ""),
     recordid: jspb.Message.getFieldWithDefault(msg, 3, 0),
     comment: jspb.Message.getFieldWithDefault(msg, 4, "")
@@ -14861,8 +14863,8 @@ proto.data.CreateChatEntryRequest.deserializeBinaryFromReader = function(msg, re
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -14911,7 +14913,7 @@ proto.data.CreateChatEntryRequest.serializeBinaryToWriter = function(message, wr
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getTablename();
@@ -14944,7 +14946,7 @@ proto.data.CreateChatEntryRequest.serializeBinaryToWriter = function(message, wr
  */
 proto.data.CreateChatEntryRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -15281,7 +15283,7 @@ proto.data.ListWorkflowsRequest.prototype.toObject = function(opt_includeInstanc
  */
 proto.data.ListWorkflowsRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     tablename: jspb.Message.getFieldWithDefault(msg, 2, ""),
     pageSize: jspb.Message.getFieldWithDefault(msg, 4, 0),
     pageToken: jspb.Message.getFieldWithDefault(msg, 5, "")
@@ -15322,8 +15324,8 @@ proto.data.ListWorkflowsRequest.deserializeBinaryFromReader = function(msg, read
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -15372,7 +15374,7 @@ proto.data.ListWorkflowsRequest.serializeBinaryToWriter = function(message, writ
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getTablename();
@@ -15405,7 +15407,7 @@ proto.data.ListWorkflowsRequest.serializeBinaryToWriter = function(message, writ
  */
 proto.data.ListWorkflowsRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -17457,7 +17459,7 @@ proto.data.ListDocumentActionsRequest.prototype.toObject = function(opt_includeI
  */
 proto.data.ListDocumentActionsRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     tablename: jspb.Message.getFieldWithDefault(msg, 2, ""),
     recordid: jspb.Message.getFieldWithDefault(msg, 3, 0),
     recorduuid: jspb.Message.getFieldWithDefault(msg, 4, ""),
@@ -17502,8 +17504,8 @@ proto.data.ListDocumentActionsRequest.deserializeBinaryFromReader = function(msg
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -17568,7 +17570,7 @@ proto.data.ListDocumentActionsRequest.serializeBinaryToWriter = function(message
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getTablename();
@@ -17629,7 +17631,7 @@ proto.data.ListDocumentActionsRequest.serializeBinaryToWriter = function(message
  */
 proto.data.ListDocumentActionsRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -18089,7 +18091,7 @@ proto.data.ListDocumentStatusesRequest.prototype.toObject = function(opt_include
  */
 proto.data.ListDocumentStatusesRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     tablename: jspb.Message.getFieldWithDefault(msg, 2, ""),
     recordid: jspb.Message.getFieldWithDefault(msg, 3, 0),
     recorduuid: jspb.Message.getFieldWithDefault(msg, 4, ""),
@@ -18133,8 +18135,8 @@ proto.data.ListDocumentStatusesRequest.deserializeBinaryFromReader = function(ms
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -18195,7 +18197,7 @@ proto.data.ListDocumentStatusesRequest.serializeBinaryToWriter = function(messag
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getTablename();
@@ -18249,7 +18251,7 @@ proto.data.ListDocumentStatusesRequest.serializeBinaryToWriter = function(messag
  */
 proto.data.ListDocumentStatusesRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -18640,7 +18642,7 @@ proto.data.ListWorkflowLogsRequest.prototype.toObject = function(opt_includeInst
  */
 proto.data.ListWorkflowLogsRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     tablename: jspb.Message.getFieldWithDefault(msg, 2, ""),
     recordid: jspb.Message.getFieldWithDefault(msg, 3, 0),
     pageSize: jspb.Message.getFieldWithDefault(msg, 4, 0),
@@ -18682,8 +18684,8 @@ proto.data.ListWorkflowLogsRequest.deserializeBinaryFromReader = function(msg, r
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -18736,7 +18738,7 @@ proto.data.ListWorkflowLogsRequest.serializeBinaryToWriter = function(message, w
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getTablename();
@@ -18776,7 +18778,7 @@ proto.data.ListWorkflowLogsRequest.serializeBinaryToWriter = function(message, w
  */
 proto.data.ListWorkflowLogsRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -20335,7 +20337,7 @@ proto.data.ListReportViewsRequest.prototype.toObject = function(opt_includeInsta
  */
 proto.data.ListReportViewsRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     tablename: jspb.Message.getFieldWithDefault(msg, 2, ""),
     processuuid: jspb.Message.getFieldWithDefault(msg, 3, ""),
     pageSize: jspb.Message.getFieldWithDefault(msg, 4, 0),
@@ -20377,8 +20379,8 @@ proto.data.ListReportViewsRequest.deserializeBinaryFromReader = function(msg, re
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -20431,7 +20433,7 @@ proto.data.ListReportViewsRequest.serializeBinaryToWriter = function(message, wr
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getTablename();
@@ -20471,7 +20473,7 @@ proto.data.ListReportViewsRequest.serializeBinaryToWriter = function(message, wr
  */
 proto.data.ListReportViewsRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -20826,7 +20828,7 @@ proto.data.ListDrillTablesRequest.prototype.toObject = function(opt_includeInsta
  */
 proto.data.ListDrillTablesRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     tablename: jspb.Message.getFieldWithDefault(msg, 2, ""),
     pageSize: jspb.Message.getFieldWithDefault(msg, 3, 0),
     pageToken: jspb.Message.getFieldWithDefault(msg, 4, "")
@@ -20867,8 +20869,8 @@ proto.data.ListDrillTablesRequest.deserializeBinaryFromReader = function(msg, re
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 2:
@@ -20917,7 +20919,7 @@ proto.data.ListDrillTablesRequest.serializeBinaryToWriter = function(message, wr
     writer.writeMessage(
       1,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getTablename();
@@ -20950,7 +20952,7 @@ proto.data.ListDrillTablesRequest.serializeBinaryToWriter = function(message, wr
  */
 proto.data.ListDrillTablesRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 1));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 1));
 };
 
 
@@ -21295,7 +21297,7 @@ proto.data.ListBrowserItemsRequest.prototype.toObject = function(opt_includeInst
 proto.data.ListBrowserItemsRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     uuid: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     criteria: (f = msg.getCriteria()) && proto_base_data_type_pb.Criteria.toObject(includeInstance, f),
     parametersList: jspb.Message.toObjectList(msg.getParametersList(),
     proto_base_data_type_pb.KeyValue.toObject, includeInstance),
@@ -21342,8 +21344,8 @@ proto.data.ListBrowserItemsRequest.deserializeBinaryFromReader = function(msg, r
       msg.setUuid(value);
       break;
     case 2:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 3:
@@ -21405,7 +21407,7 @@ proto.data.ListBrowserItemsRequest.serializeBinaryToWriter = function(message, w
     writer.writeMessage(
       2,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getCriteria();
@@ -21465,7 +21467,7 @@ proto.data.ListBrowserItemsRequest.prototype.setUuid = function(value) {
  */
 proto.data.ListBrowserItemsRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 2));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 2));
 };
 
 
@@ -21643,7 +21645,7 @@ proto.data.ListReferencesRequest.toObject = function(includeInstance, msg) {
     tablename: jspb.Message.getFieldWithDefault(msg, 2, ""),
     recordid: jspb.Message.getFieldWithDefault(msg, 3, 0),
     windowuuid: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    clientrequest: (f = msg.getClientrequest()) && proto_core_functionality_pb.ClientRequest.toObject(includeInstance, f),
+    clientrequest: (f = msg.getClientrequest()) && proto_client_pb.ClientRequest.toObject(includeInstance, f),
     pageSize: jspb.Message.getFieldWithDefault(msg, 6, 0),
     pageToken: jspb.Message.getFieldWithDefault(msg, 7, "")
   };
@@ -21699,8 +21701,8 @@ proto.data.ListReferencesRequest.deserializeBinaryFromReader = function(msg, rea
       msg.setWindowuuid(value);
       break;
     case 5:
-      var value = new proto_core_functionality_pb.ClientRequest;
-      reader.readMessage(value,proto_core_functionality_pb.ClientRequest.deserializeBinaryFromReader);
+      var value = new proto_client_pb.ClientRequest;
+      reader.readMessage(value,proto_client_pb.ClientRequest.deserializeBinaryFromReader);
       msg.setClientrequest(value);
       break;
     case 6:
@@ -21773,7 +21775,7 @@ proto.data.ListReferencesRequest.serializeBinaryToWriter = function(message, wri
     writer.writeMessage(
       5,
       f,
-      proto_core_functionality_pb.ClientRequest.serializeBinaryToWriter
+      proto_client_pb.ClientRequest.serializeBinaryToWriter
     );
   }
   f = message.getPageSize();
@@ -21871,7 +21873,7 @@ proto.data.ListReferencesRequest.prototype.setWindowuuid = function(value) {
  */
 proto.data.ListReferencesRequest.prototype.getClientrequest = function() {
   return /** @type{?proto.data.ClientRequest} */ (
-    jspb.Message.getWrapperField(this, proto_core_functionality_pb.ClientRequest, 5));
+    jspb.Message.getWrapperField(this, proto_client_pb.ClientRequest, 5));
 };
 
 
