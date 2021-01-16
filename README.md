@@ -6,6 +6,8 @@
 [![Dependencies](https://img.shields.io/librariesio/github/erpcya/grpc-data-client.svg)](https://www.npmjs.com/package/@adempiere/grpc-data-client)
 
 
+#### @DEPRECATED Replace with https://github.com/adempiere/gRPC-API
+
 ADempiere Data Client write in Javascript for gRPC service, use it for connect with
 [ADempiere-gRPC-Server](https://github.com/erpcya/adempiere-gRPC-Server).
 
